@@ -1,0 +1,275 @@
+{
+  "name": "Legal Doc Ingestion - Firecrawl",
+  "nodes": [
+    {
+      "parameters": {
+        "values": {
+          "string": [
+            {
+              "name": "firecrawl_api_key",
+              "value": "YOUR_FIRECRAWL_API_KEY"
+            },
+            {
+              "name": "backend_url",
+              "value": "https://YOUR_RAILWAY_APP.railway.app"
+            },
+            {
+              "name": "country",
+              "value": "AU"
+            }
+          ],
+          "array": [
+            {
+              "name": "urls",
+              "value": "=[\n  \"https://www.legislation.gov.au/current\",\n  \"https://www.austlii.edu.au/\"\n]"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "config-node",
+      "name": "Config",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [240, 300]
+    },
+    {
+      "parameters": {},
+      "id": "trigger-node",
+      "name": "Manual Trigger",
+      "type": "n8n-nodes-base.manualTrigger",
+      "typeVersion": 1,
+      "position": [40, 300]
+    },
+    {
+      "parameters": {
+        "fieldToSplitOut": "urls",
+        "options": {}
+      },
+      "id": "split-node",
+      "name": "Split URLs",
+      "type": "n8n-nodes-base.splitOut",
+      "typeVersion": 1,
+      "position": [460, 300]
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "https://api.firecrawl.dev/v1/scrape",
+        "authentication": "genericCredentialType",
+        "genericAuthType": "httpHeaderAuth",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "Authorization",
+              "value": "=Bearer {{ $('Config').item.json.firecrawl_api_key }}"
+            }
+          ]
+        },
+        "sendBody": true,
+        "bodyParameters": {
+          "parameters": [
+            {
+              "name": "url",
+              "value": "={{ $json.urls }}"
+            },
+            {
+              "name": "formats",
+              "value": "=[\"markdown\"]"
+            },
+            {
+              "name": "onlyMainContent",
+              "value": "=true"
+            },
+            {
+              "name": "excludeTags",
+              "value": "=[\"nav\",\"footer\",\"header\",\"script\",\"style\",\"aside\"]"
+            }
+          ]
+        },
+        "options": {
+          "timeout": 60000
+        }
+      },
+      "id": "firecrawl-node",
+      "name": "Firecrawl Scrape",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [680, 300]
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict"
+          },
+          "conditions": [
+            {
+              "id": "success-check",
+              "leftValue": "={{ $json.success }}",
+              "rightValue": true,
+              "operator": {
+                "type": "boolean",
+                "operation": "equals"
+              }
+            },
+            {
+              "id": "content-check",
+              "leftValue": "={{ $json.data.markdown.length }}",
+              "rightValue": 100,
+              "operator": {
+                "type": "number",
+                "operation": "gte"
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "options": {}
+      },
+      "id": "filter-node",
+      "name": "Has Content?",
+      "type": "n8n-nodes-base.filter",
+      "typeVersion": 2,
+      "position": [900, 300]
+    },
+    {
+      "parameters": {
+        "values": {
+          "string": [
+            {
+              "name": "text",
+              "value": "={{ $json.data.markdown }}"
+            },
+            {
+              "name": "title",
+              "value": "={{ $json.data.metadata.title || $json.data.metadata.ogTitle || 'Untitled' }}"
+            },
+            {
+              "name": "url",
+              "value": "={{ $json.data.metadata.sourceURL || $json.data.metadata.ogUrl }}"
+            },
+            {
+              "name": "country",
+              "value": "={{ $('Config').item.json.country }}"
+            },
+            {
+              "name": "source",
+              "value": "firecrawl"
+            }
+          ],
+          "object": [
+            {
+              "name": "metadata",
+              "value": "={{ { \"description\": $json.data.metadata.description, \"scrapeDate\": new Date().toISOString(), \"firecrawlStatusCode\": $json.data.metadata.statusCode } }}"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "format-node",
+      "name": "Format for Backend",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [1120, 300]
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "={{ $('Config').item.json.backend_url }}/api/webhooks/n8n",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "Content-Type",
+              "value": "application/json"
+            }
+          ]
+        },
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "={{ JSON.stringify({ text: $json.text, title: $json.title, url: $json.url, country: $json.country, source: $json.source, metadata: $json.metadata }) }}",
+        "options": {
+          "timeout": 120000,
+          "response": {
+            "response": {
+              "responseFormat": "json"
+            }
+          }
+        }
+      },
+      "id": "ingest-node",
+      "name": "Send to Backend",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [1340, 300]
+    },
+    {
+      "parameters": {
+        "values": {
+          "string": [
+            {
+              "name": "result",
+              "value": "=✅ Ingested: {{ $json.title }} → document_id {{ $('Send to Backend').item.json.document_id }}"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "log-node",
+      "name": "Log Result",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [1560, 300]
+    }
+  ],
+  "connections": {
+    "Manual Trigger": {
+      "main": [
+        [{ "node": "Config", "type": "main", "index": 0 }]
+      ]
+    },
+    "Config": {
+      "main": [
+        [{ "node": "Split URLs", "type": "main", "index": 0 }]
+      ]
+    },
+    "Split URLs": {
+      "main": [
+        [{ "node": "Firecrawl Scrape", "type": "main", "index": 0 }]
+      ]
+    },
+    "Firecrawl Scrape": {
+      "main": [
+        [{ "node": "Has Content?", "type": "main", "index": 0 }]
+      ]
+    },
+    "Has Content?": {
+      "main": [
+        [{ "node": "Format for Backend", "type": "main", "index": 0 }]
+      ]
+    },
+    "Format for Backend": {
+      "main": [
+        [{ "node": "Send to Backend", "type": "main", "index": 0 }]
+      ]
+    },
+    "Send to Backend": {
+      "main": [
+        [{ "node": "Log Result", "type": "main", "index": 0 }]
+      ]
+    }
+  },
+  "pinData": {},
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "staticData": null,
+  "tags": [],
+  "triggerCount": 0,
+  "updatedAt": "2026-02-27T00:00:00.000Z",
+  "versionId": "1"
+}

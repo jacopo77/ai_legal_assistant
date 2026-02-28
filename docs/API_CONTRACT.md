@@ -1,3 +1,15 @@
+# API Contract
+
+POST /api/stream
+- Request JSON: { "question": string, "jurisdiction": string | null }
+- Response: streaming text/event-stream where each event is JSON: { "delta": string }
+
+POST /api/webhooks/n8n
+- Accepts ingested doc JSON; responds 202 accepted and processes in background.
+
+GET /healthz
+- Returns 200 OK with { "status": "ok" }
+
 API Contract — Paralegal Assistant
 ==================================
 

@@ -12,8 +12,8 @@ class Settings(BaseSettings):
     # App
     app_name: str = Field(default="Paralegal Assistant API")
     environment: str = Field(default="development")
-    host: str = Field(default="127.0.0.1")
-    port: int = Field(default=8000)
+    host: str = Field(default="0.0.0.0")
+    port: int = Field(default=8000)  # Railway injects PORT at runtime
 
     # CORS
     allowed_origin: str = Field(default="http://localhost:3000")
@@ -26,6 +26,10 @@ class Settings(BaseSettings):
     # Data
     db_path: str = Field(default=os.path.join(os.path.dirname(__file__), "..", "data", "app.db"))
     db_url: Optional[str] = Field(default=None, description="Postgres URL; if set, pgvector is used")
+
+    # Supabase REST API (preferred over direct DB connection)
+    supabase_url: Optional[str] = Field(default=None, description="https://<project-ref>.supabase.co")
+    supabase_key: Optional[str] = Field(default=None, description="service_role key from Supabase → Project Settings → API")
 
 
 def get_settings() -> Settings:

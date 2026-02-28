@@ -1,6 +1,7 @@
 from __future__ import annotations
 
-from typing import Generator, Iterable, List, Optional, Tuple
+import logging
+from typing import Generator, List, Optional
 
 from .embeddings import embed_texts
 from .llm import stream_completion
@@ -9,33 +10,84 @@ from .storage import save_document as save_document_sqlite
 from .storage import save_chunks as save_chunks_sqlite
 from .storage import retrieve_similar as retrieve_similar_sqlite
 from .storage import RetrievedChunk as RetrievedChunkSqlite
+
+logger = logging.getLogger(__name__)
+
+# --- Supabase REST client (preferred: works over HTTPS, bypasses DNS issues) ---
+try:
+    from .storage_supabase import save_document as save_document_sb  # type: ignore
+    from .storage_supabase import save_chunks as save_chunks_sb  # type: ignore
+    from .storage_supabase import retrieve_similar as retrieve_similar_sb  # type: ignore
+    _sb_import_ok = True
+except Exception as _sb_import_err:
+    save_document_sb = None  # type: ignore
+    save_chunks_sb = None  # type: ignore
+    retrieve_similar_sb = None  # type: ignore
+    _sb_import_ok = False
+    logger.warning("storage_supabase import failed: %s", _sb_import_err)
+
+# --- Direct Postgres fallback (blocked by Cisco Umbrella on some networks) ---
 try:
     from .storage_pg import save_document as save_document_pg  # type: ignore
     from .storage_pg import save_chunks as save_chunks_pg  # type: ignore
     from .storage_pg import retrieve_similar as retrieve_similar_pg  # type: ignore
-    from .storage_pg import RetrievedChunk as RetrievedChunkPg  # type: ignore
-except Exception:
+    _pg_import_ok = True
+except Exception as _pg_import_err:
     save_document_pg = None  # type: ignore
     save_chunks_pg = None  # type: ignore
     retrieve_similar_pg = None  # type: ignore
-    RetrievedChunkPg = None  # type: ignore
+    _pg_import_ok = False
+    logger.warning("storage_pg import failed: %s", _pg_import_err)
 
 
-def _use_pg() -> bool:
+def _storage_mode() -> str:
+    """Returns 'supabase', 'postgres', or 'sqlite' based on available config."""
     settings = get_settings()
-    return bool(getattr(settings, "db_url", None) and save_document_pg is not None)
+    if _sb_import_ok and settings.supabase_url and settings.supabase_key and settings.supabase_key != "YOUR_SERVICE_ROLE_KEY_HERE":
+        return "supabase"
+    if _pg_import_ok and settings.db_url:
+        return "postgres"
+    return "sqlite"
 
 
 def add_document(*, source: Optional[str], url: Optional[str], country: Optional[str], title: Optional[str], text: str, metadata: dict) -> int:
     parts = [p.strip() for p in text.split("\n\n") if p.strip()]
+    logger.info("Generating embeddings for %d chunk(s)...", len(parts))
     embeddings = embed_texts(parts)
-    if _use_pg():
-        doc_id = save_document_pg(source=source, url=url, country=country, title=title, content=text, metadata=metadata)  # type: ignore
-        save_chunks_pg(doc_id, list(zip(parts, embeddings)))  # type: ignore
-        return doc_id
+
+    mode = _storage_mode()
+
+    if mode == "supabase":
+        logger.info("Saving document via Supabase REST API...")
+        try:
+            doc_id = save_document_sb(source=source, url=url, country=country, title=title, content=text, metadata=metadata)  # type: ignore
+            save_chunks_sb(doc_id, list(zip(parts, embeddings)))  # type: ignore
+            logger.info("✅ Document %d saved to Supabase via REST (%d chunks).", doc_id, len(parts))
+            return doc_id
+        except Exception as exc:
+            logger.error("❌ Supabase REST save failed: %s", exc)
+            raise
+
+    elif mode == "postgres":
+        logger.info("Saving document via direct Postgres connection...")
+        try:
+            doc_id = save_document_pg(source=source, url=url, country=country, title=title, content=text, metadata=metadata)  # type: ignore
+            save_chunks_pg(doc_id, list(zip(parts, embeddings)))  # type: ignore
+            logger.info("✅ Document %d saved to Postgres (%d chunks).", doc_id, len(parts))
+            return doc_id
+        except Exception as exc:
+            logger.error(
+                "❌ Postgres save failed: %s\n"
+                "   Hit GET /api/health/db for diagnostics.",
+                exc,
+            )
+            raise
+
     else:
+        logger.info("No cloud DB configured — saving to local SQLite...")
         doc_id = save_document_sqlite(source=source, url=url, country=country, title=title, content=text, metadata=metadata)
         save_chunks_sqlite(doc_id, list(zip(parts, embeddings)))
+        logger.info("✅ Document %d saved to SQLite (%d chunks).", doc_id, len(parts))
         return doc_id
 
 
@@ -60,16 +112,18 @@ def _build_prompt(question: str, country: Optional[str], retrieved: List[Retriev
 
 
 def answer_stream(question: str, country: Optional[str]) -> Generator[str, None, None]:
-    # Retrieve
     query_emb = embed_texts([question])[0]
-    if _use_pg():
+    mode = _storage_mode()
+
+    if mode == "supabase":
+        retrieved = retrieve_similar_sb(query_emb, country=country, k=8)  # type: ignore
+    elif mode == "postgres":
         retrieved = retrieve_similar_pg(query_emb, country=country, k=8)  # type: ignore
     else:
         retrieved = retrieve_similar_sqlite(query_emb, country=country, k=8)
-    # Build prompt
+
     user_prompt = _build_prompt(question, country, retrieved)
     system_prompt = "You produce concise, legally careful answers with citations."
-    # Stream LLM
     for chunk in stream_completion(system_prompt, user_prompt):
         yield chunk
 

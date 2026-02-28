@@ -1,80 +1,154 @@
-UI Improvements Log — Paralegal Assistant
-========================================
+# UI Improvements — AI Paralegal Assistant
 
-Design sources
---------------
-- Stitch export HTML: `frontend/design/code.html`
-- Screenshot (place here): `frontend/public/design/screen.png`
-  - If your screenshot isn’t there yet, add it and keep this filename so docs and reviewers have a stable path.
+## Current Status
+- ✅ Basic streaming chat interface with dark theme
+- ✅ Question input + jurisdiction field
+- ✅ Real-time streaming responses
+- ⚠️ Minimal styling, needs Stitch design implementation
 
-Scope
------
-Track UX/UI refinements for the landing/chat form while keeping parity with the Stitch design (dark theme, glass card, blue accent, floating navbar). These improvements are implementation‑focused and fit our Next.js + Tailwind stack.
+---
 
-Improvements
-------------
-- Accessibility
-  - Associate labels and inputs (ids already present).
-  - Add `aria-label`s where helpful and ensure visible `:focus-visible` rings.
-  - Maintain ≥4.5:1 contrast on text over glass surfaces.
+## Priority Improvements
 
-- Form UX
-  - Disable the primary CTA until the textarea has content; show a small inline hint on empty submit.
-  - Make jurisdiction a searchable combobox (client‑side filter) for long lists.
-  - Keep a prominent “Stop” control while streaming responses.
+### 🔥 Critical (Do First)
 
-- Analysis Preview
-  - Show a skeleton state during initial load/stream.
-  - Render citation chips like `[1] [2]` with hover tooltips (title/URL) once available.
+**1. Implement Stitch Design System**
+- Apply glass morphism card with `backdrop-blur-xl` and `bg-white/5` border
+- Use 24px rounded corners for main card, 16px for inputs/buttons
+- Add gradient primary button: `bg-gradient-to-r from-blue-600 to-blue-500`
+- Ensure proper contrast ratios (≥4.5:1) for accessibility
 
-- Visual polish
-  - Unify radii: card 24px; inputs/select/CTA 16px; consistent `border-white/10`.
-  - CTA gradient and pressed state (`active:translate-y-px`, subtle inner shadow).
-  - Slightly reduce blur on mobile for legibility; increase inner padding at `md:`.
+**2. Enhanced Form UX**
+- Disable submit button until question has content
+- Show inline validation hint: "Please enter a question"
+- Add loading state with animated spinner during streaming
+- Add "Stop Generation" button that appears while streaming
 
-- Bottom navbar
-  - Respect safe‑area insets; hide/shift when the keyboard is open on mobile.
+**3. Citation Display**
+- Render inline citations as clickable chips: `[1]`, `[2]`
+- Show tooltip on hover with source title and URL
+- Parse markdown-style citations from streamed response
+- Make citations stand out visually with subtle background color
 
-- Content helpers
-  - Add 2–3 example prompt chips above the textarea (client‑side only).
-  - Add a tiny latency/model hint under the CTA (e.g., “Streaming ~2–5s”).
+**4. Jurisdiction Selector**
+- Replace text input with searchable dropdown (combobox)
+- Pre-populate with common jurisdictions: US Federal, California, New York, Canada, UK, etc.
+- Add search/filter functionality for long lists
+- Allow custom jurisdiction entry as fallback
 
-- Theming/tokens
-  - Extract color/radius/spacing tokens in Tailwind theme for consistency.
-  - Default dark; support light fallback without breaking contrast.
+---
 
-- Internationalization
-  - Make labels/placeholders translatable; localize jurisdiction options per country later.
+### 🎯 High Priority (Do Next)
 
-- Performance
-  - Preload Inter; prefer `font-display: swap`.
-  - Reduce heavy blur/backdrop effects for low‑end devices via media query/class.
+**5. Response Display Enhancement**
+- Add skeleton loader animation while waiting for first stream chunk
+- Format response with proper typography (headings, lists, paragraphs)
+- Add copy-to-clipboard button for full response
+- Show streaming indicator (animated dots or pulse)
 
-- Compliance UX
-  - Convert the redaction note to an info tooltip with a short “Data handling” modal.
-  - Link to a privacy page once available.
+**6. Example Prompts**
+- Display 3 sample question chips above textarea:
+  - "What are the requirements for forming an LLC in California?"
+  - "Can an employer require vaccination proof in New York?"
+  - "What is the statute of limitations for breach of contract?"
+- Click to populate question field
 
-Acceptance checks
------------------
-- Matches the screenshot for spacing, radii, and color accents.
-- Keyboard/tab navigation is clear; focus rings visible on all controls.
-- CTA disabled state and pressed/hover states are obvious.
-- Mobile: card stays legible; navbar doesn’t collide with keyboard; safe‑area respected.
+**7. Mobile Optimization**
+- Reduce backdrop blur on mobile for better performance
+- Ensure bottom navbar respects safe-area insets
+- Handle keyboard overlay gracefully (shift content up)
+- Touch-friendly button sizes (min 44x44px)
 
-Implementation notes
---------------------
-- Keep HTML hooks from Stitch:
-  - `#legal-question` (textarea), `#jurisdiction` (select)
-  - Primary button has `data-role="submit"` in design; functional page may use onSubmit.
-- Tailwind utilities live in `app/globals.css` and `tailwind.config.js`.
-- Searchable combobox can be implemented with a simple client‑side filter; no extra deps required.
+---
 
-Open questions
---------------
-- Final jurisdiction taxonomy (countries vs. states/regions)?
-- Exact citation chip behavior (click to open source vs. hover tooltip only)?
-- Preferred light‑theme palette if/when enabled?
+### 💎 Polish (Nice to Have)
 
-Changelog
----------
-- 2026‑02‑18: Initial pass captured from design review (this document).
+**8. Visual Refinements**
+- Add subtle hover states on all interactive elements
+- Implement pressed state: `active:translate-y-px active:shadow-inner`
+- Smooth transitions on all state changes (200ms ease)
+- Add floating navbar with logo and minimal nav items
+
+**9. User Feedback**
+- Show response latency hint: "Typically responds in 2-5 seconds"
+- Add confidence indicator if backend provides it
+- Toast notifications for errors (instead of inline text)
+- Success confirmation when response completes
+
+**10. Advanced Features**
+- Save question history (localStorage)
+- Export response as PDF or formatted text
+- Share response via unique URL
+- Dark/light theme toggle (currently dark only)
+
+---
+
+## Implementation Guidelines
+
+### Design Tokens (Tailwind Config)
+```js
+colors: {
+  glass: 'rgba(255, 255, 255, 0.05)',
+  'glass-border': 'rgba(255, 255, 255, 0.1)',
+  primary: '#3B82F6',
+  'primary-dark': '#2563EB',
+}
+borderRadius: {
+  'card': '24px',
+  'input': '16px',
+}
+```
+
+### Accessibility Checklist
+- ✅ All inputs have associated labels with proper `htmlFor`
+- ✅ Focus rings visible on all interactive elements
+- ✅ Keyboard navigation works throughout
+- ✅ Screen reader announcements for streaming updates
+- ✅ ARIA labels on icon-only buttons
+
+### Performance Considerations
+- Use `font-display: swap` for custom fonts
+- Lazy load heavy components below the fold
+- Debounce jurisdiction search by 300ms
+- Consider virtual scrolling for very long responses
+
+---
+
+## Out of Scope (Remove These)
+
+❌ **Internationalization** - Not needed for MVP; focus on English-speaking jurisdictions first
+❌ **Light theme** - Stick with dark theme only to reduce complexity
+❌ **Comprehensive theming system** - Use Tailwind utilities directly; don't over-engineer
+❌ **Heavy blur reduction media query** - Modern devices handle this fine; premature optimization
+❌ **Privacy modal/data handling tooltip** - Add when legal review is complete, not in UI phase
+
+---
+
+## Acceptance Criteria
+
+**MVP Launch Ready When:**
+- [ ] Matches Stitch design visually (glass card, proper spacing, colors)
+- [ ] Submit button disabled when empty, with clear visual feedback
+- [ ] Citations are clickable and show source information
+- [ ] Jurisdiction dropdown with 10+ common options + search
+- [ ] Mobile-responsive with working keyboard handling
+- [ ] Streaming indicator shows while generating response
+- [ ] Example prompts populate question field on click
+- [ ] All interactive elements have hover/focus states
+- [ ] Keyboard navigation works perfectly
+- [ ] No console errors or warnings
+
+---
+
+## Next Actions
+
+1. **Update `frontend/pages/index.tsx`** with Stitch design system
+2. **Create jurisdiction data file** with common options
+3. **Implement citation parsing** in response display
+4. **Add example prompts component**
+5. **Test on mobile devices** and adjust accordingly
+
+---
+
+*Last updated: 2026-02-23*
+*Focus: Ship a polished, functional MVP before adding complexity*
