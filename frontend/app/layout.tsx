@@ -1,8 +1,8 @@
 import "./globals.css";
 
 export const metadata = {
-  title: "Paralegal Assistant",
-  description: "Chat with citations by country"
+  title: "AI Legal Assistant - ChatGPT for Legal Questions",
+  description: "Get instant legal answers with citations to real laws. Free legal research assistant for everyone."
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {

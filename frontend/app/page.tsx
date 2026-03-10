@@ -1,23 +1,34 @@
 /* eslint-disable @next/next/no-img-element */
 "use client";
 
-import { useRef, useState } from "react";
+import { useRef, useState, useEffect } from "react";
 
 const BACKEND_URL = process.env.NEXT_PUBLIC_BACKEND_URL || "http://127.0.0.1:8000";
 
-type Message = { role: "user" | "assistant"; content: string; country?: string };
+type Message = { role: "user" | "assistant"; content: string; country?: string; error?: boolean };
 
 export default function HomePage() {
   const [question, setQuestion] = useState("");
   const [country, setCountry] = useState("");
   const [messages, setMessages] = useState<Message[]>([]);
   const [loading, setLoading] = useState(false);
+  const [error, setError] = useState<string>("");
   const streamAbortRef = useRef<AbortController | null>(null);
+  const messagesEndRef = useRef<HTMLDivElement>(null);
+
+  // Auto-scroll to bottom when messages change
+  useEffect(() => {
+    messagesEndRef.current?.scrollIntoView({ behavior: "smooth" });
+  }, [messages]);
 
   const onSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     if (!question.trim() || loading) return;
-    setMessages((prev) => [...prev, { role: "user", content: question, country }]);
+    
+    const userQuestion = question;
+    setQuestion("");
+    setError("");
+    setMessages((prev) => [...prev, { role: "user", content: userQuestion, country }]);
     setLoading(true);
 
     try {
@@ -26,12 +37,18 @@ export default function HomePage() {
       const res = await fetch(`${BACKEND_URL}/api/chat/stream`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ question, country: country || null }),
+        body: JSON.stringify({ question: userQuestion, country: country || null }),
         signal: controller.signal
       });
-      if (!res.ok || !res.body) {
-        throw new Error(`Request failed: ${res.status}`);
+      
+      if (!res.ok) {
+        throw new Error(`Backend error: ${res.status} ${res.statusText}`);
       }
+      
+      if (!res.body) {
+        throw new Error("No response body from server");
+      }
+      
       const reader = res.body.getReader();
       const decoder = new TextDecoder();
       let assistant = "";
@@ -48,11 +65,29 @@ export default function HomePage() {
           return copy;
         });
       }
-    } catch (err) {
-      console.error(err);
+    } catch (err: any) {
+      console.error("Chat error:", err);
+      if (err.name === 'AbortError') {
+        setMessages((prev) => {
+          const copy = [...prev];
+          copy[copy.length - 1] = { 
+            role: "assistant", 
+            content: "Response stopped by user.",
+            error: true 
+          };
+          return copy;
+        });
+      } else {
+        const errorMsg = err.message || "Failed to connect to backend. Please try again.";
+        setError(errorMsg);
+        setMessages((prev) => [...prev, { 
+          role: "assistant", 
+          content: `Error: ${errorMsg}`,
+          error: true 
+        }]);
+      }
     } finally {
       setLoading(false);
-      setQuestion("");
       streamAbortRef.current = null;
     }
   };
@@ -61,6 +96,27 @@ export default function HomePage() {
     if (streamAbortRef.current) {
       streamAbortRef.current.abort();
     }
+  };
+
+  const clearChat = () => {
+    setMessages([]);
+    setError("");
+  };
+
+  const renderContent = (content: string) => {
+    const citationRegex = /\[(\d+)\]/g;
+    const parts = content.split(citationRegex);
+    
+    return parts.map((part, i) => {
+      if (i % 2 === 1) {
+        return (
+          <sup key={i} className="text-primary font-bold ml-0.5">
+            [{part}]
+          </sup>
+        );
+      }
+      return part;
+    });
   };
 
   return (
@@ -81,6 +137,19 @@ export default function HomePage() {
         </header>
 
         <div className="glass-card rounded-[2rem] p-5 md:p-8 shadow-2xl">
+          {error && (
+            <div className="mb-4 p-4 bg-red-500/10 border border-red-500/30 rounded-xl text-red-400 text-sm flex items-start gap-2">
+              <span className="material-symbols-outlined text-lg mt-0.5">error</span>
+              <div>
+                <div className="font-semibold mb-1">Connection Error</div>
+                <div className="opacity-90">{error}</div>
+                <div className="text-xs mt-2 opacity-70">
+                  Backend URL: {BACKEND_URL}
+                </div>
+              </div>
+            </div>
+          )}
+          
           <form className="space-y-5" onSubmit={onSubmit}>
             <div className="flex flex-col gap-4">
               <div className="flex flex-col md:flex-row gap-4">
@@ -156,31 +225,52 @@ export default function HomePage() {
             <div className="pt-2 space-y-3">
               <div className="flex items-center justify-between px-1">
                 <span className="text-[10px] font-bold uppercase tracking-widest text-white">
-                  Analysis Preview
+                  Chat History
                 </span>
-                <div className="flex gap-1">
-                  <span className="h-1 w-4 rounded-full bg-slate-800" />
-                  <span className="h-1 w-1 rounded-full bg-slate-800" />
-                </div>
+                {messages.length > 0 && (
+                  <button
+                    type="button"
+                    onClick={clearChat}
+                    className="text-[10px] text-slate-400 hover:text-white uppercase tracking-wider transition-colors"
+                  >
+                    Clear
+                  </button>
+                )}
               </div>
-              <div className="w-full min-h-28 border border-dashed border-slate-700 rounded-2xl flex flex-col items-start justify-start text-white/40 bg-slate-950/30 p-3">
+              <div className="w-full min-h-32 max-h-96 overflow-y-auto border border-dashed border-slate-700 rounded-2xl flex flex-col items-start justify-start text-white/40 bg-slate-950/30 p-3 custom-scrollbar">
                 {messages.length === 0 ? (
-                  <div className="w-full h-24 flex flex-col items-center justify-center">
+                  <div className="w-full h-28 flex flex-col items-center justify-center">
                     <span className="material-symbols-outlined text-3xl mb-1 opacity-40">
                       find_in_page
                     </span>
-                    <p className="text-xs italic opacity-80">Ready for inquiry...</p>
+                    <p className="text-xs italic opacity-80">Ready for your legal question...</p>
                   </div>
                 ) : (
-                  <div className="space-y-2 text-sm">
+                  <div className="w-full space-y-3 text-sm">
                     {messages.map((m, i) => (
-                      <div key={i} className="rounded-lg p-2 bg-slate-900/50 border border-slate-800">
-                        <div className="text-[10px] uppercase tracking-wider text-white/60 mb-1">
-                          {m.role} {m.country ? `· ${m.country}` : ""}
+                      <div 
+                        key={i} 
+                        className={`rounded-lg p-3 ${
+                          m.role === "user" 
+                            ? "bg-primary/10 border border-primary/30 ml-auto max-w-[85%]" 
+                            : m.error
+                            ? "bg-red-500/10 border border-red-500/30"
+                            : "bg-slate-900/70 border border-slate-800"
+                        }`}
+                      >
+                        <div className="text-[10px] uppercase tracking-wider text-white/60 mb-1.5 flex items-center gap-1.5">
+                          <span className="material-symbols-outlined text-xs">
+                            {m.role === "user" ? "person" : "gavel"}
+                          </span>
+                          {m.role === "user" ? "You" : "AI Paralegal"}
+                          {m.country && <span className="opacity-60">· {m.country}</span>}
                         </div>
-                        <div className="whitespace-pre-wrap text-white/90">{m.content}</div>
+                        <div className="whitespace-pre-wrap text-white/90 leading-relaxed">
+                          {m.error ? m.content : renderContent(m.content)}
+                        </div>
                       </div>
                     ))}
+                    <div ref={messagesEndRef} />
                   </div>
                 )}
               </div>
