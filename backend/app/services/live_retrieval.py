@@ -146,23 +146,33 @@ def fetch_federal_register(query: str, max_results: int = 3) -> List[LiveResult]
 
 def fetch_openstates(query: str, state: str, max_results: int = 3) -> List[LiveResult]:
     """Search the OpenStates v3 API for state bills matching the query."""
-    api_key = os.environ.get("OPENSTATES_API_KEY", "")
+    api_key = os.environ.get("OPENSTATES_API_KEY", "").strip()
     if not api_key:
         logger.warning("OPENSTATES_API_KEY not set — skipping state legislation search")
         return []
 
-    url = (
-        f"https://v3.openstates.org/bills"
-        f"?jurisdiction={quote_plus(state)}"
-        f"&q={quote_plus(query)}"
-        f"&per_page={max_results}"
-        f"&include=abstracts"
-    )
+    params = {
+        "jurisdiction": state,
+        "q": query,
+        "per_page": max_results,
+        "include": "abstracts",
+    }
     try:
         with httpx.Client(timeout=_TIMEOUT, headers={"X-API-KEY": api_key}) as client:
-            r = client.get(url)
+            r = client.get("https://v3.openstates.org/bills", params=params)
+            logger.info(
+                "OpenStates request URL: %s | status: %d",
+                r.url,
+                r.status_code,
+            )
+            if r.status_code == 401:
+                logger.error("OpenStates API key rejected (401). Verify key at open.pluralpolicy.com")
+                return []
             r.raise_for_status()
             data = r.json()
+    except httpx.HTTPStatusError as exc:
+        logger.warning("OpenStates HTTP error for %r: %s", state, exc)
+        return []
     except Exception as exc:
         logger.warning("OpenStates search failed for %r: %s", state, exc)
         return []
@@ -176,12 +186,12 @@ def fetch_openstates(query: str, state: str, max_results: int = 3) -> List[LiveR
         abstracts = item.get("abstracts", [])
         abstract_text = abstracts[0].get("abstract", "").strip() if abstracts else ""
 
+        if not title:
+            continue
+
         text = f"Title: {title}"
         if abstract_text:
             text += f"\n\nAbstract: {abstract_text}"
-
-        if not title:
-            continue
 
         citation = f"{state} — {identifier}" if identifier else state
 
