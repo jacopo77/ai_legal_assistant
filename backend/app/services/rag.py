@@ -10,6 +10,7 @@ from .storage import save_document as save_document_sqlite
 from .storage import save_chunks as save_chunks_sqlite
 from .storage import retrieve_similar as retrieve_similar_sqlite
 from .storage import RetrievedChunk as RetrievedChunkSqlite
+from .live_retrieval import LiveResult, retrieve_live
 
 logger = logging.getLogger(__name__)
 
@@ -91,39 +92,45 @@ def add_document(*, source: Optional[str], url: Optional[str], country: Optional
         return doc_id
 
 
-def _build_prompt(question: str, country: Optional[str], retrieved: List[RetrievedChunk]) -> str:
+def _build_prompt(question: str, country: Optional[str], results: List[LiveResult]) -> str:
     context_lines: List[str] = []
-    for idx, r in enumerate(retrieved, start=1):
-        cite = f"[{idx}]"
-        meta = []
-        if r.title:
-            meta.append(r.title)
+    for idx, r in enumerate(results, start=1):
+        meta_parts = []
+        if r.citation:
+            meta_parts.append(r.citation)
+        if r.title and r.title not in (r.citation or ""):
+            meta_parts.append(r.title)
+        meta_parts.append(r.authority)
         if r.url:
-            meta.append(r.url)
-        meta_str = " — ".join(meta) if meta else ""
-        context_lines.append(f"{cite} {r.text}\n{meta_str}")
+            meta_parts.append(r.url)
+        meta_str = " — ".join(meta_parts)
+        context_lines.append(f"[{idx}] {r.text}\n{meta_str}")
+
     context = "\n\n".join(context_lines) if context_lines else "No relevant context found."
     location = f" for {country}" if country else ""
     instructions = (
-        "You are a careful paralegal assistant. Answer strictly using the provided context snippets. "
-        "Cite sources inline like [1], [2] where relevant. If unsure or missing, say you don't know."
+        "You are a careful paralegal assistant. Answer strictly using the provided official-source context snippets. "
+        "Cite sources inline like [1], [2] where relevant. "
+        "If the snippets do not provide enough coverage to answer confidently, say so clearly. "
+        "Do not make up legal claims not supported by the provided context."
     )
     return f"{instructions}\n\nQuestion{location}: {question}\n\nContext:\n{context}\n\nAnswer:"
 
 
 def answer_stream(question: str, country: Optional[str]) -> Generator[str, None, None]:
-    query_emb = embed_texts([question])[0]
-    mode = _storage_mode()
+    logger.info("Live retrieval for question: %r (jurisdiction: %r)", question, country)
+    results = retrieve_live(question, jurisdiction=country, max_results=7)
 
-    if mode == "supabase":
-        retrieved = retrieve_similar_sb(query_emb, country=country, k=8)  # type: ignore
-    elif mode == "postgres":
-        retrieved = retrieve_similar_pg(query_emb, country=country, k=8)  # type: ignore
-    else:
-        retrieved = retrieve_similar_sqlite(query_emb, country=country, k=8)
+    if not results:
+        location = f" for {country}" if country else ""
+        yield (
+            f"I was unable to retrieve relevant results from official federal sources{location} "
+            "for that question. Please try rephrasing or check back shortly."
+        )
+        return
 
-    user_prompt = _build_prompt(question, country, retrieved)
-    system_prompt = "You produce concise, legally careful answers with citations."
+    user_prompt = _build_prompt(question, country, results)
+    system_prompt = "You produce concise, legally careful answers with inline citations."
     for chunk in stream_completion(system_prompt, user_prompt):
         yield chunk
 
