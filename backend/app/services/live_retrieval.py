@@ -3,6 +3,7 @@ from __future__ import annotations
 import logging
 import os
 import re
+from concurrent.futures import ThreadPoolExecutor, as_completed
 from dataclasses import dataclass
 from typing import List, Optional
 from urllib.parse import quote_plus
@@ -217,11 +218,12 @@ def retrieve_live(
     max_results: int = 7,
 ) -> List[LiveResult]:
     """
-    Query live official sources and return combined results.
+    Query live official sources in parallel and return combined results.
 
-    For US Federal (or no jurisdiction): searches eCFR and Federal Register.
-    For a US state: searches eCFR + Federal Register (federal rules relevant to
-    that state) AND OpenStates for state-level bills/statutes.
+    For US Federal: searches eCFR and Federal Register concurrently.
+    For a US state: adds OpenStates bill search concurrently.
+    All sources run in parallel — slow or failing sources are skipped
+    without blocking the response.
     """
     is_state = (
         jurisdiction is not None
@@ -231,16 +233,26 @@ def retrieve_live(
 
     query = f"{question} {jurisdiction}" if is_state else question
 
-    if is_state:
-        # Allocate slots: 2 federal + 2 federal register + 3 state
-        ecfr_results = fetch_ecfr(query, max_results=2)
-        fr_results = fetch_federal_register(query, max_results=2)
-        state_results = fetch_openstates(question, state=jurisdiction, max_results=3)  # type: ignore[arg-type]
-        combined = ecfr_results + fr_results + state_results
-    else:
-        ecfr_results = fetch_ecfr(query, max_results=4)
-        fr_results = fetch_federal_register(query, max_results=3)
-        combined = ecfr_results + fr_results
+    tasks: dict = {}
+    with ThreadPoolExecutor(max_workers=3) as executor:
+        if is_state:
+            tasks["ecfr"] = executor.submit(fetch_ecfr, query, 2)
+            tasks["fr"] = executor.submit(fetch_federal_register, query, 2)
+            tasks["openstates"] = executor.submit(fetch_openstates, question, jurisdiction, 3)
+        else:
+            tasks["ecfr"] = executor.submit(fetch_ecfr, query, 4)
+            tasks["fr"] = executor.submit(fetch_federal_register, query, 3)
+
+        combined: List[LiveResult] = []
+        future_to_name = {v: k for k, v in tasks.items()}
+        for future in as_completed(future_to_name, timeout=30):
+            name = future_to_name[future]
+            try:
+                results = future.result()
+                combined.extend(results)
+                logger.info("Source %r returned %d result(s)", name, len(results))
+            except Exception as exc:
+                logger.warning("Source %r failed or timed out: %s", name, exc)
 
     logger.info(
         "Live retrieval: %d total result(s) for jurisdiction=%r",
