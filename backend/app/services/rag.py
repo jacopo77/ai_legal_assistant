@@ -93,6 +93,18 @@ def add_document(*, source: Optional[str], url: Optional[str], country: Optional
         return doc_id
 
 
+_US_STATE_NAMES = {
+    "alabama", "alaska", "arizona", "arkansas", "california", "colorado", "connecticut",
+    "delaware", "florida", "georgia", "hawaii", "idaho", "illinois", "indiana", "iowa",
+    "kansas", "kentucky", "louisiana", "maine", "maryland", "massachusetts", "michigan",
+    "minnesota", "mississippi", "missouri", "montana", "nebraska", "nevada",
+    "new hampshire", "new jersey", "new mexico", "new york", "north carolina",
+    "north dakota", "ohio", "oklahoma", "oregon", "pennsylvania", "rhode island",
+    "south carolina", "south dakota", "tennessee", "texas", "utah", "vermont",
+    "virginia", "washington", "west virginia", "wisconsin", "wyoming",
+}
+
+
 def _build_prompt(question: str, country: Optional[str], results: List[LiveResult]) -> str:
     context_lines: List[str] = []
     for idx, r in enumerate(results, start=1):
@@ -109,12 +121,24 @@ def _build_prompt(question: str, country: Optional[str], results: List[LiveResul
 
     context = "\n\n".join(context_lines) if context_lines else "No relevant context found."
     location = f" for {country}" if country else ""
-    instructions = (
-        "You are a careful paralegal assistant. Answer strictly using the provided official-source context snippets. "
-        "Cite sources inline like [1], [2] where relevant. "
-        "If the snippets do not provide enough coverage to answer confidently, say so clearly. "
-        "Do not make up legal claims not supported by the provided context."
-    )
+
+    is_state = country and country.lower() in _US_STATE_NAMES
+    if is_state:
+        instructions = (
+            f"You are a careful paralegal assistant. The user is asking about {country} state law. "
+            f"The provided context contains federal regulations (eCFR, Federal Register) and court opinions that may be relevant. "
+            "Answer using the provided sources where applicable, citing them inline like [1], [2]. "
+            f"Where the federal sources do not directly cover {country}-specific law, clearly say so and direct the user to "
+            f"the official {country} legislature website (e.g., for California: leginfo.legislature.ca.gov) "
+            "to find the specific state statute. Do not fabricate state law citations."
+        )
+    else:
+        instructions = (
+            "You are a careful paralegal assistant. Answer strictly using the provided official-source context snippets. "
+            "Cite sources inline like [1], [2] where relevant. "
+            "If the snippets do not provide enough coverage to answer confidently, say so clearly. "
+            "Do not make up legal claims not supported by the provided context."
+        )
     return f"{instructions}\n\nQuestion{location}: {question}\n\nContext:\n{context}\n\nAnswer:"
 
 

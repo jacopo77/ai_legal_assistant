@@ -322,15 +322,37 @@ def fetch_courtlistener(query: str, state: str, max_results: int = 3) -> List[Li
     coverage of state law even when no statute database API is available.
     """
     jx_code = _CL_JURISDICTION.get(state.lower(), "")
+    # State name is included in the search query; court filter is omitted so
+    # CourtListener's own relevance ranking selects the best opinions.
+    court_param = ""
+
+    # Build the CourtListener query from the user's question.
+    # Strip common question words, keep the substantive legal terms.
+    _STOPWORDS = r"\b(what|are|the|is|a|an|of|in|for|how|does|do|under|have|has|been|that|this|those|these|regarding|about|related|law|rules|rule|rights|right|i|can|my|your|their|its|will|would|should|could|when|where|which)\b"
+    search_q = re.sub(_STOPWORDS, "", query.lower())
+    search_q = re.sub(r"[?!.,]", "", search_q)
+    search_q = re.sub(r"\s+", " ", search_q).strip()
+
+    # When tenant-related, add "landlord" to disambiguate from unrelated uses
+    # of terms like "security" (e.g. security companies, national security).
+    if "tenant" in search_q and "landlord" not in search_q:
+        search_q = f"landlord {search_q}"
+
+    if state.lower() not in search_q:
+        search_q = f"{search_q} {state}"
+
+    # Fetch a large page so we can filter for results with substantive snippets.
+    # Good snippets appear further down CourtListener's ranking for specific topics,
+    # so fetching 20 candidates and picking the best is more reliable than top-3.
     params: dict = {
-        "q": query,
+        "q": search_q,
         "type": "o",
         "stat_Precedential": "on",
         "order_by": "score desc",
-        "page_size": max_results,
+        "page_size": 20,
     }
-    if jx_code:
-        params["court"] = jx_code
+    if court_param:
+        params["court"] = court_param.strip()
 
     try:
         with httpx.Client(timeout=_TIMEOUT) as client:
@@ -345,37 +367,61 @@ def fetch_courtlistener(query: str, state: str, max_results: int = 3) -> List[Li
         logger.warning("CourtListener search failed for %r: %s", state, exc)
         return []
 
-    results: List[LiveResult] = []
+    # Patterns that indicate a snippet is just a filing header, not legal substance
+    _HEADER_PATTERNS = re.compile(
+        r"^(Filed \d|CERTIFIED FOR|IN THE COURT OF|APPELLATE DIVISION|COURT OF APPEAL|"
+        r"SUPERIOR COURT|OSCN Found|J-A\d+)",
+        re.IGNORECASE,
+    )
+
+    substantive: List[LiveResult] = []
+    with_header: List[LiveResult] = []
+
     for item in data.get("results", []):
         case_name = (item.get("caseName") or item.get("case_name") or "").strip()
-        snippet = _strip_html(item.get("snippet") or "")
         citation_list = item.get("citation", [])
         citation_str = citation_list[0] if citation_list else None
-        cl_url = ""
         absolute_url = item.get("absolute_url", "")
-        if absolute_url:
-            cl_url = f"https://www.courtlistener.com{absolute_url}"
+        cl_url = f"https://www.courtlistener.com{absolute_url}" if absolute_url else ""
 
-        if not case_name and not snippet:
+        # Snippet is nested inside the opinions array in CourtListener v4
+        snippet = ""
+        opinions = item.get("opinions") or []
+        if opinions and isinstance(opinions, list):
+            raw = opinions[0].get("snippet", "") or ""
+            snippet = _strip_html(raw).strip()
+            snippet = re.sub(r"\s+", " ", snippet)
+
+        if not case_name:
             continue
 
         text = f"Case: {case_name}"
         if snippet:
             text += f"\n\nExcerpt: {snippet}"
 
-        results.append(
-            LiveResult(
-                text=text,
-                title=case_name,
-                url=cl_url,
-                citation=citation_str or case_name,
-                authority=f"{state} Courts via CourtListener (Free Law Project)",
-                source="courtlistener",
-            )
+        result = LiveResult(
+            text=text,
+            title=case_name,
+            url=cl_url,
+            citation=citation_str or case_name,
+            authority=f"{state} Courts via CourtListener (Free Law Project)",
+            source="courtlistener",
         )
 
-    logger.info("CourtListener returned %d result(s) for %r / query: %r", len(results), state, query)
-    return results
+        # Prefer results with substantive snippet text over bare headers
+        if snippet and not _HEADER_PATTERNS.match(snippet):
+            substantive.append(result)
+        else:
+            with_header.append(result)
+
+    # Return substantive results first, filling up to max_results with header-only ones
+    combined = (substantive + with_header)[:max_results]
+
+    logger.info(
+        "CourtListener: %d substantive + %d header-only results for %r / query: %r",
+        len(substantive), len(with_header), state, search_q,
+    )
+    return combined
 
 
 def retrieve_live(
@@ -387,7 +433,9 @@ def retrieve_live(
     Query live official sources in parallel and return combined results.
 
     For US Federal: searches eCFR and Federal Register concurrently.
-    For a US state: adds OpenStates bill search concurrently.
+    For a US state: searches both sources with the state name added to the
+    query so HUD, FTC, and other federal regulations that apply to states
+    are retrieved alongside CourtListener state case law.
     All sources run in parallel — slow or failing sources are skipped
     without blocking the response.
     """
@@ -397,6 +445,8 @@ def retrieve_live(
         and jurisdiction.lower() in _US_STATES
     )
 
+    # For state queries, embed the state name so federal APIs return
+    # state-relevant results (e.g. HUD housing regs for California tenants).
     query = f"{question} {jurisdiction}" if is_state else question
 
     combined: List[LiveResult] = []
@@ -414,8 +464,8 @@ def retrieve_live(
     with ThreadPoolExecutor(max_workers=3) as executor:
         if is_state:
             futures = {
-                executor.submit(fetch_ecfr, query, 2): "ecfr",
-                executor.submit(fetch_federal_register, query, 2): "fr",
+                executor.submit(fetch_ecfr, query, 4): "ecfr",
+                executor.submit(fetch_federal_register, query, 3): "fr",
                 executor.submit(fetch_courtlistener, question, jurisdiction, 3): "courtlistener",
             }
         else:
