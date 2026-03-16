@@ -63,11 +63,29 @@ export default function HomePage() {
     { value: "Wisconsin", label: "Wisconsin" },
     { value: "Wyoming", label: "Wyoming" },
   ];
-  const [messages, setMessages] = useState<Message[]>([]);
+  const [messages, setMessages] = useState<Message[]>(() => {
+    if (typeof window === "undefined") return [];
+    try {
+      const stored = sessionStorage.getItem("chat_history");
+      return stored ? (JSON.parse(stored) as Message[]) : [];
+    } catch {
+      return [];
+    }
+  });
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState<string>("");
   const streamAbortRef = useRef<AbortController | null>(null);
   const messagesEndRef = useRef<HTMLDivElement>(null);
+
+  // Persist chat history to sessionStorage (cleared automatically when tab closes)
+  useEffect(() => {
+    if (typeof window === "undefined") return;
+    try {
+      sessionStorage.setItem("chat_history", JSON.stringify(messages));
+    } catch {
+      // sessionStorage full or unavailable — ignore
+    }
+  }, [messages]);
 
   // Auto-scroll to bottom when messages change
   useEffect(() => {
@@ -154,6 +172,9 @@ export default function HomePage() {
   const clearChat = () => {
     setMessages([]);
     setError("");
+    if (typeof window !== "undefined") {
+      sessionStorage.removeItem("chat_history");
+    }
   };
 
   const renderContent = (content: string) => {

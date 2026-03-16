@@ -31,6 +31,12 @@ class Settings(BaseSettings):
     supabase_url: Optional[str] = Field(default=None, description="https://<project-ref>.supabase.co")
     supabase_key: Optional[str] = Field(default=None, description="service_role key from Supabase → Project Settings → API")
 
+    # n8n integration
+    n8n_webhook_url: Optional[str] = Field(default=None, description="Optional n8n webhook trigger URL")
+
+    # OpenStates (state legislation search)
+    openstates_api_key: Optional[str] = Field(default=None, description="API key from openstates.org for state bill/statute search")
+
 
 def get_settings() -> Settings:
     return Settings()

@@ -1,6 +1,7 @@
 from __future__ import annotations
 
 import logging
+import os
 import re
 from dataclasses import dataclass
 from typing import List, Optional
@@ -11,6 +12,20 @@ import httpx
 logger = logging.getLogger(__name__)
 
 _TIMEOUT = 15.0
+
+# US state names (lowercase) used to detect state jurisdictions
+_US_STATES = {
+    "alabama", "alaska", "arizona", "arkansas", "california", "colorado",
+    "connecticut", "delaware", "florida", "georgia", "hawaii", "idaho",
+    "illinois", "indiana", "iowa", "kansas", "kentucky", "louisiana",
+    "maine", "maryland", "massachusetts", "michigan", "minnesota",
+    "mississippi", "missouri", "montana", "nebraska", "nevada",
+    "new hampshire", "new jersey", "new mexico", "new york",
+    "north carolina", "north dakota", "ohio", "oklahoma", "oregon",
+    "pennsylvania", "rhode island", "south carolina", "south dakota",
+    "tennessee", "texas", "utah", "vermont", "virginia", "washington",
+    "west virginia", "wisconsin", "wyoming",
+}
 
 
 @dataclass
@@ -129,30 +144,96 @@ def fetch_federal_register(query: str, max_results: int = 3) -> List[LiveResult]
     return results
 
 
+def fetch_openstates(query: str, state: str, max_results: int = 3) -> List[LiveResult]:
+    """Search the OpenStates v3 API for state bills matching the query."""
+    api_key = os.environ.get("OPENSTATES_API_KEY", "")
+    if not api_key:
+        logger.warning("OPENSTATES_API_KEY not set — skipping state legislation search")
+        return []
+
+    url = (
+        f"https://v3.openstates.org/bills"
+        f"?jurisdiction={quote_plus(state)}"
+        f"&q={quote_plus(query)}"
+        f"&per_page={max_results}"
+        f"&include=abstracts"
+    )
+    try:
+        with httpx.Client(timeout=_TIMEOUT, headers={"X-API-KEY": api_key}) as client:
+            r = client.get(url)
+            r.raise_for_status()
+            data = r.json()
+    except Exception as exc:
+        logger.warning("OpenStates search failed for %r: %s", state, exc)
+        return []
+
+    results: List[LiveResult] = []
+    for item in data.get("results", []):
+        identifier = item.get("identifier", "")
+        title = (item.get("title") or "").strip()
+        openstates_url = item.get("openstates_url", "")
+
+        abstracts = item.get("abstracts", [])
+        abstract_text = abstracts[0].get("abstract", "").strip() if abstracts else ""
+
+        text = f"Title: {title}"
+        if abstract_text:
+            text += f"\n\nAbstract: {abstract_text}"
+
+        if not title:
+            continue
+
+        citation = f"{state} — {identifier}" if identifier else state
+
+        results.append(
+            LiveResult(
+                text=text,
+                title=title,
+                url=openstates_url,
+                citation=citation,
+                authority=f"{state} Legislature via OpenStates",
+                source="openstates",
+            )
+        )
+
+    logger.info("OpenStates returned %d result(s) for %r / query: %r", len(results), state, query)
+    return results
+
+
 def retrieve_live(
     question: str,
     jurisdiction: Optional[str] = None,
     max_results: int = 7,
 ) -> List[LiveResult]:
     """
-    Query eCFR and Federal Register in parallel and return combined results.
+    Query live official sources and return combined results.
 
-    For US Federal (or no jurisdiction), searches both sources.
-    For state jurisdictions, appends the state name to the query so eCFR
-    and Federal Register surface state-relevant federal rules where available.
+    For US Federal (or no jurisdiction): searches eCFR and Federal Register.
+    For a US state: searches eCFR + Federal Register (federal rules relevant to
+    that state) AND OpenStates for state-level bills/statutes.
     """
-    query = question
-    if jurisdiction and jurisdiction.upper() not in ("US", "US FEDERAL"):
-        query = f"{question} {jurisdiction}"
+    is_state = (
+        jurisdiction is not None
+        and jurisdiction.upper() not in ("US", "US FEDERAL")
+        and jurisdiction.lower() in _US_STATES
+    )
 
-    ecfr_results = fetch_ecfr(query, max_results=4)
-    fr_results = fetch_federal_register(query, max_results=3)
+    query = f"{question} {jurisdiction}" if is_state else question
 
-    combined = ecfr_results + fr_results
+    if is_state:
+        # Allocate slots: 2 federal + 2 federal register + 3 state
+        ecfr_results = fetch_ecfr(query, max_results=2)
+        fr_results = fetch_federal_register(query, max_results=2)
+        state_results = fetch_openstates(question, state=jurisdiction, max_results=3)  # type: ignore[arg-type]
+        combined = ecfr_results + fr_results + state_results
+    else:
+        ecfr_results = fetch_ecfr(query, max_results=4)
+        fr_results = fetch_federal_register(query, max_results=3)
+        combined = ecfr_results + fr_results
+
     logger.info(
-        "Live retrieval: %d eCFR + %d Federal Register = %d total result(s)",
-        len(ecfr_results),
-        len(fr_results),
+        "Live retrieval: %d total result(s) for jurisdiction=%r",
         len(combined),
+        jurisdiction,
     )
     return combined[:max_results]
