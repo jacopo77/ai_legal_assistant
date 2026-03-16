@@ -5,7 +5,8 @@ import { useRef, useState, useEffect } from "react";
 
 const BACKEND_URL = process.env.NEXT_PUBLIC_BACKEND_URL || "http://127.0.0.1:8000";
 
-type Message = { role: "user" | "assistant"; content: string; country?: string; error?: boolean };
+type Source = { n: number; citation: string | null; url: string; title: string | null };
+type Message = { role: "user" | "assistant"; content: string; country?: string; error?: boolean; sources?: Source[] };
 
 export default function HomePage() {
   const [question, setQuestion] = useState("");
@@ -123,6 +124,7 @@ export default function HomePage() {
       const reader = res.body.getReader();
       const decoder = new TextDecoder();
       let assistant = "";
+      let sources: Source[] = [];
       setMessages((prev) => [...prev, { role: "assistant", content: "" }]);
 
       while (true) {
@@ -130,9 +132,23 @@ export default function HomePage() {
         if (done) break;
         const chunk = decoder.decode(value, { stream: true });
         assistant += chunk;
+
+        // Detect and strip SOURCES_DATA marker appended by the backend
+        const markerIdx = assistant.indexOf("\n\nSOURCES_DATA:");
+        let displayText = assistant;
+        if (markerIdx !== -1) {
+          displayText = assistant.slice(0, markerIdx);
+          try {
+            const jsonStr = assistant.slice(markerIdx + "\n\nSOURCES_DATA:".length);
+            sources = JSON.parse(jsonStr) as Source[];
+          } catch {
+            // incomplete chunk — wait for more data
+          }
+        }
+
         setMessages((prev) => {
           const copy = [...prev];
-          copy[copy.length - 1] = { role: "assistant", content: assistant };
+          copy[copy.length - 1] = { role: "assistant", content: displayText, sources };
           return copy;
         });
       }
@@ -141,10 +157,10 @@ export default function HomePage() {
       if (err.name === 'AbortError') {
         setMessages((prev) => {
           const copy = [...prev];
-          copy[copy.length - 1] = { 
-            role: "assistant", 
+          copy[copy.length - 1] = {
+            role: "assistant",
             content: "Response stopped by user.",
-            error: true 
+            error: true,
           };
           return copy;
         });
@@ -177,12 +193,28 @@ export default function HomePage() {
     }
   };
 
-  const renderContent = (content: string) => {
+  const renderContent = (content: string, sources?: Source[]) => {
     const citationRegex = /\[(\d+)\]/g;
     const parts = content.split(citationRegex);
-    
+
     return parts.map((part, i) => {
       if (i % 2 === 1) {
+        const num = parseInt(part, 10);
+        const source = sources?.find((s) => s.n === num);
+        if (source?.url) {
+          return (
+            <a
+              key={i}
+              href={source.url}
+              target="_blank"
+              rel="noopener noreferrer"
+              title={source.citation || source.title || ""}
+              className="text-primary font-bold ml-0.5 hover:underline"
+            >
+              <sup>[{part}]</sup>
+            </a>
+          );
+        }
         return (
           <sup key={i} className="text-primary font-bold ml-0.5">
             [{part}]
@@ -327,7 +359,7 @@ export default function HomePage() {
                           {m.country && <span className="opacity-60">· {m.country}</span>}
                         </div>
                         <div className="whitespace-pre-wrap text-white/90 leading-relaxed">
-                          {m.error ? m.content : renderContent(m.content)}
+                          {m.error ? m.content : renderContent(m.content, m.sources)}
                         </div>
                       </div>
                     ))}

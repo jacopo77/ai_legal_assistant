@@ -1,5 +1,6 @@
 from __future__ import annotations
 
+import json
 import logging
 from typing import Generator, List, Optional
 
@@ -133,4 +134,12 @@ def answer_stream(question: str, country: Optional[str]) -> Generator[str, None,
     system_prompt = "You produce concise, legally careful answers with inline citations."
     for chunk in stream_completion(system_prompt, user_prompt):
         yield chunk
+
+    # Append source metadata so the frontend can render clickable citation links
+    sources_payload = [
+        {"n": i, "citation": r.citation, "url": r.url, "title": r.title}
+        for i, r in enumerate(results, start=1)
+        if r.url
+    ]
+    yield f"\n\nSOURCES_DATA:{json.dumps(sources_payload)}"
 

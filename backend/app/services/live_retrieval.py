@@ -258,6 +258,126 @@ def fetch_openstates(query: str, state: str, max_results: int = 3) -> List[LiveR
     return results
 
 
+# Maps full US state names to CourtListener jurisdiction codes.
+# Each state has at least one supreme court code; appellate codes added where useful.
+_CL_JURISDICTION: dict = {
+    "alabama": "ala",
+    "alaska": "alaska",
+    "arizona": "ariz",
+    "arkansas": "ark",
+    "california": "cal",
+    "colorado": "colo",
+    "connecticut": "conn",
+    "delaware": "del",
+    "florida": "fla",
+    "georgia": "ga",
+    "hawaii": "haw",
+    "idaho": "idaho",
+    "illinois": "ill",
+    "indiana": "ind",
+    "iowa": "iowa",
+    "kansas": "kan",
+    "kentucky": "ky",
+    "louisiana": "la",
+    "maine": "me",
+    "maryland": "md",
+    "massachusetts": "mass",
+    "michigan": "mich",
+    "minnesota": "minn",
+    "mississippi": "miss",
+    "missouri": "mo",
+    "montana": "mont",
+    "nebraska": "neb",
+    "nevada": "nev",
+    "new hampshire": "nh",
+    "new jersey": "nj",
+    "new mexico": "nm",
+    "new york": "ny",
+    "north carolina": "nc",
+    "north dakota": "nd",
+    "ohio": "ohio",
+    "oklahoma": "okla",
+    "oregon": "or",
+    "pennsylvania": "pa",
+    "rhode island": "ri",
+    "south carolina": "sc",
+    "south dakota": "sd",
+    "tennessee": "tenn",
+    "texas": "tex",
+    "utah": "utah",
+    "vermont": "vt",
+    "virginia": "va",
+    "washington": "wash",
+    "west virginia": "wva",
+    "wisconsin": "wis",
+    "wyoming": "wyo",
+}
+
+
+def fetch_courtlistener(query: str, state: str, max_results: int = 3) -> List[LiveResult]:
+    """Search CourtListener for state court opinions relevant to the query.
+
+    CourtListener (Free Law Project) is a free, public API — no key required.
+    State court opinions cite and apply enacted statutes, giving us indirect
+    coverage of state law even when no statute database API is available.
+    """
+    jx_code = _CL_JURISDICTION.get(state.lower(), "")
+    params: dict = {
+        "q": query,
+        "type": "o",
+        "stat_Precedential": "on",
+        "order_by": "score desc",
+        "page_size": max_results,
+    }
+    if jx_code:
+        params["court"] = jx_code
+
+    try:
+        with httpx.Client(timeout=_TIMEOUT) as client:
+            r = client.get(
+                "https://www.courtlistener.com/api/rest/v4/search/",
+                params=params,
+                headers={"User-Agent": "AIParalegalAssistant/1.0"},
+            )
+            r.raise_for_status()
+            data = r.json()
+    except Exception as exc:
+        logger.warning("CourtListener search failed for %r: %s", state, exc)
+        return []
+
+    results: List[LiveResult] = []
+    for item in data.get("results", []):
+        case_name = (item.get("caseName") or item.get("case_name") or "").strip()
+        snippet = _strip_html(item.get("snippet") or "")
+        citation_list = item.get("citation", [])
+        citation_str = citation_list[0] if citation_list else None
+        cl_url = ""
+        absolute_url = item.get("absolute_url", "")
+        if absolute_url:
+            cl_url = f"https://www.courtlistener.com{absolute_url}"
+
+        if not case_name and not snippet:
+            continue
+
+        text = f"Case: {case_name}"
+        if snippet:
+            text += f"\n\nExcerpt: {snippet}"
+
+        results.append(
+            LiveResult(
+                text=text,
+                title=case_name,
+                url=cl_url,
+                citation=citation_str or case_name,
+                authority=f"{state} Courts via CourtListener (Free Law Project)",
+                source="courtlistener",
+            )
+        )
+
+    logger.info("CourtListener returned %d result(s) for %r / query: %r", len(results), state, query)
+    return results
+
+
 def retrieve_live(
     question: str,
     jurisdiction: Optional[str] = None,
@@ -296,7 +416,7 @@ def retrieve_live(
             futures = {
                 executor.submit(fetch_ecfr, query, 2): "ecfr",
                 executor.submit(fetch_federal_register, query, 2): "fr",
-                executor.submit(fetch_openstates, question, jurisdiction, 3): "openstates",
+                executor.submit(fetch_courtlistener, question, jurisdiction, 3): "courtlistener",
             }
         else:
             futures = {
