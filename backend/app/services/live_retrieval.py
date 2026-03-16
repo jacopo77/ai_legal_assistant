@@ -46,9 +46,11 @@ def _strip_html(text: str) -> str:
 
 def fetch_ecfr(query: str, max_results: int = 4) -> List[LiveResult]:
     """Search the eCFR for regulation sections matching the query."""
+    # Fetch extra results to allow deduplication to still yield max_results unique hits
+    fetch_count = max_results * 3
     url = (
         f"https://www.ecfr.gov/api/search/v1/results"
-        f"?query={quote_plus(query)}&per_page={max_results}"
+        f"?query={quote_plus(query)}&per_page={fetch_count}"
     )
     try:
         with httpx.Client(timeout=_TIMEOUT) as client:
@@ -105,6 +107,35 @@ def fetch_ecfr(query: str, max_results: int = 4) -> List[LiveResult]:
     return results
 
 
+def _fetch_fr_fulltext(body_html_url: str, query: str, max_chars: int = 800) -> str:
+    """Fetch the most relevant excerpt from a Federal Register document's full HTML body."""
+    try:
+        with httpx.Client(timeout=_TIMEOUT) as client:
+            r = client.get(body_html_url)
+            r.raise_for_status()
+    except Exception as exc:
+        logger.debug("FR full-text fetch failed for %s: %s", body_html_url, exc)
+        return ""
+
+    text = re.sub(r"<[^>]+>", " ", r.text)
+    text = re.sub(r"\s+", " ", text).strip()
+
+    # Find the most relevant passage using keyword overlap with the query
+    query_words = set(re.findall(r"\w+", query.lower())) - {"the", "a", "an", "of", "in", "is", "what", "are", "under"}
+    best_idx = 0
+    best_score = 0
+    window = 600
+    for i in range(0, len(text) - window, 100):
+        chunk = text[i : i + window].lower()
+        score = sum(1 for w in query_words if w in chunk)
+        if score > best_score:
+            best_score = score
+            best_idx = i
+
+    excerpt = text[best_idx : best_idx + max_chars].strip()
+    return excerpt if best_score > 0 else ""
+
+
 def fetch_federal_register(query: str, max_results: int = 3) -> List[LiveResult]:
     """Search the Federal Register API for documents matching the query."""
     url = (
@@ -112,7 +143,8 @@ def fetch_federal_register(query: str, max_results: int = 3) -> List[LiveResult]
         f"?conditions[term]={quote_plus(query)}"
         f"&per_page={max_results}"
         f"&order=relevance"
-        f"&fields[]=title&fields[]=abstract&fields[]=html_url&fields[]=citation&fields[]=type"
+        f"&fields[]=title&fields[]=abstract&fields[]=html_url&fields[]=citation"
+        f"&fields[]=type&fields[]=body_html_url"
     )
     try:
         with httpx.Client(timeout=_TIMEOUT) as client:
@@ -124,13 +156,27 @@ def fetch_federal_register(query: str, max_results: int = 3) -> List[LiveResult]
         return []
 
     results: List[LiveResult] = []
-    for item in data.get("results", []):
+    items = data.get("results", [])
+    for idx, item in enumerate(items):
         abstract = (item.get("abstract") or "").strip()
         title = (item.get("title") or "").strip()
         if not abstract and not title:
             continue
 
-        text = f"Title: {title}\n\nAbstract: {abstract}" if abstract else f"Title: {title}"
+        # For the top result, also fetch full text to surface specific figures/details
+        full_excerpt = ""
+        if idx == 0:
+            body_url = item.get("body_html_url", "")
+            if body_url:
+                full_excerpt = _fetch_fr_fulltext(body_url, query, max_chars=1200)
+
+        if full_excerpt:
+            text = f"Title: {title}\n\nKey text: {full_excerpt}"
+        elif abstract:
+            text = f"Title: {title}\n\nAbstract: {abstract}"
+        else:
+            text = f"Title: {title}"
+
         results.append(
             LiveResult(
                 text=text,
@@ -234,6 +280,16 @@ def retrieve_live(
     query = f"{question} {jurisdiction}" if is_state else question
 
     combined: List[LiveResult] = []
+    seen_citations: set = set()
+
+    def _dedup(results: List[LiveResult]) -> List[LiveResult]:
+        unique = []
+        for r in results:
+            key = r.citation or r.url or r.text[:80]
+            if key not in seen_citations:
+                seen_citations.add(key)
+                unique.append(r)
+        return unique
 
     with ThreadPoolExecutor(max_workers=3) as executor:
         if is_state:
@@ -252,9 +308,9 @@ def retrieve_live(
             for future in as_completed(futures, timeout=30):
                 name = futures[future]
                 try:
-                    results = future.result()
+                    results = _dedup(future.result())
                     combined.extend(results)
-                    logger.info("Source %r returned %d result(s)", name, len(results))
+                    logger.info("Source %r returned %d unique result(s)", name, len(results))
                 except Exception as exc:
                     logger.warning("Source %r failed: %s", name, exc)
         except Exception as exc:
