@@ -424,6 +424,96 @@ def fetch_courtlistener(query: str, state: str, max_results: int = 3) -> List[Li
     return combined
 
 
+def fetch_courtlistener_federal(query: str, max_results: int = 3) -> List[LiveResult]:
+    """Search CourtListener for US federal court opinions (SCOTUS, Circuit, District).
+
+    Covers Supreme Court and all federal appellate/district courts — no API key needed.
+    Adds federal case law to complement eCFR and Federal Register sources.
+    """
+    _STOPWORDS = r"\b(what|are|the|is|a|an|of|in|for|how|does|do|under|have|has|been|that|this|those|these|regarding|about|related|law|rules|rule|rights|right|i|can|my|your|their|its|will|would|should|could|when|where|which)\b"
+    search_q = re.sub(_STOPWORDS, "", query.lower())
+    search_q = re.sub(r"[?!.,]", "", search_q)
+    search_q = re.sub(r"\s+", " ", search_q).strip()
+
+    # Restrict to federal courts: Supreme Court + all Circuit Courts of Appeal
+    # scotus = Supreme Court; ca1-ca11, cadc, cafc = Circuit Courts
+    params: dict = {
+        "q": search_q,
+        "type": "o",
+        "stat_Precedential": "on",
+        "order_by": "score desc",
+        "page_size": 20,
+        "court": "scotus ca1 ca2 ca3 ca4 ca5 ca6 ca7 ca8 ca9 ca10 ca11 cadc cafc",
+    }
+
+    try:
+        with httpx.Client(timeout=_TIMEOUT) as client:
+            r = client.get(
+                "https://www.courtlistener.com/api/rest/v4/search/",
+                params=params,
+                headers={"User-Agent": "AIParalegalAssistant/1.0"},
+            )
+            r.raise_for_status()
+            data = r.json()
+    except Exception as exc:
+        logger.warning("CourtListener federal search failed: %s", exc)
+        return []
+
+    _HEADER_PATTERNS = re.compile(
+        r"^(Filed \d|CERTIFIED FOR|IN THE COURT OF|APPELLATE DIVISION|COURT OF APPEAL|"
+        r"SUPERIOR COURT|OSCN Found|J-A\d+|FOR PUBLICATION|NOT FOR PUBLICATION)",
+        re.IGNORECASE,
+    )
+
+    substantive: List[LiveResult] = []
+    with_header: List[LiveResult] = []
+
+    for item in data.get("results", []):
+        case_name = (item.get("caseName") or item.get("case_name") or "").strip()
+        citation_list = item.get("citation", [])
+        citation_str = citation_list[0] if citation_list else None
+        absolute_url = item.get("absolute_url", "")
+        cl_url = f"https://www.courtlistener.com{absolute_url}" if absolute_url else ""
+        court = item.get("court_citation_string") or item.get("court", "")
+
+        opinions = item.get("opinions") or []
+        snippet = ""
+        if opinions and isinstance(opinions, list):
+            raw = opinions[0].get("snippet", "") or ""
+            snippet = _strip_html(raw).strip()
+            snippet = re.sub(r"\s+", " ", snippet)
+
+        if not case_name:
+            continue
+
+        text = f"Case: {case_name}"
+        if court:
+            text += f" ({court})"
+        if snippet:
+            text += f"\n\nExcerpt: {snippet}"
+
+        result = LiveResult(
+            text=text,
+            title=case_name,
+            url=cl_url,
+            citation=citation_str or case_name,
+            authority="US Federal Courts via CourtListener (Free Law Project)",
+            source="courtlistener_federal",
+        )
+
+        if snippet and not _HEADER_PATTERNS.match(snippet):
+            substantive.append(result)
+        else:
+            with_header.append(result)
+
+    combined = (substantive + with_header)[:max_results]
+    logger.info(
+        "CourtListener federal: %d substantive + %d header-only results for query: %r",
+        len(substantive), len(with_header), search_q,
+    )
+    return combined
+
+
 def retrieve_live(
     question: str,
     jurisdiction: Optional[str] = None,
@@ -461,7 +551,7 @@ def retrieve_live(
                 unique.append(r)
         return unique
 
-    with ThreadPoolExecutor(max_workers=3) as executor:
+    with ThreadPoolExecutor(max_workers=4) as executor:
         if is_state:
             futures = {
                 executor.submit(fetch_ecfr, query, 4): "ecfr",
@@ -472,6 +562,7 @@ def retrieve_live(
             futures = {
                 executor.submit(fetch_ecfr, query, 4): "ecfr",
                 executor.submit(fetch_federal_register, query, 3): "fr",
+                executor.submit(fetch_courtlistener_federal, question, 3): "courtlistener_federal",
             }
 
         try:
