@@ -12,6 +12,7 @@ import httpx
 logger = logging.getLogger(__name__)
 
 _TIMEOUT = 15.0
+_OPENSTATES_TIMEOUT = 25.0
 
 # US state names (lowercase) used to detect state jurisdictions
 _US_STATES = {
@@ -158,7 +159,7 @@ def fetch_openstates(query: str, state: str, max_results: int = 3) -> List[LiveR
         "include": "abstracts",
     }
     try:
-        with httpx.Client(timeout=_TIMEOUT, headers={"X-API-KEY": api_key}) as client:
+        with httpx.Client(timeout=_OPENSTATES_TIMEOUT, headers={"X-API-KEY": api_key}) as client:
             r = client.get("https://v3.openstates.org/bills", params=params)
             logger.info(
                 "OpenStates request URL: %s | status: %d",
