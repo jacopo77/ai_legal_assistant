@@ -1,6 +1,17 @@
 {
-  "name": "Legal Doc Ingestion - Firecrawl",
+  "name": "US Federal Official Source Ingestion",
   "nodes": [
+    {
+      "parameters": {},
+      "id": "trigger-node",
+      "name": "Manual Trigger",
+      "type": "n8n-nodes-base.manualTrigger",
+      "typeVersion": 1,
+      "position": [
+        40,
+        320
+      ]
+    },
     {
       "parameters": {
         "values": {
@@ -11,17 +22,29 @@
             },
             {
               "name": "backend_url",
-              "value": "https://YOUR_RAILWAY_APP.railway.app"
+              "value": "https://ailegalassistant-production-fe76.up.railway.app"
             },
             {
               "name": "country",
-              "value": "AU"
+              "value": "US"
+            },
+            {
+              "name": "federal_register_query",
+              "value": "\"public contracts\" OR procurement OR acquisition"
+            },
+            {
+              "name": "sources_json",
+              "value": "[\n  {\n    \"id\": \"uscode_title_41\",\n    \"name\": \"United States Code Title 41 - Public Contracts\",\n    \"authority\": \"Office of the Law Revision Counsel, U.S. House of Representatives\",\n    \"jurisdiction\": \"US\",\n    \"source_type\": \"scrape\",\n    \"entry_url\": \"https://uscode.house.gov/view.xhtml?path=/prelim@title41&edition=prelim\",\n    \"collection\": \"United States Code\",\n    \"document_type\": \"statute\",\n    \"citation_prefix\": \"41 U.S.C.\",\n    \"official\": true,\n    \"active\": true\n  },\n  {\n    \"id\": \"ecfr_title_41\",\n    \"name\": \"eCFR Title 41 - Public Contracts and Property Management\",\n    \"authority\": \"eCFR / Office of the Federal Register / Government Publishing Office\",\n    \"jurisdiction\": \"US\",\n    \"source_type\": \"scrape\",\n    \"entry_url\": \"https://www.ecfr.gov/current/title-41/subtitle-A\",\n    \"collection\": \"Electronic Code of Federal Regulations\",\n    \"document_type\": \"regulation\",\n    \"citation_prefix\": \"41 C.F.R.\",\n    \"official\": true,\n    \"active\": true\n  },\n  {\n    \"id\": \"ecfr_title_48_far\",\n    \"name\": \"eCFR Title 48 Chapter 1 - Federal Acquisition Regulation\",\n    \"authority\": \"eCFR / Office of the Federal Register / Government Publishing Office\",\n    \"jurisdiction\": \"US\",\n    \"source_type\": \"scrape\",\n    \"entry_url\": \"https://www.ecfr.gov/current/title-48/subtitle-A/chapter-1\",\n    \"collection\": \"Electronic Code of Federal Regulations\",\n    \"document_type\": \"regulation\",\n    \"citation_prefix\": \"48 C.F.R.\",\n    \"official\": true,\n    \"active\": true\n  },\n  {\n    \"id\": \"federal_register_procurement_search\",\n    \"name\": \"Federal Register Procurement Search\",\n    \"authority\": \"National Archives and Records Administration\",\n    \"jurisdiction\": \"US\",\n    \"source_type\": \"api\",\n    \"api_family\": \"federal_register\",\n    \"entry_url\": \"https://www.federalregister.gov/developers/documentation/api/v1\",\n    \"collection\": \"Federal Register\",\n    \"document_type\": \"rulemaking_notice\",\n    \"citation_prefix\": \"Fed. Reg.\",\n    \"official\": true,\n    \"active\": true\n  },\n  {\n    \"id\": \"govinfo_uscode_bulk\",\n    \"name\": \"GovInfo US Code Bulk Data\",\n    \"authority\": \"U.S. Government Publishing Office\",\n    \"jurisdiction\": \"US\",\n    \"source_type\": \"bulk\",\n    \"entry_url\": \"https://www.govinfo.gov/bulkdata/USCODE\",\n    \"collection\": \"GovInfo Bulk Data\",\n    \"document_type\": \"statute\",\n    \"citation_prefix\": \"U.S.C.\",\n    \"official\": true,\n    \"active\": false\n  },\n  {\n    \"id\": \"govinfo_cfr_bulk\",\n    \"name\": \"GovInfo Code of Federal Regulations Bulk Data\",\n    \"authority\": \"U.S. Government Publishing Office\",\n    \"jurisdiction\": \"US\",\n    \"source_type\": \"bulk\",\n    \"entry_url\": \"https://www.govinfo.gov/bulkdata/CFR\",\n    \"collection\": \"GovInfo Bulk Data\",\n    \"document_type\": \"regulation\",\n    \"citation_prefix\": \"C.F.R.\",\n    \"official\": true,\n    \"active\": false\n  },\n  {\n    \"id\": \"uscode_house_bulk_download\",\n    \"name\": \"United States Code Bulk XML Download\",\n    \"authority\": \"Office of the Law Revision Counsel, U.S. House of Representatives\",\n    \"jurisdiction\": \"US\",\n    \"source_type\": \"bulk\",\n    \"entry_url\": \"https://uscode.house.gov/download/download.shtml\",\n    \"collection\": \"United States Code Bulk Downloads\",\n    \"document_type\": \"statute\",\n    \"citation_prefix\": \"U.S.C.\",\n    \"official\": true,\n    \"active\": false\n  }\n]"
+            },
+            {
+              "name": "registry_source_of_truth",
+              "value": "docs/us_federal_official_sources.json"
             }
           ],
-          "array": [
+          "number": [
             {
-              "name": "urls",
-              "value": "=[\n  \"https://www.legislation.gov.au/current\",\n  \"https://www.austlii.edu.au/\"\n]"
+              "name": "max_api_results",
+              "value": 3
             }
           ]
         },
@@ -31,26 +54,196 @@
       "name": "Config",
       "type": "n8n-nodes-base.set",
       "typeVersion": 3.4,
-      "position": [240, 300]
-    },
-    {
-      "parameters": {},
-      "id": "trigger-node",
-      "name": "Manual Trigger",
-      "type": "n8n-nodes-base.manualTrigger",
-      "typeVersion": 1,
-      "position": [40, 300]
+      "position": [
+        260,
+        320
+      ]
     },
     {
       "parameters": {
-        "fieldToSplitOut": "urls",
+        "jsCode": "const config = $input.first().json;\nconst sources = JSON.parse(config.sources_json || '[]');\nreturn sources\n  .filter((source) => source.active)\n  .map((source) => ({\n    json: {\n      ...config,\n      ...source,\n      country: source.jurisdiction || config.country,\n      jurisdiction: source.jurisdiction || config.country,\n      registry_source_of_truth: config.registry_source_of_truth || 'docs/us_federal_official_sources.json'\n    }\n  }));"
+      },
+      "id": "expand-sources-node",
+      "name": "Expand Sources",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        500,
+        320
+      ]
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict"
+          },
+          "conditions": [
+            {
+              "id": "api-source-check",
+              "leftValue": "={{ $json.source_type }}",
+              "rightValue": "api",
+              "operator": {
+                "type": "string",
+                "operation": "equals"
+              }
+            }
+          ],
+          "combinator": "and"
+        },
         "options": {}
       },
-      "id": "split-node",
-      "name": "Split URLs",
-      "type": "n8n-nodes-base.splitOut",
-      "typeVersion": 1,
-      "position": [460, 300]
+      "id": "api-filter-node",
+      "name": "Is API Source?",
+      "type": "n8n-nodes-base.filter",
+      "typeVersion": 2,
+      "position": [
+        740,
+        160
+      ]
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict"
+          },
+          "conditions": [
+            {
+              "id": "scrape-source-check",
+              "leftValue": "={{ $json.source_type }}",
+              "rightValue": "scrape",
+              "operator": {
+                "type": "string",
+                "operation": "equals"
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "options": {}
+      },
+      "id": "scrape-filter-node",
+      "name": "Is Scrape Source?",
+      "type": "n8n-nodes-base.filter",
+      "typeVersion": 2,
+      "position": [
+        740,
+        320
+      ]
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict"
+          },
+          "conditions": [
+            {
+              "id": "bulk-source-check",
+              "leftValue": "={{ $json.source_type }}",
+              "rightValue": "bulk",
+              "operator": {
+                "type": "string",
+                "operation": "equals"
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "options": {}
+      },
+      "id": "bulk-filter-node",
+      "name": "Is Bulk Source?",
+      "type": "n8n-nodes-base.filter",
+      "typeVersion": 2,
+      "position": [
+        740,
+        480
+      ]
+    },
+    {
+      "parameters": {
+        "jsCode": "const item = $input.first().json;\nconst query = encodeURIComponent(item.federal_register_query || 'public contracts OR procurement OR acquisition');\nconst perPage = Number(item.max_api_results || 5);\nconst requestUrl = `https://www.federalregister.gov/api/v1/documents.json?per_page=${perPage}&conditions[term]=${query}&order=newest`;\nreturn [{ json: { ...item, request_url: requestUrl } }];"
+      },
+      "id": "build-api-request-node",
+      "name": "Build API Request",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        980,
+        160
+      ]
+    },
+    {
+      "parameters": {
+        "method": "GET",
+        "url": "={{ $json.request_url }}",
+        "options": {
+          "timeout": 60000
+        }
+      },
+      "id": "federal-register-node",
+      "name": "Federal Register API Search",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        1220,
+        160
+      ]
+    },
+    {
+      "parameters": {
+        "jsCode": "const source = $('Build API Request').item.json;\nconst results = Array.isArray($input.first().json.results) ? $input.first().json.results : [];\nreturn results\n  .filter((result) => result && (result.title || result.abstract))\n  .map((result) => {\n    const officialUrl = result.html_url || result.pdf_url || source.entry_url;\n    const officialTitle = result.title || 'Federal Register document';\n    const publicationDate = result.publication_date || null;\n    return {\n      json: {\n        text: [\n          result.title ? `Title: ${result.title}` : null,\n          result.type ? `Document type: ${result.type}` : null,\n          result.abstract ? `Abstract: ${result.abstract}` : null,\n          result.publication_date ? `Publication date: ${result.publication_date}` : null,\n          officialUrl ? `Official URL: ${officialUrl}` : null\n        ].filter(Boolean).join('\\n\\n'),\n        title: officialTitle,\n        url: officialUrl,\n        country: source.country,\n        source: 'federal_register_api',\n        authority: source.authority,\n        source_type: source.source_type,\n        document_type: source.document_type,\n        collection: source.collection,\n        citation: result.citation || null,\n        citation_prefix: source.citation_prefix,\n        publication_date: publicationDate,\n        source_registry_id: source.id,\n        raw_source_url: source.entry_url,\n        official_url: officialUrl,\n        official_title: officialTitle,\n        jurisdiction: source.jurisdiction || source.country,\n        metadata: {\n          official: true,\n          source_registry_id: source.id,\n          authority: source.authority,\n          collection: source.collection,\n          document_type: source.document_type,\n          citation: result.citation || null,\n          citation_prefix: source.citation_prefix,\n          publication_date: publicationDate,\n          official_url: officialUrl,\n          official_title: officialTitle,\n          jurisdiction: source.jurisdiction || source.country,\n          agencies: Array.isArray(result.agencies) ? result.agencies.map((agency) => agency.name).filter(Boolean) : [],\n          federal_register_document_number: result.document_number || null,\n          federal_register_type: result.type || null,\n          raw_source_url: source.entry_url,\n          registry_source_of_truth: source.registry_source_of_truth || null\n        }\n      }\n    };\n  });"
+      },
+      "id": "format-api-node",
+      "name": "Format API Documents",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        1460,
+        160
+      ]
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "={{ $('Config').item.json.backend_url }}/api/webhooks/n8n",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "Content-Type",
+              "value": "application/json"
+            }
+          ]
+        },
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "={{ JSON.stringify({ text: $json.text, title: $json.title, url: $json.url, country: $json.country, source: $json.source, authority: $json.authority, source_type: $json.source_type, document_type: $json.document_type, collection: $json.collection, citation: $json.citation, citation_prefix: $json.citation_prefix, publication_date: $json.publication_date, source_registry_id: $json.source_registry_id, raw_source_url: $json.raw_source_url, official_url: $json.official_url, official_title: $json.official_title, jurisdiction: $json.jurisdiction, metadata: $json.metadata }) }}",
+        "options": {
+          "timeout": 120000,
+          "response": {
+            "response": {
+              "responseFormat": "json"
+            }
+          }
+        }
+      },
+      "id": "send-api-node",
+      "name": "Send API Documents to Backend",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        1700,
+        160
+      ]
     },
     {
       "parameters": {
@@ -68,26 +261,8 @@
           ]
         },
         "sendBody": true,
-        "bodyParameters": {
-          "parameters": [
-            {
-              "name": "url",
-              "value": "={{ $json.urls }}"
-            },
-            {
-              "name": "formats",
-              "value": "=[\"markdown\"]"
-            },
-            {
-              "name": "onlyMainContent",
-              "value": "=true"
-            },
-            {
-              "name": "excludeTags",
-              "value": "=[\"nav\",\"footer\",\"header\",\"script\",\"style\",\"aside\"]"
-            }
-          ]
-        },
+        "specifyBody": "json",
+        "jsonBody": "={{ JSON.stringify({ url: $json.entry_url, formats: [\"markdown\"], onlyMainContent: true, excludeTags: [\"nav\", \"footer\", \"header\", \"script\", \"style\", \"aside\"] }) }}",
         "options": {
           "timeout": 60000
         }
@@ -96,7 +271,10 @@
       "name": "Firecrawl Scrape",
       "type": "n8n-nodes-base.httpRequest",
       "typeVersion": 4.2,
-      "position": [680, 300]
+      "position": [
+        980,
+        320
+      ]
     },
     {
       "parameters": {
@@ -130,11 +308,14 @@
         },
         "options": {}
       },
-      "id": "filter-node",
+      "id": "content-filter-node",
       "name": "Has Content?",
       "type": "n8n-nodes-base.filter",
       "typeVersion": 2,
-      "position": [900, 300]
+      "position": [
+        1220,
+        320
+      ]
     },
     {
       "parameters": {
@@ -146,35 +327,86 @@
             },
             {
               "name": "title",
-              "value": "={{ $json.data.metadata.title || $json.data.metadata.ogTitle || 'Untitled' }}"
+              "value": "={{ $json.data.metadata.title || $json.data.metadata.ogTitle || $('Is Scrape Source?').item.json.name || 'Untitled official source' }}"
             },
             {
               "name": "url",
-              "value": "={{ $json.data.metadata.sourceURL || $json.data.metadata.ogUrl }}"
+              "value": "={{ $json.data.metadata.sourceURL || $json.data.metadata.ogUrl || $('Is Scrape Source?').item.json.entry_url }}"
             },
             {
               "name": "country",
-              "value": "={{ $('Config').item.json.country }}"
+              "value": "={{ $('Is Scrape Source?').item.json.country }}"
             },
             {
               "name": "source",
-              "value": "firecrawl"
+              "value": "official_web_scrape"
+            },
+            {
+              "name": "authority",
+              "value": "={{ $('Is Scrape Source?').item.json.authority }}"
+            },
+            {
+              "name": "source_type",
+              "value": "={{ $('Is Scrape Source?').item.json.source_type }}"
+            },
+            {
+              "name": "document_type",
+              "value": "={{ $('Is Scrape Source?').item.json.document_type }}"
+            },
+            {
+              "name": "collection",
+              "value": "={{ $('Is Scrape Source?').item.json.collection }}"
+            },
+            {
+              "name": "citation",
+              "value": ""
+            },
+            {
+              "name": "citation_prefix",
+              "value": "={{ $('Is Scrape Source?').item.json.citation_prefix }}"
+            },
+            {
+              "name": "publication_date",
+              "value": "={{ $json.data.metadata.publishedTime || '' }}"
+            },
+            {
+              "name": "source_registry_id",
+              "value": "={{ $('Is Scrape Source?').item.json.id }}"
+            },
+            {
+              "name": "raw_source_url",
+              "value": "={{ $('Is Scrape Source?').item.json.entry_url }}"
+            },
+            {
+              "name": "official_url",
+              "value": "={{ $json.data.metadata.sourceURL || $json.data.metadata.ogUrl || $('Is Scrape Source?').item.json.entry_url }}"
+            },
+            {
+              "name": "official_title",
+              "value": "={{ $json.data.metadata.title || $json.data.metadata.ogTitle || $('Is Scrape Source?').item.json.name || 'Untitled official source' }}"
+            },
+            {
+              "name": "jurisdiction",
+              "value": "={{ $('Is Scrape Source?').item.json.jurisdiction || $('Is Scrape Source?').item.json.country }}"
             }
           ],
           "object": [
             {
               "name": "metadata",
-              "value": "={{ { \"description\": $json.data.metadata.description, \"scrapeDate\": new Date().toISOString(), \"firecrawlStatusCode\": $json.data.metadata.statusCode } }}"
+              "value": "={{ { official: true, source_registry_id: $('Is Scrape Source?').item.json.id, authority: $('Is Scrape Source?').item.json.authority, collection: $('Is Scrape Source?').item.json.collection, document_type: $('Is Scrape Source?').item.json.document_type, citation: null, citation_prefix: $('Is Scrape Source?').item.json.citation_prefix, publication_date: $json.data.metadata.publishedTime || null, official_url: $json.data.metadata.sourceURL || $json.data.metadata.ogUrl || $('Is Scrape Source?').item.json.entry_url, official_title: $json.data.metadata.title || $json.data.metadata.ogTitle || $('Is Scrape Source?').item.json.name || 'Untitled official source', jurisdiction: $('Is Scrape Source?').item.json.jurisdiction || $('Is Scrape Source?').item.json.country, scrapeDate: new Date().toISOString(), firecrawlStatusCode: $json.data.metadata.statusCode, raw_source_url: $('Is Scrape Source?').item.json.entry_url, description: $json.data.metadata.description || null, registry_source_of_truth: $('Is Scrape Source?').item.json.registry_source_of_truth || null } }}"
             }
           ]
         },
         "options": {}
       },
-      "id": "format-node",
-      "name": "Format for Backend",
+      "id": "format-scrape-node",
+      "name": "Format Scraped Document",
       "type": "n8n-nodes-base.set",
       "typeVersion": 3.4,
-      "position": [1120, 300]
+      "position": [
+        1460,
+        320
+      ]
     },
     {
       "parameters": {
@@ -191,7 +423,7 @@
         },
         "sendBody": true,
         "specifyBody": "json",
-        "jsonBody": "={{ JSON.stringify({ text: $json.text, title: $json.title, url: $json.url, country: $json.country, source: $json.source, metadata: $json.metadata }) }}",
+        "jsonBody": "={{ JSON.stringify({ text: $json.text, title: $json.title, url: $json.url, country: $json.country, source: $json.source, authority: $json.authority, source_type: $json.source_type, document_type: $json.document_type, collection: $json.collection, citation: $json.citation, citation_prefix: $json.citation_prefix, publication_date: $json.publication_date, source_registry_id: $json.source_registry_id, raw_source_url: $json.raw_source_url, official_url: $json.official_url, official_title: $json.official_title, jurisdiction: $json.jurisdiction, metadata: $json.metadata }) }}",
         "options": {
           "timeout": 120000,
           "response": {
@@ -201,11 +433,14 @@
           }
         }
       },
-      "id": "ingest-node",
-      "name": "Send to Backend",
+      "id": "send-scrape-node",
+      "name": "Send Scraped Document to Backend",
       "type": "n8n-nodes-base.httpRequest",
       "typeVersion": 4.2,
-      "position": [1340, 300]
+      "position": [
+        1700,
+        320
+      ]
     },
     {
       "parameters": {
@@ -213,53 +448,163 @@
           "string": [
             {
               "name": "result",
-              "value": "=✅ Ingested: {{ $json.title }} → document_id {{ $('Send to Backend').item.json.document_id }}"
+              "value": "=Skipped bulk source {{ $json.name }}. Bulk feeds stay in the curated registry but require a dedicated downloader/parser outside this v1 workflow."
             }
           ]
         },
         "options": {}
       },
-      "id": "log-node",
-      "name": "Log Result",
+      "id": "bulk-skip-node",
+      "name": "Skip Bulk Sources",
       "type": "n8n-nodes-base.set",
       "typeVersion": 3.4,
-      "position": [1560, 300]
+      "position": [
+        980,
+        480
+      ]
     }
   ],
   "connections": {
     "Manual Trigger": {
       "main": [
-        [{ "node": "Config", "type": "main", "index": 0 }]
+        [
+          {
+            "node": "Config",
+            "type": "main",
+            "index": 0
+          }
+        ]
       ]
     },
     "Config": {
       "main": [
-        [{ "node": "Split URLs", "type": "main", "index": 0 }]
+        [
+          {
+            "node": "Expand Sources",
+            "type": "main",
+            "index": 0
+          }
+        ]
       ]
     },
-    "Split URLs": {
+    "Expand Sources": {
       "main": [
-        [{ "node": "Firecrawl Scrape", "type": "main", "index": 0 }]
+        [
+          {
+            "node": "Is API Source?",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "Is Scrape Source?",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "Is Bulk Source?",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Is API Source?": {
+      "main": [
+        [
+          {
+            "node": "Build API Request",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Build API Request": {
+      "main": [
+        [
+          {
+            "node": "Federal Register API Search",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Federal Register API Search": {
+      "main": [
+        [
+          {
+            "node": "Format API Documents",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Format API Documents": {
+      "main": [
+        [
+          {
+            "node": "Send API Documents to Backend",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Is Scrape Source?": {
+      "main": [
+        [
+          {
+            "node": "Firecrawl Scrape",
+            "type": "main",
+            "index": 0
+          }
+        ]
       ]
     },
     "Firecrawl Scrape": {
       "main": [
-        [{ "node": "Has Content?", "type": "main", "index": 0 }]
+        [
+          {
+            "node": "Has Content?",
+            "type": "main",
+            "index": 0
+          }
+        ]
       ]
     },
     "Has Content?": {
       "main": [
-        [{ "node": "Format for Backend", "type": "main", "index": 0 }]
+        [
+          {
+            "node": "Format Scraped Document",
+            "type": "main",
+            "index": 0
+          }
+        ]
       ]
     },
-    "Format for Backend": {
+    "Format Scraped Document": {
       "main": [
-        [{ "node": "Send to Backend", "type": "main", "index": 0 }]
+        [
+          {
+            "node": "Send Scraped Document to Backend",
+            "type": "main",
+            "index": 0
+          }
+        ]
       ]
     },
-    "Send to Backend": {
+    "Is Bulk Source?": {
       "main": [
-        [{ "node": "Log Result", "type": "main", "index": 0 }]
+        [
+          {
+            "node": "Skip Bulk Sources",
+            "type": "main",
+            "index": 0
+          }
+        ]
       ]
     }
   },
@@ -270,6 +615,6 @@
   "staticData": null,
   "tags": [],
   "triggerCount": 0,
-  "updatedAt": "2026-02-27T00:00:00.000Z",
-  "versionId": "1"
+  "updatedAt": "2026-03-10T00:00:00.000Z",
+  "versionId": "2"
 }

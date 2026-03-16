@@ -9,7 +9,7 @@ type Message = { role: "user" | "assistant"; content: string; country?: string; 
 
 export default function HomePage() {
   const [question, setQuestion] = useState("");
-  const [country, setCountry] = useState("");
+  const [country, setCountry] = useState("US");
   const [messages, setMessages] = useState<Message[]>([]);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState<string>("");
@@ -132,7 +132,7 @@ export default function HomePage() {
             <span className="text-primary">Assistant</span>
           </h1>
           <p className="text-white text-sm max-w-xs mx-auto opacity-80">
-            Legal research and citations optimized for professionals.
+            Instant answers to legal questions, backed by real US federal law.
           </p>
         </header>
 
@@ -177,34 +177,9 @@ export default function HomePage() {
                     Jurisdiction
                   </label>
                   <div className="relative">
-                    <select
-                      id="jurisdiction"
-                      value={country}
-                      onChange={(e) => setCountry(e.target.value)}
-                      className="w-full appearance-none bg-slate-950/50 border border-slate-800 focus:border-primary focus:ring-1 focus:ring-primary rounded-2xl px-4 py-3 text-sm text-white transition-all cursor-pointer"
-                    >
-                      <option className="text-slate-900" value="">
-                        Select
-                      </option>
-                      <option className="text-slate-900" value="US">
-                        US Federal
-                      </option>
-                      <option className="text-slate-900" value="CA-CA">
-                        California
-                      </option>
-                      <option className="text-slate-900" value="US-NY">
-                        New York
-                      </option>
-                      <option className="text-slate-900" value="UK">
-                        UK Law
-                      </option>
-                      <option className="text-slate-900" value="CA">
-                        Canada
-                      </option>
-                    </select>
-                    <span className="material-symbols-outlined absolute right-3 top-1/2 -translate-y-1/2 text-white pointer-events-none text-xl">
-                      unfold_more
-                    </span>
+                    <div className="w-full bg-slate-950/50 border border-slate-800 rounded-2xl px-4 py-3 text-sm text-white">
+                      US Federal
+                    </div>
                   </div>
                 </div>
               </div>
