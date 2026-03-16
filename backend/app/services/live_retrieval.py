@@ -233,26 +233,32 @@ def retrieve_live(
 
     query = f"{question} {jurisdiction}" if is_state else question
 
-    tasks: dict = {}
+    combined: List[LiveResult] = []
+
     with ThreadPoolExecutor(max_workers=3) as executor:
         if is_state:
-            tasks["ecfr"] = executor.submit(fetch_ecfr, query, 2)
-            tasks["fr"] = executor.submit(fetch_federal_register, query, 2)
-            tasks["openstates"] = executor.submit(fetch_openstates, question, jurisdiction, 3)
+            futures = {
+                executor.submit(fetch_ecfr, query, 2): "ecfr",
+                executor.submit(fetch_federal_register, query, 2): "fr",
+                executor.submit(fetch_openstates, question, jurisdiction, 3): "openstates",
+            }
         else:
-            tasks["ecfr"] = executor.submit(fetch_ecfr, query, 4)
-            tasks["fr"] = executor.submit(fetch_federal_register, query, 3)
+            futures = {
+                executor.submit(fetch_ecfr, query, 4): "ecfr",
+                executor.submit(fetch_federal_register, query, 3): "fr",
+            }
 
-        combined: List[LiveResult] = []
-        future_to_name = {v: k for k, v in tasks.items()}
-        for future in as_completed(future_to_name, timeout=30):
-            name = future_to_name[future]
-            try:
-                results = future.result()
-                combined.extend(results)
-                logger.info("Source %r returned %d result(s)", name, len(results))
-            except Exception as exc:
-                logger.warning("Source %r failed or timed out: %s", name, exc)
+        try:
+            for future in as_completed(futures, timeout=30):
+                name = futures[future]
+                try:
+                    results = future.result()
+                    combined.extend(results)
+                    logger.info("Source %r returned %d result(s)", name, len(results))
+                except Exception as exc:
+                    logger.warning("Source %r failed: %s", name, exc)
+        except Exception as exc:
+            logger.warning("Parallel retrieval timed out or failed: %s", exc)
 
     logger.info(
         "Live retrieval: %d total result(s) for jurisdiction=%r",
