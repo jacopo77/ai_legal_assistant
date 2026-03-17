@@ -601,6 +601,10 @@ def retrieve_live(
     All sources run in parallel — slow or failing sources are skipped
     without blocking the response.
     """
+    # Strip surrounding quotes users may type (e.g. "What is X?" → What is X?)
+    # Quoted phrases break eCFR/Federal Register Lucene search with zero results
+    question = question.strip().strip('"\'')
+
     is_state = (
         jurisdiction is not None
         and jurisdiction.upper() not in ("US", "US FEDERAL")
