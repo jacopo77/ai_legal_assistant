@@ -3,7 +3,7 @@
 
 import { useRef, useState, useEffect } from "react";
 
-const BACKEND_URL = process.env.NEXT_PUBLIC_BACKEND_URL || "http://127.0.0.1:8000";
+const BACKEND_URL = process.env.NEXT_PUBLIC_API_URL || process.env.NEXT_PUBLIC_BACKEND_URL || "http://127.0.0.1:8000";
 
 type Source = { n: number; citation: string | null; url: string; title: string | null };
 type Message = { role: "user" | "assistant"; content: string; country?: string; error?: boolean; sources?: Source[] };
