@@ -424,6 +424,78 @@ def fetch_courtlistener(query: str, state: str, max_results: int = 3) -> List[Li
     return combined
 
 
+def fetch_uscode(query: str, max_results: int = 3) -> List[LiveResult]:
+    """Search the US Code via the GovInfo API (Government Publishing Office).
+
+    Covers all titles of the United States Code — contracts, labor, civil rights,
+    criminal law, tax, immigration, etc. Requires GOVINFO_API_KEY env var (free).
+    Falls back gracefully if key is not set.
+    """
+    api_key = os.environ.get("GOVINFO_API_KEY", "").strip()
+    if not api_key:
+        logger.warning("GOVINFO_API_KEY not set — skipping US Code search")
+        return []
+
+    params = {
+        "query": query,
+        "pageSize": max_results * 2,
+        "offsetMark": "*",
+        "collections": "USCODE",
+        "sortBy": "relevance",
+        "api_key": api_key,
+    }
+
+    try:
+        with httpx.Client(timeout=_TIMEOUT) as client:
+            r = client.get(
+                "https://api.govinfo.gov/search",
+                params=params,
+                headers={"User-Agent": "LegalSearchHub/1.0"},
+            )
+            r.raise_for_status()
+            data = r.json()
+    except Exception as exc:
+        logger.warning("GovInfo US Code search failed: %s", exc)
+        return []
+
+    results: List[LiveResult] = []
+    for item in (data.get("results") or []):
+        title = item.get("title", "").strip()
+        package_id = item.get("packageId", "")
+        granule_id = item.get("granuleId", "")
+        doc_url = item.get("detailsLink", "") or item.get("pdfLink", "") or ""
+
+        # Build a readable citation from the package/granule IDs
+        # e.g. USCODE-2023-title29 → 29 U.S.C.
+        citation = title
+        if package_id:
+            parts = package_id.split("-")
+            if len(parts) >= 3 and "title" in parts[-1]:
+                title_num = parts[-1].replace("title", "").strip()
+                citation = f"{title_num} U.S.C. — {title}" if title else f"{title_num} U.S.C."
+
+        if not title:
+            continue
+
+        text = f"US Code: {title}"
+        if granule_id:
+            text += f" [{granule_id}]"
+
+        results.append(
+            LiveResult(
+                text=text,
+                title=title,
+                url=doc_url,
+                citation=citation,
+                authority="United States Code via GovInfo (Government Publishing Office)",
+                source="uscode",
+            )
+        )
+
+    logger.info("GovInfo US Code returned %d result(s) for query: %r", len(results), query)
+    return results[:max_results]
+
+
 def fetch_courtlistener_federal(query: str, max_results: int = 3) -> List[LiveResult]:
     """Search CourtListener for US federal court opinions (SCOTUS, Circuit, District).
 
@@ -551,18 +623,20 @@ def retrieve_live(
                 unique.append(r)
         return unique
 
-    with ThreadPoolExecutor(max_workers=4) as executor:
+    with ThreadPoolExecutor(max_workers=5) as executor:
         if is_state:
             futures = {
-                executor.submit(fetch_ecfr, query, 4): "ecfr",
-                executor.submit(fetch_federal_register, query, 3): "fr",
+                executor.submit(fetch_ecfr, query, 3): "ecfr",
+                executor.submit(fetch_federal_register, query, 2): "fr",
                 executor.submit(fetch_courtlistener, question, jurisdiction, 3): "courtlistener",
+                executor.submit(fetch_uscode, question, 2): "uscode",
             }
         else:
             futures = {
-                executor.submit(fetch_ecfr, query, 4): "ecfr",
-                executor.submit(fetch_federal_register, query, 3): "fr",
+                executor.submit(fetch_ecfr, query, 3): "ecfr",
+                executor.submit(fetch_federal_register, query, 2): "fr",
                 executor.submit(fetch_courtlistener_federal, question, 3): "courtlistener_federal",
+                executor.submit(fetch_uscode, question, 3): "uscode",
             }
 
         try:
