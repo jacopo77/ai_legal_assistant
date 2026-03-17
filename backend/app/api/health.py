@@ -137,6 +137,23 @@ def health_retrieval():
     return {"total_results": total, "sources": report}
 
 
+@router.post("/test-fetch")
+def test_fetch_post(body: dict = None):
+    """POST endpoint that tests a direct HTTP call to eCFR — diagnoses if POST context blocks outbound HTTP."""
+    import httpx
+    from urllib.parse import quote_plus
+    query = "OSHA workplace safety"
+    url = f"https://www.ecfr.gov/api/search/v1/results?query={quote_plus(query)}&per_page=3"
+    try:
+        with httpx.Client(timeout=15.0) as client:
+            r = client.get(url)
+            data = r.json()
+            results = data.get("results", [])
+            return {"status": "ok", "http_status": r.status_code, "results": len(results), "url": url}
+    except Exception as e:
+        return {"status": "error", "error": str(e), "error_type": type(e).__name__}
+
+
 @router.get("/retrieval-full")
 def health_retrieval_full():
     """Tests the exact same code path as the chat endpoint — parallel retrieve_live."""
