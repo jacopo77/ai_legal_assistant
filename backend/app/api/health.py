@@ -92,3 +92,46 @@ def health_db():
         result["active_backend"] = "sqlite"
 
     return result
+
+
+@router.get("/retrieval")
+def health_retrieval():
+    """Diagnostic endpoint: tests each live retrieval source and reports results."""
+    import os
+    from ..services.live_retrieval import fetch_ecfr, fetch_federal_register, fetch_courtlistener_federal, fetch_uscode
+
+    test_query = "overtime pay federal law"
+    report = {}
+
+    try:
+        r = fetch_ecfr(test_query, 2)
+        report["ecfr"] = {"status": "ok", "results": len(r), "sample": r[0].citation if r else None}
+    except Exception as e:
+        report["ecfr"] = {"status": "error", "error": str(e)}
+
+    try:
+        r = fetch_federal_register(test_query, 2)
+        report["federal_register"] = {"status": "ok", "results": len(r), "sample": r[0].citation if r else None}
+    except Exception as e:
+        report["federal_register"] = {"status": "error", "error": str(e)}
+
+    try:
+        r = fetch_courtlistener_federal(test_query, 2)
+        report["courtlistener"] = {"status": "ok", "results": len(r), "sample": r[0].citation if r else None}
+    except Exception as e:
+        report["courtlistener"] = {"status": "error", "error": str(e)}
+
+    try:
+        govinfo_key = os.environ.get("GOVINFO_API_KEY", "")
+        r = fetch_uscode(test_query, 2)
+        report["uscode_govinfo"] = {
+            "status": "ok" if r else "no_results",
+            "key_set": bool(govinfo_key),
+            "results": len(r),
+            "sample": r[0].citation if r else None,
+        }
+    except Exception as e:
+        report["uscode_govinfo"] = {"status": "error", "error": str(e)}
+
+    total = sum(v.get("results", 0) for v in report.values() if isinstance(v.get("results"), int))
+    return {"total_results": total, "sources": report}

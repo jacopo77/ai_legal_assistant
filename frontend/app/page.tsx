@@ -196,7 +196,7 @@ export default function HomePage() {
   const renderContent = (content: string, sources?: Source[]) => {
     const citationRegex = /\[(\d+)\]/g;
 
-    const renderSegment = (text: string, keyPrefix: number) => {
+    const renderInline = (text: string, keyPrefix: string) => {
       const parts = text.split(citationRegex);
       return parts.map((part, i) => {
         if (i % 2 === 1) {
@@ -226,19 +226,22 @@ export default function HomePage() {
       });
     };
 
-    // Split on "Note:" lines and render them faded + smaller
-    const noteRegex = /( Note:.*)/gs;
-    const segments = content.split(noteRegex);
-    return segments.map((segment, i) => {
-      if (segment.startsWith(" Note:")) {
-        return (
-          <span key={i} className="block mt-3 text-[10px] text-white/40 italic leading-relaxed">
-            {renderSegment(segment, i)}
+    // Split body from trailing Note: disclaimer
+    const noteIdx = content.indexOf(" Note:");
+    if (noteIdx !== -1) {
+      const body = content.slice(0, noteIdx);
+      const note = content.slice(noteIdx);
+      return (
+        <>
+          <span>{renderInline(body, "body")}</span>
+          <span className="block mt-3 text-[10px] text-white/40 italic leading-relaxed">
+            {renderInline(note, "note")}
           </span>
-        );
-      }
-      return <span key={i}>{renderSegment(segment, i)}</span>;
-    });
+        </>
+      );
+    }
+
+    return <span>{renderInline(content, "content")}</span>;
   };
 
   return (
