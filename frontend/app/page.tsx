@@ -195,33 +195,49 @@ export default function HomePage() {
 
   const renderContent = (content: string, sources?: Source[]) => {
     const citationRegex = /\[(\d+)\]/g;
-    const parts = content.split(citationRegex);
 
-    return parts.map((part, i) => {
-      if (i % 2 === 1) {
-        const num = parseInt(part, 10);
-        const source = sources?.find((s) => s.n === num);
-        if (source?.url) {
+    const renderSegment = (text: string, keyPrefix: number) => {
+      const parts = text.split(citationRegex);
+      return parts.map((part, i) => {
+        if (i % 2 === 1) {
+          const num = parseInt(part, 10);
+          const source = sources?.find((s) => s.n === num);
+          if (source?.url) {
+            return (
+              <a
+                key={`${keyPrefix}-${i}`}
+                href={source.url}
+                target="_blank"
+                rel="noopener noreferrer"
+                title={source.citation || source.title || ""}
+                className="text-primary font-bold ml-0.5 hover:underline"
+              >
+                <sup>[{part}]</sup>
+              </a>
+            );
+          }
           return (
-            <a
-              key={i}
-              href={source.url}
-              target="_blank"
-              rel="noopener noreferrer"
-              title={source.citation || source.title || ""}
-              className="text-primary font-bold ml-0.5 hover:underline"
-            >
-              <sup>[{part}]</sup>
-            </a>
+            <sup key={`${keyPrefix}-${i}`} className="text-primary font-bold ml-0.5">
+              [{part}]
+            </sup>
           );
         }
+        return <span key={`${keyPrefix}-${i}`}>{part}</span>;
+      });
+    };
+
+    // Split on "Note:" lines and render them faded + smaller
+    const noteRegex = /( Note:.*)/gs;
+    const segments = content.split(noteRegex);
+    return segments.map((segment, i) => {
+      if (segment.startsWith(" Note:")) {
         return (
-          <sup key={i} className="text-primary font-bold ml-0.5">
-            [{part}]
-          </sup>
+          <span key={i} className="block mt-3 text-[10px] text-white/40 italic leading-relaxed">
+            {renderSegment(segment, i)}
+          </span>
         );
       }
-      return part;
+      return <span key={i}>{renderSegment(segment, i)}</span>;
     });
   };
 
