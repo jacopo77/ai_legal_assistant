@@ -142,9 +142,10 @@ def _build_prompt(question: str, country: Optional[str], results: List[LiveResul
     return f"{instructions}\n\nQuestion{location}: {question}\n\nContext:\n{context}\n\nAnswer:"
 
 
-def answer_stream(question: str, country: Optional[str]) -> Generator[str, None, None]:
-    logger.info("Live retrieval for question: %r (jurisdiction: %r)", question, country)
-    results = retrieve_live(question, jurisdiction=country, max_results=7)
+def answer_stream(question: str, country: Optional[str], results: Optional[List[LiveResult]] = None) -> Generator[str, None, None]:
+    if results is None:
+        logger.info("Live retrieval for question: %r (jurisdiction: %r)", question, country)
+        results = retrieve_live(question, jurisdiction=country, max_results=7)
 
     if not results:
         location = f" for {country}" if country else ""
