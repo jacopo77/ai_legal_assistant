@@ -26,5 +26,9 @@ def chat_stream(req: ChatRequest):
         for chunk in answer_stream(req.question, req.country, results=results):
             yield chunk
 
-    return StreamingResponse(generator(), media_type="text/plain; charset=utf-8")
+    return StreamingResponse(
+        generator(),
+        media_type="text/plain; charset=utf-8",
+        headers={"X-Retrieval-Count": str(len(results))},
+    )
 
