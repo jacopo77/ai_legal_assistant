@@ -103,7 +103,7 @@ def fetch_ecfr(query: str, max_results: int = 4) -> List[LiveResult]:
             )
         )
 
-    logger.info("eCFR returned %d result(s) for query: %r", len(results), query)
+    logger.warning("eCFR returned %d result(s) for query: %r", len(results), query)
     return results
 
 
@@ -188,7 +188,7 @@ def fetch_federal_register(query: str, max_results: int = 3) -> List[LiveResult]
             )
         )
 
-    logger.info("Federal Register returned %d result(s) for query: %r", len(results), query)
+    logger.warning("Federal Register returned %d result(s) for query: %r", len(results), query)
     return results
 
 
@@ -645,7 +645,7 @@ def retrieve_live(
                 try:
                     results = _dedup(future.result())
                     combined.extend(results)
-                    logger.info("Source %r returned %d unique result(s)", name, len(results))
+                    logger.warning("Source %r returned %d unique result(s)", name, len(results))
                 except Exception as exc:
                     logger.warning("Source %r failed: %s", name, exc)
         except Exception as exc:
