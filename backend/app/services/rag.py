@@ -148,10 +148,33 @@ def answer_stream(question: str, country: Optional[str]) -> Generator[str, None,
 
     if not results:
         location = f" for {country}" if country else ""
-        yield (
-            f"I was unable to retrieve relevant results from official federal sources{location} "
-            "for that question. Please try rephrasing or check back shortly."
+        state_resources = {
+            "texas": "https://www.sos.state.tx.us/corp/index.shtml",
+            "california": "https://bizfileonline.sos.ca.gov",
+            "new york": "https://www.dos.ny.gov/corps",
+            "florida": "https://dos.myflorida.com/sunbiz",
+        }
+        state_url = state_resources.get(country.lower(), f"https://www.google.com/search?q={country}+official+legislature+website") if country else ""
+        fallback_note = (
+            f" Note: No official federal source citations were found for this {country} state law question. "
+            f"For authoritative state statutes, visit your state's official legislature or secretary of state website"
+            f"{': ' + state_url if state_url else ''}."
+        ) if country and country.upper() not in ("US", "US FEDERAL") else (
+            " Note: No official source citations were found. Please verify this information with a licensed attorney."
         )
+        fallback_prompt = (
+            f"You are a careful paralegal assistant. A user asked: {question}\n\n"
+            f"No official source documents were retrieved. Answer from general legal knowledge, "
+            f"clearly noting this is general information only and not verified against official sources. "
+            f"Be specific and helpful. End with a note directing the user to official state resources."
+            f"\n\nJurisdiction: {country or 'US Federal'}"
+        )
+        for chunk in stream_completion(
+            "You produce concise, legally careful answers. Always note when answers are based on general knowledge rather than retrieved official sources.",
+            fallback_prompt,
+        ):
+            yield chunk
+        yield fallback_note
         return
 
     user_prompt = _build_prompt(question, country, results)
