@@ -135,3 +135,22 @@ def health_retrieval():
 
     total = sum(v.get("results", 0) for v in report.values() if isinstance(v.get("results"), int))
     return {"total_results": total, "sources": report}
+
+
+@router.get("/retrieval-full")
+def health_retrieval_full():
+    """Tests the exact same code path as the chat endpoint — parallel retrieve_live."""
+    from ..services.live_retrieval import retrieve_live
+    import traceback
+
+    try:
+        results = retrieve_live("What are the federal laws for overtime pay?", jurisdiction="US", max_results=7)
+        return {
+            "total_results": len(results),
+            "results": [
+                {"citation": r.citation, "source": r.source, "url": r.url}
+                for r in results
+            ]
+        }
+    except Exception as e:
+        return {"error": str(e), "traceback": traceback.format_exc()}
