@@ -9,7 +9,7 @@ router = APIRouter(prefix="/api/health", tags=["health"])
 
 @router.get("")
 def health():
-    return {"status": "ok"}
+    return {"status": "ok", "version": "ee8d00b", "retrieval": "pre-stream"}
 
 
 @router.get("/db")
