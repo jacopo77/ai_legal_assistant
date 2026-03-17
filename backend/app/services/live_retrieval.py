@@ -359,7 +359,7 @@ def fetch_courtlistener(query: str, state: str, max_results: int = 3) -> List[Li
             r = client.get(
                 "https://www.courtlistener.com/api/rest/v4/search/",
                 params=params,
-                headers={"User-Agent": "AIParalegalAssistant/1.0"},
+                headers={"User-Agent": "LegalSearchHub/1.0"},
             )
             r.raise_for_status()
             data = r.json()
@@ -451,7 +451,7 @@ def fetch_courtlistener_federal(query: str, max_results: int = 3) -> List[LiveRe
             r = client.get(
                 "https://www.courtlistener.com/api/rest/v4/search/",
                 params=params,
-                headers={"User-Agent": "AIParalegalAssistant/1.0"},
+                headers={"User-Agent": "LegalSearchHub/1.0"},
             )
             r.raise_for_status()
             data = r.json()

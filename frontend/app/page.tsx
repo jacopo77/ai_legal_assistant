@@ -234,8 +234,8 @@ export default function HomePage() {
             <span className="material-symbols-outlined text-4xl font-light">gavel</span>
           </div>
           <h1 className="text-3xl md:text-4xl font-bold tracking-tight mb-2">
-            <span className="text-white">AI Paralegal</span>{" "}
-            <span className="text-primary">Assistant</span>
+            <span className="text-white">Legal Search</span>{" "}
+            <span className="text-primary">Hub</span>
           </h1>
           <p className="text-white text-sm max-w-xs mx-auto opacity-80">
             Instant answers to legal questions, backed by real US federal law.
@@ -312,7 +312,7 @@ export default function HomePage() {
               className="w-full bg-primary hover:bg-blue-500 text-white font-bold py-4 rounded-2xl flex items-center justify-center gap-2 glow-button transition-all active:scale-[0.98] disabled:opacity-60"
             >
               <span className="material-symbols-outlined font-bold">gavel</span>
-              {loading ? "Streaming…" : "Ask AI Paralegal"}
+              {loading ? "Streaming…" : "Search Legal Hub"}
             </button>
 
             <div className="pt-2 space-y-3">
@@ -355,7 +355,7 @@ export default function HomePage() {
                           <span className="material-symbols-outlined text-xs">
                             {m.role === "user" ? "person" : "gavel"}
                           </span>
-                          {m.role === "user" ? "You" : "AI Paralegal"}
+                          {m.role === "user" ? "You" : "Legal Search Hub"}
                           {m.country && <span className="opacity-60">· {m.country}</span>}
                         </div>
                         <div className="whitespace-pre-wrap text-white/90 leading-relaxed">

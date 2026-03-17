@@ -10,7 +10,7 @@ class Settings(BaseSettings):
     model_config = SettingsConfigDict(env_file=".env", env_file_encoding="utf-8", extra="ignore")
 
     # App
-    app_name: str = Field(default="Paralegal Assistant API")
+    app_name: str = Field(default="Legal Search Hub API")
     environment: str = Field(default="development")
     host: str = Field(default="0.0.0.0")
     port: int = Field(default=8000)  # Railway injects PORT at runtime
