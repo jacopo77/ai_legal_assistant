@@ -327,8 +327,8 @@ def fetch_courtlistener(query: str, state: str, max_results: int = 3) -> List[Li
     court_param = ""
 
     # Build the CourtListener query from the user's question.
-    # Strip common question words, keep the substantive legal terms.
-    _STOPWORDS = r"\b(what|are|the|is|a|an|of|in|for|how|does|do|under|have|has|been|that|this|those|these|regarding|about|related|law|rules|rule|rights|right|i|can|my|your|their|its|will|would|should|could|when|where|which)\b"
+    # Strip common question words, keep substantive legal terms (rights, law, etc.).
+    _STOPWORDS = r"\b(what|are|the|is|a|an|of|in|for|how|does|do|under|have|has|been|that|this|those|these|regarding|about|related|rules|rule|i|can|my|your|their|its|will|would|should|could|when|where|which)\b"
     search_q = re.sub(_STOPWORDS, "", query.lower())
     search_q = re.sub(r"[?!.,]", "", search_q)
     search_q = re.sub(r"\s+", " ", search_q).strip()
@@ -501,7 +501,7 @@ def fetch_courtlistener_federal(query: str, max_results: int = 3) -> List[LiveRe
     Covers Supreme Court and all federal appellate/district courts — no API key needed.
     Adds federal case law to complement eCFR and Federal Register sources.
     """
-    _STOPWORDS = r"\b(what|are|the|is|a|an|of|in|for|how|does|do|under|have|has|been|that|this|those|these|regarding|about|related|law|rules|rule|rights|right|i|can|my|your|their|its|will|would|should|could|when|where|which)\b"
+    _STOPWORDS = r"\b(what|are|the|is|a|an|of|in|for|how|does|do|under|have|has|been|that|this|those|these|regarding|about|related|rules|rule|i|can|my|your|their|its|will|would|should|could|when|where|which)\b"
     search_q = re.sub(_STOPWORDS, "", query.lower())
     search_q = re.sub(r"[?!.,]", "", search_q)
     search_q = re.sub(r"\s+", " ", search_q).strip()
