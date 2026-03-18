@@ -1,5 +1,6 @@
 import "./globals.css";
 import GoogleAnalytics from "./GoogleAnalytics";
+import { Analytics } from "@vercel/analytics/react";
 
 export const metadata = {
   title: "Legal Search Hub - Instant Legal Answers with Citations",
@@ -31,6 +32,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
       <body>
         <GoogleAnalytics />
         {children}
+        <Analytics />
       </body>
     </html>
   );
