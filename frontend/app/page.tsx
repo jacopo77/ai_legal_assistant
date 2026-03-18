@@ -431,20 +431,6 @@ export default function HomePage() {
           </form>
         </div>
 
-        <nav className="fixed bottom-8 left-1/2 -translate-x-1/2 flex items-center gap-2 bg-slate-900/90 backdrop-blur-xl border border-white/5 rounded-full px-3 py-2 shadow-2xl">
-          <button className="flex items-center justify-center w-11 h-11 rounded-full text-primary bg-primary/10">
-            <span className="material-symbols-outlined">search</span>
-          </button>
-          <button className="flex items-center justify-center w-11 h-11 rounded-full text-slate-500 hover:text-white transition-colors">
-            <span className="material-symbols-outlined">description</span>
-          </button>
-          <button className="flex items-center justify-center w-11 h-11 rounded-full text-slate-500 hover:text-white transition-colors">
-            <span className="material-symbols-outlined">history</span>
-          </button>
-          <button className="flex items-center justify-center w-11 h-11 rounded-full text-slate-500 hover:text-white transition-colors">
-            <span className="material-symbols-outlined">person</span>
-          </button>
-        </nav>
       </main>
     </div>
   );
