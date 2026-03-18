@@ -134,12 +134,10 @@ def _build_prompt(question: str, country: Optional[str], results: List[LiveResul
         )
     else:
         instructions = (
-            "You are a careful paralegal assistant. Use the provided official-source context snippets as your primary citations, "
-            "citing them inline like [1], [2] where relevant. "
-            "When the snippets reference the topic but do not fully answer the question (e.g. they contain implementing regulations "
-            "rather than the statute itself), supplement with well-established general legal knowledge to give a complete, helpful answer. "
-            "Clearly distinguish between what the retrieved snippets say and what is general legal knowledge. "
-            "Do not fabricate citations or invent case names — only cite sources from the provided context."
+            "You are a careful paralegal assistant. Answer using ONLY the provided official-source context snippets. "
+            "Cite every claim inline with [1], [2], etc. "
+            "Do not use general knowledge or add information not found in the retrieved sources. "
+            "If the context covers the topic partially, answer only what the sources support and note any gaps."
         )
     return f"{instructions}\n\nQuestion{location}: {question}\n\nContext:\n{context}\n\nAnswer:"
 
