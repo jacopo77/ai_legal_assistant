@@ -10,7 +10,8 @@ type Message = { role: "user" | "assistant"; content: string; country?: string; 
 
 export default function HomePage() {
   const [question, setQuestion] = useState("");
-  const [country, setCountry] = useState("US");
+  const [country, setCountry] = useState("");
+  const [jurisdictionWarning, setJurisdictionWarning] = useState(false);
   const jurisdictions = [
     { value: "US", label: "US Federal" },
     { value: "Alabama", label: "Alabama" },
@@ -96,7 +97,13 @@ export default function HomePage() {
   const onSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     if (!question.trim() || loading) return;
-    
+
+    if (!country) {
+      setJurisdictionWarning(true);
+      setTimeout(() => setJurisdictionWarning(false), 4000);
+      return;
+    }
+
     const userQuestion = question;
     setQuestion("");
     setError("");
@@ -247,6 +254,28 @@ export default function HomePage() {
   return (
     <div className="min-h-screen flex flex-col items-center justify-center p-4 relative overflow-x-hidden">
       <div className="fixed inset-0 glow-bg pointer-events-none" />
+
+      {/* Jurisdiction warning popup */}
+      {jurisdictionWarning && (
+        <div className="fixed inset-0 z-50 flex items-center justify-center p-4">
+          <div className="absolute inset-0 bg-black/60" onClick={() => setJurisdictionWarning(false)} />
+          <div className="relative bg-slate-900 border border-amber-500/60 rounded-2xl p-6 max-w-sm w-full shadow-2xl text-center animate-in fade-in zoom-in duration-200">
+            <span className="material-symbols-outlined text-amber-400 text-5xl mb-3 block">
+              gavel
+            </span>
+            <h3 className="text-white font-bold text-lg mb-2">Choose a Jurisdiction First</h3>
+            <p className="text-white/70 text-sm mb-5">
+              Legal answers vary significantly by location. Please select a jurisdiction — US Federal, your state, or another location — before searching.
+            </p>
+            <button
+              onClick={() => { setJurisdictionWarning(false); document.getElementById("jurisdiction")?.focus(); }}
+              className="w-full bg-amber-500 hover:bg-amber-400 text-slate-900 font-bold py-3 rounded-xl transition-all"
+            >
+              Select Jurisdiction
+            </button>
+          </div>
+        </div>
+      )}
       <main className="w-full max-w-[640px] z-10">
         <header className="text-center mb-6">
           <div className="inline-flex items-center justify-center w-16 h-16 rounded-2xl bg-primary/20 text-primary mb-4 border border-primary/30">
@@ -305,21 +334,34 @@ export default function HomePage() {
                     <select
                       id="jurisdiction"
                       value={country}
-                      onChange={(e) => setCountry(e.target.value)}
-                      className="w-full appearance-none bg-slate-950/50 border border-slate-800 focus:border-primary focus:ring-1 focus:ring-primary rounded-2xl px-4 py-3 text-sm text-white transition-all cursor-pointer"
+                      onChange={(e) => { setCountry(e.target.value); setJurisdictionWarning(false); }}
+                      className={`w-full appearance-none bg-slate-950/50 border rounded-2xl px-4 py-3 text-sm transition-all cursor-pointer focus:ring-1 focus:ring-primary ${
+                        !country
+                          ? "border-amber-500/70 text-amber-400 focus:border-amber-400"
+                          : "border-slate-800 text-white focus:border-primary"
+                      }`}
                     >
+                      <option value="" disabled className="text-slate-500">
+                        — Choose Jurisdiction —
+                      </option>
                       {jurisdictions.map((j) => (
                         <option key={j.value} className="text-slate-900" value={j.value}>
                           {j.label}
                         </option>
                       ))}
                     </select>
-                    <span className="material-symbols-outlined absolute right-3 top-1/2 -translate-y-1/2 text-white pointer-events-none text-xl">
+                    <span className={`material-symbols-outlined absolute right-3 top-1/2 -translate-y-1/2 pointer-events-none text-xl ${!country ? "text-amber-400" : "text-white"}`}>
                       unfold_more
                     </span>
                   </div>
                 </div>
               </div>
+              {!country && (
+                <p className="text-[11px] text-amber-400/80 px-1 flex items-center gap-1">
+                  <span className="material-symbols-outlined text-[13px]">arrow_upward</span>
+                  Select a jurisdiction before searching
+                </p>
+              )}
               <div className="flex items-center gap-1.5 text-[10px] text-white/70 px-1">
                 <span className="material-symbols-outlined text-[14px]">info</span>
                 Sensitive identifiers are automatically redacted for security.
