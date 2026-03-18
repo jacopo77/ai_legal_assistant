@@ -436,18 +436,19 @@ def fetch_uscode(query: str, max_results: int = 3) -> List[LiveResult]:
         logger.warning("GOVINFO_API_KEY not set — skipping US Code search")
         return []
 
-    params = {
+    body = {
         "query": query,
         "pageSize": max_results * 2,
-        "collections": "USCODE",
-        "api_key": api_key,
+        "offsetMark": "*",
+        "collections": ["USCODE"],
     }
 
     try:
         with httpx.Client(timeout=_TIMEOUT) as client:
-            r = client.get(
+            r = client.post(
                 "https://api.govinfo.gov/search",
-                params=params,
+                json=body,
+                params={"api_key": api_key},
                 headers={"User-Agent": "LegalSearchHub/1.0"},
             )
             r.raise_for_status()
@@ -461,7 +462,7 @@ def fetch_uscode(query: str, max_results: int = 3) -> List[LiveResult]:
         title = item.get("title", "").strip()
         package_id = item.get("packageId", "")
         granule_id = item.get("granuleId", "")
-        doc_url = item.get("detailsLink", "") or item.get("pdfLink", "") or ""
+        doc_url = item.get("resultLink", "") or item.get("relatedLink", "") or ""
 
         # Build a readable citation from the package/granule IDs
         # e.g. USCODE-2023-title29 → 29 U.S.C.
