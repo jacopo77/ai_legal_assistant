@@ -351,7 +351,7 @@ export default function HomePage() {
                       ))}
                     </select>
                     <span className={`material-symbols-outlined absolute right-3 top-1/2 -translate-y-1/2 pointer-events-none text-xl ${!country ? "text-green-400" : "text-white"}`}>
-                      unfold_more
+                      expand_more
                     </span>
                   </div>
                 </div>
