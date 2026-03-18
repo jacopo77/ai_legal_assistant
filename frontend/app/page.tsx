@@ -259,8 +259,8 @@ export default function HomePage() {
       {jurisdictionWarning && (
         <div className="fixed inset-0 z-50 flex items-center justify-center p-4">
           <div className="absolute inset-0 bg-black/60" onClick={() => setJurisdictionWarning(false)} />
-          <div className="relative bg-slate-900 border border-amber-500/60 rounded-2xl p-6 max-w-sm w-full shadow-2xl text-center animate-in fade-in zoom-in duration-200">
-            <span className="material-symbols-outlined text-amber-400 text-5xl mb-3 block">
+          <div className="relative bg-slate-900 border border-green-500/60 rounded-2xl p-6 max-w-sm w-full shadow-2xl text-center animate-in fade-in zoom-in duration-200">
+            <span className="material-symbols-outlined text-green-400 text-5xl mb-3 block">
               gavel
             </span>
             <h3 className="text-white font-bold text-lg mb-2">Choose a Jurisdiction First</h3>
@@ -269,7 +269,7 @@ export default function HomePage() {
             </p>
             <button
               onClick={() => { setJurisdictionWarning(false); document.getElementById("jurisdiction")?.focus(); }}
-              className="w-full bg-amber-500 hover:bg-amber-400 text-slate-900 font-bold py-3 rounded-xl transition-all"
+              className="w-full bg-green-500 hover:bg-green-400 text-slate-900 font-bold py-3 rounded-xl transition-all"
             >
               Select Jurisdiction
             </button>
@@ -337,12 +337,12 @@ export default function HomePage() {
                       onChange={(e) => { setCountry(e.target.value); setJurisdictionWarning(false); }}
                       className={`w-full appearance-none bg-slate-950/50 border rounded-2xl px-4 py-3 text-sm transition-all cursor-pointer focus:ring-1 focus:ring-primary ${
                         !country
-                          ? "border-orange-500/80 text-orange-400 focus:border-orange-400"
+                          ? "border-green-500/80 text-green-400 font-semibold uppercase tracking-wider focus:border-green-400"
                           : "border-slate-800 text-white focus:border-primary"
                       }`}
                     >
                       <option value="" disabled className="text-slate-500">
-                        — Select Jurisdiction —
+                        Select
                       </option>
                       {jurisdictions.map((j) => (
                         <option key={j.value} className="text-slate-900" value={j.value}>
@@ -350,7 +350,7 @@ export default function HomePage() {
                         </option>
                       ))}
                     </select>
-                    <span className={`material-symbols-outlined absolute right-3 top-1/2 -translate-y-1/2 pointer-events-none text-xl ${!country ? "text-orange-400" : "text-white"}`}>
+                    <span className={`material-symbols-outlined absolute right-3 top-1/2 -translate-y-1/2 pointer-events-none text-xl ${!country ? "text-green-400" : "text-white"}`}>
                       unfold_more
                     </span>
                   </div>
