@@ -781,6 +781,152 @@ def fetch_courtlistener_federal(query: str, max_results: int = 3) -> List[LiveRe
     return combined
 
 
+# ---------------------------------------------------------------------------
+# State statute static content — official sources for common state law topics.
+# Keyed by (state_lower, topic_pattern). No API key or network call required.
+# ---------------------------------------------------------------------------
+_STATE_TOPIC_MAP: List[tuple] = [
+    # LLC / business formation
+    (
+        re.compile(r"\bLLC\b|limited liability company|certificate of formation|articles of organization|form an? (LLC|company|corporation|business)|start.{0,20}business|register.{0,20}business|incorporate", re.I),
+        {
+            "texas": (
+                "To form an LLC in Texas: (1) Choose a name that includes 'Limited Liability Company', 'LLC', or 'L.L.C.' and is distinguishable from existing Texas entities. "
+                "(2) Appoint a registered agent with a Texas street address. "
+                "(3) File a Certificate of Formation (Form 205) with the Texas Secretary of State online or by mail. Filing fee: $300. "
+                "(4) Create an operating agreement (not filed with the state, but recommended). "
+                "(5) Obtain an EIN from the IRS. "
+                "Authority: Texas Business Organizations Code, Chapter 101 (Tex. Bus. Orgs. Code § 101.001 et seq.).",
+                "Tex. Bus. Orgs. Code § 101",
+                "https://www.sos.state.tx.us/corp/forms_boc.shtml",
+                "Texas LLC Formation — Texas Secretary of State",
+            ),
+            "california": (
+                "To form an LLC in California: (1) Choose a name with 'Limited Liability Company' or 'LLC'. "
+                "(2) File Articles of Organization (Form LLC-1) with the California Secretary of State. Filing fee: $70. "
+                "(3) Appoint a registered agent. (4) File an Initial Statement of Information (Form LLC-12) within 90 days. Fee: $20. "
+                "(5) Pay the annual $800 minimum franchise tax to the California Franchise Tax Board. "
+                "Authority: California Corporations Code § 17701.01 et seq.",
+                "Cal. Corp. Code § 17701",
+                "https://bizfileonline.sos.ca.gov",
+                "California LLC Formation — California Secretary of State",
+            ),
+            "florida": (
+                "To form an LLC in Florida: (1) Choose a name with 'Limited Liability Company', 'LLC', or 'L.L.C.' "
+                "(2) File Articles of Organization (Form DLLC-1) with the Florida Division of Corporations. Online filing fee: $100 + $25 registered agent designation fee. "
+                "(3) Designate a registered agent in Florida. (4) File an Annual Report each year (fee: $138.75). "
+                "Authority: Florida Statutes Chapter 605 (Florida Revised LLC Act).",
+                "Fla. Stat. § 605",
+                "https://dos.myflorida.com/sunbiz/start-business/efile/fl-llc/",
+                "Florida LLC Formation — Florida Division of Corporations",
+            ),
+            "new york": (
+                "To form an LLC in New York: (1) Choose a name with 'Limited Liability Company', 'LLC', or 'L.L.C.' "
+                "(2) File Articles of Organization with the New York Department of State. Filing fee: $200. "
+                "(3) Designate a registered agent. "
+                "(4) Publish a notice of formation in two newspapers for 6 consecutive weeks in the county of the LLC's principal office (publication requirement). "
+                "(5) File a Certificate of Publication with the Department of State ($50). "
+                "Authority: New York Limited Liability Company Law (NY LLC Law § 101 et seq.).",
+                "NY LLC Law § 101",
+                "https://www.dos.ny.gov/corps/llcguide.html",
+                "New York LLC Formation — NY Department of State",
+            ),
+        },
+        "LLC Formation",
+        "https://www.sos.state.{state}.gov",
+    ),
+    # Landlord-tenant
+    (
+        re.compile(r"landlord|tenant|lease|eviction|security deposit|rent.{0,20}(increase|raise|hike)|habitability", re.I),
+        {
+            "texas": (
+                "Texas Landlord-Tenant Law: Under the Texas Property Code, landlords must: "
+                "(1) Make repairs to keep the premises in a habitable condition (Tex. Prop. Code § 92.052). "
+                "(2) Return security deposits within 30 days of lease termination (§ 92.103). "
+                "(3) Provide written notice before entering the premises. "
+                "Eviction: A landlord must provide written notice (typically 3 days for non-payment) before filing for eviction in Justice of the Peace Court. "
+                "Authority: Texas Property Code, Chapter 92.",
+                "Tex. Prop. Code § 92",
+                "https://statutes.capitol.texas.gov/Docs/PR/htm/PR.92.htm",
+                "Texas Landlord-Tenant — Texas Property Code § 92",
+            ),
+            "california": (
+                "California Landlord-Tenant Law: (1) Security deposits limited to 1 month's rent (unfurnished) or 2 months (furnished) (Cal. Civ. Code § 1950.5). "
+                "(2) Landlords must return deposits within 21 days. "
+                "(3) Landlords must maintain habitable conditions (§ 1941). "
+                "(4) Rent increases in cities with rent control require notice. "
+                "(5) Just cause required for eviction in most tenancies over 12 months (AB 1482). "
+                "Authority: California Civil Code § 1940 et seq.",
+                "Cal. Civ. Code § 1940",
+                "https://leginfo.legislature.ca.gov/faces/codes_displaySection.xhtml?sectionNum=1940.&lawCode=CIV",
+                "California Landlord-Tenant — California Civil Code",
+            ),
+            "florida": (
+                "Florida Landlord-Tenant Law: (1) Security deposit must be returned within 15 days (no deductions) or 30 days (with deductions) (Fla. Stat. § 83.49). "
+                "(2) Landlord must give 12 hours notice before entry except in emergencies (§ 83.53). "
+                "(3) For non-payment of rent, landlord must give 3-day written notice. "
+                "(4) Florida has no statewide rent control. "
+                "Authority: Florida Statutes Chapter 83 (Florida Residential Landlord and Tenant Act).",
+                "Fla. Stat. § 83",
+                "https://www.leg.state.fl.us/statutes/index.cfm?App_mode=Display_Statute&URL=0000-0099/0083/0083.htm",
+                "Florida Landlord-Tenant — Fla. Stat. Chapter 83",
+            ),
+        },
+        "Landlord-Tenant Law",
+        "https://statutes.capitol.{state}.gov",
+    ),
+    # Workers comp
+    (
+        re.compile(r"workers.{0,10}comp|workplace injury|injured at work|work.{0,15}accident", re.I),
+        {
+            "texas": (
+                "Texas Workers' Compensation: Texas is the only state that does not require most private employers to carry workers' compensation insurance (Texas Labor Code § 406.002). "
+                "Employers who opt out are called 'non-subscribers.' If your employer carries workers' comp, you may be entitled to income benefits (75% of average weekly wage), "
+                "medical benefits, and death benefits. File a claim with the Texas Department of Insurance, Division of Workers' Compensation within 1 year of injury. "
+                "Authority: Texas Labor Code, Chapter 406–408.",
+                "Tex. Labor Code § 406",
+                "https://www.tdi.texas.gov/wc/employee/index.html",
+                "Texas Workers' Compensation — Texas Dept. of Insurance",
+            ),
+        },
+        "Workers' Compensation",
+        "",
+    ),
+]
+
+
+def fetch_state_statutes(question: str, state: str) -> List[LiveResult]:
+    """Return static official-source content for common state law topics.
+
+    Uses pre-authored authoritative content drawn from state statutes and
+    official government websites. No API key or network call required.
+    Covers LLC formation, landlord-tenant, workers' comp for major states.
+    """
+    state_lower = state.lower()
+    results: List[LiveResult] = []
+
+    for pattern, state_map, topic_label, _default_url in _STATE_TOPIC_MAP:
+        if not pattern.search(question):
+            continue
+        entry = state_map.get(state_lower)
+        if not entry:
+            continue
+        text, citation, url, title = entry
+        results.append(
+            LiveResult(
+                text=text,
+                title=title,
+                url=url,
+                citation=citation,
+                authority=f"{state} Official State Law — {topic_label}",
+                source="state_statute",
+            )
+        )
+
+    logger.warning("State statutes returned %d result(s) for %r / query: %r", len(results), state, question)
+    return results
+
+
 def retrieve_live(
     question: str,
     jurisdiction: Optional[str] = None,
@@ -835,13 +981,14 @@ def retrieve_live(
                 unique.append(r)
         return unique
 
-    with ThreadPoolExecutor(max_workers=5) as executor:
+    with ThreadPoolExecutor(max_workers=6) as executor:
         if is_state:
             futures = {
                 executor.submit(fetch_ecfr, query, 3): "ecfr",
                 executor.submit(fetch_federal_register, query, 2): "fr",
                 executor.submit(fetch_courtlistener, question, jurisdiction, 3): "courtlistener",
                 executor.submit(fetch_uscode, question, 2): "uscode",
+                executor.submit(fetch_state_statutes, question, jurisdiction): "state_statute",
             }
         else:
             futures = {
