@@ -424,75 +424,182 @@ def fetch_courtlistener(query: str, state: str, max_results: int = 3) -> List[Li
     return combined
 
 
-def fetch_uscode(query: str, max_results: int = 3) -> List[LiveResult]:
-    """Search the US Code via the GovInfo API (Government Publishing Office).
 
-    Covers all titles of the United States Code — contracts, labor, civil rights,
-    criminal law, tax, immigration, etc. Requires GOVINFO_API_KEY env var (free).
-    Falls back gracefully if key is not set.
-    """
-    api_key = os.environ.get("GOVINFO_API_KEY", "").strip()
-    if not api_key:
-        logger.warning("GOVINFO_API_KEY not set — skipping US Code search")
-        return []
+# ---------------------------------------------------------------------------
+# Keyword → US Code section mapping (Cornell LII).
+# Each entry: (keywords_pattern, citation, lii_url, title_label)
+# ---------------------------------------------------------------------------
+_STATUTE_MAP = [
+    # Civil Rights Act — Title VII employment discrimination
+    (
+        re.compile(r"civil rights act|title vii|employment discrimination|race.{0,30}discriminat|color.{0,30}discriminat|religion.{0,30}discriminat|sex.{0,30}discriminat|national origin", re.I),
+        "42 U.S.C. § 2000e-2",
+        "https://www.law.cornell.edu/uscode/text/42/2000e-2",
+        "Civil Rights Act — Unlawful Employment Practices (Title VII)",
+    ),
+    # Civil Rights Act — Title II public accommodations
+    (
+        re.compile(r"public accommodation|restaurant|hotel|motel|place of public", re.I),
+        "42 U.S.C. § 2000a",
+        "https://www.law.cornell.edu/uscode/text/42/2000a",
+        "Civil Rights Act — Public Accommodations (Title II)",
+    ),
+    # Civil Rights Act — Title VI federal funding
+    (
+        re.compile(r"title vi|federal (funding|assistance|program).{0,30}discriminat|federally.{0,30}funded", re.I),
+        "42 U.S.C. § 2000d",
+        "https://www.law.cornell.edu/uscode/text/42/2000d",
+        "Civil Rights Act — Nondiscrimination in Federal Programs (Title VI)",
+    ),
+    # ADA — Americans with Disabilities Act
+    (
+        re.compile(r"\bADA\b|americans with disabilities|disability discriminat|reasonable accommodation", re.I),
+        "42 U.S.C. § 12112",
+        "https://www.law.cornell.edu/uscode/text/42/12112",
+        "Americans with Disabilities Act — Prohibited Discrimination",
+    ),
+    # FMLA — Family and Medical Leave
+    (
+        re.compile(r"\bFMLA\b|family.{0,15}medical leave|medical leave act|parental leave", re.I),
+        "29 U.S.C. § 2612",
+        "https://www.law.cornell.edu/uscode/text/29/2612",
+        "Family and Medical Leave Act — Entitlement to Leave",
+    ),
+    # FLSA — Fair Labor Standards / minimum wage
+    (
+        re.compile(r"minimum wage|overtime pay|fair labor standards|\bFLSA\b|hourly wage", re.I),
+        "29 U.S.C. § 206",
+        "https://www.law.cornell.edu/uscode/text/29/206",
+        "Fair Labor Standards Act — Minimum Wage",
+    ),
+    # OSHA — workplace safety
+    (
+        re.compile(r"\bOSHA\b|workplace safety|occupational safety|hazard.{0,20}workplace", re.I),
+        "29 U.S.C. § 654",
+        "https://www.law.cornell.edu/uscode/text/29/654",
+        "Occupational Safety and Health Act — Employer Duties",
+    ),
+    # ADEA — Age discrimination
+    (
+        re.compile(r"\bADEA\b|age discrimination|40 years.{0,20}old|older worker", re.I),
+        "29 U.S.C. § 623",
+        "https://www.law.cornell.edu/uscode/text/29/623",
+        "Age Discrimination in Employment Act — Prohibited Practices",
+    ),
+    # Fair Housing Act
+    (
+        re.compile(r"fair housing|housing discriminat|refuse to (sell|rent)|landlord.{0,30}discriminat", re.I),
+        "42 U.S.C. § 3604",
+        "https://www.law.cornell.edu/uscode/text/42/3604",
+        "Fair Housing Act — Prohibited Discrimination",
+    ),
+    # Title IX — education
+    (
+        re.compile(r"title ix|education.{0,20}discriminat|school.{0,20}discriminat|sex.{0,20}education", re.I),
+        "20 U.S.C. § 1681",
+        "https://www.law.cornell.edu/uscode/text/20/1681",
+        "Title IX — Sex Discrimination in Education",
+    ),
+    # NLRA — labor unions
+    (
+        re.compile(r"\bNLRA\b|labor union|collective bargaining|right to organize|unfair labor practice", re.I),
+        "29 U.S.C. § 157",
+        "https://www.law.cornell.edu/uscode/text/29/157",
+        "National Labor Relations Act — Rights of Employees",
+    ),
+    # First Amendment (via 42 U.S.C. § 1983 for civil enforcement)
+    (
+        re.compile(r"first amendment|free speech|freedom of speech|freedom of religion|freedom of press", re.I),
+        "42 U.S.C. § 1983",
+        "https://www.law.cornell.edu/uscode/text/42/1983",
+        "Civil Rights Act — Civil Action for Deprivation of Rights (§ 1983)",
+    ),
+    # Fourth Amendment / search and seizure (§ 1983)
+    (
+        re.compile(r"fourth amendment|unreasonable search|search and seizure|police search", re.I),
+        "42 U.S.C. § 1983",
+        "https://www.law.cornell.edu/uscode/text/42/1983",
+        "Civil Rights Act — Civil Action for Deprivation of Rights (§ 1983)",
+    ),
+]
 
-    body = {
-        "query": query,
-        "pageSize": max_results * 2,
-        "offsetMark": "*",
-        "collections": ["USCODE"],
-    }
 
+def _fetch_lii_section(url: str, query: str, max_chars: int = 1000) -> str:
+    """Fetch a Cornell LII US Code page and extract the most relevant text."""
     try:
-        with httpx.Client(timeout=_TIMEOUT) as client:
-            r = client.post(
-                "https://api.govinfo.gov/search",
-                json=body,
-                params={"api_key": api_key},
-                headers={"User-Agent": "LegalSearchHub/1.0"},
-            )
+        with httpx.Client(timeout=_TIMEOUT, follow_redirects=True,
+                          headers={"User-Agent": "LegalSearchHub/1.0"}) as client:
+            r = client.get(url)
             r.raise_for_status()
-            data = r.json()
     except Exception as exc:
-        logger.warning("GovInfo US Code search failed: %s", exc)
-        return []
+        logger.warning("LII fetch failed for %s: %s", url, exc)
+        return ""
 
+    # Strip HTML tags
+    text = re.sub(r"<[^>]+>", " ", r.text)
+    text = re.sub(r"\s+", " ", text).strip()
+
+    # Find the most relevant passage by keyword overlap
+    query_words = set(re.findall(r"\w+", query.lower())) - {
+        "the", "a", "an", "of", "in", "is", "what", "are", "under", "my", "rights", "how",
+    }
+    best_idx = 0
+    best_score = -1
+    window = 800
+    for i in range(0, max(1, len(text) - window), 100):
+        chunk = text[i: i + window].lower()
+        score = sum(1 for w in query_words if w in chunk)
+        if score > best_score:
+            best_score = score
+            best_idx = i
+
+    # Always anchor on the first statutory provision marker if found
+    for marker in ("it shall be unlawful", "it shall be an unlawful", "no person shall",
+                   "every employer shall", "an employer shall", "it is unlawful"):
+        marker_idx = text.lower().find(marker)
+        if marker_idx != -1:
+            best_idx = marker_idx
+            break
+
+    return text[best_idx: best_idx + max_chars].strip()
+
+
+def fetch_uscode(query: str, max_results: int = 3) -> List[LiveResult]:
+    """Fetch US Code statute text from Cornell LII based on topic keyword matching.
+
+    Covers the most commonly searched federal statutes: Civil Rights Act (Title VII,
+    Title II, Title VI), ADA, FMLA, FLSA, OSHA, ADEA, Fair Housing Act, Title IX,
+    NLRA, and § 1983 civil rights enforcement. No API key required.
+    """
     results: List[LiveResult] = []
-    for item in (data.get("results") or []):
-        title = item.get("title", "").strip()
-        package_id = item.get("packageId", "")
-        granule_id = item.get("granuleId", "")
-        doc_url = item.get("resultLink", "") or item.get("relatedLink", "") or ""
+    seen_urls: set = set()
 
-        # Build a readable citation from the package/granule IDs
-        # e.g. USCODE-2023-title29 → 29 U.S.C.
-        citation = title
-        if package_id:
-            parts = package_id.split("-")
-            if len(parts) >= 3 and "title" in parts[-1]:
-                title_num = parts[-1].replace("title", "").strip()
-                citation = f"{title_num} U.S.C. — {title}" if title else f"{title_num} U.S.C."
-
-        if not title:
+    for pattern, citation, url, title_label in _STATUTE_MAP:
+        if len(results) >= max_results:
+            break
+        if not pattern.search(query):
             continue
+        if url in seen_urls:
+            continue
+        seen_urls.add(url)
 
-        text = f"US Code: {title}"
-        if granule_id:
-            text += f" [{granule_id}]"
+        excerpt = _fetch_lii_section(url, query)
+        if not excerpt:
+            continue
 
         results.append(
             LiveResult(
-                text=text,
-                title=title,
-                url=doc_url,
+                text=f"{title_label}\n\n{excerpt}",
+                title=title_label,
+                url=url,
                 citation=citation,
-                authority="United States Code via GovInfo (Government Publishing Office)",
+                authority="United States Code via Cornell Legal Information Institute (LII)",
                 source="uscode",
             )
         )
 
-    logger.info("GovInfo US Code returned %d result(s) for query: %r", len(results), query)
-    return results[:max_results]
+    logger.warning("US Code (LII) returned %d result(s) for query: %r", len(results), query)
+    return results
 
 
 def fetch_courtlistener_federal(query: str, max_results: int = 3) -> List[LiveResult]:
