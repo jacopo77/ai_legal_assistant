@@ -357,8 +357,8 @@ export default function HomePage() {
                 </div>
               </div>
               <div className="flex items-center gap-1.5 text-[10px] text-white/70 px-1">
-                <span className="material-symbols-outlined text-[14px]">info</span>
-                Sensitive identifiers are automatically redacted for security.
+                <span className="material-symbols-outlined text-[14px]">lock</span>
+                Personal details (SSN, names, addresses) are automatically removed to protect your privacy.
               </div>
             </div>
             <button
