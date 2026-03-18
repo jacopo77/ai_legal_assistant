@@ -615,8 +615,7 @@ def retrieve_live(
     _STOPWORDS = re.compile(
         r"\b(what|does|do|is|are|the|a|an|of|in|for|how|under|have|has|been|that|"
         r"this|those|these|about|related|i|can|my|your|their|its|will|would|should|"
-        r"could|when|where|which|say|says|said|tell|me|us|federal|law|laws|legal|"
-        r"rights|right|requirements|requirement)\b",
+        r"could|when|where|which|say|says|said|tell|me|us)\b",
         re.IGNORECASE,
     )
     keywords = re.sub(_STOPWORDS, " ", question)
