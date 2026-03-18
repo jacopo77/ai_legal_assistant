@@ -439,9 +439,7 @@ def fetch_uscode(query: str, max_results: int = 3) -> List[LiveResult]:
     params = {
         "query": query,
         "pageSize": max_results * 2,
-        "offsetMark": "*",
         "collections": "USCODE",
-        "sortBy": "relevance",
         "api_key": api_key,
     }
 
