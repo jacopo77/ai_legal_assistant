@@ -786,9 +786,9 @@ def fetch_courtlistener_federal(query: str, max_results: int = 3) -> List[LiveRe
 # Keyed by (state_lower, topic_pattern). No API key or network call required.
 # ---------------------------------------------------------------------------
 _STATE_TOPIC_MAP: List[tuple] = [
-    # LLC / business formation
+    # LLC formation
     (
-        re.compile(r"\bLLC\b|limited liability company|certificate of formation|articles of organization|form an? (LLC|company|corporation|business)|start.{0,20}business|register.{0,20}business|incorporate", re.I),
+        re.compile(r"\bLLC\b|limited liability company|articles of organization|form an? LLC|start.{0,20}LLC|register.{0,20}LLC", re.I),
         {
             "texas": (
                 "To form an LLC in Texas: (1) Choose a name that includes 'Limited Liability Company', 'LLC', or 'L.L.C.' and is distinguishable from existing Texas entities. "
@@ -833,6 +833,60 @@ _STATE_TOPIC_MAP: List[tuple] = [
             ),
         },
         "LLC Formation",
+        "https://www.sos.state.{state}.gov",
+    ),
+    # Corporation formation
+    (
+        re.compile(r"\bcorporation\b|\bcorp\b|incorporate|articles of incorporation|form an? (corp|company|business)|start.{0,20}(corp|company|business)|register.{0,20}(corp|company|business)", re.I),
+        {
+            "texas": (
+                "To form a corporation (for-profit) in Texas: (1) Choose a name that includes 'Corporation', 'Incorporated', 'Company', 'Corp.', 'Inc.', or 'Co.' and is distinguishable from existing Texas entities. "
+                "(2) Appoint a registered agent with a physical Texas street address. "
+                "(3) File a Certificate of Formation (Form 201) with the Texas Secretary of State online or by mail. Filing fee: $300. "
+                "(4) Adopt bylaws (not filed with the state, but required internally). "
+                "(5) Issue shares to initial shareholders and hold an organizational meeting. "
+                "(6) Obtain an EIN from the IRS. "
+                "Authority: Texas Business Organizations Code, Chapter 21 (Tex. Bus. Orgs. Code § 21.001 et seq.).",
+                "Tex. Bus. Orgs. Code § 21",
+                "https://www.sos.state.tx.us/corp/forms_boc.shtml",
+                "Texas Corporation Formation — Texas Secretary of State",
+            ),
+            "california": (
+                "To form a corporation in California: (1) Choose a corporate name. "
+                "(2) File Articles of Incorporation with the California Secretary of State. Filing fee: $100. "
+                "(3) Appoint a registered agent in California. "
+                "(4) Adopt bylaws and hold an organizational meeting. "
+                "(5) Issue shares and obtain an EIN. "
+                "(6) File an Initial Statement of Information (Form SI-550) within 90 days. Fee: $25. "
+                "(7) Pay the annual minimum $800 franchise tax to the California Franchise Tax Board. "
+                "Authority: California Corporations Code § 100 et seq.",
+                "Cal. Corp. Code § 100",
+                "https://bizfileonline.sos.ca.gov",
+                "California Corporation Formation — California Secretary of State",
+            ),
+            "florida": (
+                "To form a corporation in Florida: (1) Choose a name with 'Corporation', 'Incorporated', 'Corp.', or 'Inc.' "
+                "(2) File Articles of Incorporation with the Florida Division of Corporations. Filing fee: $70 + $35 registered agent designation fee. "
+                "(3) Designate a registered agent. (4) Adopt bylaws. (5) Issue stock and hold organizational meeting. "
+                "(6) File an Annual Report each year (fee: $138.75). "
+                "Authority: Florida Statutes Chapter 607 (Florida Business Corporation Act).",
+                "Fla. Stat. § 607",
+                "https://dos.myflorida.com/sunbiz/start-business/efile/fl-profit-corporation/",
+                "Florida Corporation Formation — Florida Division of Corporations",
+            ),
+            "new york": (
+                "To form a corporation in New York: (1) Choose a corporate name. "
+                "(2) File a Certificate of Incorporation with the New York Department of State. Filing fee: $125. "
+                "(3) Designate a registered agent. (4) Adopt bylaws and hold organizational meeting. "
+                "(5) Issue stock and obtain an EIN. "
+                "(6) File a Biennial Statement every two years ($9 fee). "
+                "Authority: New York Business Corporation Law (NY BCL § 101 et seq.).",
+                "NY Bus. Corp. Law § 101",
+                "https://www.dos.ny.gov/corps/bus_entity_search.html",
+                "New York Corporation Formation — NY Department of State",
+            ),
+        },
+        "Corporation Formation",
         "https://www.sos.state.{state}.gov",
     ),
     # Landlord-tenant
