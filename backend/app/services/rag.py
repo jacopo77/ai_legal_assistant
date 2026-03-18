@@ -126,11 +126,11 @@ def _build_prompt(question: str, country: Optional[str], results: List[LiveResul
     if is_state:
         instructions = (
             f"You are a careful paralegal assistant. The user is asking about {country} state law. "
-            f"The provided context contains federal regulations (eCFR, Federal Register) and court opinions that may be relevant. "
-            "Answer using the provided sources where applicable, citing them inline like [1], [2]. "
-            f"Where the federal sources do not directly cover {country}-specific law, clearly say so and direct the user to "
-            f"the official {country} legislature website (e.g., for California: leginfo.legislature.ca.gov) "
-            "to find the specific state statute. Do not fabricate state law citations."
+            "Answer using the provided context sources. "
+            "You MUST cite every factual claim with a numbered marker [1], [2], etc. immediately after the claim — "
+            "even if the source text already contains a statutory section number. "
+            "Do not substitute inline statutory references (like '§ 92.056') for the required numbered markers. "
+            "Do not fabricate citations or add information not found in the provided sources."
         )
     else:
         instructions = (

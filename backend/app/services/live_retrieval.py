@@ -894,33 +894,33 @@ _STATE_TOPIC_MAP: List[tuple] = [
         re.compile(r"landlord|tenant|lease|eviction|security deposit|rent.{0,20}(increase|raise|hike)|habitability", re.I),
         {
             "texas": (
-                "Texas Landlord-Tenant Law: Under the Texas Property Code, landlords must: "
-                "(1) Make repairs to keep the premises in a habitable condition (Tex. Prop. Code § 92.052). "
-                "(2) Return security deposits within 30 days of lease termination (§ 92.103). "
-                "(3) Provide written notice before entering the premises. "
-                "Eviction: A landlord must provide written notice (typically 3 days for non-payment) before filing for eviction in Justice of the Peace Court. "
-                "Authority: Texas Property Code, Chapter 92.",
+                "Texas Landlord-Tenant Law (Texas Property Code, Chapter 92): "
+                "Landlords must make repairs necessary to keep the premises in a habitable condition. "
+                "Security deposits must be returned within 30 days of lease termination with an itemized statement of deductions. "
+                "Tenants may terminate a lease and recover costs if the landlord fails to make repairs after written notice. "
+                "Tenants may also repair and deduct the cost from rent (limited to one month's rent) after proper notice. "
+                "For eviction due to non-payment of rent, the landlord must give 3 days written notice before filing suit in Justice of the Peace Court.",
                 "Tex. Prop. Code § 92",
                 "https://statutes.capitol.texas.gov/Docs/PR/htm/PR.92.htm",
                 "Texas Landlord-Tenant — Texas Property Code § 92",
             ),
             "california": (
-                "California Landlord-Tenant Law: (1) Security deposits limited to 1 month's rent (unfurnished) or 2 months (furnished) (Cal. Civ. Code § 1950.5). "
-                "(2) Landlords must return deposits within 21 days. "
-                "(3) Landlords must maintain habitable conditions (§ 1941). "
-                "(4) Rent increases in cities with rent control require notice. "
-                "(5) Just cause required for eviction in most tenancies over 12 months (AB 1482). "
-                "Authority: California Civil Code § 1940 et seq.",
+                "California Landlord-Tenant Law (California Civil Code § 1940 et seq.): "
+                "Security deposits are limited to 1 month's rent for unfurnished units and 2 months for furnished units. "
+                "Landlords must return deposits within 21 days with an itemized statement. "
+                "Landlords must maintain the rental in a habitable condition. "
+                "Most tenancies over 12 months require just cause for eviction under AB 1482. "
+                "Rent increases in rent-controlled cities require advance written notice.",
                 "Cal. Civ. Code § 1940",
                 "https://leginfo.legislature.ca.gov/faces/codes_displaySection.xhtml?sectionNum=1940.&lawCode=CIV",
                 "California Landlord-Tenant — California Civil Code",
             ),
             "florida": (
-                "Florida Landlord-Tenant Law: (1) Security deposit must be returned within 15 days (no deductions) or 30 days (with deductions) (Fla. Stat. § 83.49). "
-                "(2) Landlord must give 12 hours notice before entry except in emergencies (§ 83.53). "
-                "(3) For non-payment of rent, landlord must give 3-day written notice. "
-                "(4) Florida has no statewide rent control. "
-                "Authority: Florida Statutes Chapter 83 (Florida Residential Landlord and Tenant Act).",
+                "Florida Landlord-Tenant Law (Florida Statutes Chapter 83 — Florida Residential Landlord and Tenant Act): "
+                "Security deposits must be returned within 15 days (no deductions) or 30 days (with written deductions notice). "
+                "Landlords must give 12 hours advance notice before entering the unit except in emergencies. "
+                "For non-payment of rent, landlords must give a 3-day written notice before filing for eviction. "
+                "Florida has no statewide rent control law.",
                 "Fla. Stat. § 83",
                 "https://www.leg.state.fl.us/statutes/index.cfm?App_mode=Display_Statute&URL=0000-0099/0083/0083.htm",
                 "Florida Landlord-Tenant — Fla. Stat. Chapter 83",
