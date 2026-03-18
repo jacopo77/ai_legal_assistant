@@ -337,12 +337,12 @@ export default function HomePage() {
                       onChange={(e) => { setCountry(e.target.value); setJurisdictionWarning(false); }}
                       className={`w-full appearance-none bg-slate-950/50 border rounded-2xl px-4 py-3 text-sm transition-all cursor-pointer focus:ring-1 focus:ring-primary ${
                         !country
-                          ? "border-amber-500/70 text-amber-400 focus:border-amber-400"
+                          ? "border-orange-500/80 text-orange-400 focus:border-orange-400"
                           : "border-slate-800 text-white focus:border-primary"
                       }`}
                     >
                       <option value="" disabled className="text-slate-500">
-                        — Choose Jurisdiction —
+                        — Select Jurisdiction —
                       </option>
                       {jurisdictions.map((j) => (
                         <option key={j.value} className="text-slate-900" value={j.value}>
@@ -350,18 +350,12 @@ export default function HomePage() {
                         </option>
                       ))}
                     </select>
-                    <span className={`material-symbols-outlined absolute right-3 top-1/2 -translate-y-1/2 pointer-events-none text-xl ${!country ? "text-amber-400" : "text-white"}`}>
+                    <span className={`material-symbols-outlined absolute right-3 top-1/2 -translate-y-1/2 pointer-events-none text-xl ${!country ? "text-orange-400" : "text-white"}`}>
                       unfold_more
                     </span>
                   </div>
                 </div>
               </div>
-              {!country && (
-                <p className="text-[11px] text-amber-400/80 px-1 flex items-center gap-1">
-                  <span className="material-symbols-outlined text-[13px]">arrow_upward</span>
-                  Select a jurisdiction before searching
-                </p>
-              )}
               <div className="flex items-center gap-1.5 text-[10px] text-white/70 px-1">
                 <span className="material-symbols-outlined text-[14px]">info</span>
                 Sensitive identifiers are automatically redacted for security.
