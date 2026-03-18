@@ -426,8 +426,9 @@ def fetch_courtlistener(query: str, state: str, max_results: int = 3) -> List[Li
 
 
 # ---------------------------------------------------------------------------
-# Keyword → US Code section mapping (Cornell LII).
-# Each entry: (keywords_pattern, citation, lii_url, title_label)
+# Keyword → US Code section mapping.
+# Each entry: (pattern, citation, lii_url, title_label, fallback_text)
+# fallback_text is used when the live LII fetch fails or is blocked.
 # ---------------------------------------------------------------------------
 _STATUTE_MAP = [
     # Civil Rights Act — Title VII employment discrimination
@@ -436,6 +437,16 @@ _STATUTE_MAP = [
         "42 U.S.C. § 2000e-2",
         "https://www.law.cornell.edu/uscode/text/42/2000e-2",
         "Civil Rights Act — Unlawful Employment Practices (Title VII)",
+        (
+            "It shall be an unlawful employment practice for an employer— "
+            "(1) to fail or refuse to hire or to discharge any individual, or otherwise to discriminate against any "
+            "individual with respect to his compensation, terms, conditions, or privileges of employment, because of "
+            "such individual's race, color, religion, sex, or national origin; or "
+            "(2) to limit, segregate, or classify his employees or applicants for employment in any way which would "
+            "deprive or tend to deprive any individual of employment opportunities or otherwise adversely affect his "
+            "status as an employee, because of such individual's race, color, religion, sex, or national origin. "
+            "(42 U.S.C. § 2000e-2, Civil Rights Act of 1964, Title VII)"
+        ),
     ),
     # Civil Rights Act — Title II public accommodations
     (
@@ -443,6 +454,13 @@ _STATUTE_MAP = [
         "42 U.S.C. § 2000a",
         "https://www.law.cornell.edu/uscode/text/42/2000a",
         "Civil Rights Act — Public Accommodations (Title II)",
+        (
+            "All persons shall be entitled to the full and equal enjoyment of the goods, services, facilities, "
+            "privileges, advantages, and accommodations of any place of public accommodation, as defined in this "
+            "section, without discrimination on the ground of race, color, religion, or national origin. "
+            "Places of public accommodation include hotels, motels, restaurants, motion picture houses, theaters, "
+            "concert halls, sports arenas, and stadiums. (42 U.S.C. § 2000a, Civil Rights Act of 1964, Title II)"
+        ),
     ),
     # Civil Rights Act — Title VI federal funding
     (
@@ -450,6 +468,11 @@ _STATUTE_MAP = [
         "42 U.S.C. § 2000d",
         "https://www.law.cornell.edu/uscode/text/42/2000d",
         "Civil Rights Act — Nondiscrimination in Federal Programs (Title VI)",
+        (
+            "No person in the United States shall, on the ground of race, color, or national origin, be excluded "
+            "from participation in, be denied the benefits of, or be subjected to discrimination under any program "
+            "or activity receiving Federal financial assistance. (42 U.S.C. § 2000d, Civil Rights Act of 1964, Title VI)"
+        ),
     ),
     # ADA — Americans with Disabilities Act
     (
@@ -457,6 +480,15 @@ _STATUTE_MAP = [
         "42 U.S.C. § 12112",
         "https://www.law.cornell.edu/uscode/text/42/12112",
         "Americans with Disabilities Act — Prohibited Discrimination",
+        (
+            "No covered entity shall discriminate against a qualified individual on the basis of disability in regard "
+            "to job application procedures, the hiring, advancement, or discharge of employees, employee compensation, "
+            "job training, and other terms, conditions, and privileges of employment. "
+            "Discrimination includes not making reasonable accommodations to the known physical or mental limitations "
+            "of an otherwise qualified individual with a disability, unless the covered entity can demonstrate that "
+            "the accommodation would impose an undue hardship on the operation of the business. "
+            "(42 U.S.C. § 12112, Americans with Disabilities Act of 1990)"
+        ),
     ),
     # FMLA — Family and Medical Leave
     (
@@ -464,13 +496,30 @@ _STATUTE_MAP = [
         "29 U.S.C. § 2612",
         "https://www.law.cornell.edu/uscode/text/29/2612",
         "Family and Medical Leave Act — Entitlement to Leave",
+        (
+            "An eligible employee shall be entitled to a total of 12 workweeks of leave during any 12-month period "
+            "for one or more of the following: (A) Because of the birth of a son or daughter of the employee and in "
+            "order to care for such son or daughter. (B) Because of the placement of a son or daughter with the "
+            "employee for adoption or foster care. (C) In order to care for the spouse, or a son, daughter, or parent "
+            "of the employee, if such spouse, son, daughter, or parent has a serious health condition. (D) Because of "
+            "a serious health condition that makes the employee unable to perform the functions of the position of "
+            "such employee. (29 U.S.C. § 2612, Family and Medical Leave Act of 1993)"
+        ),
     ),
     # FLSA — Fair Labor Standards / minimum wage
     (
         re.compile(r"minimum wage|overtime pay|fair labor standards|\bFLSA\b|hourly wage", re.I),
-        "29 U.S.C. § 206",
+        "29 U.S.C. § 206-207",
         "https://www.law.cornell.edu/uscode/text/29/206",
-        "Fair Labor Standards Act — Minimum Wage",
+        "Fair Labor Standards Act — Minimum Wage and Overtime",
+        (
+            "Every employer shall pay to each of his employees who in any workweek is engaged in commerce or in the "
+            "production of goods for commerce, wages at the following rates: not less than $7.25 an hour beginning "
+            "July 24, 2009. (29 U.S.C. § 206) "
+            "No employer shall employ any employee for a workweek longer than forty hours unless such employee "
+            "receives compensation for his employment in excess of the hours above specified at a rate not less than "
+            "one and one-half times the regular rate at which he is employed. (29 U.S.C. § 207, FLSA overtime rule)"
+        ),
     ),
     # OSHA — workplace safety
     (
@@ -478,6 +527,14 @@ _STATUTE_MAP = [
         "29 U.S.C. § 654",
         "https://www.law.cornell.edu/uscode/text/29/654",
         "Occupational Safety and Health Act — Employer Duties",
+        (
+            "Each employer shall furnish to each of his employees employment and a place of employment which are free "
+            "from recognized hazards that are causing or are likely to cause death or serious physical harm to his "
+            "employees (the 'general duty clause'). Each employer shall comply with occupational safety and health "
+            "standards promulgated under this chapter. Each employee shall comply with occupational safety and health "
+            "standards and all rules, regulations, and orders issued pursuant to this chapter which are applicable "
+            "to his own actions and conduct. (29 U.S.C. § 654, Occupational Safety and Health Act of 1970)"
+        ),
     ),
     # ADEA — Age discrimination
     (
@@ -485,6 +542,15 @@ _STATUTE_MAP = [
         "29 U.S.C. § 623",
         "https://www.law.cornell.edu/uscode/text/29/623",
         "Age Discrimination in Employment Act — Prohibited Practices",
+        (
+            "It shall be unlawful for an employer to fail or refuse to hire or to discharge any individual or "
+            "otherwise discriminate against any individual with respect to his compensation, terms, conditions, or "
+            "privileges of employment, because of such individual's age. It shall be unlawful for an employer to "
+            "limit, segregate, or classify his employees in any way which would deprive or tend to deprive any "
+            "individual of employment opportunities or otherwise adversely affect his status as an employee, because "
+            "of such individual's age. The ADEA protects individuals who are at least 40 years of age. "
+            "(29 U.S.C. § 623, Age Discrimination in Employment Act of 1967)"
+        ),
     ),
     # Fair Housing Act
     (
@@ -492,6 +558,14 @@ _STATUTE_MAP = [
         "42 U.S.C. § 3604",
         "https://www.law.cornell.edu/uscode/text/42/3604",
         "Fair Housing Act — Prohibited Discrimination",
+        (
+            "It shall be unlawful to refuse to sell or rent after the making of a bona fide offer, or to refuse to "
+            "negotiate for the sale or rental of, or otherwise make unavailable or deny, a dwelling to any person "
+            "because of race, color, religion, sex, familial status, or national origin. It shall be unlawful to "
+            "discriminate against any person in the terms, conditions, or privileges of sale or rental of a dwelling, "
+            "or in the provision of services or facilities in connection therewith, because of race, color, religion, "
+            "sex, familial status, or national origin. (42 U.S.C. § 3604, Fair Housing Act of 1968)"
+        ),
     ),
     # Title IX — education
     (
@@ -499,6 +573,11 @@ _STATUTE_MAP = [
         "20 U.S.C. § 1681",
         "https://www.law.cornell.edu/uscode/text/20/1681",
         "Title IX — Sex Discrimination in Education",
+        (
+            "No person in the United States shall, on the basis of sex, be excluded from participation in, be denied "
+            "the benefits of, or be subjected to discrimination under any education program or activity receiving "
+            "Federal financial assistance. (20 U.S.C. § 1681, Title IX of the Education Amendments of 1972)"
+        ),
     ),
     # NLRA — labor unions
     (
@@ -506,20 +585,27 @@ _STATUTE_MAP = [
         "29 U.S.C. § 157",
         "https://www.law.cornell.edu/uscode/text/29/157",
         "National Labor Relations Act — Rights of Employees",
+        (
+            "Employees shall have the right to self-organization, to form, join, or assist labor organizations, "
+            "to bargain collectively through representatives of their own choosing, and to engage in other concerted "
+            "activities for the purpose of collective bargaining or other mutual aid or protection, and shall also "
+            "have the right to refrain from any or all of such activities. (29 U.S.C. § 157, National Labor "
+            "Relations Act)"
+        ),
     ),
-    # First Amendment (via 42 U.S.C. § 1983 for civil enforcement)
+    # § 1983 civil rights enforcement — First/Fourth Amendment violations
     (
-        re.compile(r"first amendment|free speech|freedom of speech|freedom of religion|freedom of press", re.I),
+        re.compile(r"first amendment|free speech|freedom of speech|freedom of religion|freedom of press|fourth amendment|unreasonable search|search and seizure|police search|civil rights violation|constitutional right", re.I),
         "42 U.S.C. § 1983",
         "https://www.law.cornell.edu/uscode/text/42/1983",
         "Civil Rights Act — Civil Action for Deprivation of Rights (§ 1983)",
-    ),
-    # Fourth Amendment / search and seizure (§ 1983)
-    (
-        re.compile(r"fourth amendment|unreasonable search|search and seizure|police search", re.I),
-        "42 U.S.C. § 1983",
-        "https://www.law.cornell.edu/uscode/text/42/1983",
-        "Civil Rights Act — Civil Action for Deprivation of Rights (§ 1983)",
+        (
+            "Every person who, under color of any statute, ordinance, regulation, custom, or usage, of any State or "
+            "Territory or the District of Columbia, subjects, or causes to be subjected, any citizen of the United "
+            "States or other person within the jurisdiction thereof to the deprivation of any rights, privileges, or "
+            "immunities secured by the Constitution and laws, shall be liable to the party injured in an action at "
+            "law, suit in equity, or other proper proceeding for redress. (42 U.S.C. § 1983)"
+        ),
     ),
 ]
 
@@ -565,16 +651,17 @@ def _fetch_lii_section(url: str, query: str, max_chars: int = 1000) -> str:
 
 
 def fetch_uscode(query: str, max_results: int = 3) -> List[LiveResult]:
-    """Fetch US Code statute text from Cornell LII based on topic keyword matching.
+    """Fetch US Code statute text for common federal statutes by keyword matching.
 
-    Covers the most commonly searched federal statutes: Civil Rights Act (Title VII,
-    Title II, Title VI), ADA, FMLA, FLSA, OSHA, ADEA, Fair Housing Act, Title IX,
-    NLRA, and § 1983 civil rights enforcement. No API key required.
+    Tries to fetch live text from Cornell LII; falls back to embedded statutory
+    text when the live fetch is unavailable. Covers Civil Rights Act (Title VII,
+    II, VI), ADA, FMLA, FLSA, OSHA, ADEA, Fair Housing Act, Title IX, NLRA, § 1983.
+    No API key required.
     """
     results: List[LiveResult] = []
     seen_urls: set = set()
 
-    for pattern, citation, url, title_label in _STATUTE_MAP:
+    for pattern, citation, url, title_label, fallback_text in _STATUTE_MAP:
         if len(results) >= max_results:
             break
         if not pattern.search(query):
@@ -583,9 +670,11 @@ def fetch_uscode(query: str, max_results: int = 3) -> List[LiveResult]:
             continue
         seen_urls.add(url)
 
+        # Try live fetch first; use embedded fallback text if blocked or unavailable
         excerpt = _fetch_lii_section(url, query)
         if not excerpt:
-            continue
+            logger.warning("LII fetch unavailable for %s — using embedded statute text", citation)
+            excerpt = fallback_text
 
         results.append(
             LiveResult(
@@ -593,12 +682,12 @@ def fetch_uscode(query: str, max_results: int = 3) -> List[LiveResult]:
                 title=title_label,
                 url=url,
                 citation=citation,
-                authority="United States Code via Cornell Legal Information Institute (LII)",
+                authority="United States Code — Cornell Legal Information Institute (LII)",
                 source="uscode",
             )
         )
 
-    logger.warning("US Code (LII) returned %d result(s) for query: %r", len(results), query)
+    logger.warning("US Code returned %d result(s) for query: %r", len(results), query)
     return results
 
 
