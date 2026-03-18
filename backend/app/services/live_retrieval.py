@@ -103,8 +103,8 @@ def fetch_ecfr(query: str, max_results: int = 4) -> List[LiveResult]:
             )
         )
 
-    logger.warning("eCFR returned %d result(s) for query: %r", len(results), query)
-    return results
+    logger.warning("eCFR returned %d result(s) for query: %r", len(results[:max_results]), query)
+    return results[:max_results]
 
 
 def _fetch_fr_fulltext(body_html_url: str, query: str, max_chars: int = 800) -> str:

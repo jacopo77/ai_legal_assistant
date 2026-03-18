@@ -18,7 +18,7 @@ def chat_stream(req: ChatRequest):
 
     logger.warning("CHAT: starting retrieve_live for %r / jurisdiction=%r", req.question, req.country)
     try:
-        results = retrieve_live(req.question, jurisdiction=req.country, max_results=7)
+        results = retrieve_live(req.question, jurisdiction=req.country, max_results=10)
         logger.warning("CHAT: retrieve_live returned %d result(s)", len(results))
     except Exception as exc:
         logger.warning("CHAT: retrieve_live raised exception: %s", exc)
