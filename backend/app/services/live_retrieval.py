@@ -609,9 +609,23 @@ def retrieve_live(
         and jurisdiction.lower() in _US_STATES
     )
 
-    # For state queries, embed the state name so federal APIs return
-    # state-relevant results (e.g. HUD housing regs for California tenants).
-    query = f"{question} {jurisdiction}" if is_state else question
+    # Strip common question words to produce a keyword-focused search query.
+    # This improves eCFR/Federal Register relevance vs sending the full question sentence.
+    _STOPWORDS = re.compile(
+        r"\b(what|does|do|is|are|the|a|an|of|in|for|how|under|have|has|been|that|"
+        r"this|those|these|about|related|i|can|my|your|their|its|will|would|should|"
+        r"could|when|where|which|say|says|said|tell|me|us|federal|law|laws|legal|"
+        r"rights|right|requirements|requirement)\b",
+        re.IGNORECASE,
+    )
+    keywords = re.sub(_STOPWORDS, " ", question)
+    keywords = re.sub(r"[?!.,]", " ", keywords)
+    keywords = re.sub(r"\s+", " ", keywords).strip()
+    # Fall back to full question if keyword extraction strips too much
+    search_query = keywords if len(keywords) > 10 else question
+
+    # For state queries, embed the state name so federal APIs return state-relevant results
+    query = f"{search_query} {jurisdiction}" if is_state else search_query
 
     combined: List[LiveResult] = []
     seen_citations: set = set()
