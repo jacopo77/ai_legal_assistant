@@ -1,6 +1,8 @@
 import "./globals.css";
-import GoogleAnalytics from "./GoogleAnalytics";
+import Script from "next/script";
 import { Analytics } from "@vercel/analytics/react";
+
+const GA_ID = "G-PFQXS2L912";
 
 export const metadata = {
   title: "Legal Search Hub - Instant Legal Answers with Citations",
@@ -11,15 +13,6 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
   return (
     <html lang="en" className="dark">
       <head>
-        <script
-          async
-          src="https://www.googletagmanager.com/gtag/js?id=G-PFQXS2L912"
-        />
-        <script
-          dangerouslySetInnerHTML={{
-            __html: `window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-PFQXS2L912');`,
-          }}
-        />
         <link
           href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap"
           rel="stylesheet"
@@ -30,9 +23,22 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         />
       </head>
       <body>
-        <GoogleAnalytics />
         {children}
         <Analytics />
+
+        {/* Google Analytics 4 — loaded after page is interactive via next/script */}
+        <Script
+          src={`https://www.googletagmanager.com/gtag/js?id=${GA_ID}`}
+          strategy="afterInteractive"
+        />
+        <Script id="ga4-init" strategy="afterInteractive">
+          {`
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+            gtag('config', '${GA_ID}');
+          `}
+        </Script>
       </body>
     </html>
   );
