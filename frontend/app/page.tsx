@@ -417,7 +417,7 @@ export default function HomePage() {
           {messages.length === 0 ? (
             <div>
               <p className="text-[10px] font-bold uppercase tracking-widest text-white/30 text-center mb-3">
-                Try asking
+                Try a sample prompt
               </p>
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
                 {EXAMPLE_PROMPTS.map((prompt) => (
