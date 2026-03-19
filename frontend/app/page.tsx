@@ -12,6 +12,64 @@ const EXAMPLE_PROMPTS = [
   "What counts as workplace discrimination under Title VII?",
 ];
 
+const FAILURE_PATTERNS = [
+  "does not specifically address",
+  "no relevant snippets",
+  "cannot provide a definitive answer",
+  "additional information may be needed",
+  "i cannot provide",
+  "does not provide specific",
+  "context does not",
+  "not able to provide",
+  "unable to provide",
+  "no information available",
+];
+
+const LANDLORD_TENANT_KEYWORDS = ["landlord", "tenant", "rent", "eviction", "evict", "lease", "habitability", "repair", "heat", "hot water", "deposit", "security deposit"];
+const BUSINESS_KEYWORDS = ["llc", "corporation", "incorporate", "business formation", "form a business", "start a business", "articles of incorporation"];
+const SUPPORTED_STATES = ["Texas", "California", "Florida", "New York"];
+
+function isFailureResponse(content: string): boolean {
+  const lower = content.toLowerCase();
+  return FAILURE_PATTERNS.some((p) => lower.includes(p));
+}
+
+function getGuidance(question: string, jurisdiction: string): { heading: string; message: string; retryQuestion?: string } {
+  const lower = question.toLowerCase();
+  const isLandlordTenant = LANDLORD_TENANT_KEYWORDS.some((kw) => lower.includes(kw));
+  const isBusiness = BUSINESS_KEYWORDS.some((kw) => lower.includes(kw));
+  const isStateTopicUnderFederal = jurisdiction === "US" && (isLandlordTenant || isBusiness);
+
+  if (isStateTopicUnderFederal && isLandlordTenant) {
+    return {
+      heading: "This is a state law question",
+      message: "Landlord-tenant rights — repairs, habitability, eviction — are governed by state law, not federal law. This app has full coverage for Texas, California, Florida, and New York.",
+      retryQuestion: question,
+    };
+  }
+
+  if (isStateTopicUnderFederal && isBusiness) {
+    return {
+      heading: "This is a state law question",
+      message: "Business formation (LLC, corporation) is handled at the state level. This app has coverage for Texas, California, Florida, and New York.",
+      retryQuestion: question,
+    };
+  }
+
+  if (SUPPORTED_STATES.includes(jurisdiction) && !isLandlordTenant && !isBusiness) {
+    return {
+      heading: "Try US Federal for this topic",
+      message: `State coverage is focused on landlord-tenant rights and business formation. For employment, civil rights, ADA, FMLA, or Title VII questions, select US Federal as your jurisdiction.`,
+      retryQuestion: question,
+    };
+  }
+
+  return {
+    heading: "Try rephrasing your question",
+    message: "This app covers US employment law (FMLA, ADA, FLSA, Title VII, OSHA), civil rights (Section 1983, Fair Housing Act), and landlord-tenant and business formation law for Texas, California, Florida, and New York. Try adding more detail — your role, the specific law, and what outcome you need.",
+  };
+}
+
 type Source = { n: number; citation: string | null; url: string; title: string | null };
 type Message = { role: "user" | "assistant"; content: string; country?: string; error?: boolean; sources?: Source[] };
 
@@ -387,29 +445,64 @@ export default function HomePage() {
                 </button>
               </div>
               <div className="space-y-4">
-                {messages.map((m, i) => (
-                  <div
-                    key={i}
-                    className={`rounded-2xl p-4 md:p-5 ${
-                      m.role === "user"
-                        ? "glass-card border border-primary/20 ml-8"
-                        : m.error
-                        ? "bg-red-500/10 border border-red-500/30 rounded-2xl"
-                        : "glass-card border border-slate-700/60"
-                    }`}
-                  >
-                    <div className="text-[10px] uppercase tracking-wider text-white/50 mb-2 flex items-center gap-1.5">
-                      <span className="material-symbols-outlined text-xs">
-                        {m.role === "user" ? "person" : "gavel"}
-                      </span>
-                      {m.role === "user" ? "You" : "Legal Search Hub"}
-                      {m.country && <span className="opacity-60">· {m.country}</span>}
+                {messages.map((m, i) => {
+                  const prevMessage = i > 0 ? messages[i - 1] : null;
+                  const showGuidance =
+                    m.role === "assistant" &&
+                    !m.error &&
+                    isFailureResponse(m.content) &&
+                    prevMessage?.role === "user";
+                  const guidance = showGuidance
+                    ? getGuidance(prevMessage!.content, prevMessage!.country || "")
+                    : null;
+
+                  return (
+                    <div key={i} className="space-y-2">
+                      <div
+                        className={`rounded-2xl p-4 md:p-5 ${
+                          m.role === "user"
+                            ? "glass-card border border-primary/20 ml-8"
+                            : m.error
+                            ? "bg-red-500/10 border border-red-500/30"
+                            : "glass-card border border-slate-700/60"
+                        }`}
+                      >
+                        <div className="text-[10px] uppercase tracking-wider text-white/50 mb-2 flex items-center gap-1.5">
+                          <span className="material-symbols-outlined text-xs">
+                            {m.role === "user" ? "person" : "gavel"}
+                          </span>
+                          {m.role === "user" ? "You" : "Legal Search Hub"}
+                          {m.country && <span className="opacity-60">· {m.country}</span>}
+                        </div>
+                        <div className="text-sm text-white/90 leading-relaxed whitespace-pre-wrap">
+                          {m.error ? m.content : renderContent(m.content, m.sources)}
+                        </div>
+                      </div>
+
+                      {guidance && (
+                        <div className="rounded-2xl p-4 md:p-5 bg-amber-500/8 border border-amber-500/30">
+                          <div className="flex items-start gap-3">
+                            <span className="material-symbols-outlined text-amber-400 text-xl mt-0.5 shrink-0">lightbulb</span>
+                            <div className="flex-1 min-w-0">
+                              <p className="text-amber-300 font-semibold text-sm mb-1">{guidance.heading}</p>
+                              <p className="text-white/70 text-sm leading-relaxed">{guidance.message}</p>
+                              {guidance.retryQuestion && (
+                                <button
+                                  type="button"
+                                  onClick={() => setQuestion(guidance.retryQuestion!)}
+                                  className="mt-3 inline-flex items-center gap-1.5 text-xs font-semibold text-amber-300 hover:text-amber-200 uppercase tracking-wider transition-colors"
+                                >
+                                  <span className="material-symbols-outlined text-sm">edit</span>
+                                  Re-enter this question with a new jurisdiction
+                                </button>
+                              )}
+                            </div>
+                          </div>
+                        </div>
+                      )}
                     </div>
-                    <div className="text-sm text-white/90 leading-relaxed whitespace-pre-wrap">
-                      {m.error ? m.content : renderContent(m.content, m.sources)}
-                    </div>
-                  </div>
-                ))}
+                  );
+                })}
                 <div ref={messagesEndRef} />
               </div>
             </div>
