@@ -5,6 +5,13 @@ import { useRef, useState, useEffect } from "react";
 
 const BACKEND_URL = process.env.NEXT_PUBLIC_API_URL || process.env.NEXT_PUBLIC_BACKEND_URL || "http://127.0.0.1:8000";
 
+const EXAMPLE_PROMPTS = [
+  "Can my employer deny my FMLA leave request?",
+  "What are my tenant rights if my landlord won't make repairs in Texas?",
+  "Does the ADA require my employer to provide workplace accommodations?",
+  "What counts as workplace discrimination under Title VII?",
+];
+
 type Source = { n: number; citation: string | null; url: string; title: string | null };
 type Message = { role: "user" | "assistant"; content: string; country?: string; error?: boolean; sources?: Source[] };
 
@@ -79,7 +86,6 @@ export default function HomePage() {
   const streamAbortRef = useRef<AbortController | null>(null);
   const messagesEndRef = useRef<HTMLDivElement>(null);
 
-  // Persist chat history to sessionStorage (cleared automatically when tab closes)
   useEffect(() => {
     if (typeof window === "undefined") return;
     try {
@@ -89,7 +95,6 @@ export default function HomePage() {
     }
   }, [messages]);
 
-  // Auto-scroll to bottom when messages change
   useEffect(() => {
     messagesEndRef.current?.scrollIntoView({ behavior: "smooth" });
   }, [messages]);
@@ -119,15 +124,15 @@ export default function HomePage() {
         body: JSON.stringify({ question: userQuestion, country: country || null }),
         signal: controller.signal
       });
-      
+
       if (!res.ok) {
         throw new Error(`Backend error: ${res.status} ${res.statusText}`);
       }
-      
+
       if (!res.body) {
         throw new Error("No response body from server");
       }
-      
+
       const reader = res.body.getReader();
       const decoder = new TextDecoder();
       let assistant = "";
@@ -140,7 +145,6 @@ export default function HomePage() {
         const chunk = decoder.decode(value, { stream: true });
         assistant += chunk;
 
-        // Detect and strip SOURCES_DATA marker appended by the backend
         const markerIdx = assistant.indexOf("\n\nSOURCES_DATA:");
         let displayText = assistant;
         if (markerIdx !== -1) {
@@ -161,34 +165,20 @@ export default function HomePage() {
       }
     } catch (err: any) {
       console.error("Chat error:", err);
-      if (err.name === 'AbortError') {
+      if (err.name === "AbortError") {
         setMessages((prev) => {
           const copy = [...prev];
-          copy[copy.length - 1] = {
-            role: "assistant",
-            content: "Response stopped by user.",
-            error: true,
-          };
+          copy[copy.length - 1] = { role: "assistant", content: "Response stopped by user.", error: true };
           return copy;
         });
       } else {
         const errorMsg = err.message || "Failed to connect to backend. Please try again.";
         setError(errorMsg);
-        setMessages((prev) => [...prev, { 
-          role: "assistant", 
-          content: `Error: ${errorMsg}`,
-          error: true 
-        }]);
+        setMessages((prev) => [...prev, { role: "assistant", content: `Error: ${errorMsg}`, error: true }]);
       }
     } finally {
       setLoading(false);
       streamAbortRef.current = null;
-    }
-  };
-
-  const stop = () => {
-    if (streamAbortRef.current) {
-      streamAbortRef.current.abort();
     }
   };
 
@@ -233,7 +223,6 @@ export default function HomePage() {
       });
     };
 
-    // Split body from trailing Note: disclaimer
     const noteIdx = content.indexOf(" Note:");
     if (noteIdx !== -1) {
       const body = content.slice(0, noteIdx);
@@ -252,7 +241,7 @@ export default function HomePage() {
   };
 
   return (
-    <div className="min-h-screen flex flex-col items-center justify-center p-4 relative overflow-x-hidden">
+    <div className="min-h-screen flex flex-col items-center pt-10 md:pt-14 pb-16 px-4 relative overflow-x-hidden">
       <div className="fixed inset-0 glow-bg pointer-events-none" />
 
       {/* Jurisdiction warning popup */}
@@ -260,9 +249,7 @@ export default function HomePage() {
         <div className="fixed inset-0 z-50 flex items-center justify-center p-4">
           <div className="absolute inset-0 bg-black/60" onClick={() => setJurisdictionWarning(false)} />
           <div className="relative bg-slate-900 border border-green-500/60 rounded-2xl p-6 max-w-sm w-full shadow-2xl text-center animate-in fade-in zoom-in duration-200">
-            <span className="material-symbols-outlined text-green-400 text-5xl mb-3 block">
-              gavel
-            </span>
+            <span className="material-symbols-outlined text-green-400 text-5xl mb-3 block">gavel</span>
             <h3 className="text-white font-bold text-lg mb-2">Choose a Jurisdiction First</h3>
             <p className="text-white/70 text-sm mb-5">
               Legal answers vary significantly by location. Please select a jurisdiction — US Federal, your state, or another location — before searching.
@@ -276,8 +263,10 @@ export default function HomePage() {
           </div>
         </div>
       )}
-      <main className="w-full max-w-[640px] z-10">
-        <header className="text-center mb-6">
+
+      <main className="w-full max-w-[760px] z-10">
+        {/* Header */}
+        <header className="text-center mb-8">
           <div className="inline-flex items-center justify-center w-16 h-16 rounded-2xl bg-primary/20 text-primary mb-4 border border-primary/30">
             <span className="material-symbols-outlined text-4xl font-light">gavel</span>
           </div>
@@ -285,11 +274,12 @@ export default function HomePage() {
             <span className="text-white">Legal Search</span>{" "}
             <span className="text-primary">Hub</span>
           </h1>
-          <p className="text-white text-sm max-w-xs mx-auto opacity-80">
+          <p className="text-white/70 text-sm max-w-xs mx-auto">
             Instant answers to legal questions, backed by real US federal law.
           </p>
         </header>
 
+        {/* Search card */}
         <div className="glass-card rounded-[2rem] p-5 md:p-8 shadow-2xl">
           {error && (
             <div className="mb-4 p-4 bg-red-500/10 border border-red-500/30 rounded-xl text-red-400 text-sm flex items-start gap-2">
@@ -297,22 +287,18 @@ export default function HomePage() {
               <div>
                 <div className="font-semibold mb-1">Connection Error</div>
                 <div className="opacity-90">{error}</div>
-                <div className="text-xs mt-2 opacity-70">
-                  Backend URL: {BACKEND_URL}
-                </div>
               </div>
             </div>
           )}
-          
           <form className="space-y-5" onSubmit={onSubmit}>
             <div className="flex flex-col gap-4">
               <div className="flex flex-col md:flex-row gap-4">
                 <div className="flex-grow space-y-2">
                   <label
                     htmlFor="legal-question"
-                    className="block text-xs font-semibold uppercase tracking-wider text-white ml-1"
+                    className="block text-xs font-semibold uppercase tracking-wider text-white/80 ml-1"
                   >
-                    Legal question
+                    Legal Question
                   </label>
                   <textarea
                     id="legal-question"
@@ -326,7 +312,7 @@ export default function HomePage() {
                 <div className="md:w-48 space-y-2">
                   <label
                     htmlFor="jurisdiction"
-                    className="block text-xs font-semibold uppercase tracking-wider text-white ml-1"
+                    className="block text-xs font-semibold uppercase tracking-wider text-white/80 ml-1"
                   >
                     Jurisdiction
                   </label>
@@ -341,13 +327,9 @@ export default function HomePage() {
                           : "border-slate-800 text-white focus:border-primary"
                       }`}
                     >
-                      <option value="" disabled className="text-slate-500">
-                        Select
-                      </option>
+                      <option value="" disabled className="text-slate-500">Select</option>
                       {jurisdictions.map((j) => (
-                        <option key={j.value} className="text-slate-900" value={j.value}>
-                          {j.label}
-                        </option>
+                        <option key={j.value} className="text-slate-900" value={j.value}>{j.label}</option>
                       ))}
                     </select>
                     <span className={`material-symbols-outlined absolute right-3 top-1/2 -translate-y-1/2 pointer-events-none text-xl ${!country ? "text-green-400" : "text-white"}`}>
@@ -356,7 +338,7 @@ export default function HomePage() {
                   </div>
                 </div>
               </div>
-              <div className="flex items-center gap-1.5 text-[10px] text-white/70 px-1">
+              <div className="flex items-center gap-1.5 text-[10px] text-white/60 px-1">
                 <span className="material-symbols-outlined text-[14px]">lock</span>
                 Personal sensitive details are automatically removed to protect your privacy.
               </div>
@@ -367,72 +349,79 @@ export default function HomePage() {
               className="w-full bg-primary hover:bg-blue-500 text-white font-bold py-4 rounded-2xl flex items-center justify-center gap-2 glow-button transition-all active:scale-[0.98] disabled:opacity-60"
             >
               <span className="material-symbols-outlined font-bold">gavel</span>
-              {loading ? "Streaming…" : "Search Legal Hub"}
+              {loading ? "Searching…" : "Search Legal Hub"}
             </button>
-
-            <div className="pt-2 space-y-3">
-              <div className="flex items-center justify-between px-1">
-                <span className="text-[10px] font-bold uppercase tracking-widest text-white">
-                  Chat History
-                </span>
-                {messages.length > 0 && (
-                  <button
-                    type="button"
-                    onClick={clearChat}
-                    className="text-[10px] text-slate-400 hover:text-white uppercase tracking-wider transition-colors"
-                  >
-                    Clear
-                  </button>
-                )}
-              </div>
-              <div className="w-full min-h-32 max-h-96 overflow-y-auto border border-dashed border-slate-700 rounded-2xl flex flex-col items-start justify-start text-white/40 bg-slate-950/30 p-3 custom-scrollbar">
-                {messages.length === 0 ? (
-                  <div className="w-full h-28 flex flex-col items-center justify-center">
-                    <span className="material-symbols-outlined text-3xl mb-1 opacity-40">
-                      find_in_page
-                    </span>
-                    <p className="text-xs italic opacity-80">Ready for your legal question...</p>
-                  </div>
-                ) : (
-                  <div className="w-full space-y-3 text-sm">
-                    {messages.map((m, i) => (
-                      <div 
-                        key={i} 
-                        className={`rounded-lg p-3 ${
-                          m.role === "user" 
-                            ? "bg-primary/10 border border-primary/30 ml-auto max-w-[85%]" 
-                            : m.error
-                            ? "bg-red-500/10 border border-red-500/30"
-                            : "bg-slate-900/70 border border-slate-800"
-                        }`}
-                      >
-                        <div className="text-[10px] uppercase tracking-wider text-white/60 mb-1.5 flex items-center gap-1.5">
-                          <span className="material-symbols-outlined text-xs">
-                            {m.role === "user" ? "person" : "gavel"}
-                          </span>
-                          {m.role === "user" ? "You" : "Legal Search Hub"}
-                          {m.country && <span className="opacity-60">· {m.country}</span>}
-                        </div>
-                        <div className="whitespace-pre-wrap text-white/90 leading-relaxed">
-                          {m.error ? m.content : renderContent(m.content, m.sources)}
-                        </div>
-                      </div>
-                    ))}
-                    <div ref={messagesEndRef} />
-                  </div>
-                )}
-              </div>
-            </div>
-            <footer className="pt-1">
-              <p className="text-[9px] text-center text-slate-500 leading-relaxed uppercase tracking-[0.05em]">
-                AI-Generated Information. Consult a licensed attorney for official legal advice.
-              </p>
-            </footer>
           </form>
         </div>
 
+        {/* Results / empty state */}
+        <div className="mt-6">
+          {messages.length === 0 ? (
+            <div>
+              <p className="text-[10px] font-bold uppercase tracking-widest text-white/30 text-center mb-3">
+                Try asking
+              </p>
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
+                {EXAMPLE_PROMPTS.map((prompt) => (
+                  <button
+                    key={prompt}
+                    type="button"
+                    onClick={() => setQuestion(prompt)}
+                    className="text-left text-sm text-white/60 hover:text-white bg-slate-900/40 hover:bg-slate-800/60 border border-slate-800 hover:border-slate-600 rounded-2xl px-4 py-3 transition-all leading-snug"
+                  >
+                    {prompt}
+                  </button>
+                ))}
+              </div>
+            </div>
+          ) : (
+            <div>
+              <div className="flex items-center justify-between px-1 mb-4">
+                <span className="text-[10px] font-bold uppercase tracking-widest text-white/30">Results</span>
+                <button
+                  type="button"
+                  onClick={clearChat}
+                  className="text-[10px] text-slate-500 hover:text-white uppercase tracking-wider transition-colors"
+                >
+                  Clear
+                </button>
+              </div>
+              <div className="space-y-4">
+                {messages.map((m, i) => (
+                  <div
+                    key={i}
+                    className={`rounded-2xl p-4 md:p-5 ${
+                      m.role === "user"
+                        ? "glass-card border border-primary/20 ml-8"
+                        : m.error
+                        ? "bg-red-500/10 border border-red-500/30 rounded-2xl"
+                        : "glass-card border border-slate-700/60"
+                    }`}
+                  >
+                    <div className="text-[10px] uppercase tracking-wider text-white/50 mb-2 flex items-center gap-1.5">
+                      <span className="material-symbols-outlined text-xs">
+                        {m.role === "user" ? "person" : "gavel"}
+                      </span>
+                      {m.role === "user" ? "You" : "Legal Search Hub"}
+                      {m.country && <span className="opacity-60">· {m.country}</span>}
+                    </div>
+                    <div className="text-sm text-white/90 leading-relaxed whitespace-pre-wrap">
+                      {m.error ? m.content : renderContent(m.content, m.sources)}
+                    </div>
+                  </div>
+                ))}
+                <div ref={messagesEndRef} />
+              </div>
+            </div>
+          )}
+        </div>
+
+        <footer className="mt-10 text-center">
+          <p className="text-[9px] text-slate-500 leading-relaxed uppercase tracking-[0.05em]">
+            AI-Generated Information. Consult a licensed attorney for official legal advice.
+          </p>
+        </footer>
       </main>
     </div>
   );
 }
-
