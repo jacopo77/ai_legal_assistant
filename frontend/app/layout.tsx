@@ -2,7 +2,7 @@ import "./globals.css";
 import Script from "next/script";
 import { Analytics } from "@vercel/analytics/react";
 
-const GA_ID = "G-PFQXS2L912";
+const GA_ID = "G-PFQX52L912";
 
 export const metadata = {
   title: "Legal Search Hub - Instant Legal Answers with Citations",
