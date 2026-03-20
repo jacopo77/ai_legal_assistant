@@ -471,7 +471,7 @@ export default function HomePage() {
             <span className="text-primary">Hub</span>
           </h1>
           <p className="text-white/70 text-sm max-w-xs mx-auto">
-            Instant answers to legal questions, backed by real US federal and state law.
+            Instant answers to legal questions, backed by real US federal and State law.
           </p>
         </header>
 
