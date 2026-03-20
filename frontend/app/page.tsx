@@ -2,8 +2,15 @@
 "use client";
 
 import { useRef, useState, useEffect } from "react";
+import AdBanner from "./components/AdBanner";
 
 const BACKEND_URL = process.env.NEXT_PUBLIC_API_URL || process.env.NEXT_PUBLIC_BACKEND_URL || "http://127.0.0.1:8000";
+const FREE_SEARCHES_PER_DAY = 5;
+const STRIPE_PAYMENT_LINK = process.env.NEXT_PUBLIC_STRIPE_PAYMENT_LINK || "#";
+
+// Replace these with your actual affiliate tracking links once approved
+const LEGALZOOM_URL = "https://www.legalzoom.com/?utm_source=legalsearchhub&utm_medium=referral";
+const ROCKETLAWYER_URL = "https://www.rocketlawyer.com/?utm_source=legalsearchhub&utm_medium=referral";
 
 const EXAMPLE_PROMPTS = [
   "Can my employer deny my FMLA leave request?",
@@ -28,6 +35,28 @@ const FAILURE_PATTERNS = [
 const LANDLORD_TENANT_KEYWORDS = ["landlord", "tenant", "rent", "eviction", "evict", "lease", "habitability", "repair", "heat", "hot water", "deposit", "security deposit"];
 const BUSINESS_KEYWORDS = ["llc", "corporation", "incorporate", "business formation", "form a business", "start a business", "articles of incorporation"];
 const SUPPORTED_STATES = ["Texas", "California", "Florida", "New York"];
+const USAGE_STORAGE_KEY = "lsh_daily_usage";
+
+function getTodayUsage(): number {
+  if (typeof window === "undefined") return 0;
+  try {
+    const stored = localStorage.getItem(USAGE_STORAGE_KEY);
+    if (!stored) return 0;
+    const { date, count } = JSON.parse(stored);
+    const today = new Date().toISOString().split("T")[0];
+    return date === today ? (count as number) : 0;
+  } catch { return 0; }
+}
+
+function incrementUsage(): number {
+  if (typeof window === "undefined") return 0;
+  try {
+    const today = new Date().toISOString().split("T")[0];
+    const newCount = getTodayUsage() + 1;
+    localStorage.setItem(USAGE_STORAGE_KEY, JSON.stringify({ date: today, count: newCount }));
+    return newCount;
+  } catch { return 0; }
+}
 
 function isFailureResponse(content: string): boolean {
   const lower = content.toLowerCase();
@@ -47,7 +76,6 @@ function getGuidance(question: string, jurisdiction: string): { heading: string;
       retryQuestion: question,
     };
   }
-
   if (isStateTopicUnderFederal && isBusiness) {
     return {
       heading: "This is a state law question",
@@ -55,28 +83,134 @@ function getGuidance(question: string, jurisdiction: string): { heading: string;
       retryQuestion: question,
     };
   }
-
   if (SUPPORTED_STATES.includes(jurisdiction) && !isLandlordTenant && !isBusiness) {
     return {
       heading: "Try US Federal for this topic",
-      message: `State coverage is focused on landlord-tenant rights and business formation. For employment, civil rights, ADA, FMLA, or Title VII questions, select US Federal as your jurisdiction.`,
+      message: "State coverage is focused on landlord-tenant rights and business formation. For employment, civil rights, ADA, FMLA, or Title VII questions, select US Federal as your jurisdiction.",
       retryQuestion: question,
     };
   }
-
   return {
     heading: "Try rephrasing your question",
     message: "This app covers US employment law (FMLA, ADA, FLSA, Title VII, OSHA), civil rights (Section 1983, Fair Housing Act), and landlord-tenant and business formation law for Texas, California, Florida, and New York. Try adding more detail — your role, the specific law, and what outcome you need.",
   };
 }
 
+function exportToPDF(content: string, question: string, sources?: Source[], jurisdiction?: string): void {
+  const sourcesHtml = sources && sources.length > 0
+    ? `<div class="sources"><strong>Sources</strong><ol>${sources.map(s =>
+        `<li><a href="${s.url}" target="_blank">${s.citation || s.title || s.url}</a></li>`
+      ).join("")}</ol></div>`
+    : "";
+  const cleanContent = content
+    .replace(/\[(\d+)\]/g, "<sup>[$1]</sup>")
+    .replace(/\n\n/g, "</p><p>")
+    .replace(/\n/g, "<br>");
+  const html = `<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Legal Research — Legal Search Hub</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { font-family: Georgia, serif; font-size: 13px; line-height: 1.75; color: #1a1a1a; padding: 48px 56px; max-width: 720px; margin: 0 auto; }
+    h1 { font-size: 20px; color: #0f2d5c; margin-bottom: 6px; }
+    .meta { font-size: 11px; color: #666; border-bottom: 1px solid #ddd; padding-bottom: 12px; margin-bottom: 20px; }
+    .question { background: #f0f4ff; border-left: 3px solid #2563eb; padding: 12px 16px; border-radius: 4px; margin-bottom: 20px; font-size: 13px; }
+    .answer p { margin-bottom: 12px; }
+    sup { font-size: 10px; color: #2563eb; }
+    .sources { margin-top: 24px; font-size: 11px; color: #444; border-top: 1px solid #eee; padding-top: 16px; }
+    .sources ol { padding-left: 20px; margin-top: 8px; }
+    .sources li { margin-bottom: 6px; }
+    .sources a { color: #2563eb; }
+    .footer { margin-top: 32px; font-size: 10px; color: #999; border-top: 1px solid #eee; padding-top: 12px; }
+  </style>
+</head>
+<body>
+  <h1>Legal Research Summary</h1>
+  <div class="meta">Legal Search Hub &nbsp;|&nbsp; Jurisdiction: ${jurisdiction || "US Federal"} &nbsp;|&nbsp; ${new Date().toLocaleDateString("en-US", { year: "numeric", month: "long", day: "numeric" })}</div>
+  ${question ? `<div class="question"><strong>Question:</strong> ${question}</div>` : ""}
+  <div class="answer"><p>${cleanContent}</p></div>
+  ${sourcesHtml}
+  <div class="footer">AI-Generated Information. This is not legal advice. Consult a licensed attorney for guidance specific to your situation. &nbsp;|&nbsp; legalsearchhub.com</div>
+  <script>window.onload = function() { window.print(); }</script>
+</body>
+</html>`;
+  const win = window.open("", "_blank", "width=820,height=640");
+  if (win) { win.document.write(html); win.document.close(); }
+}
+
+function emailSummary(question: string, content: string, sources?: Source[], jurisdiction?: string): void {
+  const sourcesText = sources && sources.length > 0
+    ? "\n\nSources:\n" + sources.map(s => `- ${s.citation || s.title || s.url}: ${s.url}`).join("\n")
+    : "";
+  const body = `Legal Research Summary — Legal Search Hub\n\nQuestion: ${question || "(not specified)"}\nJurisdiction: ${jurisdiction || "US Federal"}\nDate: ${new Date().toLocaleDateString()}\n\n---\n\n${content}${sourcesText}\n\n---\nAI-Generated Information. This is not legal advice. Consult a licensed attorney.\nlegalsearchhub.com`;
+  window.location.href = `mailto:?subject=Legal Research - Legal Search Hub&body=${encodeURIComponent(body)}`;
+}
+
 type Source = { n: number; citation: string | null; url: string; title: string | null };
 type Message = { role: "user" | "assistant"; content: string; country?: string; error?: boolean; sources?: Source[] };
+
+function UpgradeModal({ onClose }: { onClose: () => void }) {
+  return (
+    <div className="fixed inset-0 z-50 flex items-center justify-center p-4">
+      <div className="absolute inset-0 bg-black/70" onClick={onClose} />
+      <div className="relative glass-card rounded-2xl p-6 md:p-8 max-w-md w-full shadow-2xl">
+        <button onClick={onClose} className="absolute top-4 right-4 text-white/40 hover:text-white transition-colors">
+          <span className="material-symbols-outlined text-xl">close</span>
+        </button>
+        <div className="text-center mb-6">
+          <div className="inline-flex items-center justify-center w-14 h-14 rounded-2xl bg-primary/20 text-primary mb-4 border border-primary/30">
+            <span className="material-symbols-outlined text-3xl">lock_open</span>
+          </div>
+          <h2 className="text-white font-bold text-xl mb-2">Daily limit reached</h2>
+          <p className="text-white/60 text-sm">You have used your {FREE_SEARCHES_PER_DAY} free searches for today. Upgrade to Pro for unlimited access.</p>
+        </div>
+        <div className="grid grid-cols-2 gap-3 mb-6">
+          <div className="bg-slate-900/60 rounded-xl p-4 border border-slate-700">
+            <p className="text-white/50 text-[10px] uppercase tracking-wider mb-2">Free</p>
+            <ul className="space-y-1.5 text-xs">
+              <li className="flex items-center gap-1.5 text-white/70"><span className="material-symbols-outlined text-xs text-green-400">check</span>{FREE_SEARCHES_PER_DAY} searches/day</li>
+              <li className="flex items-center gap-1.5 text-white/70"><span className="material-symbols-outlined text-xs text-green-400">check</span>All jurisdictions</li>
+              <li className="flex items-center gap-1.5 text-white/40"><span className="material-symbols-outlined text-xs text-white/30">close</span>PDF export</li>
+              <li className="flex items-center gap-1.5 text-white/40"><span className="material-symbols-outlined text-xs text-white/30">close</span>Search history</li>
+            </ul>
+          </div>
+          <div className="bg-primary/10 rounded-xl p-4 border border-primary/30">
+            <p className="text-primary text-[10px] uppercase tracking-wider mb-2">Pro</p>
+            <ul className="space-y-1.5 text-xs">
+              <li className="flex items-center gap-1.5 text-white/70"><span className="material-symbols-outlined text-xs text-green-400">check</span>Unlimited searches</li>
+              <li className="flex items-center gap-1.5 text-white/70"><span className="material-symbols-outlined text-xs text-green-400">check</span>All jurisdictions</li>
+              <li className="flex items-center gap-1.5 text-white/70"><span className="material-symbols-outlined text-xs text-green-400">check</span>PDF export</li>
+              <li className="flex items-center gap-1.5 text-white/70"><span className="material-symbols-outlined text-xs text-green-400">check</span>Search history</li>
+            </ul>
+          </div>
+        </div>
+        <a
+          href={STRIPE_PAYMENT_LINK}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="w-full bg-primary hover:bg-blue-500 text-white font-bold py-3 rounded-2xl flex items-center justify-center gap-2 glow-button transition-all mb-3 text-sm"
+        >
+          <span className="material-symbols-outlined text-sm">star</span>
+          Go Pro — $12/month
+        </a>
+        <button onClick={onClose} className="w-full text-white/40 hover:text-white/70 text-xs py-2 transition-colors">
+          Continue free — resets tomorrow
+        </button>
+      </div>
+    </div>
+  );
+}
 
 export default function HomePage() {
   const [question, setQuestion] = useState("");
   const [country, setCountry] = useState("");
   const [jurisdictionWarning, setJurisdictionWarning] = useState(false);
+  const [searchCount, setSearchCount] = useState(0);
+  const [showUpgradeModal, setShowUpgradeModal] = useState(false);
+  const [copiedIdx, setCopiedIdx] = useState<number | null>(null);
+
   const jurisdictions = [
     { value: "US", label: "US Federal" },
     { value: "Alabama", label: "Alabama" },
@@ -130,32 +264,48 @@ export default function HomePage() {
     { value: "Wisconsin", label: "Wisconsin" },
     { value: "Wyoming", label: "Wyoming" },
   ];
+
   const [messages, setMessages] = useState<Message[]>(() => {
     if (typeof window === "undefined") return [];
     try {
       const stored = sessionStorage.getItem("chat_history");
       return stored ? (JSON.parse(stored) as Message[]) : [];
-    } catch {
-      return [];
-    }
+    } catch { return []; }
   });
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState<string>("");
   const streamAbortRef = useRef<AbortController | null>(null);
   const messagesEndRef = useRef<HTMLDivElement>(null);
 
+  // Init usage count and detect shared URL params
+  useEffect(() => {
+    setSearchCount(getTodayUsage());
+    const params = new URLSearchParams(window.location.search);
+    const q = params.get("q");
+    const j = params.get("j");
+    if (q) setQuestion(decodeURIComponent(q));
+    if (j) setCountry(decodeURIComponent(j));
+  }, []);
+
   useEffect(() => {
     if (typeof window === "undefined") return;
-    try {
-      sessionStorage.setItem("chat_history", JSON.stringify(messages));
-    } catch {
-      // sessionStorage full or unavailable — ignore
-    }
+    try { sessionStorage.setItem("chat_history", JSON.stringify(messages)); } catch { /* ignore */ }
   }, [messages]);
 
   useEffect(() => {
     messagesEndRef.current?.scrollIntoView({ behavior: "smooth" });
   }, [messages]);
+
+  const handleShare = (question: string, jurisdiction: string, idx: number) => {
+    const url = `${window.location.origin}/?q=${encodeURIComponent(question)}&j=${encodeURIComponent(jurisdiction)}`;
+    navigator.clipboard.writeText(url).then(() => {
+      setCopiedIdx(idx);
+      setTimeout(() => setCopiedIdx(null), 2000);
+    }).catch(() => {
+      setCopiedIdx(idx);
+      setTimeout(() => setCopiedIdx(null), 2000);
+    });
+  };
 
   const onSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -164,6 +314,11 @@ export default function HomePage() {
     if (!country) {
       setJurisdictionWarning(true);
       setTimeout(() => setJurisdictionWarning(false), 4000);
+      return;
+    }
+
+    if (getTodayUsage() >= FREE_SEARCHES_PER_DAY) {
+      setShowUpgradeModal(true);
       return;
     }
 
@@ -183,13 +338,12 @@ export default function HomePage() {
         signal: controller.signal
       });
 
-      if (!res.ok) {
-        throw new Error(`Backend error: ${res.status} ${res.statusText}`);
-      }
+      if (!res.ok) throw new Error(`Backend error: ${res.status} ${res.statusText}`);
+      if (!res.body) throw new Error("No response body from server");
 
-      if (!res.body) {
-        throw new Error("No response body from server");
-      }
+      // Count the search only after a successful connection
+      const newCount = incrementUsage();
+      setSearchCount(newCount);
 
       const reader = res.body.getReader();
       const decoder = new TextDecoder();
@@ -210,9 +364,7 @@ export default function HomePage() {
           try {
             const jsonStr = assistant.slice(markerIdx + "\n\nSOURCES_DATA:".length);
             sources = JSON.parse(jsonStr) as Source[];
-          } catch {
-            // incomplete chunk — wait for more data
-          }
+          } catch { /* incomplete chunk */ }
         }
 
         setMessages((prev) => {
@@ -222,7 +374,6 @@ export default function HomePage() {
         });
       }
     } catch (err: any) {
-      console.error("Chat error:", err);
       if (err.name === "AbortError") {
         setMessages((prev) => {
           const copy = [...prev];
@@ -243,9 +394,7 @@ export default function HomePage() {
   const clearChat = () => {
     setMessages([]);
     setError("");
-    if (typeof window !== "undefined") {
-      sessionStorage.removeItem("chat_history");
-    }
+    if (typeof window !== "undefined") sessionStorage.removeItem("chat_history");
   };
 
   const renderContent = (content: string, sources?: Source[]) => {
@@ -259,23 +408,13 @@ export default function HomePage() {
           const source = sources?.find((s) => s.n === num);
           if (source?.url) {
             return (
-              <a
-                key={`${keyPrefix}-${i}`}
-                href={source.url}
-                target="_blank"
-                rel="noopener noreferrer"
-                title={source.citation || source.title || ""}
-                className="text-primary font-bold ml-0.5 hover:underline"
-              >
+              <a key={`${keyPrefix}-${i}`} href={source.url} target="_blank" rel="noopener noreferrer"
+                title={source.citation || source.title || ""} className="text-primary font-bold ml-0.5 hover:underline">
                 <sup>[{part}]</sup>
               </a>
             );
           }
-          return (
-            <sup key={`${keyPrefix}-${i}`} className="text-primary font-bold ml-0.5">
-              [{part}]
-            </sup>
-          );
+          return <sup key={`${keyPrefix}-${i}`} className="text-primary font-bold ml-0.5">[{part}]</sup>;
         }
         return <span key={`${keyPrefix}-${i}`}>{part}</span>;
       });
@@ -288,19 +427,20 @@ export default function HomePage() {
       return (
         <>
           <span>{renderInline(body, "body")}</span>
-          <span className="block mt-3 text-[10px] text-white/40 italic leading-relaxed">
-            {renderInline(note, "note")}
-          </span>
+          <span className="block mt-3 text-[10px] text-white/40 italic leading-relaxed">{renderInline(note, "note")}</span>
         </>
       );
     }
-
     return <span>{renderInline(content, "content")}</span>;
   };
+
+  const remaining = Math.max(0, FREE_SEARCHES_PER_DAY - searchCount);
 
   return (
     <div className="min-h-screen flex flex-col items-center pt-10 md:pt-14 pb-16 px-4 relative overflow-x-hidden">
       <div className="fixed inset-0 glow-bg pointer-events-none" />
+
+      {showUpgradeModal && <UpgradeModal onClose={() => setShowUpgradeModal(false)} />}
 
       {/* Jurisdiction warning popup */}
       {jurisdictionWarning && (
@@ -312,10 +452,8 @@ export default function HomePage() {
             <p className="text-white/70 text-sm mb-5">
               Legal answers vary significantly by location. Please select a jurisdiction — US Federal, your state, or another location — before searching.
             </p>
-            <button
-              onClick={() => { setJurisdictionWarning(false); document.getElementById("jurisdiction")?.focus(); }}
-              className="w-full bg-green-500 hover:bg-green-400 text-slate-900 font-bold py-3 rounded-xl transition-all"
-            >
+            <button onClick={() => { setJurisdictionWarning(false); document.getElementById("jurisdiction")?.focus(); }}
+              className="w-full bg-green-500 hover:bg-green-400 text-slate-900 font-bold py-3 rounded-xl transition-all">
               Select Jurisdiction
             </button>
           </div>
@@ -333,12 +471,32 @@ export default function HomePage() {
             <span className="text-primary">Hub</span>
           </h1>
           <p className="text-white/70 text-sm max-w-xs mx-auto">
-            Instant answers to legal questions, backed by real US federal law.
+            Instant answers to legal questions, backed by real US federal and state law.
           </p>
         </header>
 
         {/* Search card */}
         <div className="glass-card rounded-[2rem] p-5 md:p-8 shadow-2xl">
+          {/* Usage indicator */}
+          <div className="flex items-center justify-between mb-4">
+            <div className="flex items-center gap-1.5">
+              {Array.from({ length: FREE_SEARCHES_PER_DAY }).map((_, i) => (
+                <div key={i} className={`w-2 h-2 rounded-full transition-all ${i < searchCount ? "bg-primary/40" : "bg-primary"}`} />
+              ))}
+            </div>
+            <div className="flex items-center gap-2">
+              <span className="text-[10px] text-white/40">
+                {remaining > 0 ? `${remaining} free search${remaining !== 1 ? "es" : ""} left today` : "Daily limit reached"}
+              </span>
+              {remaining === 0 && (
+                <button onClick={() => setShowUpgradeModal(true)}
+                  className="text-[10px] text-primary hover:text-blue-400 font-semibold uppercase tracking-wider transition-colors">
+                  Go Pro
+                </button>
+              )}
+            </div>
+          </div>
+
           {error && (
             <div className="mb-4 p-4 bg-red-500/10 border border-red-500/30 rounded-xl text-red-400 text-sm flex items-start gap-2">
               <span className="material-symbols-outlined text-lg mt-0.5">error</span>
@@ -348,14 +506,12 @@ export default function HomePage() {
               </div>
             </div>
           )}
+
           <form className="space-y-5" onSubmit={onSubmit}>
             <div className="flex flex-col gap-4">
               <div className="flex flex-col md:flex-row gap-4">
                 <div className="flex-grow space-y-2">
-                  <label
-                    htmlFor="legal-question"
-                    className="block text-xs font-semibold uppercase tracking-wider text-white/80 ml-1"
-                  >
+                  <label htmlFor="legal-question" className="block text-xs font-semibold uppercase tracking-wider text-white/80 ml-1">
                     Legal Question
                   </label>
                   <textarea
@@ -368,10 +524,7 @@ export default function HomePage() {
                   />
                 </div>
                 <div className="md:w-48 space-y-2">
-                  <label
-                    htmlFor="jurisdiction"
-                    className="block text-xs font-semibold uppercase tracking-wider text-white/80 ml-1"
-                  >
+                  <label htmlFor="jurisdiction" className="block text-xs font-semibold uppercase tracking-wider text-white/80 ml-1">
                     Jurisdiction
                   </label>
                   <div className="relative">
@@ -412,8 +565,11 @@ export default function HomePage() {
           </form>
         </div>
 
+        {/* AdSense banner — only renders when NEXT_PUBLIC_ADSENSE_CLIENT_ID is set */}
+        <AdBanner />
+
         {/* Results / empty state */}
-        <div className="mt-6">
+        <div className="mt-4">
           {messages.length === 0 ? (
             <div>
               <p className="text-[10px] font-bold uppercase tracking-widest text-white/30 text-center mb-3">
@@ -436,11 +592,7 @@ export default function HomePage() {
             <div>
               <div className="flex items-center justify-between px-1 mb-4">
                 <span className="text-[10px] font-bold uppercase tracking-widest text-white/30">Results</span>
-                <button
-                  type="button"
-                  onClick={clearChat}
-                  className="text-[10px] text-slate-500 hover:text-white uppercase tracking-wider transition-colors"
-                >
+                <button type="button" onClick={clearChat} className="text-[10px] text-slate-500 hover:text-white uppercase tracking-wider transition-colors">
                   Clear
                 </button>
               </div>
@@ -448,13 +600,13 @@ export default function HomePage() {
                 {messages.map((m, i) => {
                   const prevMessage = i > 0 ? messages[i - 1] : null;
                   const showGuidance =
-                    m.role === "assistant" &&
-                    !m.error &&
-                    isFailureResponse(m.content) &&
-                    prevMessage?.role === "user";
+                    m.role === "assistant" && !m.error &&
+                    isFailureResponse(m.content) && prevMessage?.role === "user";
                   const guidance = showGuidance
                     ? getGuidance(prevMessage!.content, prevMessage!.country || "")
                     : null;
+                  const isCompletedAnswer = m.role === "assistant" && !m.error && m.content.length > 40 && (!loading || i < messages.length - 1);
+                  const userMsg = m.role === "assistant" && prevMessage?.role === "user" ? prevMessage : null;
 
                   return (
                     <div key={i} className="space-y-2">
@@ -477,8 +629,39 @@ export default function HomePage() {
                         <div className="text-sm text-white/90 leading-relaxed whitespace-pre-wrap">
                           {m.error ? m.content : renderContent(m.content, m.sources)}
                         </div>
+
+                        {/* Action buttons — PDF, Email, Share */}
+                        {isCompletedAnswer && (
+                          <div className="flex items-center gap-4 mt-4 pt-3 border-t border-slate-700/40">
+                            <button
+                              type="button"
+                              onClick={() => exportToPDF(m.content, userMsg?.content || "", m.sources, userMsg?.country)}
+                              className="flex items-center gap-1 text-[11px] text-white/40 hover:text-white/80 uppercase tracking-wider transition-colors"
+                            >
+                              <span className="material-symbols-outlined text-sm">download</span>
+                              Export PDF
+                            </button>
+                            <button
+                              type="button"
+                              onClick={() => emailSummary(userMsg?.content || "", m.content, m.sources, userMsg?.country)}
+                              className="flex items-center gap-1 text-[11px] text-white/40 hover:text-white/80 uppercase tracking-wider transition-colors"
+                            >
+                              <span className="material-symbols-outlined text-sm">mail</span>
+                              Email
+                            </button>
+                            <button
+                              type="button"
+                              onClick={() => handleShare(userMsg?.content || "", userMsg?.country || "", i)}
+                              className="flex items-center gap-1 text-[11px] text-white/40 hover:text-white/80 uppercase tracking-wider transition-colors"
+                            >
+                              <span className="material-symbols-outlined text-sm">{copiedIdx === i ? "check" : "share"}</span>
+                              {copiedIdx === i ? "Copied!" : "Share"}
+                            </button>
+                          </div>
+                        )}
                       </div>
 
+                      {/* Guidance card with affiliate CTAs */}
                       {guidance && (
                         <div className="rounded-2xl p-4 md:p-5 bg-amber-500/8 border border-amber-500/30">
                           <div className="flex items-start gap-3">
@@ -496,6 +679,30 @@ export default function HomePage() {
                                   Re-enter this question with a new jurisdiction
                                 </button>
                               )}
+                              {/* Affiliate CTAs */}
+                              <div className="mt-4 pt-3 border-t border-amber-500/20">
+                                <p className="text-[10px] uppercase tracking-wider text-white/30 mb-2">Get professional help</p>
+                                <div className="flex flex-col sm:flex-row gap-2">
+                                  <a
+                                    href={LEGALZOOM_URL}
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                    className="flex items-center gap-1.5 text-xs text-white/50 hover:text-white border border-slate-700 hover:border-slate-500 rounded-xl px-3 py-2 transition-all"
+                                  >
+                                    <span className="material-symbols-outlined text-sm">open_in_new</span>
+                                    LegalZoom — Online legal services
+                                  </a>
+                                  <a
+                                    href={ROCKETLAWYER_URL}
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                    className="flex items-center gap-1.5 text-xs text-white/50 hover:text-white border border-slate-700 hover:border-slate-500 rounded-xl px-3 py-2 transition-all"
+                                  >
+                                    <span className="material-symbols-outlined text-sm">open_in_new</span>
+                                    RocketLawyer — Attorney consultations
+                                  </a>
+                                </div>
+                              </div>
                             </div>
                           </div>
                         </div>

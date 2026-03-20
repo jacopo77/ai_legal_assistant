@@ -6,7 +6,7 @@ const GA_ID = "G-PFQX52L912";
 
 export const metadata = {
   title: "Legal Search Hub - Instant Legal Answers with Citations",
-  description: "Get instant legal answers with citations to real laws. Free AI-powered legal research tool for everyone."
+  description: "Get instant legal answers with citations to real US federal and state laws. Free AI-powered legal research tool for everyone."
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
@@ -26,7 +26,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         {children}
         <Analytics />
 
-        {/* Google Analytics 4 — loaded after page is interactive via next/script */}
+        {/* Google Analytics 4 */}
         <Script
           src={`https://www.googletagmanager.com/gtag/js?id=${GA_ID}`}
           strategy="afterInteractive"
@@ -39,6 +39,16 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
             gtag('config', '${GA_ID}');
           `}
         </Script>
+
+        {/* Google AdSense — only loads when NEXT_PUBLIC_ADSENSE_CLIENT_ID is set */}
+        {process.env.NEXT_PUBLIC_ADSENSE_CLIENT_ID && (
+          <Script
+            async
+            src={`https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=${process.env.NEXT_PUBLIC_ADSENSE_CLIENT_ID}`}
+            crossOrigin="anonymous"
+            strategy="afterInteractive"
+          />
+        )}
       </body>
     </html>
   );
