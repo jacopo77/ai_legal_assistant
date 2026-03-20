@@ -5,8 +5,6 @@ import { useRef, useState, useEffect } from "react";
 import AdBanner from "./components/AdBanner";
 
 const BACKEND_URL = process.env.NEXT_PUBLIC_API_URL || process.env.NEXT_PUBLIC_BACKEND_URL || "http://127.0.0.1:8000";
-const FREE_SEARCHES_PER_DAY = 5;
-const STRIPE_PAYMENT_LINK = process.env.NEXT_PUBLIC_STRIPE_PAYMENT_LINK || "#";
 
 // Replace these with your actual affiliate tracking links once approved
 const LEGALZOOM_URL = "https://www.legalzoom.com/?utm_source=legalsearchhub&utm_medium=referral";
@@ -35,28 +33,6 @@ const FAILURE_PATTERNS = [
 const LANDLORD_TENANT_KEYWORDS = ["landlord", "tenant", "rent", "eviction", "evict", "lease", "habitability", "repair", "heat", "hot water", "deposit", "security deposit"];
 const BUSINESS_KEYWORDS = ["llc", "corporation", "incorporate", "business formation", "form a business", "start a business", "articles of incorporation"];
 const SUPPORTED_STATES = ["Texas", "California", "Florida", "New York"];
-const USAGE_STORAGE_KEY = "lsh_daily_usage";
-
-function getTodayUsage(): number {
-  if (typeof window === "undefined") return 0;
-  try {
-    const stored = localStorage.getItem(USAGE_STORAGE_KEY);
-    if (!stored) return 0;
-    const { date, count } = JSON.parse(stored);
-    const today = new Date().toISOString().split("T")[0];
-    return date === today ? (count as number) : 0;
-  } catch { return 0; }
-}
-
-function incrementUsage(): number {
-  if (typeof window === "undefined") return 0;
-  try {
-    const today = new Date().toISOString().split("T")[0];
-    const newCount = getTodayUsage() + 1;
-    localStorage.setItem(USAGE_STORAGE_KEY, JSON.stringify({ date: today, count: newCount }));
-    return newCount;
-  } catch { return 0; }
-}
 
 function isFailureResponse(content: string): boolean {
   const lower = content.toLowerCase();
@@ -151,64 +127,10 @@ function emailSummary(question: string, content: string, sources?: Source[], jur
 type Source = { n: number; citation: string | null; url: string; title: string | null };
 type Message = { role: "user" | "assistant"; content: string; country?: string; error?: boolean; sources?: Source[] };
 
-function UpgradeModal({ onClose }: { onClose: () => void }) {
-  return (
-    <div className="fixed inset-0 z-50 flex items-center justify-center p-4">
-      <div className="absolute inset-0 bg-black/70" onClick={onClose} />
-      <div className="relative glass-card rounded-2xl p-6 md:p-8 max-w-md w-full shadow-2xl">
-        <button onClick={onClose} className="absolute top-4 right-4 text-white/40 hover:text-white transition-colors">
-          <span className="material-symbols-outlined text-xl">close</span>
-        </button>
-        <div className="text-center mb-6">
-          <div className="inline-flex items-center justify-center w-14 h-14 rounded-2xl bg-primary/20 text-primary mb-4 border border-primary/30">
-            <span className="material-symbols-outlined text-3xl">lock_open</span>
-          </div>
-          <h2 className="text-white font-bold text-xl mb-2">Daily limit reached</h2>
-          <p className="text-white/60 text-sm">You have used your {FREE_SEARCHES_PER_DAY} free searches for today. Upgrade to Pro for unlimited access.</p>
-        </div>
-        <div className="grid grid-cols-2 gap-3 mb-6">
-          <div className="bg-slate-900/60 rounded-xl p-4 border border-slate-700">
-            <p className="text-white/50 text-[10px] uppercase tracking-wider mb-2">Free</p>
-            <ul className="space-y-1.5 text-xs">
-              <li className="flex items-center gap-1.5 text-white/70"><span className="material-symbols-outlined text-xs text-green-400">check</span>{FREE_SEARCHES_PER_DAY} searches/day</li>
-              <li className="flex items-center gap-1.5 text-white/70"><span className="material-symbols-outlined text-xs text-green-400">check</span>All jurisdictions</li>
-              <li className="flex items-center gap-1.5 text-white/40"><span className="material-symbols-outlined text-xs text-white/30">close</span>PDF export</li>
-              <li className="flex items-center gap-1.5 text-white/40"><span className="material-symbols-outlined text-xs text-white/30">close</span>Search history</li>
-            </ul>
-          </div>
-          <div className="bg-primary/10 rounded-xl p-4 border border-primary/30">
-            <p className="text-primary text-[10px] uppercase tracking-wider mb-2">Pro</p>
-            <ul className="space-y-1.5 text-xs">
-              <li className="flex items-center gap-1.5 text-white/70"><span className="material-symbols-outlined text-xs text-green-400">check</span>Unlimited searches</li>
-              <li className="flex items-center gap-1.5 text-white/70"><span className="material-symbols-outlined text-xs text-green-400">check</span>All jurisdictions</li>
-              <li className="flex items-center gap-1.5 text-white/70"><span className="material-symbols-outlined text-xs text-green-400">check</span>PDF export</li>
-              <li className="flex items-center gap-1.5 text-white/70"><span className="material-symbols-outlined text-xs text-green-400">check</span>Search history</li>
-            </ul>
-          </div>
-        </div>
-        <a
-          href={STRIPE_PAYMENT_LINK}
-          target="_blank"
-          rel="noopener noreferrer"
-          className="w-full bg-primary hover:bg-blue-500 text-white font-bold py-3 rounded-2xl flex items-center justify-center gap-2 glow-button transition-all mb-3 text-sm"
-        >
-          <span className="material-symbols-outlined text-sm">star</span>
-          Go Pro — $12/month
-        </a>
-        <button onClick={onClose} className="w-full text-white/40 hover:text-white/70 text-xs py-2 transition-colors">
-          Continue free — resets tomorrow
-        </button>
-      </div>
-    </div>
-  );
-}
-
 export default function HomePage() {
   const [question, setQuestion] = useState("");
   const [country, setCountry] = useState("");
   const [jurisdictionWarning, setJurisdictionWarning] = useState(false);
-  const [searchCount, setSearchCount] = useState(0);
-  const [showUpgradeModal, setShowUpgradeModal] = useState(false);
   const [copiedIdx, setCopiedIdx] = useState<number | null>(null);
 
   const jurisdictions = [
@@ -277,9 +199,8 @@ export default function HomePage() {
   const streamAbortRef = useRef<AbortController | null>(null);
   const messagesEndRef = useRef<HTMLDivElement>(null);
 
-  // Init usage count and detect shared URL params
+  // Detect shared URL params
   useEffect(() => {
-    setSearchCount(getTodayUsage());
     const params = new URLSearchParams(window.location.search);
     const q = params.get("q");
     const j = params.get("j");
@@ -317,11 +238,6 @@ export default function HomePage() {
       return;
     }
 
-    if (getTodayUsage() >= FREE_SEARCHES_PER_DAY) {
-      setShowUpgradeModal(true);
-      return;
-    }
-
     const userQuestion = question;
     setQuestion("");
     setError("");
@@ -340,10 +256,6 @@ export default function HomePage() {
 
       if (!res.ok) throw new Error(`Backend error: ${res.status} ${res.statusText}`);
       if (!res.body) throw new Error("No response body from server");
-
-      // Count the search only after a successful connection
-      const newCount = incrementUsage();
-      setSearchCount(newCount);
 
       const reader = res.body.getReader();
       const decoder = new TextDecoder();
@@ -434,13 +346,9 @@ export default function HomePage() {
     return <span>{renderInline(content, "content")}</span>;
   };
 
-  const remaining = Math.max(0, FREE_SEARCHES_PER_DAY - searchCount);
-
   return (
     <div className="min-h-screen flex flex-col items-center pt-10 md:pt-14 pb-16 px-4 relative overflow-x-hidden">
       <div className="fixed inset-0 glow-bg pointer-events-none" />
-
-      {showUpgradeModal && <UpgradeModal onClose={() => setShowUpgradeModal(false)} />}
 
       {/* Jurisdiction warning popup */}
       {jurisdictionWarning && (
@@ -477,26 +385,6 @@ export default function HomePage() {
 
         {/* Search card */}
         <div className="glass-card rounded-[2rem] p-5 md:p-8 shadow-2xl">
-          {/* Usage indicator */}
-          <div className="flex items-center justify-between mb-4">
-            <div className="flex items-center gap-1.5">
-              {Array.from({ length: FREE_SEARCHES_PER_DAY }).map((_, i) => (
-                <div key={i} className={`w-2 h-2 rounded-full transition-all ${i < searchCount ? "bg-primary/40" : "bg-primary"}`} />
-              ))}
-            </div>
-            <div className="flex items-center gap-2">
-              <span className="text-[10px] text-white/40">
-                {remaining > 0 ? `${remaining} free search${remaining !== 1 ? "es" : ""} left today` : "Daily limit reached"}
-              </span>
-              {remaining === 0 && (
-                <button onClick={() => setShowUpgradeModal(true)}
-                  className="text-[10px] text-primary hover:text-blue-400 font-semibold uppercase tracking-wider transition-colors">
-                  Go Pro
-                </button>
-              )}
-            </div>
-          </div>
-
           {error && (
             <div className="mb-4 p-4 bg-red-500/10 border border-red-500/30 rounded-xl text-red-400 text-sm flex items-start gap-2">
               <span className="material-symbols-outlined text-lg mt-0.5">error</span>
