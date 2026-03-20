@@ -518,35 +518,6 @@ export default function HomePage() {
                           {m.error ? m.content : renderContent(m.content, m.sources)}
                         </div>
 
-                        {/* Action buttons — PDF, Email, Share */}
-                        {isCompletedAnswer && (
-                          <div className="flex items-center gap-4 mt-4 pt-3 border-t border-slate-700/40">
-                            <button
-                              type="button"
-                              onClick={() => exportToPDF(m.content, userMsg?.content || "", m.sources, userMsg?.country)}
-                              className="flex items-center gap-1 text-[11px] text-white/40 hover:text-white/80 uppercase tracking-wider transition-colors"
-                            >
-                              <span className="material-symbols-outlined text-sm">download</span>
-                              Export PDF
-                            </button>
-                            <button
-                              type="button"
-                              onClick={() => emailSummary(userMsg?.content || "", m.content, m.sources, userMsg?.country)}
-                              className="flex items-center gap-1 text-[11px] text-white/40 hover:text-white/80 uppercase tracking-wider transition-colors"
-                            >
-                              <span className="material-symbols-outlined text-sm">mail</span>
-                              Email
-                            </button>
-                            <button
-                              type="button"
-                              onClick={() => handleShare(userMsg?.content || "", userMsg?.country || "", i)}
-                              className="flex items-center gap-1 text-[11px] text-white/40 hover:text-white/80 uppercase tracking-wider transition-colors"
-                            >
-                              <span className="material-symbols-outlined text-sm">{copiedIdx === i ? "check" : "share"}</span>
-                              {copiedIdx === i ? "Copied!" : "Share"}
-                            </button>
-                          </div>
-                        )}
                       </div>
 
                       {/* Guidance card with affiliate CTAs */}
