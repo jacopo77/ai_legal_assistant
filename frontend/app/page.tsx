@@ -636,7 +636,7 @@ function FaqPreview() {
             href="/faq"
             className="flex items-center justify-center gap-2 mt-3 py-2 text-xs text-indigo-400 hover:text-indigo-300 transition-colors"
           >
-            View all 30 frequently asked questions
+            View all frequently asked legal questions
             <span className="material-symbols-outlined text-sm">arrow_forward</span>
           </a>
         </div>
