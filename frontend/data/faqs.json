@@ -1,469 +1,85 @@
 [
   {
-    "slug": "tenant-rights-security-deposit-california",
-    "question": "What are tenant rights regarding security deposits in California?",
-    "jurisdiction": "California",
+    "slug": "can-my-landlord-enter-without-permission",
+    "question": "Can my landlord enter without permission?",
+    "jurisdiction": "US",
     "category": "Tenant & Landlord",
-    "answer": "In California, tenant rights regarding security deposits are governed by California Civil Code § 1940 et seq. Here are the key points:\n\n1. **Deposit Limits**: Security deposits are limited to one month's rent for unfurnished units and two months' rent for furnished units [1].\n\n2. **Return of Deposits**: Landlords are required to return the security deposit within 21 days after the tenant vacates the property. This return must include an itemized statement of any deductions made from the deposit [1].\n\n3. **Habitability Requirement**: Landlords must maintain the rental property in a habitable condition throughout the tenancy, which can affect the return of the security deposit if the property is not maintained [1].\n\n4. **Just Cause for Eviction**: For tenancies lasting over 12 months, landlords must provide just cause for eviction under California's AB 1482, which may indirectly affect security deposit disputes if a tenant is evicted without just cause [1].\n\nThese provisions ensure that tenants are protected regarding their security deposits and that landlords adhere to specific legal standards.",
+    "answer": "The provided context does not contain any information regarding a landlord's right to enter a rental property without permission. Therefore, I cannot provide an answer based on the available sources. Please consult local landlord-tenant laws or a legal professional for specific guidance on this matter.",
     "sources": [
       {
         "n": 1,
-        "citation": "Cal. Civ. Code § 1940",
-        "url": "https://leginfo.legislature.ca.gov/faces/codes_displaySection.xhtml?sectionNum=1940.&lawCode=CIV",
-        "title": "California Landlord-Tenant — California Civil Code"
+        "citation": "28 C.F.R. Part 36",
+        "url": "https://www.ecfr.gov/current/title-28/part-36",
+        "title": "Chapter I — Part 36"
       },
       {
         "n": 2,
-        "citation": "12 C.F.R. Part 701",
-        "url": "https://www.ecfr.gov/current/title-12/part-701",
-        "title": "Chapter VII — Part 701"
+        "citation": "26 C.F.R. § 1.451-3",
+        "url": "https://www.ecfr.gov/current/title-26/part-1/section-1.451-3",
+        "title": "Chapter I — § 1.451-3"
       },
       {
         "n": 3,
-        "citation": "2015 Ore. App. LEXIS 1147",
-        "url": "https://www.courtlistener.com/opinion/8166350/as-2014-11-5w-llc-v-caplan-landlord-llc/",
-        "title": "AS 2014-11 5W LLC v. Caplan Landlord, LLC"
+        "citation": "12 C.F.R. Part 1003",
+        "url": "https://www.ecfr.gov/current/title-12/part-1003",
+        "title": "Chapter X — Part 1003"
       },
       {
         "n": 4,
-        "citation": "218 Cal. Rptr. 3d 596",
-        "url": "https://www.courtlistener.com/opinion/6238819/coastal-environmental-rights-found-v-cal-regl-water-quality-control-bd/",
-        "title": "Coastal Environmental Rights Found. v. Cal. Reg'l Water Quality Control Bd."
+        "citation": "90 FR 41125",
+        "url": "https://www.federalregister.gov/documents/2025/08/22/2025-16057/proposed-exemption-for-certain-prohibited-transactions-involving-mid-america-carpenters-regional",
+        "title": "Proposed Exemption for Certain Prohibited Transactions Involving Mid-America Carpenters Regional Council Apprentice and Training Fund (the Fund) Located in St. Louis, Missouri"
       },
       {
         "n": 5,
-        "citation": "426 F. Supp. 2d 1061",
-        "url": "https://www.courtlistener.com/opinion/2498738/southern-california-housing-rights-center-v-los-feliz-towers-homeowners/",
-        "title": "Southern California Housing Rights Center v. Los Feliz Towers Homeowners Ass'n"
-      },
-      {
-        "n": 6,
         "citation": "90 FR 746",
         "url": "https://www.federalregister.gov/documents/2025/01/06/2024-29824/home-investment-partnerships-program-program-updates-and-streamlining",
         "title": "HOME Investment Partnerships Program: Program Updates and Streamlining"
       },
       {
-        "n": 7,
-        "citation": "89 FR 101270",
-        "url": "https://www.federalregister.gov/documents/2024/12/13/2024-28861/30-day-notification-requirement-prior-to-termination-of-lease-for-nonpayment-of-rent",
-        "title": "30-Day Notification Requirement Prior To Termination of Lease for Nonpayment of Rent"
-      }
-    ]
-  },
-  {
-    "slug": "eviction-process-texas",
-    "question": "What is the eviction process for landlords in Texas?",
-    "jurisdiction": "Texas",
-    "category": "Tenant & Landlord",
-    "answer": "In Texas, the eviction process for landlords is governed primarily by the Texas Property Code, Chapter 92. Here are the key steps involved:\n\n1. **Notice Requirement**: Before a landlord can file an eviction suit for non-payment of rent, they must provide the tenant with a written notice of non-payment. This notice must be given at least 3 days before the landlord can initiate legal proceedings in the Justice of the Peace Court [1].\n\n2. **Filing Suit**: If the tenant does not pay the overdue rent within the notice period, the landlord can file an eviction lawsuit in the appropriate Justice of the Peace Court [1].\n\n3. **Court Hearing**: After the suit is filed, a court hearing will be scheduled. Both the landlord and tenant will have the opportunity to present their case [1].\n\n4. **Judgment**: If the court rules in favor of the landlord, a judgment for possession will be issued, allowing the landlord to regain possession of the property [1].\n\n5. **Writ of Possession**: If the tenant does not vacate the property after the judgment, the landlord can request a writ of possession from the court, which authorizes law enforcement to remove the tenant from the premises [1].\n\nIt is important for landlords to follow these steps carefully to ensure compliance with Texas law and avoid potential legal issues.",
-    "sources": [
-      {
-        "n": 1,
-        "citation": "Tex. Prop. Code § 92",
-        "url": "https://statutes.capitol.texas.gov/Docs/PR/htm/PR.92.htm",
-        "title": "Texas Landlord-Tenant — Texas Property Code § 92"
-      },
-      {
-        "n": 2,
-        "citation": "89 FR 101270",
-        "url": "https://www.federalregister.gov/documents/2024/12/13/2024-28861/30-day-notification-requirement-prior-to-termination-of-lease-for-nonpayment-of-rent",
-        "title": "30-Day Notification Requirement Prior To Termination of Lease for Nonpayment of Rent"
-      },
-      {
-        "n": 3,
-        "citation": "90 FR 43070",
-        "url": "https://www.federalregister.gov/documents/2025/09/05/2025-17086/united-states-of-america-et-al-v-realpage-inc-et-al-proposed-final-judgment-and-competitive-impact",
-        "title": "United States of America et al. v. RealPage, Inc. et al. Proposed Final Judgment and Competitive Impact Statement"
-      },
-      {
-        "n": 4,
-        "citation": "Rupert De Dios Canizales A/K/A Rupert Didios Canizales v. the State of Texas",
-        "url": "https://www.courtlistener.com/opinion/10655425/rupert-de-dios-canizales-aka-rupert-didios-canizales-v-the-state-of/",
-        "title": "Rupert De Dios Canizales A/K/A Rupert Didios Canizales v. the State of Texas"
-      },
-      {
-        "n": 5,
-        "citation": "In Re: Saving Grace 2, LLC v. the State of Texas",
-        "url": "https://www.courtlistener.com/opinion/9433470/in-re-saving-grace-2-llc-v-the-state-of-texas/",
-        "title": "In Re: Saving Grace 2, LLC v. the State of Texas"
-      },
-      {
         "n": 6,
-        "citation": "Eue J. Jeong v. Texas Greenovation, LLC",
-        "url": "https://www.courtlistener.com/opinion/4292918/eue-j-jeong-v-texas-greenovation-llc/",
-        "title": "Eue J. Jeong v. Texas Greenovation, LLC"
-      }
-    ]
-  },
-  {
-    "slug": "landlord-repair-obligations-new-york",
-    "question": "What are a landlord's repair and habitability obligations in New York?",
-    "jurisdiction": "New York",
-    "category": "Tenant & Landlord",
-    "answer": "In New York, landlords have specific obligations regarding repairs and habitability under state law. The primary legal framework governing these obligations is found in the New York Real Property Law and the New York City Housing Maintenance Code, among other statutes.\n\n1. **Habitability Requirement**: Landlords are required to provide and maintain rental properties in a habitable condition. This means that the property must be fit for human habitation, which includes ensuring that essential services such as heat, hot water, and plumbing are functioning properly [1].\n\n2. **Repair Obligations**: Landlords must make necessary repairs to ensure that the property meets health and safety standards. This includes addressing issues such as leaks, mold, and pest infestations. Failure to make these repairs can result in legal action by tenants [1].\n\n3. **Notice of Repairs**: Tenants are typically required to notify landlords of any repair needs. Upon receiving such notice, landlords are obligated to address the issues within a reasonable timeframe [1].\n\n4. **Legal Recourse for Tenants**: If a landlord fails to fulfill their repair and habitability obligations, tenants may have the right to withhold rent, seek repairs through the court, or even terminate the lease under certain circumstances [1].\n\nThese obligations are designed to protect tenants and ensure that rental properties are safe and livable. For specific legal advice or to address particular situations, consulting with a qualified attorney is recommended.",
-    "sources": [
-      {
-        "n": 1,
-        "citation": "89 FR 101270",
-        "url": "https://www.federalregister.gov/documents/2024/12/13/2024-28861/30-day-notification-requirement-prior-to-termination-of-lease-for-nonpayment-of-rent",
-        "title": "30-Day Notification Requirement Prior To Termination of Lease for Nonpayment of Rent"
-      },
-      {
-        "n": 2,
-        "citation": "89 FR 27620",
-        "url": "https://www.federalregister.gov/documents/2024/04/17/2024-07956/notice-of-regulatory-waiver-requests-granted-for-the-third-quarter-of-calendar-year-2023",
-        "title": "Notice of Regulatory Waiver Requests Granted for the Third Quarter of Calendar Year 2023"
-      }
-    ]
-  },
-  {
-    "slug": "breaking-a-lease-early-florida",
-    "question": "Can a tenant break a lease early in Florida without penalty?",
-    "jurisdiction": "Florida",
-    "category": "Tenant & Landlord",
-    "answer": "In Florida, a tenant generally cannot break a lease early without facing potential penalties unless specific circumstances apply. According to Florida law, tenants may have the right to terminate a lease early under certain conditions, such as domestic violence situations, military service, or if the rental unit is uninhabitable due to significant health or safety violations [1]. \n\nIf a tenant wishes to break a lease for reasons not covered by these exceptions, they may be liable for rent until the end of the lease term or until the landlord finds a new tenant [1]. It is advisable for tenants to review their lease agreement for any specific early termination clauses that may allow for breaking the lease under certain conditions without penalty.",
-    "sources": [
-      {
-        "n": 1,
-        "citation": "Fla. Stat. § 83",
-        "url": "https://www.leg.state.fl.us/statutes/index.cfm?App_mode=Display_Statute&URL=0000-0099/0083/0083.htm",
-        "title": "Florida Landlord-Tenant — Fla. Stat. Chapter 83"
-      },
-      {
-        "n": 2,
-        "citation": "89 FR 101270",
-        "url": "https://www.federalregister.gov/documents/2024/12/13/2024-28861/30-day-notification-requirement-prior-to-termination-of-lease-for-nonpayment-of-rent",
-        "title": "30-Day Notification Requirement Prior To Termination of Lease for Nonpayment of Rent"
-      },
-      {
-        "n": 3,
-        "citation": "90 FR 2066",
-        "url": "https://www.federalregister.gov/documents/2025/01/10/2024-30293/trade-regulation-rule-on-unfair-or-deceptive-fees",
-        "title": "Trade Regulation Rule on Unfair or Deceptive Fees"
-      },
-      {
-        "n": 4,
-        "citation": "879 N.W.2d 155",
-        "url": "https://www.courtlistener.com/opinion/3201212/elyse-de-stefano-v-apts-downtown-inc/",
-        "title": "Elyse De Stefano v. Apts. Downtown, Inc."
-      },
-      {
-        "n": 5,
-        "citation": "258 N.E.3d 199",
-        "url": "https://www.courtlistener.com/opinion/10369023/slyce-coal-fired-pizza-co-v-metropolitan-square-plaza-llc/",
-        "title": "Slyce Coal Fired Pizza Co. v. Metropolitan Square Plaza, LLC"
-      },
-      {
-        "n": 6,
-        "citation": "312 A.3d 741",
-        "url": "https://www.courtlistener.com/opinion/9487483/westminster-management-v-smith/",
-        "title": "Westminster Management v. Smith"
-      }
-    ]
-  },
-  {
-    "slug": "rent-increase-notice-california",
-    "question": "How much notice must a landlord give before raising rent in California?",
-    "jurisdiction": "California",
-    "category": "Tenant & Landlord",
-    "answer": "In California, the amount of notice a landlord must provide before raising rent depends on the duration of the tenancy and whether the property is located in a rent-controlled area. For most tenancies, landlords must give at least 30 days' written notice for rent increases if the increase is less than 10% of the current rent. If the increase is 10% or more, a 90-day notice is required [1]. Additionally, in rent-controlled cities, specific local laws may impose different notice requirements, which landlords must follow [1].",
-    "sources": [
-      {
-        "n": 1,
-        "citation": "Cal. Civ. Code § 1940",
-        "url": "https://leginfo.legislature.ca.gov/faces/codes_displaySection.xhtml?sectionNum=1940.&lawCode=CIV",
-        "title": "California Landlord-Tenant — California Civil Code"
-      },
-      {
-        "n": 2,
-        "citation": "89 FR 101270",
-        "url": "https://www.federalregister.gov/documents/2024/12/13/2024-28861/30-day-notification-requirement-prior-to-termination-of-lease-for-nonpayment-of-rent",
-        "title": "30-Day Notification Requirement Prior To Termination of Lease for Nonpayment of Rent"
-      },
-      {
-        "n": 3,
-        "citation": "90 FR 43070",
-        "url": "https://www.federalregister.gov/documents/2025/09/05/2025-17086/united-states-of-america-et-al-v-realpage-inc-et-al-proposed-final-judgment-and-competitive-impact",
-        "title": "United States of America et al. v. RealPage, Inc. et al. Proposed Final Judgment and Competitive Impact Statement"
-      },
-      {
-        "n": 4,
-        "citation": "34 Cal. Rptr. 3d 827",
-        "url": "https://www.courtlistener.com/opinion/2264118/bohbot-v-santa-monica-rent-control-board/",
-        "title": "Bohbot v. Santa Monica Rent Control Board"
-      },
-      {
-        "n": 5,
-        "citation": "181 Cal. App. 4th 915",
-        "url": "https://www.courtlistener.com/opinion/2256000/woodland-park-management-llc-v-city-of-east-palo-alto-rent-stabilization/",
-        "title": "Woodland Park Management, LLC v. City of East Palo Alto Rent Stabilization Board"
-      },
-      {
-        "n": 6,
-        "citation": "232 Cal. App. 4th 494",
-        "url": "https://www.courtlistener.com/opinion/2761398/marina-pacifica-homeowners-assn-v-southern-california-financial-corp/",
-        "title": "Marina Pacifica Homeowners Ass'n v. Southern California Financial Corp."
-      }
-    ]
-  },
-  {
-    "slug": "fmla-leave-employer-denial",
-    "question": "Can my employer deny my FMLA leave request?",
-    "jurisdiction": "US",
-    "category": "Employment Law",
-    "answer": "Yes, your employer can deny your FMLA leave request if they have sufficient information to determine that the leave does not qualify under the FMLA. The FMLA prohibits employers from interfering with an employee's rights, which includes denying leave that is legally protected under the Act [2]. However, if the employer lacks sufficient information about the reason for the leave, they may not be able to properly designate it as FMLA-qualifying [1]. \n\nIt is also important to note that employees must provide at least 30 days' advance notice for foreseeable leave [3]. If the notice is not provided, this could impact the employer's ability to grant the leave. \n\nThere may be additional factors or specific circumstances that could affect the employer's decision, which are not covered in the provided sources.",
-    "sources": [
-      {
-        "n": 1,
-        "citation": "29 C.F.R. § 825.301",
-        "url": "https://www.ecfr.gov/current/title-29/part-825/section-825.301",
-        "title": "Chapter V — § 825.301"
-      },
-      {
-        "n": 2,
-        "citation": "29 C.F.R. § 825.220",
-        "url": "https://www.ecfr.gov/current/title-29/part-825/section-825.220",
-        "title": "Chapter V — § 825.220"
-      },
-      {
-        "n": 3,
-        "citation": "29 C.F.R. § 825.302",
-        "url": "https://www.ecfr.gov/current/title-29/part-825/section-825.302",
-        "title": "Chapter V — § 825.302"
-      },
-      {
-        "n": 4,
-        "citation": "29 U.S.C. § 2612",
-        "url": "https://www.law.cornell.edu/uscode/text/29/2612",
-        "title": "Family and Medical Leave Act — Entitlement to Leave"
-      },
-      {
-        "n": 5,
-        "citation": "91 FR 9932",
-        "url": "https://www.federalregister.gov/documents/2026/02/27/2026-03962/employee-or-independent-contractor-status-under-the-fair-labor-standards-act-family-and-medical",
-        "title": "Employee or Independent Contractor Status Under the Fair Labor Standards Act, Family and Medical Leave Act, and Migrant and Seasonal Agricultural Worker Protection Act"
-      },
-      {
-        "n": 6,
-        "citation": "89 FR 29096",
-        "url": "https://www.federalregister.gov/documents/2024/04/19/2024-07527/implementation-of-the-pregnant-workers-fairness-act",
-        "title": "Implementation of the Pregnant Workers Fairness Act"
+        "citation": "75 F.4th 925",
+        "url": "https://www.courtlistener.com/opinion/9416998/united-states-v-melchizedek-hayes/",
+        "title": "United States v. Melchizedek Hayes"
       },
       {
         "n": 7,
-        "citation": "508 F.3d 875",
-        "url": "https://www.courtlistener.com/opinion/1229676/mcklintic-v-36th-judicial-circuit-court/",
-        "title": "McKlintic v. 36th Judicial Circuit Court"
+        "citation": "193 F. App'x 54",
+        "url": "https://www.courtlistener.com/opinion/8623412/terry-v-incorporated-village-of-patchogue/",
+        "title": "Terry v. Incorporated Village of Patchogue"
       },
       {
         "n": 8,
-        "citation": "845 F.3d 821",
-        "url": "https://www.courtlistener.com/opinion/4336863/tracy-wink-v-miller-compressing-company/",
-        "title": "Tracy Wink v. Miller Compressing Company"
-      },
-      {
-        "n": 9,
-        "citation": "923 F.3d 1157",
-        "url": "https://www.courtlistener.com/opinion/4620252/beckley-v-st-lukes-episcopal-presbyterian-hosps/",
-        "title": "Beckley v. St. Luke's Episcopal-Presbyterian Hosps."
+        "citation": "61 F.4th 183",
+        "url": "https://www.courtlistener.com/opinion/9381203/levineschwab-partnership-v-fcc/",
+        "title": "Levine/Schwab Partnership v. FCC"
       }
     ]
   },
   {
-    "slug": "workplace-discrimination-title-vii",
-    "question": "What counts as workplace discrimination under Title VII?",
+    "slug": "what-is-minimum-wage",
+    "question": "What is minimum wage?",
     "jurisdiction": "US",
     "category": "Employment Law",
-    "answer": "Under Title VII of the Civil Rights Act of 1964, workplace discrimination is defined as unlawful employment practices that include:\n\n1. Failing or refusing to hire or discharging any individual, or otherwise discriminating against any individual regarding compensation, terms, conditions, or privileges of employment based on race, color, religion, sex, or national origin [6].\n2. Limiting, segregating, or classifying employees or applicants in a way that deprives or tends to deprive any individual of employment opportunities or adversely affects their status as an employee based on race, color, religion, sex, or national origin [6].\n\nThe context does not provide additional specific examples or nuances of workplace discrimination beyond these definitions.",
+    "answer": "The minimum wage in the United States is specified in the Fair Labor Standards Act (FLSA). According to the FLSA, every employer must pay their employees who are engaged in commerce or in the production of goods for commerce wages at rates not less than $5.85 per hour beginning on the 60th day after May 25, 2007, increasing to $6.55 an hour after 12 months, and to $7.25 an hour after 24 months from that date [4]. \n\nAdditionally, for federal contracts covered by Executive Order 14026, the minimum wage will increase to $17.75 per hour starting January 1, 2025 [6]. \n\nThe sources do not provide a comprehensive overview of minimum wage laws across all states or specific exceptions that may apply, such as for tipped employees or different state laws.",
     "sources": [
       {
         "n": 1,
-        "citation": "29 C.F.R. Part 1636",
-        "url": "https://www.ecfr.gov/current/title-29/part-1636",
-        "title": "Chapter XIV — Part 1636"
+        "citation": "5 C.F.R. § 551.311",
+        "url": "https://www.ecfr.gov/current/title-5/part-551/section-551.311",
+        "title": "Chapter I — § 551.311"
       },
       {
         "n": 2,
-        "citation": "7 C.F.R. § 273.7",
-        "url": "https://www.ecfr.gov/current/title-7/part-273/section-273.7",
-        "title": "Chapter II — § 273.7"
+        "citation": "5 C.F.R. § 551.301",
+        "url": "https://www.ecfr.gov/current/title-5/part-551/section-551.301",
+        "title": "Chapter I — § 551.301"
       },
       {
         "n": 3,
-        "citation": "931 F.3d 799",
-        "url": "https://www.courtlistener.com/opinion/4644266/pamela-mahler-v-first-dakota-title-ltd-partner/",
-        "title": "Pamela Mahler v. First Dakota Title Ltd Partner"
-      },
-      {
-        "n": 4,
-        "citation": "276 F.3d 249",
-        "url": "https://www.courtlistener.com/opinion/776078/lisa-worth-v-robert-h-tyer-ii-united-states-title-abstract-company/",
-        "title": "Lisa Worth v. Robert H. Tyer Ii, United States Title & Abstract Company, Grundy County Title & Abstract, Inc., Consolidated Title Services Company of Illinois, Ogle County Title & Abstract Company Ii, Title Express Company, Ltd, and Grundy County Title & Abstract Company II"
-      },
-      {
-        "n": 5,
-        "citation": "843 F.3d 553",
-        "url": "https://www.courtlistener.com/opinion/4330105/chase-v-united-states-postal-service/",
-        "title": "Chase v. United States Postal Service"
-      },
-      {
-        "n": 6,
-        "citation": "42 U.S.C. § 2000e-2",
-        "url": "https://www.law.cornell.edu/uscode/text/42/2000e-2",
-        "title": "Civil Rights Act — Unlawful Employment Practices (Title VII)"
-      },
-      {
-        "n": 7,
-        "citation": "42 U.S.C. § 2000d",
-        "url": "https://www.law.cornell.edu/uscode/text/42/2000d",
-        "title": "Civil Rights Act — Nondiscrimination in Federal Programs (Title VI)"
-      },
-      {
-        "n": 8,
-        "citation": "89 FR 33474",
-        "url": "https://www.federalregister.gov/documents/2024/04/29/2024-07915/nondiscrimination-on-the-basis-of-sex-in-education-programs-or-activities-receiving-federal",
-        "title": "Nondiscrimination on the Basis of Sex in Education Programs or Activities Receiving Federal Financial Assistance"
-      },
-      {
-        "n": 9,
-        "citation": "89 FR 34818",
-        "url": "https://www.federalregister.gov/documents/2024/04/30/2024-08982/designated-placement-requirements-under-titles-iv-e-and-iv-b-for-lgbtqi-children",
-        "title": "Designated Placement Requirements Under Titles IV-E and IV-B for LGBTQI+ Children"
-      }
-    ]
-  },
-  {
-    "slug": "ada-workplace-accommodations",
-    "question": "Does the ADA require my employer to provide workplace accommodations?",
-    "jurisdiction": "US",
-    "category": "Employment Law",
-    "answer": "Yes, the Americans with Disabilities Act (ADA) requires employers to provide reasonable accommodations to qualified employees with disabilities. This obligation is part of the ADA's framework aimed at preventing discrimination against individuals with disabilities in the workplace [3]. However, the specific details regarding what constitutes a reasonable accommodation and the process for requesting one are not covered in the provided snippets, indicating a gap in the context.",
-    "sources": [
-      {
-        "n": 1,
-        "citation": "42 U.S.C. § 12112",
-        "url": "https://www.law.cornell.edu/uscode/text/42/12112",
-        "title": "Americans with Disabilities Act — Prohibited Discrimination"
-      },
-      {
-        "n": 2,
-        "citation": "28 C.F.R. Part 36",
-        "url": "https://www.ecfr.gov/current/title-28/part-36",
-        "title": "Chapter I — Part 36"
-      },
-      {
-        "n": 3,
-        "citation": "29 C.F.R. Part 1636",
-        "url": "https://www.ecfr.gov/current/title-29/part-1636",
-        "title": "Chapter XIV — Part 1636"
-      },
-      {
-        "n": 4,
-        "citation": "29 C.F.R. Part 1630",
-        "url": "https://www.ecfr.gov/current/title-29/part-1630",
-        "title": "Chapter XIV — Part 1630"
-      },
-      {
-        "n": 5,
-        "citation": "89 FR 29096",
-        "url": "https://www.federalregister.gov/documents/2024/04/19/2024-07527/implementation-of-the-pregnant-workers-fairness-act",
-        "title": "Implementation of the Pregnant Workers Fairness Act"
-      },
-      {
-        "n": 6,
-        "citation": "89 FR 96466",
-        "url": "https://www.federalregister.gov/documents/2024/12/04/2024-27880/employment-of-workers-with-disabilities-under-section-14c-of-the-fair-labor-standards-act",
-        "title": "Employment of Workers With Disabilities Under Section 14(c) of the Fair Labor Standards Act"
-      },
-      {
-        "n": 7,
-        "citation": "950 F.3d 488",
-        "url": "https://www.courtlistener.com/opinion/4728975/mary-stelter-v-wisconsin-physicians-service/",
-        "title": "Mary Stelter v. Wisconsin Physicians Service"
-      },
-      {
-        "n": 8,
-        "citation": "Mary Stelter v. Wisconsin Physicians Service",
-        "url": "https://www.courtlistener.com/opinion/4728707/mary-stelter-v-wisconsin-physicians-service/",
-        "title": "Mary Stelter v. Wisconsin Physicians Service"
-      },
-      {
-        "n": 9,
-        "citation": "108 F.4th 1055",
-        "url": "https://www.courtlistener.com/opinion/10014145/allan-sanders-v-union-pacific-railroad-co/",
-        "title": "Allan Sanders v. Union Pacific Railroad Co."
-      }
-    ]
-  },
-  {
-    "slug": "wrongful-termination-federal-law",
-    "question": "What constitutes wrongful termination under federal law?",
-    "jurisdiction": "US",
-    "category": "Employment Law",
-    "answer": "The provided context does not contain information regarding what constitutes wrongful termination under federal law. Therefore, I cannot provide an answer based on the available sources.",
-    "sources": [
-      {
-        "n": 1,
-        "citation": "10 C.F.R. § 140.94",
-        "url": "https://www.ecfr.gov/current/title-10/part-140/section-140.94",
-        "title": "Chapter I — § 140.94"
-      },
-      {
-        "n": 2,
-        "citation": "782 F.3d 46",
-        "url": "https://www.courtlistener.com/opinion/2790836/law-offices-of-david-efron-v-matthews-fullmer-law-firm/",
-        "title": "Law Offices of David Efron v. Matthews & Fullmer Law Firm"
-      },
-      {
-        "n": 3,
-        "citation": "90 F.4th 101",
-        "url": "https://www.courtlistener.com/opinion/9457611/restaurant-law-center-v-city-of-new-york/",
-        "title": "Restaurant Law Center v. City of New York"
-      },
-      {
-        "n": 4,
-        "citation": "24 F.4th 1122",
-        "url": "https://www.courtlistener.com/opinion/6246606/law-offices-of-david-freyd-v-victoria-chamara/",
-        "title": "Law Offices of David Freyd v. Victoria Chamara"
-      },
-      {
-        "n": 5,
-        "citation": "90 FR 56890",
-        "url": "https://www.federalregister.gov/documents/2025/12/08/2025-22289/federal-travel-regulation-reorganizing-and-streamlining-the-federal-travel-regulation-to-improve",
-        "title": "Federal Travel Regulation; Reorganizing and Streamlining the Federal Travel Regulation To Improve Operational Efficiency"
-      },
-      {
-        "n": 6,
-        "citation": "89 FR 101270",
-        "url": "https://www.federalregister.gov/documents/2024/12/13/2024-28861/30-day-notification-requirement-prior-to-termination-of-lease-for-nonpayment-of-rent",
-        "title": "30-Day Notification Requirement Prior To Termination of Lease for Nonpayment of Rent"
-      }
-    ]
-  },
-  {
-    "slug": "overtime-pay-requirements-flsa",
-    "question": "What are the overtime pay requirements under the Fair Labor Standards Act?",
-    "jurisdiction": "US",
-    "category": "Employment Law",
-    "answer": "Under the Fair Labor Standards Act (FLSA), covered, nonexempt employees must be paid at least the federal minimum wage for all hours worked and receive overtime pay at one and one-half times their regular rate for hours worked over 40 in a workweek [5]. There are specific exemptions to these requirements, such as for certain domestic service employees providing companionship services or live-in domestic workers [5]. \n\nThe context does not provide detailed information on the calculation of overtime pay or specific employer obligations beyond the general requirements mentioned. Further details on exemptions or specific employer responsibilities may be found in additional sources.",
-    "sources": [
-      {
-        "n": 1,
-        "citation": "29 C.F.R. § 4.181",
-        "url": "https://www.ecfr.gov/current/title-29/part-4/section-4.181",
-        "title": "§ 4.181"
-      },
-      {
-        "n": 2,
-        "citation": "5 C.F.R. § 551.541",
-        "url": "https://www.ecfr.gov/current/title-5/part-551/section-551.541",
-        "title": "Chapter I — § 551.541"
-      },
-      {
-        "n": 3,
-        "citation": "5 C.F.R. § 551.514",
-        "url": "https://www.ecfr.gov/current/title-5/part-551/section-551.514",
-        "title": "Chapter I — § 551.514"
+        "citation": "29 C.F.R. § 510.10",
+        "url": "https://www.ecfr.gov/current/title-29/part-510/section-510.10",
+        "title": "Chapter V — § 510.10"
       },
       {
         "n": 4,
@@ -473,552 +89,48 @@
       },
       {
         "n": 5,
-        "citation": "90 FR 28976",
-        "url": "https://www.federalregister.gov/documents/2025/07/02/2025-12316/application-of-the-fair-labor-standards-act-to-domestic-service",
-        "title": "Application of the Fair Labor Standards Act to Domestic Service"
+        "citation": "91 FR 5783",
+        "url": "https://www.federalregister.gov/documents/2026/02/09/2026-02466/minimum-wage-for-federal-contracts-covered-by-executive-order-13658-notice-of-rate-change-in-effect",
+        "title": "Minimum Wage for Federal Contracts Covered by Executive Order 13658, Notice of Rate Change in Effect"
       },
       {
         "n": 6,
-        "citation": "91 FR 9932",
-        "url": "https://www.federalregister.gov/documents/2026/02/27/2026-03962/employee-or-independent-contractor-status-under-the-fair-labor-standards-act-family-and-medical",
-        "title": "Employee or Independent Contractor Status Under the Fair Labor Standards Act, Family and Medical Leave Act, and Migrant and Seasonal Agricultural Worker Protection Act"
-      },
-      {
-        "n": 7,
-        "citation": "571 F.3d 953",
-        "url": "https://www.courtlistener.com/opinion/1232180/in-re-wells-fargo-home-mortg-overtime-pay-lit/",
-        "title": "In Re Wells Fargo Home Mortg. Overtime Pay Lit."
-      },
-      {
-        "n": 8,
-        "citation": "314 F.3d 501",
-        "url": "https://www.courtlistener.com/opinion/162875/wilkes-v-wyoming-department-of-employment-division-of-labor-standards/",
-        "title": "Wilkes v. Wyoming Department of Employment Division of Labor Standards"
-      },
-      {
-        "n": 9,
-        "citation": "120 F.4th 546",
-        "url": "https://www.courtlistener.com/opinion/10162731/james-walters-v-professional-labor-group-llc/",
-        "title": "James Walters v. Professional Labor Group, LLC"
-      }
-    ]
-  },
-  {
-    "slug": "non-compete-agreement-enforceability",
-    "question": "Are non-compete agreements enforceable under federal law?",
-    "jurisdiction": "US",
-    "category": "Employment Law",
-    "answer": "Non-compete agreements are not uniformly enforceable under federal law. The Federal Trade Commission (FTC) issued a Non-Compete Clause Rule stating that it is an unfair method of competition to enter into non-compete clauses with workers on or after the rule's effective date. Existing non-competes entered into before this date have different enforceability depending on the worker's position; they can remain in force for senior executives but are not enforceable for other workers after the effective date of the rule [5]. However, this rule was vacated before it went into effect, indicating that non-compete agreements may still be enforceable under existing federal law, depending on specific circumstances and interpretations [4]. \n\nThus, while there are federal regulations addressing non-compete agreements, their enforceability is contingent on various factors, including the timing of the agreements and the positions of the workers involved. There is a gap in the context regarding the specific criteria or state laws that may also affect the enforceability of non-compete agreements.",
-    "sources": [
-      {
-        "n": 1,
-        "citation": "782 F.3d 46",
-        "url": "https://www.courtlistener.com/opinion/2790836/law-offices-of-david-efron-v-matthews-fullmer-law-firm/",
-        "title": "Law Offices of David Efron v. Matthews & Fullmer Law Firm"
-      },
-      {
-        "n": 2,
-        "citation": "996 F.3d 87",
-        "url": "https://www.courtlistener.com/opinion/4877861/tw-v-board-of-law-examiners/",
-        "title": "T.W. v. Board of Law Examiners"
-      },
-      {
-        "n": 3,
-        "citation": "935 F.3d 296",
-        "url": "https://www.courtlistener.com/opinion/4648702/sylvia-zepeda-v-federal-home-loan-mtge-corp/",
-        "title": "Sylvia Zepeda v. Federal Home Loan Mtge Corp."
-      },
-      {
-        "n": 4,
-        "citation": "90 FR 43606",
-        "url": "https://www.federalregister.gov/documents/2025/09/10/2025-17416/gateway-services-analysis-of-agreement-containing-consent-order-to-aid-public-comment",
-        "title": "Gateway Services; Analysis of Agreement Containing Consent Order To Aid Public Comment"
-      },
-      {
-        "n": 5,
-        "citation": "89 FR 38342",
-        "url": "https://www.federalregister.gov/documents/2024/05/07/2024-09171/non-compete-clause-rule",
-        "title": "Non-Compete Clause Rule"
-      }
-    ]
-  },
-  {
-    "slug": "far-simplified-acquisition-threshold",
-    "question": "What is the simplified acquisition threshold under the Federal Acquisition Regulation?",
-    "jurisdiction": "US",
-    "category": "Federal Regulations",
-    "answer": "The simplified acquisition threshold under the Federal Acquisition Regulation is set at $7.5 million, although agency regulations may establish a higher threshold consistent with this limit [1]. There is no additional information provided regarding any adjustments to this threshold or its application in different contexts.",
-    "sources": [
-      {
-        "n": 1,
-        "citation": "48 C.F.R. § 13.303-5",
-        "url": "https://www.ecfr.gov/current/title-48/part-13/section-13.303-5",
-        "title": "Chapter 1 — 13.303-5"
-      },
-      {
-        "n": 2,
-        "citation": "90 FR 41872",
-        "url": "https://www.federalregister.gov/documents/2025/08/27/2025-16412/federal-acquisition-regulation-inflation-adjustment-of-acquisition-related-thresholds",
-        "title": "Federal Acquisition Regulation: Inflation Adjustment of Acquisition-Related Thresholds"
-      },
-      {
-        "n": 3,
-        "citation": "91 FR 12488",
-        "url": "https://www.federalregister.gov/documents/2026/03/13/2026-04912/federal-acquisition-regulation-trade-agreements-thresholds",
-        "title": "Federal Acquisition Regulation: Trade Agreements Thresholds"
-      },
-      {
-        "n": 4,
-        "citation": "417 App. D.C. 1",
-        "url": "https://www.courtlistener.com/opinion/2814836/wendy-wagner-v-federal-election-commission/",
-        "title": "Wendy Wagner v. Federal Election Commission"
-      },
-      {
-        "n": 5,
-        "citation": "412 U.S. App. D.C. 189",
-        "url": "https://www.courtlistener.com/opinion/2722136/usa-ex-rel-brady-folliard-v-government-acquisitions/",
-        "title": "USA, ex rel Brady Folliard v. Government Acquisitions"
-      },
-      {
-        "n": 6,
-        "citation": "951 F.3d 1366",
-        "url": "https://www.courtlistener.com/opinion/4733200/office-design-group-v-united-states/",
-        "title": "Office Design Group v. United States"
-      }
-    ]
-  },
-  {
-    "slug": "osha-employer-safety-obligations",
-    "question": "What are an employer's safety obligations under OSHA?",
-    "jurisdiction": "US",
-    "category": "Federal Regulations",
-    "answer": "An employer's safety obligations under OSHA include the following:\n\n1. Employers must provide a workplace that is free from recognized hazards that could cause death or serious physical harm to employees [1].\n2. Employers are required to comply with occupational safety and health standards that are promulgated under the Occupational Safety and Health Act [1].\n\nThere are no additional details provided in the context regarding specific standards or procedures beyond these obligations.",
-    "sources": [
-      {
-        "n": 1,
-        "citation": "29 U.S.C. § 654",
-        "url": "https://www.law.cornell.edu/uscode/text/29/654",
-        "title": "Occupational Safety and Health Act — Employer Duties"
-      },
-      {
-        "n": 2,
-        "citation": "29 C.F.R. § 1910.119",
-        "url": "https://www.ecfr.gov/current/title-29/part-1910/section-1910.119",
-        "title": "Chapter XVII — § 1910.119"
-      },
-      {
-        "n": 3,
-        "citation": "29 C.F.R. § 1926.64",
-        "url": "https://www.ecfr.gov/current/title-29/part-1926/section-1926.64",
-        "title": "Chapter XVII — § 1926.64"
-      },
-      {
-        "n": 4,
-        "citation": "90 FR 28257",
-        "url": "https://www.federalregister.gov/documents/2025/07/01/2025-11624/occupational-injury-and-illness-recording-and-reporting-requirements-withdrawal",
-        "title": "Occupational Injury and Illness Recording and Reporting Requirements; Withdrawal"
-      },
-      {
-        "n": 5,
-        "citation": "90 FR 28282",
-        "url": "https://www.federalregister.gov/documents/2025/07/01/2025-11626/safety-color-code-for-marking-physical-hazards-textiles-sawmills-safety-color-code-for-marking",
-        "title": "Safety Color Code for Marking Physical Hazards; Textiles; Sawmills; Safety Color Code for Marking Physical Hazards for Shipyard Employment"
-      },
-      {
-        "n": 6,
-        "citation": "595 U.S. 109",
-        "url": "https://www.courtlistener.com/opinion/6225645/nfib-v-osha/",
-        "title": "NFIB v. OSHA"
-      },
-      {
-        "n": 7,
-        "citation": "United Food & Commercial Workers v. OSHA",
-        "url": "https://www.courtlistener.com/opinion/5307649/united-food-commercial-workers-v-osha/",
-        "title": "United Food & Commercial Workers v. OSHA"
-      },
-      {
-        "n": 8,
-        "citation": "17 F.4th 604",
-        "url": "https://www.courtlistener.com/opinion/5297211/bst-holdings-llc-v-osha/",
-        "title": "BST Holdings, L.L.C. v. OSHA"
-      }
-    ]
-  },
-  {
-    "slug": "federal-contractor-requirements-far",
-    "question": "What are the basic requirements for becoming a federal contractor?",
-    "jurisdiction": "US",
-    "category": "Federal Regulations",
-    "answer": "The provided context does not specify the basic requirements for becoming a federal contractor. It includes references to regulations and cases related to federal contracting but does not outline specific eligibility criteria or requirements. Therefore, there is a gap in the information needed to fully answer the question.",
-    "sources": [
-      {
-        "n": 1,
-        "citation": "41 C.F.R. § 105-72.101",
-        "url": "https://www.ecfr.gov/current/title-41/part-105-72/section-105-72.101",
-        "title": "Chapter 105 — § 105-72.101"
-      },
-      {
-        "n": 2,
-        "citation": "48 C.F.R. § 52.227-14",
-        "url": "https://www.ecfr.gov/current/title-48/part-52/section-52.227-14",
-        "title": "Chapter 1 — 52.227-14"
-      },
-      {
-        "n": 3,
-        "citation": "48 C.F.R. § 52.212-4",
-        "url": "https://www.ecfr.gov/current/title-48/part-52/section-52.212-4",
-        "title": "Chapter 1 — 52.212-4"
-      },
-      {
-        "n": 4,
-        "citation": "89 FR 83092",
-        "url": "https://www.federalregister.gov/documents/2024/10/15/2024-22905/cybersecurity-maturity-model-certification-cmmc-program",
-        "title": "Cybersecurity Maturity Model Certification (CMMC) Program"
-      },
-      {
-        "n": 5,
-        "citation": "89 FR 105175",
-        "url": "https://www.federalregister.gov/documents/2024/12/26/2024-30737/commercial-drivers-license-application-for-exemption-american-public-transportation-association",
-        "title": "Commercial Driver's License: Application for Exemption; American Public Transportation Association"
-      },
-      {
-        "n": 6,
-        "citation": "779 F.3d 1346",
-        "url": "https://www.courtlistener.com/opinion/2784995/cgi-federal-inc-v-united-states/",
-        "title": "Cgi Federal Inc. v. United States"
-      },
-      {
-        "n": 7,
-        "citation": "843 F.3d 445",
-        "url": "https://www.courtlistener.com/opinion/4327625/japanese-village-llc-v-federal-transit-administration/",
-        "title": "Japanese Village, LLC v. Federal Transit Administration"
-      },
-      {
-        "n": 8,
-        "citation": "417 App. D.C. 1",
-        "url": "https://www.courtlistener.com/opinion/2814836/wendy-wagner-v-federal-election-commission/",
-        "title": "Wendy Wagner v. Federal Election Commission"
-      }
-    ]
-  },
-  {
-    "slug": "ada-public-accommodation-requirements",
-    "question": "What does the ADA require for public accommodations?",
-    "jurisdiction": "US",
-    "category": "Federal Regulations",
-    "answer": "The Americans with Disabilities Act (ADA) requires that public accommodations provide equal access to goods, services, facilities, privileges, advantages, and accommodations for individuals with disabilities. Specifically, it prohibits discrimination against individuals with disabilities in places of public accommodation, ensuring they have the same opportunities as those without disabilities [2]. \n\nHowever, the provided context does not detail specific design standards or requirements for physical accessibility under the ADA, nor does it address enforcement mechanisms or penalties for non-compliance.",
-    "sources": [
-      {
-        "n": 1,
-        "citation": "28 C.F.R. Part 36",
-        "url": "https://www.ecfr.gov/current/title-28/part-36",
-        "title": "Chapter I — Part 36"
-      },
-      {
-        "n": 2,
-        "citation": "42 U.S.C. § 2000a",
-        "url": "https://www.law.cornell.edu/uscode/text/42/2000a",
-        "title": "Civil Rights Act — Public Accommodations (Title II)"
-      },
-      {
-        "n": 3,
-        "citation": "42 U.S.C. § 12112",
-        "url": "https://www.law.cornell.edu/uscode/text/42/12112",
-        "title": "Americans with Disabilities Act — Prohibited Discrimination"
-      },
-      {
-        "n": 4,
-        "citation": "89 FR 92076",
-        "url": "https://www.federalregister.gov/documents/2024/11/21/2024-27286/recordkeeping-and-reporting-requirements-under-title-vii-the-ada-gina-and-the-pwfa",
-        "title": "Recordkeeping and Reporting Requirements Under Title VII, the ADA, GINA, and the PWFA"
-      },
-      {
-        "n": 5,
-        "citation": "89 FR 102398",
-        "url": "https://www.federalregister.gov/documents/2024/12/17/2024-29731/ensuring-safe-accommodations-for-air-travelers-with-disabilities-using-wheelchairs",
-        "title": "Ensuring Safe Accommodations for Air Travelers With Disabilities Using Wheelchairs"
-      },
-      {
-        "n": 6,
-        "citation": "113 F.4th 86",
-        "url": "https://www.courtlistener.com/opinion/10050340/rae-v-woburn-public-schools/",
-        "title": "Rae v. Woburn Public Schools"
-      },
-      {
-        "n": 7,
-        "citation": "792 F.3d 985",
-        "url": "https://www.courtlistener.com/opinion/2815242/danny-fischer-v-minneapolis-public-schools/",
-        "title": "Danny Fischer v. Minneapolis Public Schools"
-      },
-      {
-        "n": 8,
-        "citation": "54 F.4th 779",
-        "url": "https://www.courtlistener.com/opinion/9327987/ki-v-durham-public-schools-board/",
-        "title": "K.I. v. Durham Public Schools Board"
-      }
-    ]
-  },
-  {
-    "slug": "hipaa-employee-medical-records",
-    "question": "Does HIPAA protect employee medical records from employers?",
-    "jurisdiction": "US",
-    "category": "Federal Regulations",
-    "answer": "The provided context does not explicitly address whether HIPAA protects employee medical records from employers. There are references to HIPAA's Security Rule and its requirements for safeguarding electronic protected health information (ePHI) [6], but no direct statements regarding the protection of employee medical records specifically from employers. Therefore, the answer is incomplete based on the available sources.",
-    "sources": [
-      {
-        "n": 1,
-        "citation": "29 C.F.R. Part 1630",
-        "url": "https://www.ecfr.gov/current/title-29/part-1630",
-        "title": "Chapter XIV — Part 1630"
-      },
-      {
-        "n": 2,
-        "citation": "45 C.F.R. § 102.3",
-        "url": "https://www.ecfr.gov/current/title-45/part-102/section-102.3",
-        "title": "§ 102.3"
-      },
-      {
-        "n": 3,
-        "citation": "810 F.3d 631",
-        "url": "https://www.courtlistener.com/opinion/3164789/pacific-radiation-oncology-v-the-queens-medical-center/",
-        "title": "Pacific Radiation Oncology v. the Queen's Medical Center"
-      },
-      {
-        "n": 4,
-        "citation": "944 F.3d 934",
-        "url": "https://www.courtlistener.com/opinion/4689135/dhsc-llc-v-nlrb/",
-        "title": "DHSC, LLC v. NLRB"
-      },
-      {
-        "n": 5,
-        "citation": "987 F.3d 758",
-        "url": "https://www.courtlistener.com/opinion/4853645/lana-starkey-v-amber-enterprises-inc/",
-        "title": "Lana Starkey v. Amber Enterprises, Inc."
-      },
-      {
-        "n": 6,
-        "citation": "90 FR 898",
-        "url": "https://www.federalregister.gov/documents/2025/01/06/2024-30983/hipaa-security-rule-to-strengthen-the-cybersecurity-of-electronic-protected-health-information",
-        "title": "HIPAA Security Rule To Strengthen the Cybersecurity of Electronic Protected Health Information"
-      },
-      {
-        "n": 7,
-        "citation": "91 FR 1866",
-        "url": "https://www.federalregister.gov/documents/2026/01/15/2026-00726/privacy-act-of-1974-systems-of-records",
-        "title": "Privacy Act of 1974; Systems of Records"
-      }
-    ]
-  },
-  {
-    "slug": "small-business-llc-vs-corporation",
-    "question": "What is the difference between an LLC and a corporation for a small business?",
-    "jurisdiction": "US",
-    "category": "Small Business",
-    "answer": "The provided context does not contain specific information regarding the differences between an LLC (Limited Liability Company) and a corporation for small businesses. Therefore, I cannot provide a comparison based on the sources available. Please consult additional resources for detailed information on this topic.",
-    "sources": [
-      {
-        "n": 1,
-        "citation": "13 C.F.R. § 124.112",
-        "url": "https://www.ecfr.gov/current/title-13/part-124/section-124.112",
-        "title": "Chapter I — § 124.112"
-      },
-      {
-        "n": 2,
-        "citation": "89 FR 102448",
-        "url": "https://www.federalregister.gov/documents/2024/12/17/2024-29393/hubzone-program-updates-and-clarifications-and-clarifications-to-other-small-business-programs",
-        "title": "HUBZone Program Updates and Clarifications, and Clarifications to Other Small Business Programs"
-      },
-      {
-        "n": 3,
-        "citation": "89 FR 68274",
-        "url": "https://www.federalregister.gov/documents/2024/08/23/2024-18325/hubzone-program-updates-and-clarifications-and-clarifications-to-other-small-business-programs",
-        "title": "HUBZone Program Updates and Clarifications, and Clarifications to Other Small Business Programs"
-      },
-      {
-        "n": 4,
-        "citation": "100 F.4th 215",
-        "url": "https://www.courtlistener.com/opinion/9499183/concert-investor-llc-v-small-business-administration/",
-        "title": "Concert Investor, LLC v. Small Business Administration"
-      },
-      {
-        "n": 5,
-        "citation": "853 F.3d 992",
-        "url": "https://www.courtlistener.com/opinion/4380547/united-states-small-business-administration-v-bensal/",
-        "title": "United States Small Business Administration v. Bensal"
-      },
-      {
-        "n": 6,
-        "citation": "990 F.3d 217",
-        "url": "https://www.courtlistener.com/opinion/4860985/pharaohs-gc-inc-v-united-states-small-business-administration/",
-        "title": "Pharaohs GC, Inc. v. United States Small Business Administration"
-      }
-    ]
-  },
-  {
-    "slug": "independent-contractor-vs-employee-irs",
-    "question": "How does the IRS determine if a worker is an independent contractor or employee?",
-    "jurisdiction": "US",
-    "category": "Small Business",
-    "answer": "The IRS determines if a worker is an independent contractor or an employee based on the \"economic reality\" test, which considers various factors rather than strict legal definitions. Key factors identified by the Supreme Court in United States v. Silk include degrees of control, opportunities for profit or loss, investment in facilities, permanency of the relationship, and skill required for the claimed independent operation. No single factor is decisive, and the list is not exhaustive [7]. \n\nThe context does not provide specific IRS guidelines or criteria beyond this judicial precedent. Therefore, any additional details regarding IRS procedures or specific tests used by the IRS to classify workers are not covered in the provided sources.",
-    "sources": [
-      {
-        "n": 1,
-        "citation": "20 C.F.R. § 655.736",
-        "url": "https://www.ecfr.gov/current/title-20/part-655/section-655.736",
-        "title": "Chapter V — § 655.736"
-      },
-      {
-        "n": 2,
-        "citation": "48 C.F.R. § 52.222-60",
-        "url": "https://www.ecfr.gov/current/title-48/part-52/section-52.222-60",
-        "title": "Chapter 1 — 52.222-60"
-      },
-      {
-        "n": 3,
-        "citation": "5 C.F.R. § 2641.201",
-        "url": "https://www.ecfr.gov/current/title-5/part-2641/section-2641.201",
-        "title": "Chapter XVI — § 2641.201"
-      },
-      {
-        "n": 4,
-        "citation": "David Myers v. Cmsnr. IRS",
-        "url": "https://www.courtlistener.com/opinion/4637119/david-myers-v-cmsnr-irs/",
-        "title": "David Myers v. Cmsnr. IRS"
-      },
-      {
-        "n": 5,
-        "citation": "945 F.3d 232",
-        "url": "https://www.courtlistener.com/opinion/4685951/integranet-physician-resource-v-texas-independent/",
-        "title": "Integranet Physician Resource v. Texas Independent"
-      },
-      {
-        "n": 6,
-        "citation": "Integranet Physician Resource v. Texas Independent",
-        "url": "https://www.courtlistener.com/opinion/4686392/integranet-physician-resource-v-texas-independent/",
-        "title": "Integranet Physician Resource v. Texas Independent"
-      },
-      {
-        "n": 7,
-        "citation": "91 FR 9932",
-        "url": "https://www.federalregister.gov/documents/2026/02/27/2026-03962/employee-or-independent-contractor-status-under-the-fair-labor-standards-act-family-and-medical",
-        "title": "Employee or Independent Contractor Status Under the Fair Labor Standards Act, Family and Medical Leave Act, and Migrant and Seasonal Agricultural Worker Protection Act"
-      },
-      {
-        "n": 8,
-        "citation": "89 FR 1638",
-        "url": "https://www.federalregister.gov/documents/2024/01/10/2024-00067/employee-or-independent-contractor-classification-under-the-fair-labor-standards-act",
-        "title": "Employee or Independent Contractor Classification Under the Fair Labor Standards Act"
-      }
-    ]
-  },
-  {
-    "slug": "small-business-employment-contract-requirements",
-    "question": "What should be included in an employment contract for a small business?",
-    "jurisdiction": "US",
-    "category": "Small Business",
-    "answer": "The provided context does not contain specific information regarding what should be included in an employment contract for a small business. The snippets primarily discuss regulations related to the Small Business Administration and various court cases, without addressing employment contract elements. Therefore, there are gaps in the information needed to answer the question.",
-    "sources": [
-      {
-        "n": 1,
-        "citation": "13 C.F.R. § 124.103",
-        "url": "https://www.ecfr.gov/current/title-13/part-124/section-124.103",
-        "title": "Chapter I — § 124.103"
-      },
-      {
-        "n": 2,
-        "citation": "89 FR 96089",
-        "url": "https://www.federalregister.gov/documents/2024/12/04/2024-28200/women-owned-small-business-federal-contract-program-updates-and-clarifications",
-        "title": "Women-Owned Small Business Federal Contract Program Updates and Clarifications"
-      },
-      {
-        "n": 3,
-        "citation": "89 FR 42816",
-        "url": "https://www.federalregister.gov/documents/2024/05/16/2024-10518/women-owned-small-business-federal-contract-program-updates-and-clarifications",
-        "title": "Women-Owned Small Business Federal Contract Program Updates and Clarifications"
-      },
-      {
-        "n": 4,
-        "citation": "31 F.4th 560",
-        "url": "https://www.courtlistener.com/opinion/6459693/james-perez-v-staples-contract-commercial/",
-        "title": "James Perez v. Staples Contract & Commercial"
-      },
-      {
-        "n": 5,
-        "citation": "92 F. App'x 112",
-        "url": "https://www.courtlistener.com/opinion/8451635/sutton-v-united-states-small-business-administration/",
-        "title": "Sutton v. United States Small Business Administration"
-      },
-      {
-        "n": 6,
-        "citation": "873 F.3d 313",
-        "url": "https://www.courtlistener.com/opinion/4433695/small-justice-llc-v-xcentric-ventures-llc/",
-        "title": "Small Justice LLC v. Xcentric Ventures LLC"
-      }
-    ]
-  },
-  {
-    "slug": "minimum-wage-federal-law",
-    "question": "What is the federal minimum wage and who does it apply to?",
-    "jurisdiction": "US",
-    "category": "Small Business",
-    "answer": "The federal minimum wage is $7.25 per hour, as established by the Fair Labor Standards Act (FLSA) for employees engaged in commerce or in the production of goods for commerce [2]. This wage applies to every employer who has employees in these categories. Additionally, for workers performing on federal contracts covered by Executive Order 14026, the minimum wage will increase to $17.75 per hour starting January 1, 2025 [3]. \n\nThere are no details in the provided context regarding specific exemptions or additional categories of workers beyond those engaged in commerce or federal contract work.",
-    "sources": [
-      {
-        "n": 1,
-        "citation": "48 C.F.R. § 22.1905",
-        "url": "https://www.ecfr.gov/current/title-48/part-22/section-22.1905",
-        "title": "Chapter 1 — 22.1905"
-      },
-      {
-        "n": 2,
-        "citation": "29 U.S.C. § 206-207",
-        "url": "https://www.law.cornell.edu/uscode/text/29/206",
-        "title": "Fair Labor Standards Act — Minimum Wage and Overtime"
-      },
-      {
-        "n": 3,
         "citation": "89 FR 79644",
         "url": "https://www.federalregister.gov/documents/2024/09/30/2024-22100/minimum-wage-for-federal-contracts-covered-by-executive-order-14026-notice-of-rate-change-in-effect",
         "title": "Minimum Wage for Federal Contracts Covered by Executive Order 14026, Notice of Rate Change in Effect as of January 1, 2025"
       },
       {
-        "n": 4,
-        "citation": "90 FR 7428",
-        "url": "https://www.federalregister.gov/documents/2025/01/21/2025-00555/prevailing-rate-systems-change-in-criteria-for-defining-appropriated-fund-federal-wage-system-wage",
-        "title": "Prevailing Rate Systems; Change in Criteria for Defining Appropriated Fund Federal Wage System Wage Areas"
+        "n": 7,
+        "citation": "417 U.S. 904",
+        "url": "https://www.courtlistener.com/opinion/8998294/marriott-corp-v-district-of-columbia-minimum-wage-industrial-safety/",
+        "title": "Marriott Corp. v. District of Columbia Minimum Wage & Industrial Safety Board"
       },
       {
-        "n": 5,
-        "citation": "102 F.4th 712",
-        "url": "https://www.courtlistener.com/opinion/9507101/gentry-v-hamilton-ryker-it-solutions/",
-        "title": "Gentry v. Hamilton-Ryker IT Solutions"
+        "n": 8,
+        "citation": "155 F.2d 983",
+        "url": "https://www.courtlistener.com/opinion/6994023/minimum-wage-board-of-puerto-rico-v-luce-co/",
+        "title": "Minimum Wage Board of Puerto Rico v. Luce & Co."
       },
       {
-        "n": 6,
+        "n": 9,
         "citation": "611 F.3d 141",
         "url": "https://www.courtlistener.com/opinion/150047/in-re-novartis-wage-and-hour-litigation/",
         "title": "In Re Novartis Wage and Hour Litigation"
-      },
-      {
-        "n": 7,
-        "citation": "133 F.4th 575",
-        "url": "https://www.courtlistener.com/opinion/10370737/lynwood-pickens-v-hamilton-ryker-it-solutions/",
-        "title": "Lynwood Pickens v. Hamilton-Ryker IT Solutions"
       }
     ]
   },
   {
-    "slug": "workplace-harassment-employer-liability",
-    "question": "When is an employer liable for workplace harassment under federal law?",
+    "slug": "is-my-employer-required-to-give-me-breaks-or-lunch",
+    "question": "Is my employer required to give me breaks or lunch?",
     "jurisdiction": "US",
     "category": "Employment Law",
-    "answer": "The provided context does not specify the conditions under which an employer is liable for workplace harassment under federal law. It references various civil rights laws, including Title VII of the Civil Rights Act, but does not detail the liability criteria for harassment claims. Therefore, the answer is incomplete based on the available sources. \n\nFor a comprehensive understanding of employer liability for workplace harassment under federal law, additional information would be necessary.",
+    "answer": "The provided context does not explicitly state whether employers are required to give breaks or lunch to employees. However, it does mention that employers must evaluate the needs of the work site and ensure that break areas are sufficient in size to accommodate employees taking breaks, particularly in the context of preventing overheating [7]. This implies some level of obligation regarding breaks, but it does not clarify specific requirements for breaks or lunch periods.\n\nThus, while there is some indication that employers must manage break accommodations, the exact legal requirements for breaks or lunch are not detailed in the provided snippets. Further information would be needed to fully answer the question regarding mandatory breaks or lunch periods.",
     "sources": [
       {
         "n": 1,
-        "citation": "29 C.F.R. § 791.2",
-        "url": "https://www.ecfr.gov/current/title-29/part-791/section-791.2",
-        "title": "Chapter V — § 791.2"
+        "citation": "29 C.F.R. § 1605.2",
+        "url": "https://www.ecfr.gov/current/title-29/part-1605/section-1605.2",
+        "title": "Chapter XIV — § 1605.2"
       },
       {
         "n": 2,
@@ -1028,240 +140,681 @@
       },
       {
         "n": 3,
-        "citation": "29 C.F.R. Part 1630",
-        "url": "https://www.ecfr.gov/current/title-29/part-1630",
-        "title": "Chapter XIV — Part 1630"
+        "citation": "29 C.F.R. § 1915.1001",
+        "url": "https://www.ecfr.gov/current/title-29/part-1915/section-1915.1001",
+        "title": "Chapter XVII — § 1915.1001"
       },
       {
         "n": 4,
-        "citation": "552 F. App'x 424",
-        "url": "https://www.courtlistener.com/opinion/8485316/saulsberry-v-federal-express-corp/",
-        "title": "Saulsberry v. Federal Express Corp."
+        "citation": "892 F.3d 1256",
+        "url": "https://www.courtlistener.com/opinion/8439950/pship-v-natl-labor-relations-bd/",
+        "title": "P'ship v. Nat'l Labor Relations Bd."
       },
       {
         "n": 5,
-        "citation": "513 F.3d 360",
-        "url": "https://www.courtlistener.com/opinion/1024852/equal-employment-opportunity-commission-v-federal-express-corp/",
-        "title": "Equal Employment Opportunity Commission v. Federal Express Corp."
+        "citation": "609 F.3d 320",
+        "url": "https://www.courtlistener.com/opinion/148937/equal-employment-opportunity-commission-v-fairbrook-medical-clinic/",
+        "title": "Equal Employment Opportunity Commission v. Fairbrook Medical Clinic"
       },
       {
         "n": 6,
-        "citation": "664 F.3d 1016",
-        "url": "https://www.courtlistener.com/opinion/619162/schroeder-v-greater-new-orleans-federal-credit-union/",
-        "title": "Schroeder v. Greater New Orleans Federal Credit Union"
+        "citation": "731 F.3d 444",
+        "url": "https://www.courtlistener.com/opinion/1042492/equal-employment-opportunity-commission-v-boh-bros-construction-co/",
+        "title": "Equal Employment Opportunity Commission v. Boh Bros. Construction Co."
       },
       {
         "n": 7,
-        "citation": "89 FR 103202",
-        "url": "https://www.federalregister.gov/documents/2024/12/18/2024-29353/modernizing-h-2-program-requirements-oversight-and-worker-protections",
-        "title": "Modernizing H-2 Program Requirements, Oversight, and Worker Protections"
+        "citation": "89 FR 70698",
+        "url": "https://www.federalregister.gov/documents/2024/08/30/2024-14824/heat-injury-and-illness-prevention-in-outdoor-and-indoor-work-settings",
+        "title": "Heat Injury and Illness Prevention in Outdoor and Indoor Work Settings"
       },
       {
         "n": 8,
-        "citation": "89 FR 33474",
-        "url": "https://www.federalregister.gov/documents/2024/04/29/2024-07915/nondiscrimination-on-the-basis-of-sex-in-education-programs-or-activities-receiving-federal",
-        "title": "Nondiscrimination on the Basis of Sex in Education Programs or Activities Receiving Federal Financial Assistance"
+        "citation": "89 FR 33898",
+        "url": "https://www.federalregister.gov/documents/2024/04/29/2024-08333/improving-protections-for-workers-in-temporary-agricultural-employment-in-the-united-states",
+        "title": "Improving Protections for Workers in Temporary Agricultural Employment in the United States"
       }
     ]
   },
   {
-    "slug": "tenant-rights-no-heat-new-york",
-    "question": "What are a tenant's rights if a landlord fails to provide heat in New York?",
-    "jurisdiction": "New York",
-    "category": "Tenant & Landlord",
-    "answer": "In New York, tenants have specific rights if a landlord fails to provide adequate heat, particularly during the heating season, which runs from October 1 to May 31. Under New York's Multiple Dwelling Law, landlords are required to maintain a minimum temperature of 68 degrees Fahrenheit during the day and 55 degrees at night in occupied units when the outside temperature falls below 55 degrees Fahrenheit [1].\n\nIf a landlord fails to provide heat, tenants can take several actions:\n\n1. **Notify the Landlord**: Tenants should first notify the landlord of the heating issue in writing, allowing them a reasonable opportunity to address the problem.\n\n2. **File a Complaint**: If the landlord does not respond or rectify the situation, tenants can file a complaint with the local housing authority or the New York City Department of Housing Preservation and Development (HPD) if they are in New York City [2].\n\n3. **Withhold Rent**: Tenants may have the right to withhold rent until the heat issue is resolved, but this should be approached with caution and ideally under the guidance of a legal professional to avoid potential eviction [3].\n\n4. **Seek Legal Action**: Tenants can also consider taking legal action against the landlord for failing to provide essential services, which may include seeking a rent reduction or damages for the discomfort caused by the lack of heat [4].\n\n5. **Emergency Repairs**: In some cases, tenants may be able to make emergency repairs themselves and deduct the cost from their rent, but this should also be done with legal advice to ensure compliance with local laws [5].\n\nIt is advisable for tenants to document all communications and conditions related to the heating issue to support their claims.",
+    "slug": "what-is-a-dui",
+    "question": "What is a DUI?",
+    "jurisdiction": "US",
+    "category": "Criminal & Traffic Law",
+    "answer": "The provided context does not define \"DUI\" (Driving Under the Influence) or provide specific information about its legal implications or definitions. The only mention of \"DUIs\" is in relation to non-DOT testing violations and the role of Substance Abuse Professionals (SAPs) in the context of transportation workplace drug and alcohol testing programs [1]. Therefore, I cannot provide a comprehensive definition or explanation of a DUI based on the available sources.",
     "sources": [
       {
         "n": 1,
+        "citation": "91 FR 10518",
+        "url": "https://www.federalregister.gov/documents/2026/03/04/2026-04337/procedures-for-transportation-workplace-drug-and-alcohol-testing-programs-substance-abuse",
+        "title": "Procedures for Transportation Workplace Drug and Alcohol Testing Programs: Substance Abuse Professional and the Return-to-Duty Process"
+      },
+      {
+        "n": 2,
+        "citation": "90 FR 731",
+        "url": "https://www.federalregister.gov/documents/2025/01/06/2024-31487/uniform-procedures-for-state-highway-safety-grant-programs",
+        "title": "Uniform Procedures for State Highway Safety Grant Programs"
+      },
+      {
+        "n": 3,
+        "citation": "136 S. Ct. 172",
+        "url": "https://www.courtlistener.com/opinion/8419794/pham-v-mcewen/",
+        "title": "Pham v. McEwen"
+      },
+      {
+        "n": 4,
+        "citation": "566 U.S. 969",
+        "url": "https://www.courtlistener.com/opinion/9062170/thuong-duy-hoang-v-united-states/",
+        "title": "Thuong Duy Hoang v. United States"
+      },
+      {
+        "n": 5,
+        "citation": "203 F. App'x 769",
+        "url": "https://www.courtlistener.com/opinion/8625383/duy-pham-v-ryan/",
+        "title": "Duy Pham v. Ryan"
+      }
+    ]
+  },
+  {
+    "slug": "can-my-landlord-evict-me-without-going-to-court",
+    "question": "Can my landlord evict me without going to court?",
+    "jurisdiction": "US",
+    "category": "Tenant & Landlord",
+    "answer": "Based on the provided context, a landlord generally cannot evict a tenant without going to court. Most states have established notice procedures that housing providers must follow before filing for eviction, which typically involve providing tenants with a notice period that can range from 0 to 30 days, with an average of six days [2]. This indicates that landlords must adhere to legal processes, including court involvement, to carry out an eviction. \n\nThere are no specific details in the provided snippets regarding exceptions to this requirement or circumstances under which a landlord might bypass court proceedings. Therefore, any claims about alternative eviction methods or specific state laws would be unsupported by the provided context.",
+    "sources": [
+      {
+        "n": 1,
+        "citation": "28 C.F.R. Part 36",
+        "url": "https://www.ecfr.gov/current/title-28/part-36",
+        "title": "Chapter I — Part 36"
+      },
+      {
+        "n": 2,
         "citation": "89 FR 101270",
         "url": "https://www.federalregister.gov/documents/2024/12/13/2024-28861/30-day-notification-requirement-prior-to-termination-of-lease-for-nonpayment-of-rent",
         "title": "30-Day Notification Requirement Prior To Termination of Lease for Nonpayment of Rent"
       },
       {
-        "n": 2,
-        "citation": "89 FR 11434",
-        "url": "https://www.federalregister.gov/documents/2024/02/14/2024-02008/energy-conservation-program-energy-conservation-standards-for-consumer-conventional-cooking-products",
-        "title": "Energy Conservation Program: Energy Conservation Standards for Consumer Conventional Cooking Products"
-      },
-      {
         "n": 3,
-        "citation": "31 N.Y.3d 1045",
-        "url": "https://www.courtlistener.com/opinion/10688457/matter-of-marine-holdings-llc-v-new-york-city-commn-on-human-rights/",
-        "title": "Matter of Marine Holdings, LLC v. New York City Commn. on Human Rights"
+        "citation": "91 FR 5778",
+        "url": "https://www.federalregister.gov/documents/2026/02/09/2026-02483/united-states-et-al-v-realpage-incet-al-response-of-the-united-states-to-public-comments",
+        "title": "United States et al. v. RealPage, Inc.et al.; Response of the United States to Public Comments"
       },
       {
         "n": 4,
-        "citation": "118 N.Y.S.3d 77",
-        "url": "https://www.courtlistener.com/opinion/4714015/diamond-v-new-york-city-hous-auth/",
-        "title": "Diamond v. New York City Hous. Auth."
+        "citation": "910 F.3d 576",
+        "url": "https://www.courtlistener.com/opinion/4572680/smith-v-me-bureau-of-revenue-services/",
+        "title": "Smith v. ME Bureau of Revenue Services"
       },
       {
         "n": 5,
-        "citation": "100 N.E.3d 849",
-        "url": "https://www.courtlistener.com/opinion/7173709/marine-holdings-llc-v-nyc-commn-on-human-rights/",
-        "title": "Marine Holdings, LLC v. N.Y.C. Comm'n on Human Rights"
-      }
-    ]
-  },
-  {
-    "slug": "eviction-without-cause-california",
-    "question": "Can a landlord evict a tenant without cause in California?",
-    "jurisdiction": "California",
-    "category": "Tenant & Landlord",
-    "answer": "In California, a landlord generally cannot evict a tenant without cause if the tenancy has lasted more than 12 months, due to the provisions of Assembly Bill 1482 (AB 1482). This law requires landlords to provide just cause for eviction in most situations involving long-term tenancies [1]. However, for tenancies shorter than 12 months, landlords may terminate the lease without cause, provided they follow the appropriate notice requirements [1]. \n\nAdditionally, specific local ordinances may impose further restrictions on evictions, so it's important for landlords and tenants to be aware of any applicable local laws [1].",
-    "sources": [
-      {
-        "n": 1,
-        "citation": "Cal. Civ. Code § 1940",
-        "url": "https://leginfo.legislature.ca.gov/faces/codes_displaySection.xhtml?sectionNum=1940.&lawCode=CIV",
-        "title": "California Landlord-Tenant — California Civil Code"
-      },
-      {
-        "n": 2,
-        "citation": "89 FR 101270",
-        "url": "https://www.federalregister.gov/documents/2024/12/13/2024-28861/30-day-notification-requirement-prior-to-termination-of-lease-for-nonpayment-of-rent",
-        "title": "30-Day Notification Requirement Prior To Termination of Lease for Nonpayment of Rent"
-      },
-      {
-        "n": 3,
-        "citation": "91 FR 9449",
-        "url": "https://www.federalregister.gov/documents/2026/02/26/2026-03921/revocation-of-the-30-day-notification-requirement-prior-to-termination-of-lease-for-nonpayment-of",
-        "title": "Revocation of the 30-Day Notification Requirement Prior To Termination of Lease for Nonpayment of Rent"
-      },
-      {
-        "n": 4,
-        "citation": "1 Cal. App. 5th 1176",
-        "url": "https://www.courtlistener.com/opinion/4242867/un-hui-nam-v-regents-of-the-university-of-california/",
-        "title": "Un Hui Nam v. Regents of the University of California"
-      },
-      {
-        "n": 5,
-        "citation": "244 Cal. Rptr. 3d 854",
-        "url": "https://www.courtlistener.com/opinion/6240342/bawa-v-terhune/",
-        "title": "Bawa v. Terhune"
+        "citation": "662 F.3d 1292",
+        "url": "https://www.courtlistener.com/opinion/617309/josendis-v-wall-to-wall-residence-repairs-inc/",
+        "title": "Josendis v. Wall to Wall Residence Repairs, Inc."
       },
       {
         "n": 6,
-        "citation": "250 Cal. Rptr. 3d 108",
-        "url": "https://www.courtlistener.com/opinion/6240645/hollywoodians-encouraging-rental-opportunities-v-city-of-l-a/",
-        "title": "Hollywoodians Encouraging Rental Opportunities v. City of L. A."
+        "citation": "Luis Carlos Josendis v. Wall to Wall Residence",
+        "url": "https://www.courtlistener.com/opinion/617646/luis-carlos-josendis-v-wall-to-wall-residence/",
+        "title": "Luis Carlos Josendis v. Wall to Wall Residence"
       }
     ]
   },
   {
-    "slug": "federal-family-leave-paid",
-    "question": "Is there a federal law requiring paid family leave?",
+    "slug": "what-is-alimony",
+    "question": "What is alimony?",
+    "jurisdiction": "US",
+    "category": "General Legal",
+    "answer": "Alimony, also referred to as separate maintenance payments, is defined under section 71 of the Internal Revenue Code as payments made from one spouse to another for support during or after a divorce. These payments are included in the recipient's income for tax purposes [1]. \n\nThe context does not provide additional details about the conditions or calculations related to alimony, nor does it specify the legal framework governing its determination or enforcement.",
+    "sources": [
+      {
+        "n": 1,
+        "citation": "26 C.F.R. § 1.71-1T",
+        "url": "https://www.ecfr.gov/current/title-26/part-1/section-1.71-1T",
+        "title": "Chapter I — § 1.71-1T"
+      },
+      {
+        "n": 2,
+        "citation": "26 C.F.R. § 1.215-1T",
+        "url": "https://www.ecfr.gov/current/title-26/part-1/section-1.215-1T",
+        "title": "Chapter I — § 1.215-1T"
+      },
+      {
+        "n": 3,
+        "citation": "25 C.F.R. § 20.309",
+        "url": "https://www.ecfr.gov/current/title-25/part-20/section-20.309",
+        "title": "Chapter I — § 20.309"
+      },
+      {
+        "n": 4,
+        "citation": "89 FR 70536",
+        "url": "https://www.federalregister.gov/documents/2024/08/30/2024-19348/americorps-seniors-regulation-updates",
+        "title": "AmeriCorps Seniors Regulation Updates"
+      },
+      {
+        "n": 5,
+        "citation": "89 FR 11233",
+        "url": "https://www.federalregister.gov/documents/2024/02/14/2024-02772/americorps-seniors-regulation-updates",
+        "title": "AmeriCorps Seniors Regulation Updates"
+      },
+      {
+        "n": 6,
+        "citation": "117 F.3d 1434",
+        "url": "https://www.courtlistener.com/opinion/743463/haeger-v-edmond/",
+        "title": "Haeger v. Edmond"
+      },
+      {
+        "n": 7,
+        "citation": "927 F.3d 1015",
+        "url": "https://www.courtlistener.com/opinion/4634806/tyeane-halbert-v-james-t-dimas/",
+        "title": "Tyeane Halbert v. James T. Dimas"
+      },
+      {
+        "n": 8,
+        "citation": "Tyeane Halbert v. James T. Dimas",
+        "url": "https://www.courtlistener.com/opinion/4634916/tyeane-halbert-v-james-t-dimas/",
+        "title": "Tyeane Halbert v. James T. Dimas"
+      }
+    ]
+  },
+  {
+    "slug": "how-to-trademark-a-name",
+    "question": "How to trademark a name",
+    "jurisdiction": "US",
+    "category": "Business & IP",
+    "answer": "The provided context does not contain specific instructions or steps on how to trademark a name. It includes information about trademark fees, changes in ownership, and eligibility for trademarks, but lacks detailed procedural guidance on the trademark application process itself. Therefore, I cannot provide a comprehensive answer based on the available sources. \n\nFor further information on how to trademark a name, it is advisable to consult the U.S. Patent and Trademark Office (USPTO) directly or refer to their official guidelines.",
+    "sources": [
+      {
+        "n": 1,
+        "citation": "19 C.F.R. § 133.6",
+        "url": "https://www.ecfr.gov/current/title-19/part-133/section-133.6",
+        "title": "Chapter I — § 133.6"
+      },
+      {
+        "n": 2,
+        "citation": "19 C.F.R. § 133.7",
+        "url": "https://www.ecfr.gov/current/title-19/part-133/section-133.7",
+        "title": "Chapter I — § 133.7"
+      },
+      {
+        "n": 3,
+        "citation": "19 C.F.R. § 133.1",
+        "url": "https://www.ecfr.gov/current/title-19/part-133/section-133.1",
+        "title": "Chapter I — § 133.1"
+      },
+      {
+        "n": 4,
+        "citation": "137 F.4th 1359",
+        "url": "https://www.courtlistener.com/opinion/10589788/curtin-v-united-trademark-holdings-inc/",
+        "title": "Curtin v. United Trademark Holdings, Inc."
+      },
+      {
+        "n": 5,
+        "citation": "346 F. Supp. 3d 141",
+        "url": "https://www.courtlistener.com/opinion/7333062/hyatt-v-us-patent-trademark-office/",
+        "title": "Hyatt v. U.S. Patent & Trademark Office"
+      },
+      {
+        "n": 6,
+        "citation": "904 F.3d 1361",
+        "url": "https://www.courtlistener.com/opinion/4537539/hyatt-v-us-patent-trademark-office/",
+        "title": "Hyatt v. U.S. Patent & Trademark Office"
+      },
+      {
+        "n": 7,
+        "citation": "89 FR 91062",
+        "url": "https://www.federalregister.gov/documents/2024/11/18/2024-26644/setting-and-adjusting-trademark-fees-during-fiscal-year-2025",
+        "title": "Setting and Adjusting Trademark Fees During Fiscal Year 2025"
+      },
+      {
+        "n": 8,
+        "citation": "90 FR 15454",
+        "url": "https://www.federalregister.gov/documents/2025/04/11/2025-06166/agency-information-collection-activities-submission-to-the-office-of-management-and-budget-for",
+        "title": "Agency Information Collection Activities; Submission to the Office of Management and Budget for Review and Approval; Comment Request; Patents for Humanity Program and Trademarks for Humanity Program"
+      }
+    ]
+  },
+  {
+    "slug": "can-i-be-fired-without-warning-for-no-reason",
+    "question": "Can I be fired without warning / for no reason?",
     "jurisdiction": "US",
     "category": "Employment Law",
-    "answer": "There is no federal law that universally requires paid family leave for all employees in the United States. However, the Family and Medical Leave Act (FMLA) provides for unpaid leave for certain family and medical reasons, but it does not mandate paid leave [2]. Additionally, Executive Order 13706 requires federal contractors to provide up to 7 days of paid sick leave annually, which can include family care, but this applies only to specific contractors and does not constitute a general federal law for all employees [4]. \n\nThus, while there are provisions for paid leave in specific contexts, there is no overarching federal law mandating paid family leave for all workers.",
+    "answer": "The provided context does not contain any information regarding employment termination policies, including whether an employee can be fired without warning or for no reason. Therefore, I cannot provide an answer based on the available sources.",
     "sources": [
       {
         "n": 1,
-        "citation": "29 C.F.R. § 13.5",
-        "url": "https://www.ecfr.gov/current/title-29/part-13/section-13.5",
-        "title": "§ 13.5"
+        "citation": "29 C.F.R. Part 1910",
+        "url": "https://www.ecfr.gov/current/title-29/part-1910",
+        "title": "Chapter XVII — Part 1910"
       },
       {
         "n": 2,
-        "citation": "29 C.F.R. § 825.213",
-        "url": "https://www.ecfr.gov/current/title-29/part-825/section-825.213",
-        "title": "Chapter V — § 825.213"
+        "citation": "33 C.F.R. § 334.430",
+        "url": "https://www.ecfr.gov/current/title-33/part-334/section-334.430",
+        "title": "Chapter II — § 334.430"
       },
       {
         "n": 3,
-        "citation": "29 C.F.R. § 826.22",
-        "url": "https://www.ecfr.gov/current/title-29/part-826/section-826.22",
-        "title": "Chapter V — § 826.22"
+        "citation": "40 C.F.R. Part 82",
+        "url": "https://www.ecfr.gov/current/title-40/part-82",
+        "title": "Chapter I — Part 82"
       },
       {
         "n": 4,
-        "citation": "90 FR 38184",
-        "url": "https://www.federalregister.gov/documents/2025/08/07/2025-15023/agency-information-collection-activities-comment-request-paid-sick-leave-for-federal-contractors",
-        "title": "Agency Information Collection Activities; Comment Request; Paid Sick Leave for Federal Contractors"
+        "citation": "90 FR 60228",
+        "url": "https://www.federalregister.gov/documents/2025/12/23/2025-23762/agency-information-collection-activities-approval-of-a-new-information-collection-request-study-of",
+        "title": "Agency Information Collection Activities; Approval of a New Information Collection Request: Study of Warning Devices for Stopped Commercial Motor Vehicles"
       },
       {
         "n": 5,
-        "citation": "89 FR 54742",
-        "url": "https://www.federalregister.gov/documents/2024/07/02/2024-14167/recapture-of-interest-on-excess-credits-under-the-families-first-act-cares-act-and-arp",
-        "title": "Recapture of Interest on Excess Credits Under the Families First Act, CARES Act, and ARP"
+        "citation": "90 FR 1591",
+        "url": "https://www.federalregister.gov/documents/2025/01/08/2025-00120/agency-information-collection-activities-new-information-collection-study-of-warning-devices-for",
+        "title": "Agency Information Collection Activities; New Information Collection: Study of Warning Devices for Stopped Commercial Motor Vehicles"
+      }
+    ]
+  },
+  {
+    "slug": "what-are-my-rights-if-im-behind-on-rent",
+    "question": "What are my rights if I'm behind on rent?",
+    "jurisdiction": "US",
+    "category": "Tenant & Landlord",
+    "answer": "If you are behind on rent, you have specific rights related to notification before lease termination. A Public Housing Authority (PHA) or landlord must provide a 30-day notice prior to terminating your lease for nonpayment of rent. This notice must include information on how to switch from flat rent to income-based rent and must be accessible to individuals with disabilities and those with limited English proficiency (LEP) [6]. \n\nThere are no additional rights or protections mentioned in the provided sources regarding being behind on rent, so any further details on rights in this situation are not covered in the context provided.",
+    "sources": [
+      {
+        "n": 1,
+        "citation": "26 C.F.R. § 1.48(e)-1",
+        "url": "https://www.ecfr.gov/current/title-26/part-1/section-1.48(e)-1",
+        "title": "Chapter I — § 1.48(e)-1"
+      },
+      {
+        "n": 2,
+        "citation": "26 C.F.R. § 1.48E(h)-1",
+        "url": "https://www.ecfr.gov/current/title-26/part-1/section-1.48E(h)-1",
+        "title": "Chapter I — § 1.48E(h)-1"
+      },
+      {
+        "n": 3,
+        "citation": "114 F.4th 1190",
+        "url": "https://www.courtlistener.com/opinion/10041634/philippe-calderon-v-sixt-rent-a-car-llc/",
+        "title": "Philippe Calderon v. Sixt Rent A Car, LLC"
+      },
+      {
+        "n": 4,
+        "citation": "141 F.4th 10",
+        "url": "https://www.courtlistener.com/opinion/10613152/kwoka-v-enterprise-rent-a-car-company-of-boston-llc/",
+        "title": "Kwoka v. Enterprise Rent-A-Car Company of Boston, LLC"
+      },
+      {
+        "n": 5,
+        "citation": "W.M.M. v. Trump",
+        "url": "https://www.courtlistener.com/opinion/10664861/wmm-v-trump/",
+        "title": "W.M.M. v. Trump"
       },
       {
         "n": 6,
-        "citation": "832 F.3d 962",
-        "url": "https://www.courtlistener.com/opinion/4245288/michael-davis-v-hollins-law/",
-        "title": "Michael Davis v. Hollins Law"
+        "citation": "89 FR 101270",
+        "url": "https://www.federalregister.gov/documents/2024/12/13/2024-28861/30-day-notification-requirement-prior-to-termination-of-lease-for-nonpayment-of-rent",
+        "title": "30-Day Notification Requirement Prior To Termination of Lease for Nonpayment of Rent"
       },
       {
         "n": 7,
-        "citation": "67 F.4th 505",
-        "url": "https://www.courtlistener.com/opinion/9397050/united-states-v-swartz-family-trust/",
-        "title": "United States v. Swartz Family Trust"
+        "citation": "89 FR 35634",
+        "url": "https://www.federalregister.gov/documents/2024/05/01/2024-08099/rights-of-way-leasing-and-operations-for-renewable-energy",
+        "title": "Rights-of-Way, Leasing, and Operations for Renewable Energy"
+      }
+    ]
+  },
+  {
+    "slug": "what-is-intellectual-property",
+    "question": "What is intellectual property?",
+    "jurisdiction": "US",
+    "category": "Business & IP",
+    "answer": "Intellectual property refers to government-granted legal protections that safeguard innovations and creative works. This concept was recognized by the Founding Fathers of the United States, who enshrined it in the Constitution to promote and protect American innovation [4]. The Office of the Intellectual Property Enforcement Coordinator is tasked with developing the overall intellectual property policy and strategy in the U.S. to ensure effective protection and enforcement [1]. \n\nThe context does not provide a comprehensive definition of intellectual property or detail the specific types of intellectual property (such as patents, copyrights, trademarks, etc.).",
+    "sources": [
+      {
+        "n": 1,
+        "citation": "5 C.F.R. § 10400.2",
+        "url": "https://www.ecfr.gov/current/title-5/part-10400/section-10400.2",
+        "title": "Chapter CIV — § 10400.2"
+      },
+      {
+        "n": 2,
+        "citation": "45 C.F.R. § 1631.11",
+        "url": "https://www.ecfr.gov/current/title-45/part-1631/section-1631.11",
+        "title": "Chapter XVI — § 1631.11"
+      },
+      {
+        "n": 3,
+        "citation": "39 C.F.R. § 602.2",
+        "url": "https://www.ecfr.gov/current/title-39/part-602/section-602.2",
+        "title": "Chapter I — § 602.2"
+      },
+      {
+        "n": 4,
+        "citation": "90 FR 17885",
+        "url": "https://www.federalregister.gov/documents/2025/04/30/2025-07570/world-intellectual-property-day-2025",
+        "title": "World Intellectual Property Day, 2025"
+      },
+      {
+        "n": 5,
+        "citation": "90 FR 27648",
+        "url": "https://www.federalregister.gov/documents/2025/06/27/2025-11858/request-for-comments-division-of-cancer-prevention-intellectual-property-option-to-collaborators",
+        "title": "Request for Comments: Division of Cancer Prevention Intellectual Property Option to Collaborators"
+      },
+      {
+        "n": 6,
+        "citation": "700 F. App'x 1005",
+        "url": "https://www.courtlistener.com/opinion/8700427/dragon-intellectual-property-llc-v-apple-inc/",
+        "title": "Dragon Intellectual Property, LLC v. Apple Inc."
+      },
+      {
+        "n": 7,
+        "citation": "956 F.3d 1358",
+        "url": "https://www.courtlistener.com/opinion/4747056/dragon-intellectual-property-v-dish-network-llc/",
+        "title": "Dragon Intellectual Property v. Dish Network LLC"
       },
       {
         "n": 8,
-        "citation": "45 F.4th 526",
-        "url": "https://www.courtlistener.com/opinion/7857215/guldseth-v-family-medicine-associates-llc/",
-        "title": "Guldseth v. Family Medicine Associates LLC"
+        "citation": "10 F.4th 1358",
+        "url": "https://www.courtlistener.com/opinion/5063550/mlc-intellectual-property-llc-v-micron-technology-inc/",
+        "title": "Mlc Intellectual Property LLC v. Micron Technology, Inc."
       }
     ]
   },
   {
-    "slug": "osha-reporting-workplace-injury",
-    "question": "What workplace injuries must be reported to OSHA?",
+    "slug": "is-it-illegal-to-drive-without-insurance",
+    "question": "Is it illegal to drive without insurance?",
     "jurisdiction": "US",
-    "category": "Federal Regulations",
-    "answer": "The context provided does not specify the exact types of workplace injuries that must be reported to OSHA. It mentions the importance of evaluating individual cases to determine the nature of injuries and their relation to job characteristics, but it does not list specific injuries or illnesses that require reporting [3]. Therefore, the answer is incomplete regarding the specific injuries that must be reported to OSHA.",
+    "category": "Criminal & Traffic Law",
+    "answer": "The provided context does not contain any information regarding the legality of driving without insurance in the United States. Therefore, I cannot provide an answer based on the available sources.",
     "sources": [
       {
         "n": 1,
-        "citation": "29 U.S.C. § 654",
-        "url": "https://www.law.cornell.edu/uscode/text/29/654",
-        "title": "Occupational Safety and Health Act — Employer Duties"
+        "citation": "28 C.F.R. § 570.38",
+        "url": "https://www.ecfr.gov/current/title-28/part-570/section-570.38",
+        "title": "Chapter V — § 570.38"
       },
       {
         "n": 2,
-        "citation": "29 C.F.R. § 1904.35",
-        "url": "https://www.ecfr.gov/current/title-29/part-1904/section-1904.35",
-        "title": "Chapter XVII — § 1904.35"
+        "citation": "28 C.F.R. Part 36",
+        "url": "https://www.ecfr.gov/current/title-28/part-36",
+        "title": "Chapter I — Part 36"
       },
       {
         "n": 3,
-        "citation": "90 FR 28257",
-        "url": "https://www.federalregister.gov/documents/2025/07/01/2025-11624/occupational-injury-and-illness-recording-and-reporting-requirements-withdrawal",
-        "title": "Occupational Injury and Illness Recording and Reporting Requirements; Withdrawal"
+        "citation": "7 C.F.R. § 3560.11",
+        "url": "https://www.ecfr.gov/current/title-7/part-3560/section-3560.11",
+        "title": "Chapter XXXV — § 3560.11"
       },
       {
         "n": 4,
-        "citation": "89 FR 93666",
-        "url": "https://www.federalregister.gov/documents/2024/11/27/2024-27718/recordkeeping-and-reporting-occupational-injuries-and-illnesses-revision-of-the-office-of-management",
-        "title": "Recordkeeping and Reporting Occupational Injuries and Illnesses; Revision of the Office of Management and Budget's (OMB) Approval of Information Collection (Paperwork) Requirements"
+        "citation": "90 FR 51329",
+        "url": "https://www.federalregister.gov/documents/2025/11/17/2025-19945/revisions-to-the-large-financial-institution-rating-system-and-framework-for-the-supervision-of",
+        "title": "Revisions to the Large Financial Institution Rating System and Framework for the Supervision of Insurance Organizations"
       },
       {
         "n": 5,
-        "citation": "595 U.S. 109",
-        "url": "https://www.courtlistener.com/opinion/6225645/nfib-v-osha/",
-        "title": "NFIB v. OSHA"
+        "citation": "90 FR 48966",
+        "url": "https://www.federalregister.gov/documents/2025/10/31/2025-19729/william-d-ford-federal-direct-loan-direct-loan-program",
+        "title": "William D. Ford Federal Direct Loan (Direct Loan) Program"
       },
       {
         "n": 6,
-        "citation": "United Food & Commercial Workers v. OSHA",
-        "url": "https://www.courtlistener.com/opinion/5307649/united-food-commercial-workers-v-osha/",
-        "title": "United Food & Commercial Workers v. OSHA"
+        "citation": "714 F.3d 782",
+        "url": "https://www.courtlistener.com/opinion/859180/united-states-v-4219-university-drive-fairfax/",
+        "title": "United States v. 4219 University Drive, Fairfax"
       },
       {
         "n": 7,
-        "citation": "174 F.3d 206",
-        "url": "https://www.courtlistener.com/opinion/184843/chamber-cmerc-us-v-osha/",
-        "title": "Chamber Cmerc US v. OSHA"
+        "citation": "811 F.3d 676",
+        "url": "https://www.courtlistener.com/opinion/3173891/its-my-party-inc-v-live-nation-inc/",
+        "title": "It's My Party, Inc. v. Live Nation, Inc."
+      },
+      {
+        "n": 8,
+        "citation": "66 F. App'x 617",
+        "url": "https://www.courtlistener.com/opinion/8444577/united-states-v-drive/",
+        "title": "United States v. Drive"
       }
     ]
   },
   {
-    "slug": "small-business-health-insurance-requirements",
-    "question": "Is a small business required to provide health insurance to employees?",
+    "slug": "can-my-employer-cut-my-hours-or-change-my-schedule",
+    "question": "Can my employer cut my hours or change my schedule?",
     "jurisdiction": "US",
-    "category": "Small Business",
-    "answer": "The provided context does not contain specific information regarding whether a small business is required to provide health insurance to employees. Therefore, I cannot provide a definitive answer based on the available sources.",
+    "category": "Employment Law",
+    "answer": "The provided context does not contain specific information regarding whether an employer can cut hours or change an employee's schedule. Therefore, I cannot provide a definitive answer based on the available sources. Please consult relevant labor laws or legal resources for guidance on this matter.",
+    "sources": [
+      {
+        "n": 1,
+        "citation": "29 C.F.R. § 778.327",
+        "url": "https://www.ecfr.gov/current/title-29/part-778/section-778.327",
+        "title": "Chapter V — § 778.327"
+      },
+      {
+        "n": 2,
+        "citation": "5 C.F.R. § 2641.204",
+        "url": "https://www.ecfr.gov/current/title-5/part-2641/section-2641.204",
+        "title": "Chapter XVI — § 2641.204"
+      },
+      {
+        "n": 3,
+        "citation": "29 C.F.R. § 1910.1043",
+        "url": "https://www.ecfr.gov/current/title-29/part-1910/section-1910.1043",
+        "title": "Chapter XVII — § 1910.1043"
+      },
+      {
+        "n": 4,
+        "citation": "909 F.3d 661",
+        "url": "https://www.courtlistener.com/opinion/4567967/tamika-ray-v-international-paper-company/",
+        "title": "Tamika Ray v. International Paper Company"
+      },
+      {
+        "n": 5,
+        "citation": "807 F.3d 431",
+        "url": "https://www.courtlistener.com/opinion/3161323/marzuq-v-cadete-enterprises-inc/",
+        "title": "Marzuq v. Cadete Enterprises, Inc."
+      },
+      {
+        "n": 6,
+        "citation": "666 F.3d 968",
+        "url": "https://www.courtlistener.com/opinion/621194/carl-thom-jr-v-american-standard-inc/",
+        "title": "Carl Thom, Jr. v. American Standard, Inc."
+      },
+      {
+        "n": 7,
+        "citation": "91 FR 12133",
+        "url": "https://www.federalregister.gov/documents/2026/03/12/2026-04820/notice-of-request-to-renew-an-approved-information-collection-nutrition-labeling-of-major-cuts-of",
+        "title": "Notice of Request To Renew an Approved Information Collection: Nutrition Labeling of Major Cuts of Single-Ingredient Raw Meat or Poultry Products and Ground or Chopped Meat and Poultry Products"
+      },
+      {
+        "n": 8,
+        "citation": "90 FR 49266",
+        "url": "https://www.federalregister.gov/documents/2025/11/05/2025-19787/medicare-and-medicaid-programs-cy-2026-payment-policies-under-the-physician-fee-schedule-and-other",
+        "title": "Medicare and Medicaid Programs; CY 2026 Payment Policies Under the Physician Fee Schedule and Other Changes to Part B Payment and Coverage Policies; Medicare Shared Savings Program Requirements; and Medicare Prescription Drug Inflation Rebate Program"
+      }
+    ]
+  },
+  {
+    "slug": "what-is-probate",
+    "question": "What is probate?",
+    "jurisdiction": "US",
+    "category": "General Legal",
+    "answer": "The provided sources do not define \"probate\" directly. However, they reference aspects related to probate proceedings, such as the descent and distribution of property under tribal probate codes [1], and mention specific cases involving probate courts [6], [7], [8]. There is no comprehensive definition or explanation of probate itself in the retrieved snippets. Therefore, the answer is incomplete based on the available context.",
+    "sources": [
+      {
+        "n": 1,
+        "citation": "25 C.F.R. § 18.108",
+        "url": "https://www.ecfr.gov/current/title-25/part-18/section-18.108",
+        "title": "Chapter I — § 18.108"
+      },
+      {
+        "n": 2,
+        "citation": "25 C.F.R. § 18.111",
+        "url": "https://www.ecfr.gov/current/title-25/part-18/section-18.111",
+        "title": "Chapter I — § 18.111"
+      },
+      {
+        "n": 3,
+        "citation": "25 C.F.R. § 15.202",
+        "url": "https://www.ecfr.gov/current/title-25/part-15/section-15.202",
+        "title": "Chapter I — § 15.202"
+      },
+      {
+        "n": 4,
+        "citation": "90 FR 6879",
+        "url": "https://www.federalregister.gov/documents/2025/01/21/2025-01159/homicide-victims-families-rights-act",
+        "title": "Homicide Victims' Families' Rights Act"
+      },
+      {
+        "n": 5,
+        "citation": "91 FR 9932",
+        "url": "https://www.federalregister.gov/documents/2026/02/27/2026-03962/employee-or-independent-contractor-status-under-the-fair-labor-standards-act-family-and-medical",
+        "title": "Employee or Independent Contractor Status Under the Fair Labor Standards Act, Family and Medical Leave Act, and Migrant and Seasonal Agricultural Worker Protection Act"
+      },
+      {
+        "n": 6,
+        "citation": "565 F. App'x 3",
+        "url": "https://www.courtlistener.com/opinion/8486977/capers-v-wayne-county-probate/",
+        "title": "Capers v. Wayne County Probate"
+      },
+      {
+        "n": 7,
+        "citation": "837 F.3d 736",
+        "url": "https://www.courtlistener.com/opinion/8442946/sykes-v-cook-county-circuit-court-probate-division/",
+        "title": "Sykes v. Cook County Circuit Court Probate Division"
+      },
+      {
+        "n": 8,
+        "citation": "526 U.S. 1132",
+        "url": "https://www.courtlistener.com/opinion/9187333/kirk-v-berlin-probate-court/",
+        "title": "Kirk v. Berlin Probate Court"
+      }
+    ]
+  },
+  {
+    "slug": "what-can-my-landlord-legally-do-and-not-do",
+    "question": "What can my landlord legally do and not do?",
+    "jurisdiction": "US",
+    "category": "Tenant & Landlord",
+    "answer": "Based on the provided context, the following legal actions are relevant to what a landlord can and cannot do:\n\n1. **Eviction and Notice Requirements**: Landlords can initiate eviction proceedings; however, they must provide appropriate notice to tenants. The context suggests that some housing statutes may require landlords to provide more than 21 days' notice before terminating a tenant's right to occupy their housing [2]. \n\n2. **Discrimination**: Under the Americans with Disabilities Act (ADA), landlords cannot discriminate against tenants based on disability, which includes failing to remove architectural and communication barriers [4].\n\n3. **Legal Representation**: Legal services related to housing, including eviction representation, are covered under certain grant programs, indicating that tenants have access to legal support in disputes with landlords [1].\n\nGaps in the context include specific details on the full range of landlord obligations, tenant rights beyond eviction, and other potential legal protections applicable to tenants.",
+    "sources": [
+      {
+        "n": 1,
+        "citation": "38 C.F.R. § 79.20",
+        "url": "https://www.ecfr.gov/current/title-38/part-79/section-79.20",
+        "title": "Chapter I — § 79.20"
+      },
+      {
+        "n": 2,
+        "citation": "89 FR 89494",
+        "url": "https://www.federalregister.gov/documents/2024/11/13/2024-25964/legal-services-for-homeless-veterans-and-veterans-at-risk-for-homelessness-grant-program",
+        "title": "Legal Services for Homeless Veterans and Veterans At-Risk for Homelessness Grant Program"
+      },
+      {
+        "n": 3,
+        "citation": "88 FR 66769",
+        "url": "https://www.federalregister.gov/documents/2023/09/28/2023-20932/foster-care-legal-representation",
+        "title": "Foster Care Legal Representation"
+      },
+      {
+        "n": 4,
+        "citation": "929 F.3d 603",
+        "url": "https://www.courtlistener.com/opinion/4637341/midwest-disability-initiative-v-jans-enterprises-inc/",
+        "title": "Midwest Disability Initiative v. JANS Enterprises, Inc."
+      },
+      {
+        "n": 5,
+        "citation": "292 F.2d 620",
+        "url": "https://www.courtlistener.com/opinion/254616/city-building-corporation-v-jos-d-farish-jr-as-trustee-of-the-estate/",
+        "title": "City Building Corporation v. Jos. D. Farish, Jr., as Trustee of the Estate of Eugene T. O'keefe, Bankrupt, and Not Individually"
+      },
+      {
+        "n": 6,
+        "citation": "321 F. App'x 598",
+        "url": "https://www.courtlistener.com/opinion/8488947/taylor-v-samson/",
+        "title": "Taylor v. Samson"
+      }
+    ]
+  },
+  {
+    "slug": "do-i-have-to-work-off-the-clock-unpaid-overtime",
+    "question": "Do I have to work off the clock / unpaid overtime?",
+    "jurisdiction": "US",
+    "category": "Employment Law",
+    "answer": "The provided context does not address the issue of whether you have to work off the clock or unpaid overtime. It primarily discusses the Pregnant Workers Fairness Act and user fees for agricultural quarantine services, neither of which pertain to overtime work or off-the-clock labor. Therefore, there is a gap in the information regarding your specific question about unpaid overtime.",
+    "sources": [
+      {
+        "n": 1,
+        "citation": "89 FR 29096",
+        "url": "https://www.federalregister.gov/documents/2024/04/19/2024-07527/implementation-of-the-pregnant-workers-fairness-act",
+        "title": "Implementation of the Pregnant Workers Fairness Act"
+      },
+      {
+        "n": 2,
+        "citation": "88 FR 54796",
+        "url": "https://www.federalregister.gov/documents/2023/08/11/2023-17045/user-fees-for-agricultural-quarantine-and-inspection-services",
+        "title": "User Fees for Agricultural Quarantine and Inspection Services"
+      }
+    ]
+  },
+  {
+    "slug": "states-where-weed-is-legal",
+    "question": "States where weed is legal",
+    "jurisdiction": "US",
+    "category": "General Legal",
+    "answer": "The provided context does not contain any information regarding the states where marijuana (weed) is legal in the United States. Therefore, I cannot provide an answer based on the available sources.",
+    "sources": [
+      {
+        "n": 1,
+        "citation": "7 C.F.R. § 360.100",
+        "url": "https://www.ecfr.gov/current/title-7/part-360/section-360.100",
+        "title": "Chapter III — § 360.100"
+      },
+      {
+        "n": 2,
+        "citation": "50 C.F.R. § 32.50",
+        "url": "https://www.ecfr.gov/current/title-50/part-32/section-32.50",
+        "title": "Chapter I — § 32.50"
+      },
+      {
+        "n": 3,
+        "citation": "90 FR 25123",
+        "url": "https://www.federalregister.gov/documents/2025/06/16/2025-10797/movement-of-certain-genetically-engineered-organisms",
+        "title": "Movement of Certain Genetically Engineered Organisms"
+      },
+      {
+        "n": 4,
+        "citation": "90 FR 47914",
+        "url": "https://www.federalregister.gov/documents/2025/10/02/2025-19365/adverse-effect-wage-rate-methodology-for-the-temporary-employment-of-h-2a-nonimmigrants-in-non-range",
+        "title": "Adverse Effect Wage Rate Methodology for the Temporary Employment of H-2A Nonimmigrants in Non-Range Occupations in the United States"
+      },
+      {
+        "n": 5,
+        "citation": "873 F.3d 68",
+        "url": "https://www.courtlistener.com/opinion/4432662/united-states-v-weed/",
+        "title": "United States v. Weed"
+      },
+      {
+        "n": 6,
+        "citation": "389 F.3d 1060",
+        "url": "https://www.courtlistener.com/opinion/165223/united-states-v-weed/",
+        "title": "United States v. Weed"
+      },
+      {
+        "n": 7,
+        "citation": "577 F.3d 533",
+        "url": "https://www.courtlistener.com/opinion/1232291/united-states-v-tann/",
+        "title": "United States v. Tann"
+      }
+    ]
+  },
+  {
+    "slug": "is-my-employer-allowed-to-search-my-bag-locker-car-at-work",
+    "question": "Is my employer allowed to search my bag/locker/car at work?",
+    "jurisdiction": "US",
+    "category": "Employment Law",
+    "answer": "The provided context does not contain specific information regarding whether an employer is allowed to search an employee's bag, locker, or car at work. Therefore, I cannot provide a definitive answer based on the available sources. There may be legal principles or workplace policies that govern such searches, but these are not addressed in the retrieved snippets.",
     "sources": [
       {
         "n": 1,
@@ -1271,48 +824,105 @@
       },
       {
         "n": 2,
-        "citation": "90 FR 41168",
-        "url": "https://www.federalregister.gov/documents/2025/08/22/2025-16142/small-business-size-standards-monetary-based-industry-size-standards",
-        "title": "Small Business Size Standards: Monetary-Based Industry Size Standards"
+        "citation": "87 FR 72598",
+        "url": "https://www.federalregister.gov/documents/2022/11/25/2022-24587/safety-standard-for-clothing-storage-units",
+        "title": "Safety Standard for Clothing Storage Units"
       },
       {
         "n": 3,
-        "citation": "90 FR 59441",
-        "url": "https://www.federalregister.gov/documents/2025/12/19/2025-23464/medicaid-program-prohibition-on-federal-medicaid-and-childrens-health-insurance-program-funding-for",
-        "title": "Medicaid Program; Prohibition on Federal Medicaid and Children's Health Insurance Program Funding for Sex-Rejecting Procedures Furnished to Children"
+        "citation": "87 FR 6246",
+        "url": "https://www.federalregister.gov/documents/2022/02/03/2022-01689/safety-standard-for-clothing-storage-units",
+        "title": "Safety Standard for Clothing Storage Units"
       },
       {
         "n": 4,
-        "citation": "990 F.3d 217",
-        "url": "https://www.courtlistener.com/opinion/4860985/pharaohs-gc-inc-v-united-states-small-business-administration/",
-        "title": "Pharaohs GC, Inc. v. United States Small Business Administration"
+        "citation": "118 F.4th 280",
+        "url": "https://www.courtlistener.com/opinion/10124048/united-states-v-tompkins/",
+        "title": "United States v. Tompkins"
       },
       {
         "n": 5,
-        "citation": "14 F.4th 624",
-        "url": "https://www.courtlistener.com/opinion/5093834/camelot-banquet-rooms-inc-v-united-states-small-business-a/",
-        "title": "Camelot Banquet Rooms, Inc. v. United States Small Business A"
+        "citation": "624 F.3d 449",
+        "url": "https://www.courtlistener.com/opinion/176991/united-states-v-shamah/",
+        "title": "United States v. Shamah"
       },
       {
         "n": 6,
-        "citation": "24 F.4th 640",
-        "url": "https://www.courtlistener.com/opinion/6245488/camelot-banquet-rooms-inc-v-united-states-small-business-a/",
-        "title": "Camelot Banquet Rooms, Inc. v. United States Small Business A"
+        "citation": "197 F.3d 1198",
+        "url": "https://www.courtlistener.com/opinion/766947/united-states-of-america-v-reginald-chandler/",
+        "title": "United States of America v. Reginald Chandler"
       }
     ]
   },
   {
-    "slug": "landlord-entry-notice-texas",
-    "question": "How much notice must a landlord give before entering a rental property in Texas?",
-    "jurisdiction": "Texas",
-    "category": "Tenant & Landlord",
-    "answer": "In Texas, a landlord must provide at least 24 hours written notice before entering a rental property, except in cases of emergency. This requirement is outlined in the Texas Property Code, Chapter 92, which governs landlord-tenant relationships [1].",
+    "slug": "what-to-do-after-a-car-accident",
+    "question": "What to do after a car accident",
+    "jurisdiction": "US",
+    "category": "Criminal & Traffic Law",
+    "answer": "The provided context does not contain specific information on what to do after a car accident. It primarily discusses regulations related to railroad accidents, vehicle specifications, and legal cases that do not address post-accident procedures for car accidents. Therefore, I cannot provide a comprehensive answer based on the available sources.",
     "sources": [
       {
         "n": 1,
-        "citation": "Tex. Prop. Code § 92",
-        "url": "https://statutes.capitol.texas.gov/Docs/PR/htm/PR.92.htm",
-        "title": "Texas Landlord-Tenant — Texas Property Code § 92"
+        "citation": "49 C.F.R. § 840.3",
+        "url": "https://www.ecfr.gov/current/title-49/part-840/section-840.3",
+        "title": "Chapter VIII — § 840.3"
+      },
+      {
+        "n": 2,
+        "citation": "49 C.F.R. § 179.102-3",
+        "url": "https://www.ecfr.gov/current/title-49/part-179/section-179.102-3",
+        "title": "Chapter I — § 179.102-3"
+      },
+      {
+        "n": 3,
+        "citation": "49 C.F.R. § 179.202-13",
+        "url": "https://www.ecfr.gov/current/title-49/part-179/section-179.202-13",
+        "title": "Chapter I — § 179.202-13"
+      },
+      {
+        "n": 4,
+        "citation": "882 F.3d 943",
+        "url": "https://www.courtlistener.com/opinion/4467348/amparan-v-lake-powell-car-rental-cos/",
+        "title": "Amparan v. Lake Powell Car Rental Cos."
+      },
+      {
+        "n": 5,
+        "citation": "97 F.4th 500",
+        "url": "https://www.courtlistener.com/opinion/9489596/hartford-accident-and-indemnity-company-v-zhen-lin/",
+        "title": "Hartford Accident and Indemnity Company v. Zhen Lin"
+      },
+      {
+        "n": 6,
+        "citation": "Hartford Accident and Indemnity Company v. Zhen Lin",
+        "url": "https://www.courtlistener.com/opinion/9489595/hartford-accident-and-indemnity-company-v-zhen-lin/",
+        "title": "Hartford Accident and Indemnity Company v. Zhen Lin"
+      },
+      {
+        "n": 7,
+        "citation": "89 FR 95916",
+        "url": "https://www.federalregister.gov/documents/2024/12/03/2024-27447/new-car-assessment-program-final-decision-notice-advanced-driver-assistance-systems-and-roadmap",
+        "title": "New Car Assessment Program Final Decision Notice-Advanced Driver Assistance Systems and Roadmap"
+      },
+      {
+        "n": 8,
+        "citation": "89 FR 52540",
+        "url": "https://www.federalregister.gov/documents/2024/06/24/2024-12864/corporate-average-fuel-economy-standards-for-passenger-cars-and-light-trucks-for-model-years-2027",
+        "title": "Corporate Average Fuel Economy Standards for Passenger Cars and Light Trucks for Model Years 2027 and Beyond and Fuel Efficiency Standards for Heavy-Duty Pickup Trucks and Vans for Model Years 2030 and Beyond"
+      }
+    ]
+  },
+  {
+    "slug": "can-my-landlord-raise-my-rent-and-how-much",
+    "question": "Can my landlord raise my rent and how much?",
+    "jurisdiction": "US",
+    "category": "Tenant & Landlord",
+    "answer": "The provided context does not contain specific information regarding whether a landlord can raise rent or the amount by which they can do so. Therefore, I cannot provide an answer based on the available sources.",
+    "sources": [
+      {
+        "n": 1,
+        "citation": "28 C.F.R. Part 36",
+        "url": "https://www.ecfr.gov/current/title-28/part-36",
+        "title": "Chapter I — Part 36"
       },
       {
         "n": 2,
@@ -1328,30 +938,243 @@
       },
       {
         "n": 4,
-        "citation": "State of Texas, the Texas Facilities Commission, the Texas Health and Human Services Commission, Mike Novak, in His Official Capacity as Executive Director of the TFC, and Rolland Niles, in His Official Capacity as Deputy Executive Commissioner for the System Support Services Division of the Texas Health and Human Services Commission v. Broadmoor Austin Associates, a Texas Joint Venture",
-        "url": "https://www.courtlistener.com/opinion/10637605/state-of-texas-the-texas-facilities-commission-the-texas-health-and-human/",
-        "title": "State of Texas, the Texas Facilities Commission, the Texas Health and Human Services Commission, Mike Novak, in His Official Capacity as Executive Director of the TFC, and Rolland Niles, in His Official Capacity as Deputy Executive Commissioner for the System Support Services Division of the Texas Health and Human Services Commission v. Broadmoor Austin Associates, a Texas Joint Venture"
+        "citation": "922 F.3d 872",
+        "url": "https://www.courtlistener.com/opinion/4614816/mahmood-khan-v-city-of-minneapolis/",
+        "title": "Mahmood Khan v. City of Minneapolis"
       },
       {
         "n": 5,
-        "citation": "575 S.W.3d 339",
-        "url": "https://www.courtlistener.com/opinion/4618868/in-re-sustainable-texas-oyster-resource-management-llc/",
-        "title": "in Re Sustainable Texas Oyster Resource Management, L.L.C."
+        "citation": "913 F.3d 655",
+        "url": "https://www.courtlistener.com/opinion/4582215/united-states-v-nathan-driggers/",
+        "title": "United States v. Nathan Driggers"
       },
       {
         "n": 6,
-        "citation": "State of Texas, Acting by and Through the Texas Facilities Commission, for and on Behalf of the Texas Health and Human Services Commission; The Texas Facilities Commission; Mike Novak, in His Official Capacity as Executive Director of the Texas Facilities Commission; The Texas Health and Human Services Commission; And Rolland Niles in His Official Capacity as Deputy Executive Commissioner for the System Support Services Division of the Texas Health and Human Services Commission v. 8317 Cross Park, LLC",
-        "url": "https://www.courtlistener.com/opinion/10581912/state-of-texas-acting-by-and-through-the-texas-facilities-commission-for/",
-        "title": "State of Texas, Acting by and Through the Texas Facilities Commission, for and on Behalf of the Texas Health and Human Services Commission; The Texas Facilities Commission; Mike Novak, in His Official Capacity as Executive Director of the Texas Facilities Commission; The Texas Health and Human Services Commission; And Rolland Niles in His Official Capacity as Deputy Executive Commissioner for the System Support Services Division of the Texas Health and Human Services Commission v. 8317 Cross Park, LLC"
+        "citation": "885 F.3d 543",
+        "url": "https://www.courtlistener.com/opinion/4479472/disability-support-alliance-v-heartwood-enterprises-llc/",
+        "title": "Disability Support Alliance v. Heartwood Enterprises, LLC"
       }
     ]
   },
   {
-    "slug": "pregnancy-discrimination-federal-law",
-    "question": "What protections does federal law provide against pregnancy discrimination?",
+    "slug": "what-is-a-green-card",
+    "question": "What is a green card?",
+    "jurisdiction": "US",
+    "category": "General Legal",
+    "answer": "A green card is referred to as evidence of eligibility for permanent residence in the United States, as indicated by the requirement to provide a permanent green card for this purpose [2]. Additionally, it is mentioned in the context of obtaining various documents, including visas and passports, which may be necessary for official travel [6]. However, the sources do not provide a detailed definition or explanation of the green card itself, leaving some gaps in understanding its full implications and processes.",
+    "sources": [
+      {
+        "n": 1,
+        "citation": "41 C.F.R. § 302-16.9",
+        "url": "https://www.ecfr.gov/current/title-41/part-302-16/section-302-16.9",
+        "title": "Chapter 302 — § 302-16.9"
+      },
+      {
+        "n": 2,
+        "citation": "7 C.F.R. § 4279.108",
+        "url": "https://www.ecfr.gov/current/title-7/part-4279/section-4279.108",
+        "title": "Chapter XLII — § 4279.108"
+      },
+      {
+        "n": 3,
+        "citation": "827 F.3d 223",
+        "url": "https://www.courtlistener.com/opinion/8442769/in-re-payment-card-interchange-fee-merchant-discount-antitrust-litigation/",
+        "title": "In re Payment Card Interchange Fee & Merchant Discount Antitrust Litigation"
+      },
+      {
+        "n": 4,
+        "citation": "Matthew Green v. DOJ",
+        "url": "https://www.courtlistener.com/opinion/10028611/matthew-green-v-doj/",
+        "title": "Matthew Green v. DOJ"
+      },
+      {
+        "n": 5,
+        "citation": "83 F.4th 696",
+        "url": "https://www.courtlistener.com/opinion/9430290/united-states-v-kevin-green/",
+        "title": "United States v. Kevin Green"
+      },
+      {
+        "n": 6,
+        "citation": "90 FR 3706",
+        "url": "https://www.federalregister.gov/documents/2025/01/15/2025-00497/federal-travel-regulation-ftr-relocation-allowances-miscellaneous-expenses-allowance",
+        "title": "Federal Travel Regulation (FTR); Relocation Allowances-Miscellaneous Expenses Allowance"
+      },
+      {
+        "n": 7,
+        "citation": "91 FR 2049",
+        "url": "https://www.federalregister.gov/documents/2026/01/16/2026-00830/improving-continuity-for-religious-organizations-and-their-employees",
+        "title": "Improving Continuity for Religious Organizations and Their Employees"
+      }
+    ]
+  },
+  {
+    "slug": "is-a-dui-a-felony",
+    "question": "Is a DUI a felony?",
+    "jurisdiction": "US",
+    "category": "Criminal & Traffic Law",
+    "answer": "Based on the provided context, a DUI can be classified as a felony in certain circumstances. Specifically, in the case of Sigala v. Campbell, Isidro Huerta Sígala pleaded nolo contendere to a count of felony driving under the influence in California state court, which resulted in a significant sentence under California’s Three Strikes law [3]. \n\nHowever, the context does not provide a comprehensive overview of DUI laws across all states or the specific criteria that determine whether a DUI is a felony in different jurisdictions. Therefore, while it is supported that a DUI can be a felony in some cases, the sources do not cover the full scope of this issue.",
+    "sources": [
+      {
+        "n": 1,
+        "citation": "89 FR 103866",
+        "url": "https://www.federalregister.gov/documents/2024/12/19/2024-30255/blackfeet-tribe-of-the-blackfeet-indian-reservation-amendment-to-regulation-and-control-of-liquor",
+        "title": "Blackfeet Tribe of the Blackfeet Indian Reservation; Amendment to Regulation and Control of Liquor"
+      },
+      {
+        "n": 2,
+        "citation": "89 FR 67459",
+        "url": "https://www.federalregister.gov/documents/2024/08/20/2024-18725/implementation-of-keeping-families-together",
+        "title": "Implementation of Keeping Families Together"
+      },
+      {
+        "n": 3,
+        "citation": "130 F. App'x 129",
+        "url": "https://www.courtlistener.com/opinion/8461472/sigala-v-campbell/",
+        "title": "Sigala v. Campbell"
+      },
+      {
+        "n": 4,
+        "citation": "818 F.3d 1258",
+        "url": "https://www.courtlistener.com/opinion/3192432/united-states-v-jeffrey-r-green/",
+        "title": "United States v. Jeffrey R. Green"
+      },
+      {
+        "n": 5,
+        "citation": "3 F.4th 305",
+        "url": "https://www.courtlistener.com/opinion/4896801/united-states-v-kristen-brenner/",
+        "title": "United States v. Kristen Brenner"
+      }
+    ]
+  },
+  {
+    "slug": "is-it-legal-for-my-employer-to-search-my-emails-or-computer",
+    "question": "Is it legal for my employer to search my emails or computer?",
     "jurisdiction": "US",
     "category": "Employment Law",
-    "answer": "Federal law provides protections against pregnancy discrimination primarily through the Pregnant Workers Fairness Act (PWFA), which mandates that covered entities must offer reasonable accommodations to employees affected by pregnancy, childbirth, or related medical conditions [1]. This act aims to ensure that pregnant employees are treated fairly in the workplace. \n\nThere are no additional specific protections against pregnancy discrimination mentioned in the provided context snippets, and gaps exist regarding other federal laws or regulations that may also address this issue.",
+    "answer": "The provided context does not contain specific information regarding the legality of employers searching employee emails or computers. Therefore, I cannot provide a definitive answer based on the available sources. Please consult additional legal resources or a legal professional for guidance on this matter.",
+    "sources": [
+      {
+        "n": 1,
+        "citation": "20 C.F.R. § 200.4",
+        "url": "https://www.ecfr.gov/current/title-20/part-200/section-200.4",
+        "title": "Chapter II — § 200.4"
+      },
+      {
+        "n": 2,
+        "citation": "12 C.F.R. Part 1005",
+        "url": "https://www.ecfr.gov/current/title-12/part-1005",
+        "title": "Chapter X — Part 1005"
+      },
+      {
+        "n": 3,
+        "citation": "922 F.3d 320",
+        "url": "https://www.courtlistener.com/opinion/4613807/light-age-incorporated-v-clifford-ashcroft-smith/",
+        "title": "Light-Age, Incorporated v. Clifford Ashcroft-Smith"
+      },
+      {
+        "n": 4,
+        "citation": "75 F.4th 339",
+        "url": "https://www.courtlistener.com/opinion/9417299/united-states-v-john-kramer/",
+        "title": "United States v. John Kramer"
+      },
+      {
+        "n": 5,
+        "citation": "44 F.4th 257",
+        "url": "https://www.courtlistener.com/opinion/9370774/cae-integrated-v-moov-technologies/",
+        "title": "CAE Integrated v. Moov Technologies"
+      },
+      {
+        "n": 6,
+        "citation": "89 FR 95626",
+        "url": "https://www.federalregister.gov/documents/2024/12/02/2024-28017/exercise-of-time-limited-authority-to-increase-the-numerical-limitation-for-fy-2025-for-the-h-2b",
+        "title": "Exercise of Time-Limited Authority To Increase the Numerical Limitation for FY 2025 for the H-2B Temporary Nonagricultural Worker Program and Portability Flexibility for H-2B Workers Seeking To Change Employers"
+      },
+      {
+        "n": 7,
+        "citation": "90 FR 45986",
+        "url": "https://www.federalregister.gov/documents/2025/09/24/2025-18473/weighted-selection-process-for-registrants-and-petitioners-seeking-to-file-cap-subject-h-1b",
+        "title": "Weighted Selection Process for Registrants and Petitioners Seeking To File Cap-Subject H-1B Petitions"
+      }
+    ]
+  },
+  {
+    "slug": "how-long-does-my-landlord-have-to-fix-something",
+    "question": "How long does my landlord have to fix something?",
+    "jurisdiction": "US",
+    "category": "Tenant & Landlord",
+    "answer": "The provided context does not contain any information regarding the time frame a landlord has to fix something. Therefore, I cannot provide an answer based on the available sources.",
+    "sources": [
+      {
+        "n": 1,
+        "citation": "90 FR 20501",
+        "url": "https://www.federalregister.gov/documents/2025/05/14/2025-08464/united-states-et-al-v-realpage-inc-et-al",
+        "title": "United States et al. v. RealPage, Inc. et al."
+      },
+      {
+        "n": 2,
+        "citation": "91 FR 2592",
+        "url": "https://www.federalregister.gov/documents/2026/01/21/2026-01009/united-states-of-america-et-al-v-realpage-inc-et-al-proposed-final-judgment-and-competitive-impact",
+        "title": "United States of America et al. v. RealPage, Inc. et al. Proposed Final Judgment and Competitive Impact Statement"
+      },
+      {
+        "n": 3,
+        "citation": "741 F.3d 730",
+        "url": "https://www.courtlistener.com/opinion/8441598/in-re-rockford-products-corp/",
+        "title": "In re Rockford Products Corp."
+      },
+      {
+        "n": 4,
+        "citation": "69 F.4th 1213",
+        "url": "https://www.courtlistener.com/opinion/9404121/carlos-ramirez-v-the-paradies-shops-llc/",
+        "title": "Carlos Ramirez v. The Paradies Shops, LLC"
+      },
+      {
+        "n": 5,
+        "citation": "Harrison Kishwaukee, LLC v. Rockford Acquisition, LLC",
+        "url": "https://www.courtlistener.com/opinion/2709071/harrison-kishwaukee-llc-v-rockford-acquisition-llc/",
+        "title": "Harrison Kishwaukee, LLC v. Rockford Acquisition, LLC"
+      }
+    ]
+  },
+  {
+    "slug": "what-is-a-dwi",
+    "question": "What is a DWI?",
+    "jurisdiction": "US",
+    "category": "Criminal & Traffic Law",
+    "answer": "A DWI, or Driving While Intoxicated, refers to a legal offense involving the operation of a vehicle while impaired by alcohol or drugs. In the context of U.S. law, a DWI conviction can be classified as an \"aggravated felony,\" which may have implications for immigration status, as seen in the case of United States v. Hector Parrales-Guzman, where the individual was ordered removed based on a felony DWI conviction under Texas law [4]. \n\nThe provided sources do not offer a comprehensive definition of DWI or its legal implications beyond the context of immigration law.",
+    "sources": [
+      {
+        "n": 1,
+        "citation": "91 FR 13227",
+        "url": "https://www.federalregister.gov/documents/2026/03/19/2026-05452/announcement-of-final-regulatory-determinations-for-contaminants-on-the-fifth-drinking-water",
+        "title": "Announcement of Final Regulatory Determinations for Contaminants on the Fifth Drinking Water Contaminant Candidate List"
+      },
+      {
+        "n": 2,
+        "citation": "90 FR 3830",
+        "url": "https://www.federalregister.gov/documents/2025/01/15/2025-00133/announcement-of-preliminary-regulatory-determinations-for-contaminants-on-the-fifth-drinking-water",
+        "title": "Announcement of Preliminary Regulatory Determinations for Contaminants on the Fifth Drinking Water Contaminant Candidate List"
+      },
+      {
+        "n": 3,
+        "citation": "348 F. App'x 786",
+        "url": "https://www.courtlistener.com/opinion/8500758/iriani-v-attorney-general-of-the-united-states/",
+        "title": "Iriani v. Attorney General of the United States"
+      },
+      {
+        "n": 4,
+        "citation": "922 F.3d 706",
+        "url": "https://www.courtlistener.com/opinion/4616174/united-states-v-hector-parrales-guzman/",
+        "title": "United States v. Hector Parrales-Guzman"
+      }
+    ]
+  },
+  {
+    "slug": "how-to-get-paid-while-on-fmla",
+    "question": "How to get paid while on FMLA",
+    "jurisdiction": "US",
+    "category": "Employment Law",
+    "answer": "The Family and Medical Leave Act (FMLA) entitles eligible employees to take unpaid, job-protected leave for specified family and medical reasons, with the continuation of group health insurance coverage under the same terms as if the employee had not taken leave [6]. However, the FMLA does not provide for paid leave; it specifically allows for unpaid leave [6]. \n\nTo receive pay while on FMLA leave, employees may need to utilize accrued paid leave (such as vacation or sick leave) if their employer's policies allow it, but this is not mandated by the FMLA itself [6]. \n\nThere is no information in the provided sources regarding specific procedures or requirements for receiving pay during FMLA leave beyond the option to use accrued paid leave.",
     "sources": [
       {
         "n": 1,
@@ -1361,105 +1184,283 @@
       },
       {
         "n": 2,
-        "citation": "42 C.F.R. § 438.3",
-        "url": "https://www.ecfr.gov/current/title-42/part-438/section-438.3",
-        "title": "Chapter IV — § 438.3"
+        "citation": "29 U.S.C. § 2612",
+        "url": "https://www.law.cornell.edu/uscode/text/29/2612",
+        "title": "Family and Medical Leave Act — Entitlement to Leave"
       },
       {
         "n": 3,
-        "citation": "683 F.3d 539",
-        "url": "https://www.courtlistener.com/opinion/803250/greater-baltimore-center-for-pregnancy-concerns-inc-v-mayor-of-baltimore/",
-        "title": "Greater Baltimore Center for Pregnancy Concerns, Inc. v. Mayor of Baltimore"
+        "citation": "205 F.3d 370",
+        "url": "https://www.courtlistener.com/opinion/767869/katherine-a-thorson-v-gemini-inc-equal-employment-advisory-council/",
+        "title": "Katherine A. Thorson v. Gemini, Inc., Equal Employment Advisory Council Society for Human Resource Management National Association of Manufacturers, Amici on Behalf of Secretary of Labor, Amicus on Behalf of Katherine A. Thorson v. Gemini, Inc., Equal Employment Advisory Council Society for Human Resource Management National Association of Manufacturers, Amici on Behalf of Secretary of Labor, Amicus on Behalf Of"
       },
       {
         "n": 4,
-        "citation": "721 F.3d 264",
-        "url": "https://www.courtlistener.com/opinion/988054/greater-baltimore-center-for-pregnancy-concerns-inc-v-mayor-of-baltimore/",
-        "title": "Greater Baltimore Center for Pregnancy Concerns, Inc. v. Mayor of Baltimore"
+        "citation": "857 F.3d 179",
+        "url": "https://www.courtlistener.com/opinion/4391474/gary-waag-v-sotera-defense-solutions-inc/",
+        "title": "Gary Waag v. Sotera Defense Solutions, Inc."
       },
       {
         "n": 5,
-        "citation": "115 F.4th 1335",
-        "url": "https://www.courtlistener.com/opinion/10123056/darcy-corbitt-v-secretary-of-the-alabama-law-enforcement-agency/",
-        "title": "Darcy Corbitt v. Secretary of the Alabama Law Enforcement Agency"
+        "citation": "851 F.3d 413",
+        "url": "https://www.courtlistener.com/opinion/4375958/robert-moss-v-harris-cty-constable-precinct-et-a/",
+        "title": "Robert Moss v. Harris Cty Constable Precinct, et a"
       },
       {
         "n": 6,
-        "citation": "89 FR 33474",
-        "url": "https://www.federalregister.gov/documents/2024/04/29/2024-07915/nondiscrimination-on-the-basis-of-sex-in-education-programs-or-activities-receiving-federal",
-        "title": "Nondiscrimination on the Basis of Sex in Education Programs or Activities Receiving Federal Financial Assistance"
+        "citation": "91 FR 9932",
+        "url": "https://www.federalregister.gov/documents/2026/02/27/2026-03962/employee-or-independent-contractor-status-under-the-fair-labor-standards-act-family-and-medical",
+        "title": "Employee or Independent Contractor Status Under the Fair Labor Standards Act, Family and Medical Leave Act, and Migrant and Seasonal Agricultural Worker Protection Act"
       },
       {
         "n": 7,
-        "citation": "89 FR 47850",
-        "url": "https://www.federalregister.gov/documents/2024/06/04/2024-12029/procedures-for-previously-exempt-state-and-local-government-employee-complaints-of-employment",
-        "title": "Procedures for Previously Exempt State and Local Government Employee Complaints of Employment Discrimination Under Section 304 of the Government Employee Rights Act of 1991"
+        "citation": "89 FR 29096",
+        "url": "https://www.federalregister.gov/documents/2024/04/19/2024-07527/implementation-of-the-pregnant-workers-fairness-act",
+        "title": "Implementation of the Pregnant Workers Fairness Act"
       }
     ]
   },
   {
-    "slug": "federal-wage-garnishment-limits",
-    "question": "What are the federal limits on wage garnishment?",
+    "slug": "can-my-employer-record-phone-calls-or-monitor-me-on-camera",
+    "question": "Can my employer record phone calls or monitor me on camera?",
     "jurisdiction": "US",
-    "category": "Federal Regulations",
-    "answer": "Federal limits on wage garnishment are primarily governed by regulations that specify the maximum amount of disposable earnings that can be garnished. According to the regulations, the aggregate disposable earnings subject to garnishment to enforce any legal debt are limited, and garnishments must be executed on a one-at-a-time basis. Specifically, if an agency is garnishing 25 percent or more of an employee's disposable earnings, it must adhere to these limitations [1]. \n\nThe context does not provide specific percentage limits or additional details regarding other types of debts or exceptions that may apply to wage garnishment. Therefore, further information may be needed to fully understand all aspects of federal wage garnishment limits.",
+    "category": "Employment Law",
+    "answer": "The provided context does not contain specific information regarding the legality of employers recording phone calls or monitoring employees via camera. Therefore, I cannot provide a definitive answer based on the available sources. \n\nFor a comprehensive understanding of the legality of such actions, it would be necessary to consult additional legal sources or statutes that specifically address workplace surveillance and recording practices.",
     "sources": [
       {
         "n": 1,
-        "citation": "5 C.F.R. § 582.402",
-        "url": "https://www.ecfr.gov/current/title-5/part-582/section-582.402",
-        "title": "Chapter I — § 582.402"
+        "citation": "50 C.F.R. § 648.11",
+        "url": "https://www.ecfr.gov/current/title-50/part-648/section-648.11",
+        "title": "Chapter VI — § 648.11"
       },
       {
         "n": 2,
-        "citation": "38 C.F.R. § 1.923",
-        "url": "https://www.ecfr.gov/current/title-38/part-1/section-1.923",
-        "title": "Chapter I — § 1.923"
+        "citation": "29 C.F.R. § 1910.1450",
+        "url": "https://www.ecfr.gov/current/title-29/part-1910/section-1910.1450",
+        "title": "Chapter XVII — § 1910.1450"
       },
       {
         "n": 3,
-        "citation": "34 C.F.R. § 682.410",
-        "url": "https://www.ecfr.gov/current/title-34/part-682/section-682.410",
-        "title": "Chapter VI — § 682.410"
+        "citation": "89 FR 79598",
+        "url": "https://www.federalregister.gov/documents/2024/09/30/2024-22391/privacy-act-of-1974-system-of-records",
+        "title": "Privacy Act of 1974; System of Records"
       },
       {
         "n": 4,
-        "citation": "127 L. Ed. 2d 308",
-        "url": "https://www.courtlistener.com/opinion/112931/federal-deposit-insurance-v-meyer/",
-        "title": "Federal Deposit Insurance v. Meyer"
+        "citation": "90 FR 44872",
+        "url": "https://www.federalregister.gov/documents/2025/09/17/2025-17938/hours-of-service-of-drivers-pilot-program-to-allow-commercial-drivers-to-pause-their-14-hour-driving",
+        "title": "Hours of Service of Drivers; Pilot Program To Allow Commercial Drivers To Pause Their 14-Hour Driving Window"
       },
       {
         "n": 5,
-        "citation": "794 F.3d 568",
-        "url": "https://www.courtlistener.com/opinion/2819723/anarion-investments-llc-v-carrington-mortgage-services-llc/",
-        "title": "Anarion Investments LLC v. Carrington Mortgage Services, LLC"
+        "citation": "916 F.3d 32",
+        "url": "https://www.courtlistener.com/opinion/4593288/united-states-v-sayer/",
+        "title": "United States v. Sayer"
       },
       {
         "n": 6,
-        "citation": "219 F.3d 905",
-        "url": "https://www.courtlistener.com/opinion/769578/paul-a-wright-on-behalf-of-all-similarly-situated-persons-v-chase/",
-        "title": "Paul A. Wright, on Behalf of All Similarly Situated Persons v. Chase Riveland"
+        "citation": "Northeastern University v. NLRB",
+        "url": "https://www.courtlistener.com/opinion/10592120/northeastern-university-v-nlrb/",
+        "title": "Northeastern University v. NLRB"
       },
       {
         "n": 7,
-        "citation": "90 FR 60069",
-        "url": "https://www.federalregister.gov/documents/2025/12/23/2025-23735/truth-in-lending-regulation-z-non-application-to-earned-wage-access-products",
-        "title": "Truth in Lending (Regulation Z); Non-application to Earned Wage Access Products"
-      },
-      {
-        "n": 8,
-        "citation": "90 FR 3622",
-        "url": "https://www.federalregister.gov/documents/2025/01/15/2025-00381/truth-in-lending-regulation-z-consumer-credit-offered-to-borrowers-in-advance-of-expected-receipt-of",
-        "title": "Truth in Lending (Regulation Z); Consumer Credit Offered to Borrowers in Advance of Expected Receipt of Compensation for Work"
+        "citation": "Yarbrough v. SlashSupport",
+        "url": "https://www.courtlistener.com/opinion/10672451/yarbrough-v-slashsupport/",
+        "title": "Yarbrough v. SlashSupport"
       }
     ]
   },
   {
-    "slug": "small-business-data-breach-obligations",
-    "question": "What are a small business's legal obligations after a data breach?",
+    "slug": "can-my-landlord-kick-me-out-for-no-reason",
+    "question": "Can my landlord kick me out for no reason?",
     "jurisdiction": "US",
-    "category": "Small Business",
-    "answer": "",
-    "sources": []
+    "category": "Tenant & Landlord",
+    "answer": "The provided context does not contain specific information regarding whether a landlord can evict a tenant without cause. Therefore, I cannot provide a definitive answer to your question based on the available sources. Please consult local landlord-tenant laws or legal resources for guidance on eviction procedures and tenant rights.",
+    "sources": [
+      {
+        "n": 1,
+        "citation": "20 C.F.R. Part 404",
+        "url": "https://www.ecfr.gov/current/title-20/part-404",
+        "title": "Chapter III — Part 404"
+      },
+      {
+        "n": 2,
+        "citation": "54 F.4th 320",
+        "url": "https://www.courtlistener.com/opinion/9327417/freedom-from-religion-v-mack/",
+        "title": "Freedom From Religion v. Mack"
+      },
+      {
+        "n": 3,
+        "citation": "301 F. Supp. 3d 32",
+        "url": "https://www.courtlistener.com/opinion/7329371/lyles-v-us-marshalls-serv/",
+        "title": "Lyles v. U.S. Marshalls Serv."
+      },
+      {
+        "n": 4,
+        "citation": "694 F. App'x 422",
+        "url": "https://www.courtlistener.com/opinion/8699861/united-states-v-geasland/",
+        "title": "United States v. Geasland"
+      },
+      {
+        "n": 5,
+        "citation": "90 FR 43070",
+        "url": "https://www.federalregister.gov/documents/2025/09/05/2025-17086/united-states-of-america-et-al-v-realpage-inc-et-al-proposed-final-judgment-and-competitive-impact",
+        "title": "United States of America et al. v. RealPage, Inc. et al. Proposed Final Judgment and Competitive Impact Statement"
+      },
+      {
+        "n": 6,
+        "citation": "91 FR 2592",
+        "url": "https://www.federalregister.gov/documents/2026/01/21/2026-01009/united-states-of-america-et-al-v-realpage-inc-et-al-proposed-final-judgment-and-competitive-impact",
+        "title": "United States of America et al. v. RealPage, Inc. et al. Proposed Final Judgment and Competitive Impact Statement"
+      }
+    ]
+  },
+  {
+    "slug": "what-is-the-legal-alcohol-limit",
+    "question": "What is the legal alcohol limit?",
+    "jurisdiction": "US",
+    "category": "Criminal & Traffic Law",
+    "answer": "The provided context does not specify the legal alcohol limit for driving or other activities in the U.S. Therefore, I cannot provide an answer based on the available sources.",
+    "sources": [
+      {
+        "n": 1,
+        "citation": "27 C.F.R. § 13.91",
+        "url": "https://www.ecfr.gov/current/title-27/part-13/section-13.91",
+        "title": "Chapter I — § 13.91"
+      },
+      {
+        "n": 2,
+        "citation": "27 C.F.R. § 25.164",
+        "url": "https://www.ecfr.gov/current/title-27/part-25/section-25.164",
+        "title": "Chapter I — § 25.164"
+      },
+      {
+        "n": 3,
+        "citation": "27 C.F.R. § 24.271",
+        "url": "https://www.ecfr.gov/current/title-27/part-24/section-24.271",
+        "title": "Chapter I — § 24.271"
+      },
+      {
+        "n": 4,
+        "citation": "127 F.4th 583",
+        "url": "https://www.courtlistener.com/opinion/10324209/reese-v-bureau-of-alcohol/",
+        "title": "Reese v. Bureau of Alcohol"
+      },
+      {
+        "n": 5,
+        "citation": "920 F.3d 1",
+        "url": "https://www.courtlistener.com/opinion/4605646/guedes-v-bureau-of-alcohol-tobacco-firearms/",
+        "title": "Guedes v. Bureau of Alcohol, Tobacco, Firearms"
+      },
+      {
+        "n": 6,
+        "citation": "293 F. Supp. 3d 17",
+        "url": "https://www.courtlistener.com/opinion/7328691/hardy-v-bureau-of-alcohol-tobacco-firearms-explosives/",
+        "title": "Hardy v. Bureau of Alcohol, Tobacco, Firearms & Explosives"
+      },
+      {
+        "n": 7,
+        "citation": "90 FR 6654",
+        "url": "https://www.federalregister.gov/documents/2025/01/17/2025-00957/alcohol-facts-statements-in-the-labeling-of-wines-distilled-spirits-and-malt-beverages",
+        "title": "Alcohol Facts Statements in the Labeling of Wines, Distilled Spirits, and Malt Beverages"
+      },
+      {
+        "n": 8,
+        "citation": "89 FR 103416",
+        "url": "https://www.federalregister.gov/documents/2024/12/18/2024-29837/drug-and-alcohol-testing-of-certificated-repair-station-employees-located-outside-of-the-united",
+        "title": "Drug and Alcohol Testing of Certificated Repair Station Employees Located Outside of the United States"
+      }
+    ]
+  },
+  {
+    "slug": "what-can-my-landlord-keep-my-security-deposit-for",
+    "question": "What can my landlord keep my security deposit for?",
+    "jurisdiction": "US",
+    "category": "Tenant & Landlord",
+    "answer": "The provided context does not contain specific information regarding what a landlord can keep a security deposit for. There are no relevant details about security deposits in the snippets provided. Therefore, I cannot answer the question based on the available sources.",
+    "sources": [
+      {
+        "n": 1,
+        "citation": "7 C.F.R. § 273.9",
+        "url": "https://www.ecfr.gov/current/title-7/part-273/section-273.9",
+        "title": "Chapter II — § 273.9"
+      },
+      {
+        "n": 2,
+        "citation": "925 F.2d 1088",
+        "url": "https://www.courtlistener.com/opinion/8994297/parmenter-v-federal-deposit-insurance/",
+        "title": "Parmenter v. Federal Deposit Insurance"
+      },
+      {
+        "n": 3,
+        "citation": "79 F.3d 362",
+        "url": "https://www.courtlistener.com/opinion/714964/first-bank-national-association-v-federal-deposit-insurance-corporation/",
+        "title": "First Bank National Association v. Federal Deposit Insurance Corporation"
+      },
+      {
+        "n": 4,
+        "citation": "21 F.3d 477",
+        "url": "https://www.courtlistener.com/opinion/7028509/boston-post-road-ltd-partnership-v-federal-deposit-insurance-corp-in-re/",
+        "title": "Boston Post Road Ltd. Partnership v. Federal Deposit Insurance Corp. (In re Boston Post Road Ltd. Partnership)"
+      },
+      {
+        "n": 5,
+        "citation": "91 FR 390",
+        "url": "https://www.federalregister.gov/documents/2026/01/06/2026-00009/funding-opportunity-under-supportive-services-for-veteran-families",
+        "title": "Funding Opportunity Under Supportive Services for Veteran Families"
+      },
+      {
+        "n": 6,
+        "citation": "89 FR 70258",
+        "url": "https://www.federalregister.gov/documents/2024/08/29/2024-19198/anti-money-laundering-regulations-for-residential-real-estate-transfers",
+        "title": "Anti-Money Laundering Regulations for Residential Real Estate Transfers"
+      }
+    ]
+  },
+  {
+    "slug": "what-is-lemon-law",
+    "question": "What is lemon law?",
+    "jurisdiction": "US",
+    "category": "General Legal",
+    "answer": "The provided context does not contain any information regarding \"lemon law.\" Therefore, I cannot provide a definition or explanation based on the available sources.",
+    "sources": [
+      {
+        "n": 1,
+        "citation": "26 C.F.R. § 1.954-3",
+        "url": "https://www.ecfr.gov/current/title-26/part-1/section-1.954-3",
+        "title": "Chapter I — § 1.954-3"
+      },
+      {
+        "n": 2,
+        "citation": "91 FR 6781",
+        "url": "https://www.federalregister.gov/documents/2026/02/13/2026-02916/hexythiazox-pesticide-tolerances",
+        "title": "Hexythiazox; Pesticide Tolerances"
+      },
+      {
+        "n": 3,
+        "citation": "91 FR 11077",
+        "url": "https://www.federalregister.gov/documents/2026/03/06/2026-04479/developing-specifications-for-in-home-disposal-systems-for-opioid-analgesics-dispensed-in-an",
+        "title": "Developing Specifications for In-Home Disposal Systems for Opioid Analgesics Dispensed in an Outpatient Setting; Establishment of a Public Docket; Request for Comments"
+      },
+      {
+        "n": 4,
+        "citation": "514 F.3d 1312",
+        "url": "https://www.courtlistener.com/opinion/187103/lemon-v-geren/",
+        "title": "Lemon v. Geren"
+      },
+      {
+        "n": 5,
+        "citation": "924 F.3d 155",
+        "url": "https://www.courtlistener.com/opinion/8444000/united-states-ex-rel-lemon-v-nurses-to-go-incorporated/",
+        "title": "United States ex rel Lemon v. Nurses To Go, Incorporated"
+      },
+      {
+        "n": 6,
+        "citation": "632 F. App'x 127",
+        "url": "https://www.courtlistener.com/opinion/8695896/leiser-law-firm-pllc-v-supreme-court/",
+        "title": "Leiser Law Firm, PLLC v. Supreme Court"
+      }
+    ]
   }
 ]

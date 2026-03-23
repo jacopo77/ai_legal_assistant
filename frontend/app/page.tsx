@@ -592,14 +592,14 @@ function FaqPreview() {
   const [open, setOpen] = useState(false);
 
   const PREVIEW_QUESTIONS = [
-    { slug: "tenant-rights-security-deposit-california", question: "What are tenant rights regarding security deposits in California?" },
-    { slug: "fmla-leave-employer-denial", question: "Can my employer deny my FMLA leave request?" },
-    { slug: "workplace-discrimination-title-vii", question: "What counts as workplace discrimination under Title VII?" },
-    { slug: "far-simplified-acquisition-threshold", question: "What is the simplified acquisition threshold under the Federal Acquisition Regulation?" },
-    { slug: "osha-employer-safety-obligations", question: "What are an employer's safety obligations under OSHA?" },
-    { slug: "eviction-process-texas", question: "What is the eviction process for landlords in Texas?" },
-    { slug: "ada-workplace-accommodations", question: "Does the ADA require my employer to provide workplace accommodations?" },
-    { slug: "small-business-llc-vs-corporation", question: "What is the difference between an LLC and a corporation for a small business?" },
+    { slug: "can-my-landlord-enter-without-permission", question: "Can my landlord enter without permission?" },
+    { slug: "can-i-be-fired-without-warning-for-no-reason", question: "Can I be fired without warning / for no reason?" },
+    { slug: "what-is-minimum-wage", question: "What is minimum wage?" },
+    { slug: "can-my-landlord-evict-me-without-going-to-court", question: "Can my landlord evict me without going to court?" },
+    { slug: "how-to-get-paid-while-on-fmla", question: "How to get paid while on FMLA" },
+    { slug: "what-can-my-landlord-keep-my-security-deposit-for", question: "What can my landlord keep my security deposit for?" },
+    { slug: "is-my-employer-required-to-give-me-breaks-or-lunch", question: "Is my employer required to give me breaks or lunch?" },
+    { slug: "how-to-trademark-a-name", question: "How to trademark a name" },
   ];
 
   return (

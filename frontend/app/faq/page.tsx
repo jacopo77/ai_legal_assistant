@@ -17,6 +17,9 @@ export const metadata: Metadata = {
 const CATEGORY_ORDER = [
   "Tenant & Landlord",
   "Employment Law",
+  "Criminal & Traffic Law",
+  "Business & IP",
+  "General Legal",
   "Federal Regulations",
   "Small Business",
 ];
@@ -24,6 +27,9 @@ const CATEGORY_ORDER = [
 const CATEGORY_ICONS: Record<string, string> = {
   "Tenant & Landlord": "home",
   "Employment Law": "work",
+  "Criminal & Traffic Law": "local_police",
+  "Business & IP": "lightbulb",
+  "General Legal": "gavel",
   "Federal Regulations": "account_balance",
   "Small Business": "storefront",
 };
