@@ -580,7 +580,67 @@ export default function HomePage() {
             AI-Generated Information. Consult a licensed attorney for official legal advice.
           </p>
         </footer>
+
+        {/* FAQ Preview Section */}
+        <FaqPreview />
       </main>
+    </div>
+  );
+}
+
+function FaqPreview() {
+  const [open, setOpen] = useState(false);
+
+  const PREVIEW_QUESTIONS = [
+    { slug: "tenant-rights-security-deposit-california", question: "What are tenant rights regarding security deposits in California?" },
+    { slug: "fmla-leave-employer-denial", question: "Can my employer deny my FMLA leave request?" },
+    { slug: "workplace-discrimination-title-vii", question: "What counts as workplace discrimination under Title VII?" },
+    { slug: "far-simplified-acquisition-threshold", question: "What is the simplified acquisition threshold under the Federal Acquisition Regulation?" },
+    { slug: "osha-employer-safety-obligations", question: "What are an employer's safety obligations under OSHA?" },
+    { slug: "eviction-process-texas", question: "What is the eviction process for landlords in Texas?" },
+    { slug: "ada-workplace-accommodations", question: "Does the ADA require my employer to provide workplace accommodations?" },
+    { slug: "small-business-llc-vs-corporation", question: "What is the difference between an LLC and a corporation for a small business?" },
+  ];
+
+  return (
+    <div className="mt-10 border-t border-slate-800/60 pt-6">
+      <button
+        onClick={() => setOpen((v) => !v)}
+        className="w-full flex items-center justify-between px-2 py-2 text-slate-500 hover:text-slate-300 transition-colors group"
+        aria-expanded={open}
+      >
+        <span className="flex items-center gap-2 text-xs uppercase tracking-wider">
+          <span className="material-symbols-outlined text-sm">quiz</span>
+          Frequently Asked Legal Questions
+        </span>
+        <span className={`material-symbols-outlined text-sm transition-transform ${open ? "rotate-180" : ""}`}>
+          expand_more
+        </span>
+      </button>
+
+      {open && (
+        <div className="mt-3 space-y-1">
+          {PREVIEW_QUESTIONS.map((q) => (
+            <a
+              key={q.slug}
+              href={`/faq/${q.slug}`}
+              className="flex items-center justify-between gap-3 px-3 py-2.5 rounded-xl text-xs text-slate-400 hover:text-white hover:bg-slate-800/50 transition-all group"
+            >
+              <span>{q.question}</span>
+              <span className="material-symbols-outlined text-slate-700 group-hover:text-slate-400 transition-colors text-sm shrink-0">
+                chevron_right
+              </span>
+            </a>
+          ))}
+          <a
+            href="/faq"
+            className="flex items-center justify-center gap-2 mt-3 py-2 text-xs text-indigo-400 hover:text-indigo-300 transition-colors"
+          >
+            View all 30 frequently asked questions
+            <span className="material-symbols-outlined text-sm">arrow_forward</span>
+          </a>
+        </div>
+      )}
     </div>
   );
 }
