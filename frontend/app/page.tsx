@@ -201,8 +201,7 @@ export default function HomePage() {
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState<string>("");
   const streamAbortRef = useRef<AbortController | null>(null);
-  const resultsRef = useRef<HTMLDivElement>(null);
-  const didScrollRef = useRef(false);
+  const messagesContainerRef = useRef<HTMLDivElement>(null);
 
   // Detect shared URL params
   useEffect(() => {
@@ -218,17 +217,11 @@ export default function HomePage() {
     try { sessionStorage.setItem("chat_history", JSON.stringify(messages)); } catch { /* ignore */ }
   }, [messages]);
 
-  // Scroll to the results area once when first answer begins — never during streaming
+  // Scroll inside the messages container — page never moves
   useEffect(() => {
-    if (messages.length === 0) {
-      didScrollRef.current = false;
-      return;
+    if (messagesContainerRef.current) {
+      messagesContainerRef.current.scrollTop = messagesContainerRef.current.scrollHeight;
     }
-    if (didScrollRef.current) return;
-    didScrollRef.current = true;
-    requestAnimationFrame(() => {
-      resultsRef.current?.scrollIntoView({ behavior: "smooth", block: "nearest" });
-    });
   }, [messages]);
 
   const handleShare = (question: string, jurisdiction: string, idx: number) => {
@@ -471,8 +464,8 @@ export default function HomePage() {
           {/* AdSense banner — only renders when NEXT_PUBLIC_ADSENSE_CLIENT_ID is set */}
           <AdBanner />
 
-          {/* Results / empty state */}
-          <div ref={resultsRef} className="mt-4">
+          {/* Results / empty state — fixed height container scrolls internally, page never moves */}
+          <div ref={messagesContainerRef} className="mt-4 max-h-[60vh] overflow-y-auto custom-scrollbar">
             {messages.length === 0 ? (
               <div>
                 <p className="text-[10px] font-bold uppercase tracking-widest text-white/30 text-center mb-3">
