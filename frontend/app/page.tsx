@@ -224,14 +224,11 @@ export default function HomePage() {
       didPageScrollRef.current = false;
       return;
     }
-    // Once per question: scroll the dark section to the top of the viewport.
-    // The section is now tall enough (form + max-h-[60vh] messages box) that
-    // HowItWorks stays below the fold.
-    if (!didPageScrollRef.current) {
+    // Once per question: scroll the page so the dark section is at the top.
+    if (!didPageScrollRef.current && chatSectionRef.current) {
       didPageScrollRef.current = true;
-      requestAnimationFrame(() => {
-        chatSectionRef.current?.scrollIntoView({ behavior: "smooth", block: "start" });
-      });
+      const top = chatSectionRef.current.getBoundingClientRect().top + window.pageYOffset;
+      window.scrollTo({ top, behavior: "smooth" });
     }
     // Always: scroll inside the container to follow the latest content
     if (messagesContainerRef.current) {
@@ -263,6 +260,7 @@ export default function HomePage() {
     const userQuestion = question;
     setQuestion("");
     setError("");
+    didPageScrollRef.current = false;
     setMessages((prev) => [...prev, { role: "user", content: userQuestion, country }]);
     setLoading(true);
 
