@@ -202,6 +202,7 @@ export default function HomePage() {
   const [error, setError] = useState<string>("");
   const streamAbortRef = useRef<AbortController | null>(null);
   const messagesContainerRef = useRef<HTMLDivElement>(null);
+  const chatSectionRef = useRef<HTMLElement>(null);
   const didPageScrollRef = useRef(false);
 
   // Detect shared URL params
@@ -223,11 +224,13 @@ export default function HomePage() {
       didPageScrollRef.current = false;
       return;
     }
-    // Once per question: scroll the page so the messages container is visible
+    // Once per question: scroll the dark section to the top of the viewport.
+    // The section is now tall enough (form + max-h-[60vh] messages box) that
+    // HowItWorks stays below the fold.
     if (!didPageScrollRef.current) {
       didPageScrollRef.current = true;
       requestAnimationFrame(() => {
-        messagesContainerRef.current?.scrollIntoView({ behavior: "smooth", block: "nearest" });
+        chatSectionRef.current?.scrollIntoView({ behavior: "smooth", block: "start" });
       });
     }
     // Always: scroll inside the container to follow the latest content
@@ -389,7 +392,7 @@ export default function HomePage() {
       <HeroSection />
 
       {/* Dark chat tool section */}
-      <section className="bg-[#0B0E14] py-14 px-4 relative overflow-hidden">
+      <section ref={chatSectionRef} className="bg-[#0B0E14] py-14 px-4 relative overflow-hidden">
         <div className="absolute inset-0 glow-bg pointer-events-none" />
         <div className="relative z-10 w-full max-w-[760px] mx-auto">
 
