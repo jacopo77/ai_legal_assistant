@@ -219,7 +219,14 @@ export default function HomePage() {
 
   useEffect(() => {
     if (messages.length === 0) return;
-    messagesEndRef.current?.scrollIntoView({ behavior: loading ? "auto" : "smooth", block: "end" });
+    const el = messagesEndRef.current;
+    if (!el) return;
+    const rect = el.getBoundingClientRect();
+    // Only scroll if the bottom of the messages area is below the visible viewport
+    if (rect.bottom > window.innerHeight - 24) {
+      const targetY = window.pageYOffset + rect.bottom - window.innerHeight + 24;
+      window.scrollTo({ top: Math.max(0, targetY), behavior: loading ? "auto" : "smooth" });
+    }
   }, [messages, loading]);
 
   const handleShare = (question: string, jurisdiction: string, idx: number) => {
