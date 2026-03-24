@@ -1,0 +1,94 @@
+const SOURCES = [
+  {
+    icon: "gavel",
+    name: "eCFR",
+    description: "Electronic Code of Federal Regulations — all current federal rules and regulations.",
+    href: "https://www.ecfr.gov",
+  },
+  {
+    icon: "newspaper",
+    name: "Federal Register",
+    description: "Official journal of federal rulemaking — proposed rules, final rules, and agency notices.",
+    href: "https://www.federalregister.gov",
+  },
+  {
+    icon: "balance",
+    name: "CourtListener",
+    description: "Free law project database of federal and state court opinions from across the US.",
+    href: "https://www.courtlistener.com",
+  },
+];
+
+const STATES = [
+  "Alabama","Alaska","Arizona","Arkansas","California","Colorado","Connecticut",
+  "Delaware","Florida","Georgia","Hawaii","Idaho","Illinois","Indiana","Iowa",
+  "Kansas","Kentucky","Louisiana","Maine","Maryland","Massachusetts","Michigan",
+  "Minnesota","Mississippi","Missouri","Montana","Nebraska","Nevada",
+  "New Hampshire","New Jersey","New Mexico","New York","North Carolina",
+  "North Dakota","Ohio","Oklahoma","Oregon","Pennsylvania","Rhode Island",
+  "South Carolina","South Dakota","Tennessee","Texas","Utah","Vermont",
+  "Virginia","Washington","West Virginia","Wisconsin","Wyoming",
+];
+
+export default function CoverageSection() {
+  return (
+    <section className="bg-slate-50 py-20 px-4">
+      <div className="max-w-4xl mx-auto">
+        {/* Heading */}
+        <div className="text-center mb-14">
+          <p className="text-xs font-bold uppercase tracking-widest text-blue-500 mb-3">
+            Coverage
+          </p>
+          <h2 className="text-3xl md:text-4xl font-bold text-slate-900 tracking-tight mb-4">
+            All 50 states and US Federal law
+          </h2>
+          <p className="text-slate-500 text-base max-w-xl mx-auto">
+            Every answer cites the specific law, regulation, or ruling — not a
+            paraphrase. Click any citation to read the original source.
+          </p>
+        </div>
+
+        {/* Source cards */}
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-5 mb-14">
+          {SOURCES.map((src) => (
+            <a
+              key={src.name}
+              href={src.href}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="bg-white border border-slate-200 rounded-2xl p-6 flex flex-col gap-3 hover:border-blue-300 hover:shadow-sm transition-all group"
+            >
+              <div className="w-10 h-10 rounded-xl bg-blue-50 border border-blue-100 flex items-center justify-center">
+                <span className="material-symbols-outlined text-blue-600 text-xl">{src.icon}</span>
+              </div>
+              <div>
+                <div className="flex items-center gap-1.5 mb-1">
+                  <span className="font-bold text-slate-900 text-sm">{src.name}</span>
+                  <span className="material-symbols-outlined text-slate-300 group-hover:text-blue-400 transition-colors text-sm">open_in_new</span>
+                </div>
+                <p className="text-xs text-slate-500 leading-relaxed">{src.description}</p>
+              </div>
+            </a>
+          ))}
+        </div>
+
+        {/* State grid */}
+        <div className="bg-white border border-slate-200 rounded-2xl p-6">
+          <p className="text-xs font-bold uppercase tracking-widest text-slate-400 mb-4 text-center">
+            Jurisdiction selector covers
+          </p>
+          <div className="flex flex-wrap gap-x-4 gap-y-2 justify-center">
+            <span className="text-xs font-semibold text-blue-600 bg-blue-50 border border-blue-100 rounded-full px-3 py-1">
+              US Federal
+            </span>
+            {STATES.map((s) => (
+              <span key={s} className="text-xs text-slate-500">
+                {s}
+              </span>
+            ))}
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+}

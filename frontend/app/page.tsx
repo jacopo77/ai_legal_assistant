@@ -3,6 +3,10 @@
 
 import { useRef, useState, useEffect } from "react";
 import AdBanner from "./components/AdBanner";
+import HeroSection from "./components/landing/HeroSection";
+import HowItWorks from "./components/landing/HowItWorks";
+import CoverageSection from "./components/landing/CoverageSection";
+import ProTierCTA from "./components/landing/ProTierCTA";
 
 const BACKEND_URL = process.env.NEXT_PUBLIC_API_URL || process.env.NEXT_PUBLIC_BACKEND_URL || "http://127.0.0.1:8000";
 
@@ -347,14 +351,12 @@ export default function HomePage() {
   };
 
   return (
-    <div className="min-h-screen flex flex-col items-center pt-10 md:pt-14 pb-16 px-4 relative overflow-x-hidden">
-      <div className="fixed inset-0 glow-bg pointer-events-none" />
-
-      {/* Jurisdiction warning popup */}
+    <>
+      {/* Jurisdiction warning popup — fixed overlay, works across all sections */}
       {jurisdictionWarning && (
         <div className="fixed inset-0 z-50 flex items-center justify-center p-4">
           <div className="absolute inset-0 bg-black/60" onClick={() => setJurisdictionWarning(false)} />
-          <div className="relative bg-slate-900 border border-green-500/60 rounded-2xl p-6 max-w-sm w-full shadow-2xl text-center animate-in fade-in zoom-in duration-200">
+          <div className="relative bg-slate-900 border border-green-500/60 rounded-2xl p-6 max-w-sm w-full shadow-2xl text-center">
             <span className="material-symbols-outlined text-green-400 text-5xl mb-3 block">gavel</span>
             <h3 className="text-white font-bold text-lg mb-2">Choose a Jurisdiction First</h3>
             <p className="text-white/70 text-sm mb-5">
@@ -368,223 +370,244 @@ export default function HomePage() {
         </div>
       )}
 
-      <main className="w-full max-w-[760px] z-10">
-        {/* Header */}
-        <header className="text-center mb-8">
-          <div className="inline-flex items-center justify-center w-16 h-16 rounded-2xl bg-primary/20 text-primary mb-4 border border-primary/30">
-            <span className="material-symbols-outlined text-4xl font-light">gavel</span>
+      {/* White hero landing section */}
+      <HeroSection />
+
+      {/* Dark chat tool section */}
+      <section className="bg-[#0B0E14] py-14 px-4 relative overflow-hidden">
+        <div className="absolute inset-0 glow-bg pointer-events-none" />
+        <div className="relative z-10 w-full max-w-[760px] mx-auto">
+
+          {/* Section label */}
+          <div className="text-center mb-8">
+            <p className="text-[10px] font-bold uppercase tracking-widest text-white/30 mb-1">
+              Legal Search Hub
+            </p>
+            <p className="text-white/50 text-xs">
+              Select a jurisdiction, then ask your question
+            </p>
           </div>
-          <h1 className="text-3xl md:text-4xl font-bold tracking-tight mb-2">
-            <span className="text-white">Legal Search</span>{" "}
-            <span className="text-primary">Hub</span>
-          </h1>
-          <p className="text-white/70 text-sm max-w-xs mx-auto">
-            Instant answers to legal questions, backed by real US federal and State law.
-          </p>
-        </header>
 
-        {/* Search card */}
-        <div className="glass-card rounded-[2rem] p-5 md:p-8 shadow-2xl">
-          {error && (
-            <div className="mb-4 p-4 bg-red-500/10 border border-red-500/30 rounded-xl text-red-400 text-sm flex items-start gap-2">
-              <span className="material-symbols-outlined text-lg mt-0.5">error</span>
-              <div>
-                <div className="font-semibold mb-1">Connection Error</div>
-                <div className="opacity-90">{error}</div>
-              </div>
-            </div>
-          )}
-
-          <form className="space-y-5" onSubmit={onSubmit}>
-            <div className="flex flex-col gap-4">
-              <div className="flex flex-col md:flex-row gap-4">
-                <div className="flex-grow space-y-2">
-                  <label htmlFor="legal-question" className="block text-xs font-semibold uppercase tracking-wider text-white/80 ml-1">
-                    Legal Question
-                  </label>
-                  <textarea
-                    id="legal-question"
-                    value={question}
-                    onChange={(e) => setQuestion(e.target.value)}
-                    placeholder="Describe the legal situation..."
-                    rows={3}
-                    className="w-full bg-slate-950/50 border border-slate-800 focus:border-primary focus:ring-1 focus:ring-primary rounded-2xl p-4 text-white placeholder-white/50 resize-none transition-all text-sm custom-scrollbar"
-                  />
+          {/* Search card */}
+          <div className="glass-card rounded-[2rem] p-5 md:p-8 shadow-2xl">
+            {error && (
+              <div className="mb-4 p-4 bg-red-500/10 border border-red-500/30 rounded-xl text-red-400 text-sm flex items-start gap-2">
+                <span className="material-symbols-outlined text-lg mt-0.5">error</span>
+                <div>
+                  <div className="font-semibold mb-1">Connection Error</div>
+                  <div className="opacity-90">{error}</div>
                 </div>
-                <div className="md:w-48 space-y-2">
-                  <label htmlFor="jurisdiction" className="block text-xs font-semibold uppercase tracking-wider text-white/80 ml-1">
-                    Jurisdiction
-                  </label>
-                  <div className="relative">
-                    <select
-                      id="jurisdiction"
-                      value={country}
-                      onChange={(e) => { setCountry(e.target.value); setJurisdictionWarning(false); }}
-                      className={`w-full appearance-none bg-slate-950/50 border rounded-2xl px-4 py-3 text-sm transition-all cursor-pointer focus:ring-1 focus:ring-primary ${
-                        !country
-                          ? "border-green-500/80 text-green-400 font-semibold uppercase tracking-wider focus:border-green-400"
-                          : "border-slate-800 text-white focus:border-primary"
-                      }`}
-                    >
-                      <option value="" disabled className="text-slate-500">Select</option>
-                      {jurisdictions.map((j) => (
-                        <option key={j.value} className="text-slate-900" value={j.value}>{j.label}</option>
-                      ))}
-                    </select>
-                    <span className={`material-symbols-outlined absolute right-3 top-1/2 -translate-y-1/2 pointer-events-none text-xl ${!country ? "text-green-400" : "text-white"}`}>
-                      expand_more
-                    </span>
+              </div>
+            )}
+
+            <form className="space-y-5" onSubmit={onSubmit}>
+              <div className="flex flex-col gap-4">
+                <div className="flex flex-col md:flex-row gap-4">
+                  <div className="flex-grow space-y-2">
+                    <label htmlFor="legal-question" className="block text-xs font-semibold uppercase tracking-wider text-white/80 ml-1">
+                      Legal Question
+                    </label>
+                    <textarea
+                      id="legal-question"
+                      value={question}
+                      onChange={(e) => setQuestion(e.target.value)}
+                      placeholder="Describe the legal situation..."
+                      rows={3}
+                      className="w-full bg-slate-950/50 border border-slate-800 focus:border-primary focus:ring-1 focus:ring-primary rounded-2xl p-4 text-white placeholder-white/50 resize-none transition-all text-sm custom-scrollbar"
+                    />
                   </div>
-                </div>
-              </div>
-              <div className="flex items-center gap-1.5 text-[10px] text-white/60 px-1">
-                <span className="material-symbols-outlined text-[14px]">lock</span>
-                Personal sensitive details are automatically removed to protect your privacy.
-              </div>
-            </div>
-            <button
-              type="submit"
-              disabled={loading || !question.trim()}
-              className="w-full bg-primary hover:bg-blue-500 text-white font-bold py-4 rounded-2xl flex items-center justify-center gap-2 glow-button transition-all active:scale-[0.98] disabled:opacity-60"
-            >
-              <span className="material-symbols-outlined font-bold">gavel</span>
-              {loading ? "Searching…" : "Search Legal Hub"}
-            </button>
-          </form>
-        </div>
-
-        {/* AdSense banner — only renders when NEXT_PUBLIC_ADSENSE_CLIENT_ID is set */}
-        <AdBanner />
-
-        {/* Results / empty state */}
-        <div className="mt-4">
-          {messages.length === 0 ? (
-            <div>
-              <p className="text-[10px] font-bold uppercase tracking-widest text-white/30 text-center mb-3">
-                Try a sample prompt
-              </p>
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
-                {EXAMPLE_PROMPTS.map((prompt) => (
-                  <button
-                    key={prompt}
-                    type="button"
-                    onClick={() => setQuestion(prompt)}
-                    className="text-left text-sm text-white/60 hover:text-white bg-slate-900/40 hover:bg-slate-800/60 border border-slate-800 hover:border-slate-600 rounded-2xl px-4 py-3 transition-all leading-snug"
-                  >
-                    {prompt}
-                  </button>
-                ))}
-              </div>
-            </div>
-          ) : (
-            <div>
-              <div className="flex items-center justify-between px-1 mb-4">
-                <span className="text-[10px] font-bold uppercase tracking-widest text-white/30">Results</span>
-                <button type="button" onClick={clearChat} className="text-[10px] text-slate-500 hover:text-white uppercase tracking-wider transition-colors">
-                  Clear
-                </button>
-              </div>
-              <div className="space-y-4">
-                {messages.map((m, i) => {
-                  const prevMessage = i > 0 ? messages[i - 1] : null;
-                  const showGuidance =
-                    m.role === "assistant" && !m.error &&
-                    isFailureResponse(m.content) && prevMessage?.role === "user";
-                  const guidance = showGuidance
-                    ? getGuidance(prevMessage!.content, prevMessage!.country || "")
-                    : null;
-                  const isCompletedAnswer = m.role === "assistant" && !m.error && m.content.length > 40 && (!loading || i < messages.length - 1);
-                  const userMsg = m.role === "assistant" && prevMessage?.role === "user" ? prevMessage : null;
-
-                  return (
-                    <div key={i} className="space-y-2">
-                      <div
-                        className={`rounded-2xl p-4 md:p-5 ${
-                          m.role === "user"
-                            ? "glass-card border border-primary/20 ml-8"
-                            : m.error
-                            ? "bg-red-500/10 border border-red-500/30"
-                            : "glass-card border border-slate-700/60"
+                  <div className="md:w-48 space-y-2">
+                    <label htmlFor="jurisdiction" className="block text-xs font-semibold uppercase tracking-wider text-white/80 ml-1">
+                      Jurisdiction
+                    </label>
+                    <div className="relative">
+                      <select
+                        id="jurisdiction"
+                        value={country}
+                        onChange={(e) => { setCountry(e.target.value); setJurisdictionWarning(false); }}
+                        className={`w-full appearance-none bg-slate-950/50 border rounded-2xl px-4 py-3 text-sm transition-all cursor-pointer focus:ring-1 focus:ring-primary ${
+                          !country
+                            ? "border-green-500/80 text-green-400 font-semibold uppercase tracking-wider focus:border-green-400"
+                            : "border-slate-800 text-white focus:border-primary"
                         }`}
                       >
-                        <div className="text-[10px] uppercase tracking-wider text-white/50 mb-2 flex items-center gap-1.5">
-                          <span className="material-symbols-outlined text-xs">
-                            {m.role === "user" ? "person" : "gavel"}
-                          </span>
-                          {m.role === "user" ? "You" : "Legal Search Hub"}
-                          {m.country && <span className="opacity-60">· {m.country}</span>}
-                        </div>
-                        <div className="text-sm text-white/90 leading-relaxed whitespace-pre-wrap">
-                          {m.error ? m.content : renderContent(m.content, m.sources)}
+                        <option value="" disabled className="text-slate-500">Select</option>
+                        {jurisdictions.map((j) => (
+                          <option key={j.value} className="text-slate-900" value={j.value}>{j.label}</option>
+                        ))}
+                      </select>
+                      <span className={`material-symbols-outlined absolute right-3 top-1/2 -translate-y-1/2 pointer-events-none text-xl ${!country ? "text-green-400" : "text-white"}`}>
+                        expand_more
+                      </span>
+                    </div>
+                  </div>
+                </div>
+                <div className="flex items-center gap-1.5 text-[10px] text-white/60 px-1">
+                  <span className="material-symbols-outlined text-[14px]">lock</span>
+                  Personal sensitive details are automatically removed to protect your privacy.
+                </div>
+              </div>
+              <button
+                type="submit"
+                disabled={loading || !question.trim()}
+                className="w-full bg-primary hover:bg-blue-500 text-white font-bold py-4 rounded-2xl flex items-center justify-center gap-2 glow-button transition-all active:scale-[0.98] disabled:opacity-60"
+              >
+                <span className="material-symbols-outlined font-bold">gavel</span>
+                {loading ? "Searching…" : "Search Legal Hub"}
+              </button>
+            </form>
+          </div>
+
+          {/* AdSense banner — only renders when NEXT_PUBLIC_ADSENSE_CLIENT_ID is set */}
+          <AdBanner />
+
+          {/* Results / empty state */}
+          <div className="mt-4">
+            {messages.length === 0 ? (
+              <div>
+                <p className="text-[10px] font-bold uppercase tracking-widest text-white/30 text-center mb-3">
+                  Try a sample prompt
+                </p>
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
+                  {EXAMPLE_PROMPTS.map((prompt) => (
+                    <button
+                      key={prompt}
+                      type="button"
+                      onClick={() => setQuestion(prompt)}
+                      className="text-left text-sm text-white/60 hover:text-white bg-slate-900/40 hover:bg-slate-800/60 border border-slate-800 hover:border-slate-600 rounded-2xl px-4 py-3 transition-all leading-snug"
+                    >
+                      {prompt}
+                    </button>
+                  ))}
+                </div>
+              </div>
+            ) : (
+              <div>
+                <div className="flex items-center justify-between px-1 mb-4">
+                  <span className="text-[10px] font-bold uppercase tracking-widest text-white/30">Results</span>
+                  <button type="button" onClick={clearChat} className="text-[10px] text-slate-500 hover:text-white uppercase tracking-wider transition-colors">
+                    Clear
+                  </button>
+                </div>
+                <div className="space-y-4">
+                  {messages.map((m, i) => {
+                    const prevMessage = i > 0 ? messages[i - 1] : null;
+                    const showGuidance =
+                      m.role === "assistant" && !m.error &&
+                      isFailureResponse(m.content) && prevMessage?.role === "user";
+                    const guidance = showGuidance
+                      ? getGuidance(prevMessage!.content, prevMessage!.country || "")
+                      : null;
+                    const isCompletedAnswer = m.role === "assistant" && !m.error && m.content.length > 40 && (!loading || i < messages.length - 1);
+                    const userMsg = m.role === "assistant" && prevMessage?.role === "user" ? prevMessage : null;
+
+                    return (
+                      <div key={i} className="space-y-2">
+                        <div
+                          className={`rounded-2xl p-4 md:p-5 ${
+                            m.role === "user"
+                              ? "glass-card border border-primary/20 ml-8"
+                              : m.error
+                              ? "bg-red-500/10 border border-red-500/30"
+                              : "glass-card border border-slate-700/60"
+                          }`}
+                        >
+                          <div className="text-[10px] uppercase tracking-wider text-white/50 mb-2 flex items-center gap-1.5">
+                            <span className="material-symbols-outlined text-xs">
+                              {m.role === "user" ? "person" : "gavel"}
+                            </span>
+                            {m.role === "user" ? "You" : "Legal Search Hub"}
+                            {m.country && <span className="opacity-60">· {m.country}</span>}
+                          </div>
+                          <div className="text-sm text-white/90 leading-relaxed whitespace-pre-wrap">
+                            {m.error ? m.content : renderContent(m.content, m.sources)}
+                          </div>
                         </div>
 
-                      </div>
-
-                      {/* Guidance card with affiliate CTAs */}
-                      {guidance && (
-                        <div className="rounded-2xl p-4 md:p-5 bg-amber-500/8 border border-amber-500/30">
-                          <div className="flex items-start gap-3">
-                            <span className="material-symbols-outlined text-amber-400 text-xl mt-0.5 shrink-0">lightbulb</span>
-                            <div className="flex-1 min-w-0">
-                              <p className="text-amber-300 font-semibold text-sm mb-1">{guidance.heading}</p>
-                              <p className="text-white/70 text-sm leading-relaxed">{guidance.message}</p>
-                              {guidance.retryQuestion && (
-                                <button
-                                  type="button"
-                                  onClick={() => setQuestion(guidance.retryQuestion!)}
-                                  className="mt-3 inline-flex items-center gap-1.5 text-xs font-semibold text-amber-300 hover:text-amber-200 uppercase tracking-wider transition-colors"
-                                >
-                                  <span className="material-symbols-outlined text-sm">edit</span>
-                                  Re-enter this question with a new jurisdiction
-                                </button>
-                              )}
-                              {/* Affiliate CTAs */}
-                              <div className="mt-4 pt-3 border-t border-amber-500/20">
-                                <p className="text-[10px] uppercase tracking-wider text-white/30 mb-2">Get professional help</p>
-                                <div className="flex flex-col sm:flex-row gap-2">
-                                  <a
-                                    href={LEGALZOOM_URL}
-                                    target="_blank"
-                                    rel="noopener noreferrer"
-                                    className="flex items-center gap-1.5 text-xs text-white/50 hover:text-white border border-slate-700 hover:border-slate-500 rounded-xl px-3 py-2 transition-all"
+                        {/* Guidance card with affiliate CTAs */}
+                        {guidance && (
+                          <div className="rounded-2xl p-4 md:p-5 bg-amber-500/8 border border-amber-500/30">
+                            <div className="flex items-start gap-3">
+                              <span className="material-symbols-outlined text-amber-400 text-xl mt-0.5 shrink-0">lightbulb</span>
+                              <div className="flex-1 min-w-0">
+                                <p className="text-amber-300 font-semibold text-sm mb-1">{guidance.heading}</p>
+                                <p className="text-white/70 text-sm leading-relaxed">{guidance.message}</p>
+                                {guidance.retryQuestion && (
+                                  <button
+                                    type="button"
+                                    onClick={() => setQuestion(guidance.retryQuestion!)}
+                                    className="mt-3 inline-flex items-center gap-1.5 text-xs font-semibold text-amber-300 hover:text-amber-200 uppercase tracking-wider transition-colors"
                                   >
-                                    <span className="material-symbols-outlined text-sm">open_in_new</span>
-                                    LegalZoom — Online legal services
-                                  </a>
-                                  <a
-                                    href={ROCKETLAWYER_URL}
-                                    target="_blank"
-                                    rel="noopener noreferrer"
-                                    className="flex items-center gap-1.5 text-xs text-white/50 hover:text-white border border-slate-700 hover:border-slate-500 rounded-xl px-3 py-2 transition-all"
-                                  >
-                                    <span className="material-symbols-outlined text-sm">open_in_new</span>
-                                    RocketLawyer — Attorney consultations
-                                  </a>
+                                    <span className="material-symbols-outlined text-sm">edit</span>
+                                    Re-enter this question with a new jurisdiction
+                                  </button>
+                                )}
+                                {/* Affiliate CTAs */}
+                                <div className="mt-4 pt-3 border-t border-amber-500/20">
+                                  <p className="text-[10px] uppercase tracking-wider text-white/30 mb-2">Get professional help</p>
+                                  <div className="flex flex-col sm:flex-row gap-2">
+                                    <a
+                                      href={LEGALZOOM_URL}
+                                      target="_blank"
+                                      rel="noopener noreferrer"
+                                      className="flex items-center gap-1.5 text-xs text-white/50 hover:text-white border border-slate-700 hover:border-slate-500 rounded-xl px-3 py-2 transition-all"
+                                    >
+                                      <span className="material-symbols-outlined text-sm">open_in_new</span>
+                                      LegalZoom — Online legal services
+                                    </a>
+                                    <a
+                                      href={ROCKETLAWYER_URL}
+                                      target="_blank"
+                                      rel="noopener noreferrer"
+                                      className="flex items-center gap-1.5 text-xs text-white/50 hover:text-white border border-slate-700 hover:border-slate-500 rounded-xl px-3 py-2 transition-all"
+                                    >
+                                      <span className="material-symbols-outlined text-sm">open_in_new</span>
+                                      RocketLawyer — Attorney consultations
+                                    </a>
+                                  </div>
                                 </div>
                               </div>
                             </div>
                           </div>
-                        </div>
-                      )}
-                    </div>
-                  );
-                })}
-                <div ref={messagesEndRef} />
+                        )}
+                      </div>
+                    );
+                  })}
+                  <div ref={messagesEndRef} />
+                </div>
               </div>
-            </div>
-          )}
+            )}
+          </div>
         </div>
+      </section>
 
-        <footer className="mt-10 text-center">
-          <p className="text-[9px] text-slate-500 leading-relaxed uppercase tracking-[0.05em]">
-            AI-Generated Information. Consult a licensed attorney for official legal advice.
+      {/* White / light landing sections below the tool */}
+      <HowItWorks />
+      <CoverageSection />
+      <ProTierCTA />
+      <FaqPreview />
+
+      {/* Site footer */}
+      <footer className="bg-slate-50 border-t border-slate-200 py-10 px-4 text-center">
+        <div className="max-w-3xl mx-auto">
+          <div className="flex items-center justify-center gap-2 mb-3">
+            <span className="material-symbols-outlined text-blue-600 text-lg">gavel</span>
+            <span className="font-bold text-slate-800 text-sm">Legal Search Hub</span>
+          </div>
+          <p className="text-xs text-slate-400 leading-relaxed max-w-lg mx-auto mb-4">
+            AI-generated information only. This is not legal advice. Always consult a licensed
+            attorney for guidance specific to your situation.
           </p>
-        </footer>
-
-        {/* FAQ Preview Section */}
-        <FaqPreview />
-      </main>
-    </div>
+          <div className="flex items-center justify-center gap-5 text-xs text-slate-400">
+            <a href="/faq" className="hover:text-blue-600 transition-colors">FAQ</a>
+            <span>·</span>
+            <span>legalsearchhub.com</span>
+            <span>·</span>
+            <span>© {new Date().getFullYear()}</span>
+          </div>
+        </div>
+      </footer>
+    </>
   );
 }
 
@@ -603,44 +626,50 @@ function FaqPreview() {
   ];
 
   return (
-    <div className="mt-10 border-t border-slate-800/60 pt-6">
-      <button
-        onClick={() => setOpen((v) => !v)}
-        className="w-full flex items-center justify-between px-2 py-2 text-slate-500 hover:text-slate-300 transition-colors group"
-        aria-expanded={open}
-      >
-        <span className="flex items-center gap-2 text-xs uppercase tracking-wider">
-          <span className="material-symbols-outlined text-sm">quiz</span>
-          Frequently Asked Legal Questions
-        </span>
-        <span className={`material-symbols-outlined text-sm transition-transform ${open ? "rotate-180" : ""}`}>
-          expand_more
-        </span>
-      </button>
-
-      {open && (
-        <div className="mt-3 space-y-1">
-          {PREVIEW_QUESTIONS.map((q) => (
-            <a
-              key={q.slug}
-              href={`/faq/${q.slug}`}
-              className="flex items-center justify-between gap-3 px-3 py-2.5 rounded-xl text-xs text-slate-400 hover:text-white hover:bg-slate-800/50 transition-all group"
-            >
-              <span>{q.question}</span>
-              <span className="material-symbols-outlined text-slate-700 group-hover:text-slate-400 transition-colors text-sm shrink-0">
-                chevron_right
-              </span>
-            </a>
-          ))}
-          <a
-            href="/faq"
-            className="flex items-center justify-center gap-2 mt-3 py-2 text-xs text-indigo-400 hover:text-indigo-300 transition-colors"
+    <section className="bg-white py-16 px-4">
+      <div className="max-w-3xl mx-auto">
+        <div className="border border-slate-200 rounded-2xl overflow-hidden">
+          <button
+            onClick={() => setOpen((v) => !v)}
+            className="w-full flex items-center justify-between px-6 py-5 text-slate-600 hover:text-slate-900 hover:bg-slate-50 transition-colors group"
+            aria-expanded={open}
           >
-            View all frequently asked legal questions
-            <span className="material-symbols-outlined text-sm">arrow_forward</span>
-          </a>
+            <span className="flex items-center gap-2 text-sm font-semibold">
+              <span className="material-symbols-outlined text-blue-500 text-base">quiz</span>
+              Frequently Asked Legal Questions
+            </span>
+            <span className={`material-symbols-outlined text-base text-slate-400 transition-transform ${open ? "rotate-180" : ""}`}>
+              expand_more
+            </span>
+          </button>
+
+          {open && (
+            <div className="border-t border-slate-200 divide-y divide-slate-100">
+              {PREVIEW_QUESTIONS.map((q) => (
+                <a
+                  key={q.slug}
+                  href={`/faq/${q.slug}`}
+                  className="flex items-center justify-between gap-3 px-6 py-4 text-sm text-slate-600 hover:text-blue-600 hover:bg-blue-50/50 transition-all group"
+                >
+                  <span>{q.question}</span>
+                  <span className="material-symbols-outlined text-slate-300 group-hover:text-blue-400 transition-colors text-base shrink-0">
+                    chevron_right
+                  </span>
+                </a>
+              ))}
+              <div className="px-6 py-4 bg-slate-50">
+                <a
+                  href="/faq"
+                  className="inline-flex items-center gap-1.5 text-sm font-semibold text-blue-600 hover:text-blue-500 transition-colors"
+                >
+                  View all frequently asked legal questions
+                  <span className="material-symbols-outlined text-base">arrow_forward</span>
+                </a>
+              </div>
+            </div>
+          )}
         </div>
-      )}
-    </div>
+      </div>
+    </section>
   );
 }
