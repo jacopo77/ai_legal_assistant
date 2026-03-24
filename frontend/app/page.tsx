@@ -201,7 +201,7 @@ export default function HomePage() {
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState<string>("");
   const streamAbortRef = useRef<AbortController | null>(null);
-  const messagesEndRef = useRef<HTMLDivElement>(null);
+  const chatSectionRef = useRef<HTMLElement>(null);
 
   // Detect shared URL params
   useEffect(() => {
@@ -216,18 +216,6 @@ export default function HomePage() {
     if (typeof window === "undefined") return;
     try { sessionStorage.setItem("chat_history", JSON.stringify(messages)); } catch { /* ignore */ }
   }, [messages]);
-
-  useEffect(() => {
-    if (messages.length === 0) return;
-    const el = messagesEndRef.current;
-    if (!el) return;
-    const rect = el.getBoundingClientRect();
-    // Only scroll if the bottom of the messages area is below the visible viewport
-    if (rect.bottom > window.innerHeight - 24) {
-      const targetY = window.pageYOffset + rect.bottom - window.innerHeight + 24;
-      window.scrollTo({ top: Math.max(0, targetY), behavior: loading ? "auto" : "smooth" });
-    }
-  }, [messages, loading]);
 
   const handleShare = (question: string, jurisdiction: string, idx: number) => {
     const url = `${window.location.origin}/?q=${encodeURIComponent(question)}&j=${encodeURIComponent(jurisdiction)}`;
@@ -255,6 +243,14 @@ export default function HomePage() {
     setError("");
     setMessages((prev) => [...prev, { role: "user", content: userQuestion, country }]);
     setLoading(true);
+
+    // Scroll the chat section into view only if it is not already visible
+    if (chatSectionRef.current) {
+      const rect = chatSectionRef.current.getBoundingClientRect();
+      if (rect.top < 0 || rect.bottom > window.innerHeight) {
+        chatSectionRef.current.scrollIntoView({ behavior: "smooth", block: "start" });
+      }
+    }
 
     try {
       const controller = new AbortController();
@@ -382,7 +378,7 @@ export default function HomePage() {
       <HeroSection />
 
       {/* Dark chat tool section */}
-      <section className="bg-[#0B0E14] py-14 px-4 relative overflow-hidden">
+      <section ref={chatSectionRef} className="bg-[#0B0E14] py-14 px-4 relative overflow-hidden">
         <div className="absolute inset-0 glow-bg pointer-events-none" />
         <div className="relative z-10 w-full max-w-[760px] mx-auto">
 
@@ -581,7 +577,6 @@ export default function HomePage() {
                       </div>
                     );
                   })}
-                  <div ref={messagesEndRef} />
                 </div>
               </div>
             )}
