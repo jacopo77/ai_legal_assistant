@@ -218,8 +218,9 @@ export default function HomePage() {
   }, [messages]);
 
   useEffect(() => {
-    messagesEndRef.current?.scrollIntoView({ behavior: "smooth" });
-  }, [messages]);
+    if (messages.length === 0) return;
+    messagesEndRef.current?.scrollIntoView({ behavior: loading ? "auto" : "smooth", block: "end" });
+  }, [messages, loading]);
 
   const handleShare = (question: string, jurisdiction: string, idx: number) => {
     const url = `${window.location.origin}/?q=${encodeURIComponent(question)}&j=${encodeURIComponent(jurisdiction)}`;
