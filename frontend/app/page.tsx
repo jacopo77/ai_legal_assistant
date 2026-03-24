@@ -202,6 +202,7 @@ export default function HomePage() {
   const [error, setError] = useState<string>("");
   const streamAbortRef = useRef<AbortController | null>(null);
   const messagesContainerRef = useRef<HTMLDivElement>(null);
+  const didPageScrollRef = useRef(false);
 
   // Detect shared URL params
   useEffect(() => {
@@ -217,8 +218,19 @@ export default function HomePage() {
     try { sessionStorage.setItem("chat_history", JSON.stringify(messages)); } catch { /* ignore */ }
   }, [messages]);
 
-  // Scroll inside the messages container — page never moves
   useEffect(() => {
+    if (messages.length === 0) {
+      didPageScrollRef.current = false;
+      return;
+    }
+    // Once per question: scroll the page so the messages container is visible
+    if (!didPageScrollRef.current) {
+      didPageScrollRef.current = true;
+      requestAnimationFrame(() => {
+        messagesContainerRef.current?.scrollIntoView({ behavior: "smooth", block: "nearest" });
+      });
+    }
+    // Always: scroll inside the container to follow the latest content
     if (messagesContainerRef.current) {
       messagesContainerRef.current.scrollTop = messagesContainerRef.current.scrollHeight;
     }
