@@ -201,7 +201,6 @@ export default function HomePage() {
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState<string>("");
   const streamAbortRef = useRef<AbortController | null>(null);
-  const chatSectionRef = useRef<HTMLElement>(null);
 
   // Detect shared URL params
   useEffect(() => {
@@ -243,14 +242,6 @@ export default function HomePage() {
     setError("");
     setMessages((prev) => [...prev, { role: "user", content: userQuestion, country }]);
     setLoading(true);
-
-    // Scroll the chat section into view only if it is not already visible
-    if (chatSectionRef.current) {
-      const rect = chatSectionRef.current.getBoundingClientRect();
-      if (rect.top < 0 || rect.bottom > window.innerHeight) {
-        chatSectionRef.current.scrollIntoView({ behavior: "smooth", block: "start" });
-      }
-    }
 
     try {
       const controller = new AbortController();
@@ -378,7 +369,7 @@ export default function HomePage() {
       <HeroSection />
 
       {/* Dark chat tool section */}
-      <section ref={chatSectionRef} className="bg-[#0B0E14] py-14 px-4 relative overflow-hidden">
+      <section className="bg-[#0B0E14] py-14 px-4 relative overflow-hidden">
         <div className="absolute inset-0 glow-bg pointer-events-none" />
         <div className="relative z-10 w-full max-w-[760px] mx-auto">
 
