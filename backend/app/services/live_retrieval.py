@@ -617,15 +617,22 @@ _STATUTE_MAP = [
             "Under 26 U.S.C. § 6001, every person liable for any tax must keep such records as the IRS prescribes "
             "by regulation — sufficient to establish the amount of gross income, deductions, credits, and other "
             "matters required on a tax return. Under 26 U.S.C. § 6501, the IRS generally has 3 years from the date "
-            "a return is filed to assess additional tax (the standard audit window). Key exceptions: (1) The period "
-            "extends to 6 years if you omit from gross income an amount exceeding 25% of the gross income stated on "
-            "the return. (2) There is no time limit if you file a fraudulent return or fail to file a return at all. "
-            "Practical retention periods: Keep tax returns and all supporting records (W-2s, 1099s, receipts, "
-            "statements) for at least 3 years from the filing date or 2 years from the date you paid the tax, "
-            "whichever is later. Keep records for 6 years if you may have underreported income by more than 25%. "
-            "Keep records relating to property (cost basis, improvements) until the limitation period expires for "
-            "the year you dispose of it. Employment tax records must be kept for at least 4 years after the tax "
-            "is due or paid. (26 U.S.C. §§ 6001, 6501; IRS Publication 552)"
+            "a return is filed to assess additional tax (the standard audit window). "
+            "Retention periods by situation: "
+            "(1) 3 years — Keep records for 3 years from the date you filed your original return, or 2 years from "
+            "the date you paid the tax, whichever is later. This is the standard minimum. "
+            "(2) 6 years — Keep records for 6 years if you failed to report income that is more than 25% of the "
+            "gross income shown on your return (26 U.S.C. § 6501(e)). "
+            "(3) 7 years — Keep records for 7 years if you filed a claim for a loss from worthless securities or "
+            "a bad debt deduction (26 U.S.C. § 6511(d)). This is why many advisors recommend keeping all tax "
+            "records for 7 years as a safe general rule. "
+            "(4) Forever — Keep records indefinitely if you did not file a return or if you filed a fraudulent "
+            "return. There is no statute of limitations in those cases (26 U.S.C. § 6501(c)). "
+            "(5) Property records — Keep records relating to property (purchase price, cost of improvements, "
+            "depreciation) until the limitation period expires for the year in which you sell or dispose of it. "
+            "(6) Employment tax records — Keep for at least 4 years after the date the tax is due or paid, "
+            "whichever is later. "
+            "(26 U.S.C. §§ 6001, 6501, 6511; IRS Publication 552)"
         ),
     ),
     # IRS — Federal income tax filing requirements and estimated taxes
@@ -726,9 +733,12 @@ def fetch_uscode(query: str, max_results: int = 3) -> List[LiveResult]:
             continue
         seen_urls.add(url)
 
-        # Try live fetch first; use embedded fallback text if blocked or unavailable
-        excerpt = _fetch_lii_section(url, query)
-        if not excerpt:
+        # Always start with the comprehensive embedded fallback so all key provisions
+        # are present in context. Supplement with live LII text when available.
+        live_text = _fetch_lii_section(url, query)
+        if live_text:
+            excerpt = f"{fallback_text}\n\n--- Statutory text (Cornell LII) ---\n{live_text}"
+        else:
             logger.warning("LII fetch unavailable for %s — using embedded statute text", citation)
             excerpt = fallback_text
 
