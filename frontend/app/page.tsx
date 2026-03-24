@@ -201,6 +201,8 @@ export default function HomePage() {
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState<string>("");
   const streamAbortRef = useRef<AbortController | null>(null);
+  const resultsRef = useRef<HTMLDivElement>(null);
+  const didScrollRef = useRef(false);
 
   // Detect shared URL params
   useEffect(() => {
@@ -214,6 +216,19 @@ export default function HomePage() {
   useEffect(() => {
     if (typeof window === "undefined") return;
     try { sessionStorage.setItem("chat_history", JSON.stringify(messages)); } catch { /* ignore */ }
+  }, [messages]);
+
+  // Scroll to the results area once when first answer begins — never during streaming
+  useEffect(() => {
+    if (messages.length === 0) {
+      didScrollRef.current = false;
+      return;
+    }
+    if (didScrollRef.current) return;
+    didScrollRef.current = true;
+    requestAnimationFrame(() => {
+      resultsRef.current?.scrollIntoView({ behavior: "smooth", block: "nearest" });
+    });
   }, [messages]);
 
   const handleShare = (question: string, jurisdiction: string, idx: number) => {
@@ -457,7 +472,7 @@ export default function HomePage() {
           <AdBanner />
 
           {/* Results / empty state */}
-          <div className="mt-4">
+          <div ref={resultsRef} className="mt-4">
             {messages.length === 0 ? (
               <div>
                 <p className="text-[10px] font-bold uppercase tracking-widest text-white/30 text-center mb-3">
