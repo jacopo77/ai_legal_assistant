@@ -607,6 +607,62 @@ _STATUTE_MAP = [
             "law, suit in equity, or other proper proceeding for redress. (42 U.S.C. § 1983)"
         ),
     ),
+    # IRS — Tax record retention and statute of limitations on assessment
+    (
+        re.compile(r"keep.{0,20}tax records|tax records.{0,20}keep|how long.{0,30}tax|irs.{0,20}records|record.{0,20}keeping.{0,20}tax|income tax.{0,20}records|tax.{0,20}retention|audit.{0,20}period|irs.{0,20}audit|how long.{0,30}irs|tax document|how long.{0,30}keep.{0,30}return", re.I),
+        "26 U.S.C. §§ 6001, 6501",
+        "https://www.law.cornell.edu/uscode/text/26/6501",
+        "Internal Revenue Code — Tax Record Retention and IRS Audit Periods",
+        (
+            "Under 26 U.S.C. § 6001, every person liable for any tax must keep such records as the IRS prescribes "
+            "by regulation — sufficient to establish the amount of gross income, deductions, credits, and other "
+            "matters required on a tax return. Under 26 U.S.C. § 6501, the IRS generally has 3 years from the date "
+            "a return is filed to assess additional tax (the standard audit window). Key exceptions: (1) The period "
+            "extends to 6 years if you omit from gross income an amount exceeding 25% of the gross income stated on "
+            "the return. (2) There is no time limit if you file a fraudulent return or fail to file a return at all. "
+            "Practical retention periods: Keep tax returns and all supporting records (W-2s, 1099s, receipts, "
+            "statements) for at least 3 years from the filing date or 2 years from the date you paid the tax, "
+            "whichever is later. Keep records for 6 years if you may have underreported income by more than 25%. "
+            "Keep records relating to property (cost basis, improvements) until the limitation period expires for "
+            "the year you dispose of it. Employment tax records must be kept for at least 4 years after the tax "
+            "is due or paid. (26 U.S.C. §§ 6001, 6501; IRS Publication 552)"
+        ),
+    ),
+    # IRS — Federal income tax filing requirements and estimated taxes
+    (
+        re.compile(r"income tax return|file.{0,15}federal tax|who must file|filing requirement|irs.{0,15}file|federal income tax|estimated tax|quarterly tax|self.{0,10}employ.{0,20}tax|1040|form w.?2|form 1099", re.I),
+        "26 U.S.C. § 6012",
+        "https://www.law.cornell.edu/uscode/text/26/6012",
+        "Internal Revenue Code — Federal Income Tax Filing Requirements",
+        (
+            "Under 26 U.S.C. § 6012, every individual with gross income at or above the applicable threshold for "
+            "their filing status must file a federal income tax return. Self-employed individuals must file if net "
+            "self-employment earnings are $400 or more, regardless of other income. Estimated quarterly tax "
+            "payments (Form 1040-ES) are required under 26 U.S.C. § 6654 when you expect to owe at least $1,000 "
+            "in federal tax and your withholding will cover less than the smaller of 90% of the current year's tax "
+            "liability or 100% of the prior year's tax liability. Estimated tax due dates are April 15, June 15, "
+            "September 15, and January 15 of the following year. Employees receive Form W-2; independent "
+            "contractors and other payers receive Form 1099-NEC or 1099-MISC. (26 U.S.C. §§ 6012, 6654)"
+        ),
+    ),
+    # IRS — Penalties for failure to file or pay taxes
+    (
+        re.compile(r"irs penalty|tax penalty|failure to.{0,10}pay.{0,15}tax|failure to.{0,10}file.{0,15}tax|late.{0,15}tax|underpayment.{0,15}tax|irs.{0,15}fine|tax.{0,15}late fee|penalty.{0,20}irs", re.I),
+        "26 U.S.C. § 6651",
+        "https://www.law.cornell.edu/uscode/text/26/6651",
+        "Internal Revenue Code — Penalties for Failure to File or Pay",
+        (
+            "Under 26 U.S.C. § 6651, the IRS imposes two main civil penalties: (1) Failure to file on time: 5% of "
+            "the unpaid tax for each month or partial month the return is late, up to a maximum of 25% of unpaid "
+            "tax. (2) Failure to pay on time: 0.5% of unpaid tax for each month or partial month the balance "
+            "remains unpaid after the due date, up to a maximum of 25%. If both penalties apply in the same month, "
+            "the failure-to-file penalty is reduced by the amount of the failure-to-pay penalty. The combined "
+            "maximum penalty can reach 47.5% (22.5% for late filing + 25% for late payment). A taxpayer who can "
+            "demonstrate reasonable cause and absence of willful neglect may qualify for penalty abatement. "
+            "First-time penalty abatement is also available administratively for taxpayers with a clean compliance "
+            "history. (26 U.S.C. § 6651)"
+        ),
+    ),
 ]
 
 
