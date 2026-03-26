@@ -394,15 +394,19 @@ export default function HomePage() {
         <div className="absolute inset-0 glow-bg pointer-events-none" />
         <div className="relative z-10 w-full max-w-[760px] mx-auto">
 
-          {/* Section label */}
-          <div className="text-center mb-8">
-            <p className="text-[10px] font-bold uppercase tracking-widest text-white/30 mb-1">
-              Legal Search Hub
+          {/* Header */}
+          <header className="text-center mb-8">
+            <div className="inline-flex items-center justify-center w-16 h-16 rounded-2xl bg-primary/20 text-primary mb-4 border border-primary/30">
+              <span className="material-symbols-outlined text-4xl font-light">gavel</span>
+            </div>
+            <h2 className="text-3xl md:text-4xl font-bold tracking-tight mb-2">
+              <span className="text-white">Legal Search</span>{" "}
+              <span className="text-primary">Hub</span>
+            </h2>
+            <p className="text-white/70 text-sm max-w-xs mx-auto">
+              Instant answers to legal questions, backed by real US federal and state law.
             </p>
-            <p className="text-white/50 text-xs">
-              Select a jurisdiction, then ask your question
-            </p>
-          </div>
+          </header>
 
           {/* Search card */}
           <div className="glass-card rounded-[2rem] p-5 md:p-8 shadow-2xl">
