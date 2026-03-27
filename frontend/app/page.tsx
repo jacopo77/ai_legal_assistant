@@ -389,13 +389,17 @@ export default function HomePage() {
       {/* White hero landing section */}
       <HeroSection />
 
-      {/* Dark chat tool section */}
-      <section ref={chatSectionRef} className="bg-[#0B0E14] py-14 px-4 relative overflow-hidden">
+      {/* Dark chat section — full viewport height, messages scroll internally, form pinned at bottom */}
+      <section
+        ref={chatSectionRef}
+        className="bg-[#0B0E14] relative flex flex-col"
+        style={{ minHeight: "100vh" }}
+      >
         <div className="absolute inset-0 glow-bg pointer-events-none" />
-        <div className="relative z-10 w-full max-w-[760px] mx-auto">
+        <div className="relative z-10 w-full max-w-[760px] mx-auto px-4 flex flex-col flex-1" style={{ minHeight: "100vh" }}>
 
           {/* Header */}
-          <header className="text-center mb-8">
+          <header className="text-center pt-10 pb-6 flex-shrink-0">
             <div className="inline-flex items-center justify-center w-16 h-16 rounded-2xl bg-primary/20 text-primary mb-4 border border-primary/30">
               <span className="material-symbols-outlined text-4xl font-light">gavel</span>
             </div>
@@ -408,83 +412,10 @@ export default function HomePage() {
             </p>
           </header>
 
-          {/* Search card */}
-          <div className="glass-card rounded-[2rem] p-5 md:p-8 shadow-2xl">
-            {error && (
-              <div className="mb-4 p-4 bg-red-500/10 border border-red-500/30 rounded-xl text-red-400 text-sm flex items-start gap-2">
-                <span className="material-symbols-outlined text-lg mt-0.5">error</span>
-                <div>
-                  <div className="font-semibold mb-1">Connection Error</div>
-                  <div className="opacity-90">{error}</div>
-                </div>
-              </div>
-            )}
-
-            <form className="space-y-5" onSubmit={onSubmit}>
-              <div className="flex flex-col gap-4">
-                <div className="flex flex-col md:flex-row gap-4">
-                  <div className="flex-grow space-y-2">
-                    <label htmlFor="legal-question" className="block text-xs font-semibold uppercase tracking-wider text-white/80 ml-1">
-                      Legal Question
-                    </label>
-                    <textarea
-                      id="legal-question"
-                      value={question}
-                      onChange={(e) => setQuestion(e.target.value)}
-                      placeholder="Describe the legal situation..."
-                      rows={3}
-                      className="w-full bg-slate-950/50 border border-slate-800 focus:border-primary focus:ring-1 focus:ring-primary rounded-2xl p-4 text-white placeholder-white/50 resize-none transition-all text-sm custom-scrollbar"
-                    />
-                  </div>
-                  <div className="md:w-48 space-y-2">
-                    <label htmlFor="jurisdiction" className="block text-xs font-semibold uppercase tracking-wider text-white/80 ml-1">
-                      Jurisdiction
-                    </label>
-                    <div className="relative">
-                      <select
-                        id="jurisdiction"
-                        value={country}
-                        onChange={(e) => { setCountry(e.target.value); setJurisdictionWarning(false); }}
-                        className={`w-full appearance-none bg-slate-950/50 border rounded-2xl px-4 py-3 text-sm transition-all cursor-pointer focus:ring-1 focus:ring-primary ${
-                          !country
-                            ? "border-green-500/80 text-green-400 font-semibold uppercase tracking-wider focus:border-green-400"
-                            : "border-slate-800 text-white focus:border-primary"
-                        }`}
-                      >
-                        <option value="" disabled className="text-slate-500">Select</option>
-                        {jurisdictions.map((j) => (
-                          <option key={j.value} className="text-slate-900" value={j.value}>{j.label}</option>
-                        ))}
-                      </select>
-                      <span className={`material-symbols-outlined absolute right-3 top-1/2 -translate-y-1/2 pointer-events-none text-xl ${!country ? "text-green-400" : "text-white"}`}>
-                        expand_more
-                      </span>
-                    </div>
-                  </div>
-                </div>
-                <div className="flex items-center gap-1.5 text-[10px] text-white/60 px-1">
-                  <span className="material-symbols-outlined text-[14px]">lock</span>
-                  Personal sensitive details are automatically removed to protect your privacy.
-                </div>
-              </div>
-              <button
-                type="submit"
-                disabled={loading || !question.trim()}
-                className="w-full bg-primary hover:bg-blue-500 text-white font-bold py-4 rounded-2xl flex items-center justify-center gap-2 glow-button transition-all active:scale-[0.98] disabled:opacity-60"
-              >
-                <span className="material-symbols-outlined font-bold">gavel</span>
-                {loading ? "Searching…" : "Search Legal Hub"}
-              </button>
-            </form>
-          </div>
-
-          {/* AdSense banner — only renders when NEXT_PUBLIC_ADSENSE_CLIENT_ID is set */}
-          <AdBanner />
-
-          {/* Results / empty state — fixed height container scrolls internally, page never moves */}
-          <div ref={messagesContainerRef} className="mt-4 max-h-[60vh] overflow-y-auto custom-scrollbar">
+          {/* Messages — grows to fill space, scrolls internally */}
+          <div ref={messagesContainerRef} className="flex-1 min-h-0 overflow-y-auto custom-scrollbar mb-4">
             {messages.length === 0 ? (
-              <div>
+              <div className="py-2">
                 <p className="text-[10px] font-bold uppercase tracking-widest text-white/30 text-center mb-3">
                   Try a sample prompt
                 </p>
@@ -504,12 +435,12 @@ export default function HomePage() {
             ) : (
               <div>
                 <div className="flex items-center justify-between px-1 mb-4">
-                  <span className="text-[10px] font-bold uppercase tracking-widest text-white/30">Results</span>
+                  <span className="text-[10px] font-bold uppercase tracking-widest text-white/30">Conversation</span>
                   <button type="button" onClick={clearChat} className="text-[10px] text-slate-500 hover:text-white uppercase tracking-wider transition-colors">
                     Clear
                   </button>
                 </div>
-                <div className="space-y-4">
+                <div className="space-y-4 pb-4">
                   {messages.map((m, i) => {
                     const prevMessage = i > 0 ? messages[i - 1] : null;
                     const showGuidance =
@@ -544,7 +475,6 @@ export default function HomePage() {
                           </div>
                         </div>
 
-                        {/* Guidance card with affiliate CTAs */}
                         {guidance && (
                           <div className="rounded-2xl p-4 md:p-5 bg-amber-500/8 border border-amber-500/30">
                             <div className="flex items-start gap-3">
@@ -562,25 +492,16 @@ export default function HomePage() {
                                     Re-enter this question with a new jurisdiction
                                   </button>
                                 )}
-                                {/* Affiliate CTAs */}
                                 <div className="mt-4 pt-3 border-t border-amber-500/20">
                                   <p className="text-[10px] uppercase tracking-wider text-white/30 mb-2">Get professional help</p>
                                   <div className="flex flex-col sm:flex-row gap-2">
-                                    <a
-                                      href={LEGALZOOM_URL}
-                                      target="_blank"
-                                      rel="noopener noreferrer"
-                                      className="flex items-center gap-1.5 text-xs text-white/50 hover:text-white border border-slate-700 hover:border-slate-500 rounded-xl px-3 py-2 transition-all"
-                                    >
+                                    <a href={LEGALZOOM_URL} target="_blank" rel="noopener noreferrer"
+                                      className="flex items-center gap-1.5 text-xs text-white/50 hover:text-white border border-slate-700 hover:border-slate-500 rounded-xl px-3 py-2 transition-all">
                                       <span className="material-symbols-outlined text-sm">open_in_new</span>
                                       LegalZoom — Online legal services
                                     </a>
-                                    <a
-                                      href={ROCKETLAWYER_URL}
-                                      target="_blank"
-                                      rel="noopener noreferrer"
-                                      className="flex items-center gap-1.5 text-xs text-white/50 hover:text-white border border-slate-700 hover:border-slate-500 rounded-xl px-3 py-2 transition-all"
-                                    >
+                                    <a href={ROCKETLAWYER_URL} target="_blank" rel="noopener noreferrer"
+                                      className="flex items-center gap-1.5 text-xs text-white/50 hover:text-white border border-slate-700 hover:border-slate-500 rounded-xl px-3 py-2 transition-all">
                                       <span className="material-symbols-outlined text-sm">open_in_new</span>
                                       RocketLawyer — Attorney consultations
                                     </a>
@@ -597,6 +518,79 @@ export default function HomePage() {
               </div>
             )}
           </div>
+
+          {/* Input form — pinned at the bottom */}
+          <div className="flex-shrink-0 pb-10">
+            {error && (
+              <div className="mb-3 p-4 bg-red-500/10 border border-red-500/30 rounded-xl text-red-400 text-sm flex items-start gap-2">
+                <span className="material-symbols-outlined text-lg mt-0.5">error</span>
+                <div>
+                  <div className="font-semibold mb-1">Connection Error</div>
+                  <div className="opacity-90">{error}</div>
+                </div>
+              </div>
+            )}
+            <div className="glass-card rounded-[2rem] p-5 md:p-6 shadow-2xl">
+              <form className="space-y-4" onSubmit={onSubmit}>
+                <div className="flex flex-col gap-3">
+                  <div className="flex flex-col md:flex-row gap-4">
+                    <div className="flex-grow space-y-2">
+                      <label htmlFor="legal-question" className="block text-xs font-semibold uppercase tracking-wider text-white/80 ml-1">
+                        Legal Question
+                      </label>
+                      <textarea
+                        id="legal-question"
+                        value={question}
+                        onChange={(e) => setQuestion(e.target.value)}
+                        placeholder="Describe the legal situation..."
+                        rows={2}
+                        className="w-full bg-slate-950/50 border border-slate-800 focus:border-primary focus:ring-1 focus:ring-primary rounded-2xl p-4 text-white placeholder-white/50 resize-none transition-all text-sm custom-scrollbar"
+                      />
+                    </div>
+                    <div className="md:w-48 space-y-2">
+                      <label htmlFor="jurisdiction" className="block text-xs font-semibold uppercase tracking-wider text-white/80 ml-1">
+                        Jurisdiction
+                      </label>
+                      <div className="relative">
+                        <select
+                          id="jurisdiction"
+                          value={country}
+                          onChange={(e) => { setCountry(e.target.value); setJurisdictionWarning(false); }}
+                          className={`w-full appearance-none bg-slate-950/50 border rounded-2xl px-4 py-3 text-sm transition-all cursor-pointer focus:ring-1 focus:ring-primary ${
+                            !country
+                              ? "border-green-500/80 text-green-400 font-semibold uppercase tracking-wider focus:border-green-400"
+                              : "border-slate-800 text-white focus:border-primary"
+                          }`}
+                        >
+                          <option value="" disabled className="text-slate-500">Select</option>
+                          {jurisdictions.map((j) => (
+                            <option key={j.value} className="text-slate-900" value={j.value}>{j.label}</option>
+                          ))}
+                        </select>
+                        <span className={`material-symbols-outlined absolute right-3 top-1/2 -translate-y-1/2 pointer-events-none text-xl ${!country ? "text-green-400" : "text-white"}`}>
+                          expand_more
+                        </span>
+                      </div>
+                    </div>
+                  </div>
+                  <div className="flex items-center gap-1.5 text-[10px] text-white/60 px-1">
+                    <span className="material-symbols-outlined text-[14px]">lock</span>
+                    Personal sensitive details are automatically removed to protect your privacy.
+                  </div>
+                </div>
+                <button
+                  type="submit"
+                  disabled={loading || !question.trim()}
+                  className="w-full bg-primary hover:bg-blue-500 text-white font-bold py-4 rounded-2xl flex items-center justify-center gap-2 glow-button transition-all active:scale-[0.98] disabled:opacity-60"
+                >
+                  <span className="material-symbols-outlined font-bold">gavel</span>
+                  {loading ? "Searching…" : "Search Legal Hub"}
+                </button>
+              </form>
+            </div>
+            <AdBanner />
+          </div>
+
         </div>
       </section>
 
