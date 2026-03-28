@@ -24,10 +24,10 @@ Create a new market for AI-powered legal Q&A that serves the **50M+ people** who
 
 - 💬 **Real-time streaming chat** - ChatGPT-style interface with live responses
 - 🌍 **Multi-jurisdiction support** - US Federal, California, New York, UK, Canada
-- 📚 **Cited answers** - Every response includes citations to source documents
+- 📚 **Cited answers** - Every response is grounded in ingested source documents
 - 🎨 **Beautiful UI** - Modern dark theme with glass morphism design
 - ⚡ **Fast & accurate** - RAG (Retrieval-Augmented Generation) with OpenAI embeddings
-- 🔄 **Auto-ingestion** - Automated legal document scraping via n8n + Firecrawl
+- 🔄 **Official-source ingestion** - Curated government/legal source ingestion via n8n, official APIs/bulk feeds, and Firecrawl fallback
 - 🚀 **Production-ready** - Deployed on Railway (backend) + Vercel (frontend)
 
 ---
@@ -50,11 +50,29 @@ Create a new market for AI-powered legal Q&A that serves the **50M+ people** who
                              ▲
                              │
                      ┌──────────────┐
-                     │ n8n + Fire-  │
-                     │ crawl (Auto  │
-                     │   Ingestion) │
+                     │ CuratedSource│
+                     │ Registry +   │
+                     │ n8nIngestion │
                      └──────────────┘
 ```
+
+---
+
+## Official Sources Model
+
+This project is a **pre-indexed RAG system**, not a live web search engine.
+
+Question-time behavior:
+- the app embeds the user question
+- retrieves matching chunks from Supabase
+- answers only from those ingested chunks
+
+Ingestion-time behavior:
+- `n8n` reads from a curated list of official sources
+- official APIs and bulk feeds are preferred where available
+- Firecrawl is used as a fallback for official pages without practical API/bulk access
+
+For the current US Federal rollout, the curated source registry lives in [docs/us_federal_official_sources.json](docs/us_federal_official_sources.json).
 
 ---
 
@@ -142,7 +160,8 @@ ai_legal_assistant/
 ├── docs/                   # Documentation
 │   ├── DEPLOYMENT_GUIDE.md # Step-by-step deployment
 │   ├── COMMANDS.md         # Quick command reference
-│   └── RAILWAY_AND_N8N_SETUP.md
+│   ├── RAILWAY_AND_N8N_SETUP.md
+│   └── us_federal_official_sources.json
 │
 └── scripts/                # Utility scripts
     └── test_stack.py       # End-to-end testing
@@ -209,7 +228,8 @@ curl -X POST http://127.0.0.1:8000/api/chat/stream \
 
 - **[Deployment Guide](docs/DEPLOYMENT_GUIDE.md)** - Complete deployment walkthrough
 - **[Command Reference](docs/COMMANDS.md)** - All commands you'll need
-- **[n8n Setup](docs/RAILWAY_AND_N8N_SETUP.md)** - Automated document ingestion
+- **[n8n Setup](docs/RAILWAY_AND_N8N_SETUP.md)** - Official-source ingestion setup
+- **[US Federal Source Registry](docs/us_federal_official_sources.json)** - Curated official source configuration for v1
 - **[Frontend README](frontend/README.md)** - Frontend-specific docs
 
 ---
@@ -303,7 +323,7 @@ This AI Legal Assistant provides general legal information only and does not con
 
 - **Issues:** [GitHub Issues](https://github.com/jacopo77/ai_legal_assistant/issues)
 - **Documentation:** [docs/](docs/)
-- **Email:** [Your email here]
+- **Email:** ask@legalsearchhub.com
 
 ---
 

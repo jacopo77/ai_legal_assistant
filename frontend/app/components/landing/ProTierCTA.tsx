@@ -1,4 +1,8 @@
-const NOTIFY_EMAIL = "david@legalsearchhub.com";
+"use client";
+
+import { useState } from "react";
+
+const FORMSPREE_ENDPOINT = "https://formspree.io/f/mzdkdqlv";
 
 const FEATURES = [
   "Saved research sessions and history",
@@ -9,10 +13,29 @@ const FEATURES = [
 ];
 
 export default function ProTierCTA() {
-  const subject = encodeURIComponent("Legal Search Hub — Pro Tier Interest");
-  const body = encodeURIComponent(
-    "Hi,\n\nI am interested in the Legal Search Hub pro tier for law firms. Please notify me when it launches.\n\nFirm name:\nNumber of attorneys:\nPrimary use case:\n"
-  );
+  const [email, setEmail] = useState("");
+  const [status, setStatus] = useState<"idle" | "submitting" | "success" | "error">("idle");
+
+  async function handleSubmit(e: React.FormEvent) {
+    e.preventDefault();
+    if (!email) return;
+    setStatus("submitting");
+    try {
+      const res = await fetch(FORMSPREE_ENDPOINT, {
+        method: "POST",
+        headers: { "Content-Type": "application/json", Accept: "application/json" },
+        body: JSON.stringify({ email }),
+      });
+      if (res.ok) {
+        setStatus("success");
+        setEmail("");
+      } else {
+        setStatus("error");
+      }
+    } catch {
+      setStatus("error");
+    }
+  }
 
   return (
     <section className="bg-white py-20 px-4">
@@ -54,13 +77,36 @@ export default function ProTierCTA() {
               ))}
             </ul>
 
-            <a
-              href={`mailto:${NOTIFY_EMAIL}?subject=${subject}&body=${body}`}
-              className="inline-flex items-center gap-2 bg-blue-600 hover:bg-blue-500 text-white font-bold px-8 py-4 rounded-2xl transition-all text-sm"
-            >
-              <span className="material-symbols-outlined text-base">mail</span>
-              Notify me when pro launches
-            </a>
+            {status === "success" ? (
+              <div className="flex flex-col items-center gap-2">
+                <span className="material-symbols-outlined text-blue-400 text-3xl">check_circle</span>
+                <p className="text-white font-semibold text-sm">You&apos;re on the list!</p>
+                <p className="text-slate-400 text-xs">We&apos;ll email you when pro launches.</p>
+              </div>
+            ) : (
+              <form onSubmit={handleSubmit} className="flex flex-col sm:flex-row gap-3 max-w-md mx-auto">
+                <input
+                  type="email"
+                  required
+                  placeholder="your@email.com"
+                  value={email}
+                  onChange={(e) => setEmail(e.target.value)}
+                  className="flex-1 bg-slate-800 border border-slate-700 focus:border-blue-500 focus:outline-none rounded-2xl px-4 py-3 text-white placeholder-slate-500 text-sm"
+                />
+                <button
+                  type="submit"
+                  disabled={status === "submitting"}
+                  className="inline-flex items-center justify-center gap-2 bg-blue-600 hover:bg-blue-500 disabled:opacity-60 text-white font-bold px-6 py-3 rounded-2xl transition-all text-sm whitespace-nowrap"
+                >
+                  <span className="material-symbols-outlined text-base">mail</span>
+                  {status === "submitting" ? "Sending…" : "Notify me"}
+                </button>
+              </form>
+            )}
+
+            {status === "error" && (
+              <p className="text-red-400 text-xs mt-3">Something went wrong — please try again.</p>
+            )}
 
             <p className="text-xs text-slate-600 mt-4">
               No commitment. Just an email to let you know when it is ready.
