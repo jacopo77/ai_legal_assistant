@@ -148,34 +148,79 @@ def answer_stream(question: str, country: Optional[str], results: Optional[List[
         results = retrieve_live(question, jurisdiction=country, max_results=7)
 
     if not results:
-        location = f" for {country}" if country else ""
+        is_state_jurisdiction = country and country.upper() not in ("US", "US FEDERAL")
         state_resources = {
-            "texas": "https://www.sos.state.tx.us/corp/index.shtml",
-            "california": "https://bizfileonline.sos.ca.gov",
-            "new york": "https://www.dos.ny.gov/corps",
-            "florida": "https://dos.myflorida.com/sunbiz",
+            "alabama": "https://legislature.state.al.us",
+            "alaska": "https://legislature.alaska.gov",
+            "arizona": "https://www.azleg.gov",
+            "arkansas": "https://www.arkleg.state.ar.us",
+            "california": "https://leginfo.legislature.ca.gov",
+            "colorado": "https://leg.colorado.gov",
+            "connecticut": "https://www.cga.ct.gov",
+            "delaware": "https://legis.delaware.gov",
+            "florida": "https://www.leg.state.fl.us",
+            "georgia": "https://www.legis.ga.gov",
+            "hawaii": "https://www.capitol.hawaii.gov",
+            "idaho": "https://legislature.idaho.gov",
+            "illinois": "https://www.ilga.gov",
+            "indiana": "https://iga.in.gov",
+            "iowa": "https://www.legis.iowa.gov",
+            "kansas": "https://www.kslegislature.org",
+            "kentucky": "https://legislature.ky.gov",
+            "louisiana": "https://www.legis.la.gov",
+            "maine": "https://legislature.maine.gov",
+            "maryland": "https://mgaleg.maryland.gov",
+            "massachusetts": "https://malegislature.gov",
+            "michigan": "https://www.legislature.mi.gov",
+            "minnesota": "https://www.leg.state.mn.us",
+            "mississippi": "https://www.legislature.ms.gov",
+            "missouri": "https://www.moga.mo.gov",
+            "montana": "https://leg.mt.gov",
+            "nebraska": "https://nebraskalegislature.gov",
+            "nevada": "https://www.leg.state.nv.us",
+            "new hampshire": "https://www.gencourt.state.nh.us",
+            "new jersey": "https://www.njleg.state.nj.us",
+            "new mexico": "https://www.nmlegis.gov",
+            "new york": "https://www.nysenate.gov",
+            "north carolina": "https://www.ncleg.gov",
+            "north dakota": "https://www.legis.nd.gov",
+            "ohio": "https://www.legislature.ohio.gov",
+            "oklahoma": "https://www.oklegislature.gov",
+            "oregon": "https://www.oregonlegislature.gov",
+            "pennsylvania": "https://www.legis.state.pa.us",
+            "rhode island": "https://www.rilegislature.gov",
+            "south carolina": "https://www.scstatehouse.gov",
+            "south dakota": "https://sdlegislature.gov",
+            "tennessee": "https://www.tn.gov/legislature",
+            "texas": "https://statutes.capitol.texas.gov",
+            "utah": "https://le.utah.gov",
+            "vermont": "https://legislature.vermont.gov",
+            "virginia": "https://law.lis.virginia.gov",
+            "washington": "https://app.leg.wa.gov",
+            "west virginia": "https://www.wvlegislature.gov",
+            "wisconsin": "https://docs.legis.wisconsin.gov",
+            "wyoming": "https://www.wyoleg.gov",
         }
-        state_url = state_resources.get(country.lower(), f"https://www.google.com/search?q={country}+official+legislature+website") if country else ""
-        fallback_note = (
-            f" Note: No official federal source citations were found for this {country} state law question. "
-            f"For authoritative state statutes, visit your state's official legislature or secretary of state website"
-            f"{': ' + state_url if state_url else ''}."
-        ) if country and country.upper() not in ("US", "US FEDERAL") else (
-            " Note: No official source citations were found. Please verify this information with a licensed attorney."
-        )
-        fallback_prompt = (
-            f"You are a careful paralegal assistant. A user asked: {question}\n\n"
-            f"No official source documents were retrieved. Answer from general legal knowledge, "
-            f"clearly noting this is general information only and not verified against official sources. "
-            f"Be specific and helpful. End with a note directing the user to official state resources."
-            f"\n\nJurisdiction: {country or 'US Federal'}"
-        )
-        for chunk in stream_completion(
-            "You produce concise, legally careful answers. Always note when answers are based on general knowledge rather than retrieved official sources.",
-            fallback_prompt,
-        ):
-            yield chunk
-        yield fallback_note
+        if is_state_jurisdiction:
+            state_url = state_resources.get(country.lower(), "")
+            resource_line = f"\n- **{country} Legislature:** {state_url}" if state_url else ""
+            yield (
+                f"I was unable to find verified official sources for this {country} state law question. "
+                f"Rather than risk providing an inaccurate answer, I won't guess.\n\n"
+                f"**To get an authoritative answer, please check:**{resource_line}\n"
+                f"- **CourtListener** (state court opinions): https://www.courtlistener.com\n"
+                f"- **A licensed {country} attorney** for advice specific to your situation"
+            )
+        else:
+            yield (
+                "I was unable to find verified official sources for this question. "
+                "Rather than risk providing an inaccurate answer, I won't guess.\n\n"
+                "**To get an authoritative answer, please check:**\n"
+                "- **eCFR** (federal regulations): https://www.ecfr.gov\n"
+                "- **Federal Register**: https://www.federalregister.gov\n"
+                "- **Cornell LII** (US Code): https://www.law.cornell.edu/uscode\n"
+                "- **A licensed attorney** for advice specific to your situation"
+            )
         return
 
     user_prompt = _build_prompt(question, country, results)

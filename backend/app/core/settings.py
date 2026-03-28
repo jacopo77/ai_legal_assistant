@@ -20,7 +20,7 @@ class Settings(BaseSettings):
 
     # OpenAI
     openai_api_key: Optional[str] = Field(default=None)
-    openai_model: str = Field(default="gpt-4o-mini")
+    openai_model: str = Field(default="gpt-4o")
     openai_embeddings_model: str = Field(default="text-embedding-3-small")
 
     # Data
@@ -36,6 +36,9 @@ class Settings(BaseSettings):
 
     # OpenStates (state legislation search)
     openstates_api_key: Optional[str] = Field(default=None, description="API key from openstates.org for state bill/statute search")
+
+    # B2B API key management
+    admin_secret: Optional[str] = Field(default=None, description="Secret used to generate B2B API keys via POST /api/apikeys/generate")
 
 
 def get_settings() -> Settings:

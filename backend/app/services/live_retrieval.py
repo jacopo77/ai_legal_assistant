@@ -1101,7 +1101,7 @@ def retrieve_live(
                 unique.append(r)
         return unique
 
-    with ThreadPoolExecutor(max_workers=6) as executor:
+    with ThreadPoolExecutor(max_workers=7) as executor:
         if is_state:
             futures = {
                 executor.submit(fetch_ecfr, query, 3): "ecfr",
@@ -1109,6 +1109,7 @@ def retrieve_live(
                 executor.submit(fetch_courtlistener, question, jurisdiction, 3): "courtlistener",
                 executor.submit(fetch_uscode, question, 2): "uscode",
                 executor.submit(fetch_state_statutes, question, jurisdiction): "state_statute",
+                executor.submit(fetch_openstates, question, jurisdiction, 3): "openstates",
             }
         else:
             futures = {
