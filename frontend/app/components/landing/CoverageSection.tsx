@@ -25,16 +25,6 @@ const SOURCES = [
   },
 ];
 
-const STATES = [
-  "Alabama","Alaska","Arizona","Arkansas","California","Colorado","Connecticut",
-  "Delaware","Florida","Georgia","Hawaii","Idaho","Illinois","Indiana","Iowa",
-  "Kansas","Kentucky","Louisiana","Maine","Maryland","Massachusetts","Michigan",
-  "Minnesota","Mississippi","Missouri","Montana","Nebraska","Nevada",
-  "New Hampshire","New Jersey","New Mexico","New York","North Carolina",
-  "North Dakota","Ohio","Oklahoma","Oregon","Pennsylvania","Rhode Island",
-  "South Carolina","South Dakota","Tennessee","Texas","Utah","Vermont",
-  "Virginia","Washington","West Virginia","Wisconsin","Wyoming",
-];
 
 export default function CoverageSection() {
   return (
@@ -78,22 +68,6 @@ export default function CoverageSection() {
           ))}
         </div>
 
-        {/* State grid */}
-        <div className="bg-white border border-slate-200 rounded-2xl p-6">
-          <p className="text-xs font-bold uppercase tracking-widest text-slate-400 mb-4 text-center">
-            Jurisdiction selector covers
-          </p>
-          <div className="flex flex-wrap gap-x-4 gap-y-2 justify-center">
-            <span className="text-xs font-semibold text-blue-600 bg-blue-50 border border-blue-100 rounded-full px-3 py-1">
-              US Federal
-            </span>
-            {STATES.map((s) => (
-              <span key={s} className="text-xs text-slate-500">
-                {s}
-              </span>
-            ))}
-          </div>
-        </div>
       </div>
     </section>
   );
