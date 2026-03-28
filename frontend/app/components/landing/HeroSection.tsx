@@ -16,9 +16,9 @@ export default function HeroSection() {
 
         {/* Sub */}
         <p className="text-lg md:text-xl text-slate-500 max-w-2xl mx-auto leading-relaxed mb-10">
-          AI-powered legal research that searches eCFR, the Federal Register, and
-          CourtListener in real time — then gives you a plain-English answer with
-          citations to the exact source.
+          AI-powered legal research that searches eCFR, the Federal Register,
+          CourtListener, and OpenStates in real time — then gives you a
+          plain-English answer with citations to the exact source.
         </p>
 
         {/* Trust badges */}
@@ -27,6 +27,7 @@ export default function HeroSection() {
             { label: "eCFR", sub: "Federal Regulations" },
             { label: "Federal Register", sub: "Federal Rulemaking" },
             { label: "CourtListener", sub: "Court Opinions" },
+            { label: "OpenStates", sub: "State Legislation" },
           ].map((src) => (
             <div
               key={src.label}

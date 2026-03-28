@@ -17,6 +17,12 @@ const SOURCES = [
     description: "Free law project database of federal and state court opinions from across the US.",
     href: "https://www.courtlistener.com",
   },
+  {
+    icon: "account_balance",
+    name: "OpenStates",
+    description: "State legislature bill and statute search covering all 50 US states in real time.",
+    href: "https://openstates.org",
+  },
 ];
 
 const STATES = [
@@ -49,7 +55,7 @@ export default function CoverageSection() {
         </div>
 
         {/* Source cards */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-5 mb-14">
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-5 mb-14">
           {SOURCES.map((src) => (
             <a
               key={src.name}
