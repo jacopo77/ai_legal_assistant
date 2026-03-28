@@ -4,6 +4,7 @@
 import { useRef, useState, useEffect } from "react";
 import AdBanner from "./components/AdBanner";
 import HeroSection from "./components/landing/HeroSection";
+import BenefitsStrip from "./components/landing/BenefitsStrip";
 import HowItWorks from "./components/landing/HowItWorks";
 import CoverageSection from "./components/landing/CoverageSection";
 import ProTierCTA from "./components/landing/ProTierCTA";
@@ -595,6 +596,7 @@ export default function HomePage() {
       </section>
 
       {/* White / light landing sections below the tool */}
+      <BenefitsStrip />
       <HowItWorks />
       <CoverageSection />
       <ProTierCTA />

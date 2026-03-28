@@ -10,15 +10,14 @@ export default function HeroSection() {
 
         {/* Headline */}
         <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-slate-900 tracking-tight leading-tight mb-5">
-          Legal answers backed by{" "}
-          <span className="text-blue-600">real US law</span>
+          Know your legal rights{" "}
+          <span className="text-blue-600">before you need a lawyer</span>
         </h1>
 
         {/* Sub */}
         <p className="text-lg md:text-xl text-slate-500 max-w-2xl mx-auto leading-relaxed mb-10">
-          AI-powered legal research that searches eCFR, the Federal Register,
-          CourtListener, and OpenStates in real time — then gives you a
-          plain-English answer with citations to the exact source.
+          Ask any legal question. Get a plain-English answer with citations to
+          the exact law — free, in seconds, no login required.
         </p>
 
         {/* Trust badges */}
