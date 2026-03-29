@@ -11,7 +11,7 @@ export default function HeroSection() {
         {/* Headline */}
         <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-slate-900 tracking-tight leading-tight mb-5">
           Know your legal rights{" "}
-          <span className="text-blue-600">before you need a lawyer</span>
+          <span className="text-blue-600">before you ask a lawyer</span>
         </h1>
 
         {/* Sub */}
