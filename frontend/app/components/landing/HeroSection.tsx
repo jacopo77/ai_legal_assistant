@@ -27,6 +27,7 @@ export default function HeroSection() {
             { label: "Federal Register", sub: "Federal Rulemaking" },
             { label: "CourtListener", sub: "Court Opinions" },
             { label: "OpenStates", sub: "State Legislation" },
+            { label: "Cornell LII", sub: "US Code" },
           ].map((src) => (
             <div
               key={src.label}

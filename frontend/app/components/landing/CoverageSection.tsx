@@ -23,6 +23,12 @@ const SOURCES = [
     description: "State legislature bill and statute search covering all 50 US states in real time.",
     href: "https://openstates.org",
   },
+  {
+    icon: "school",
+    name: "Cornell LII",
+    description: "Cornell Law School's Legal Information Institute — full text of the US Code and federal statutes.",
+    href: "https://www.law.cornell.edu/uscode",
+  },
 ];
 
 
@@ -45,7 +51,7 @@ export default function CoverageSection() {
         </div>
 
         {/* Source cards */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-5 mb-14">
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-5 mb-14">
           {SOURCES.map((src) => (
             <a
               key={src.name}
