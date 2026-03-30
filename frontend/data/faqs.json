@@ -886,43 +886,31 @@
     "question": "Can my landlord raise my rent and how much?",
     "jurisdiction": "US",
     "category": "Tenant & Landlord",
-    "answer": "The provided context does not contain specific information regarding whether a landlord can raise rent or the amount by which they can do so. Therefore, I cannot provide an answer based on the available sources.",
+    "answer": "Yes, landlords can generally raise rent — but **when** they can do it, **how much** they can raise it, and **how much notice** they must give all depend on your state and whether your city has rent control.\n\n**There is no federal cap on rent increases.** Rent regulation is entirely a matter of state and local law. [1][2][3]\n\n**Notice requirements [1][2][3]**\nIn most states, landlords must give written notice before raising rent. The required notice period is typically:\n- **30 days** for increases under 10% (most states)\n- **60–90 days** for larger increases (California requires 90 days for increases over 10%) [1]\nA landlord generally **cannot raise your rent during a fixed-term lease** — only at renewal or on a month-to-month tenancy.\n\n**Rent control — cities and states that limit how much rent can increase [1][2]**\nSome states and cities limit how much a landlord can raise rent each year:\n- **California** — AB 1482 caps annual rent increases at 5% + local CPI (max 10%) for covered buildings. Applies to most multi-family buildings over 15 years old. [1]\n- **New York City** — Rent-stabilized units have increases set annually by the NYC Rent Guidelines Board.\n- **Oregon** — Statewide rent control caps increases at 7% + CPI per year.\n- **New Jersey** — Many municipalities have rent control ordinances.\n- Most other states (including Texas and Florida) have **no rent control** and landlords may raise rent by any amount with proper notice. [2][3]\n\n**What your landlord cannot do**\nRegardless of state, a landlord may not raise rent:\n- During a fixed-term lease (e.g. a 12-month lease) without your agreement\n- As retaliation for complaining about habitability or reporting code violations\n- In a discriminatory manner based on race, religion, sex, national origin, disability, or familial status under the Fair Housing Act [4]\n\n*Always check your specific city's ordinances — local rent control can be stricter than state law. Consult a licensed attorney if you believe a rent increase is retaliatory or unlawful.*",
     "sources": [
       {
         "n": 1,
-        "citation": "28 C.F.R. Part 36",
-        "url": "https://www.ecfr.gov/current/title-28/part-36",
-        "title": "Chapter I — Part 36"
+        "citation": "Cal. Civ. Code § 1947.12",
+        "url": "https://leginfo.legislature.ca.gov/faces/codes_displaySection.xhtml?sectionNum=1947.12.&lawCode=CIV",
+        "title": "California Civil Code § 1947.12 — Rent Increase Limitations (AB 1482)"
       },
       {
         "n": 2,
-        "citation": "89 FR 101270",
-        "url": "https://www.federalregister.gov/documents/2024/12/13/2024-28861/30-day-notification-requirement-prior-to-termination-of-lease-for-nonpayment-of-rent",
-        "title": "30-Day Notification Requirement Prior To Termination of Lease for Nonpayment of Rent"
+        "citation": "Fla. Stat. § 83.46",
+        "url": "https://www.leg.state.fl.us/statutes/index.cfm?App_mode=Display_Statute&URL=0000-0099/0083/Sections/0083.46.html",
+        "title": "Florida Statutes § 83.46 — Rent; Duration of Tenancy"
       },
       {
         "n": 3,
-        "citation": "90 FR 43070",
-        "url": "https://www.federalregister.gov/documents/2025/09/05/2025-17086/united-states-of-america-et-al-v-realpage-inc-et-al-proposed-final-judgment-and-competitive-impact",
-        "title": "United States of America et al. v. RealPage, Inc. et al. Proposed Final Judgment and Competitive Impact Statement"
+        "citation": "Tex. Prop. Code § 92.001",
+        "url": "https://statutes.capitol.texas.gov/Docs/PR/htm/PR.92.htm",
+        "title": "Texas Property Code § 92 — Residential Tenancies"
       },
       {
         "n": 4,
-        "citation": "922 F.3d 872",
-        "url": "https://www.courtlistener.com/opinion/4614816/mahmood-khan-v-city-of-minneapolis/",
-        "title": "Mahmood Khan v. City of Minneapolis"
-      },
-      {
-        "n": 5,
-        "citation": "913 F.3d 655",
-        "url": "https://www.courtlistener.com/opinion/4582215/united-states-v-nathan-driggers/",
-        "title": "United States v. Nathan Driggers"
-      },
-      {
-        "n": 6,
-        "citation": "885 F.3d 543",
-        "url": "https://www.courtlistener.com/opinion/4479472/disability-support-alliance-v-heartwood-enterprises-llc/",
-        "title": "Disability Support Alliance v. Heartwood Enterprises, LLC"
+        "citation": "42 U.S.C. § 3604",
+        "url": "https://www.law.cornell.edu/uscode/text/42/3604",
+        "title": "Fair Housing Act — Prohibited Discrimination in Housing"
       }
     ]
   },
