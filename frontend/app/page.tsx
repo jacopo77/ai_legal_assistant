@@ -609,10 +609,22 @@ export default function HomePage() {
             <span className="material-symbols-outlined text-blue-600 text-lg">gavel</span>
             <span className="font-bold text-slate-800 text-sm">Legal Search Hub</span>
           </div>
-          <p className="text-xs text-slate-400 leading-relaxed max-w-lg mx-auto mb-4">
+          <p className="text-xs text-slate-400 leading-relaxed max-w-lg mx-auto mb-5">
             AI-generated information only. This is not legal advice. Always consult a licensed
             attorney for guidance specific to your situation.
           </p>
+          {/* Legal links */}
+          <div className="flex flex-wrap items-center justify-center gap-x-4 gap-y-2 text-xs text-slate-400 mb-5">
+            <a href="/legal#disclaimer" className="hover:text-blue-600 transition-colors">Legal Disclaimer</a>
+            <span>·</span>
+            <a href="/legal#terms" className="hover:text-blue-600 transition-colors">Terms of Service</a>
+            <span>·</span>
+            <a href="/legal#privacy" className="hover:text-blue-600 transition-colors">Privacy Policy</a>
+            <span>·</span>
+            <a href="/legal#ai-disclosure" className="hover:text-blue-600 transition-colors">AI Disclosure</a>
+            <span>·</span>
+            <a href="/legal#acceptable-use" className="hover:text-blue-600 transition-colors">Acceptable Use</a>
+          </div>
           <div className="flex items-center justify-center gap-5 text-xs text-slate-400">
             <a href="/faq" className="hover:text-blue-600 transition-colors">FAQ</a>
             <span>·</span>
