@@ -4,55 +4,25 @@
     "question": "Can my landlord enter without permission?",
     "jurisdiction": "US",
     "category": "Tenant & Landlord",
-    "answer": "The provided context does not contain any information regarding a landlord's right to enter a rental property without permission. Therefore, I cannot provide an answer based on the available sources. Please consult local landlord-tenant laws or a legal professional for specific guidance on this matter.",
+    "answer": "In virtually every US state, a landlord **cannot enter your rental unit without advance notice** except in a genuine emergency. Landlord entry rights are governed by state law, not federal law, and the rules vary by state — but the core principle is consistent across the country.\n\n**The general rule — advance notice required [1][2][3]**\nMost states require landlords to give **24 hours written notice** before entering for non-emergency purposes such as repairs, inspections, or showing the unit to prospective tenants or buyers. Some states (including New York and some California situations) require 48 hours. The landlord must also enter at a **reasonable time**, typically during normal business hours.\n\n**Emergency exception [1][2][3]**\nA landlord may enter without notice or permission in a genuine emergency — for example, a burst pipe, fire, gas leak, or other situation that poses an immediate risk to life or property. \"Emergency\" has a narrow meaning; routine repairs or a landlord's convenience do not qualify.\n\n**What the major states require specifically:**\n- **California** — 24 hours written notice required; 48 hours for move-out inspections. Entry permitted only during normal business hours unless tenant consents. [1]\n- **Florida** — 12 hours advance notice required for non-emergency entry. Entry between 7:30 a.m. and 8:00 p.m. [2]\n- **Texas** — No state-mandated notice period is specified in the Texas Property Code for routine entry, but entry must be at a reasonable time and the tenant's right to quiet enjoyment applies. [3]\n- **New York** — Reasonable notice required; courts have generally applied a 24-hour standard.\n\n**What you can do if your landlord enters without notice**\nUnauthorized entry may constitute a breach of your right to quiet enjoyment and, in some states, a separate statutory violation. Remedies can include terminating the lease, recovering damages, or seeking a court order. Document every unauthorized entry in writing and send a written notice to your landlord reminding them of the notice requirement.\n\n*Note: Always verify the specific notice period required in your state, as requirements vary. Consult a licensed attorney if your landlord is repeatedly entering without notice.*",
     "sources": [
       {
         "n": 1,
-        "citation": "28 C.F.R. Part 36",
-        "url": "https://www.ecfr.gov/current/title-28/part-36",
-        "title": "Chapter I — Part 36"
+        "citation": "Cal. Civ. Code § 1954",
+        "url": "https://leginfo.legislature.ca.gov/faces/codes_displaySection.xhtml?sectionNum=1954.&lawCode=CIV",
+        "title": "California Civil Code § 1954 — Landlord Right of Entry"
       },
       {
         "n": 2,
-        "citation": "26 C.F.R. § 1.451-3",
-        "url": "https://www.ecfr.gov/current/title-26/part-1/section-1.451-3",
-        "title": "Chapter I — § 1.451-3"
+        "citation": "Fla. Stat. § 83.53",
+        "url": "https://www.leg.state.fl.us/statutes/index.cfm?App_mode=Display_Statute&Search_String=&URL=0000-0099/0083/Sections/0083.53.html",
+        "title": "Florida Statutes § 83.53 — Landlord's Access to Dwelling Unit"
       },
       {
         "n": 3,
-        "citation": "12 C.F.R. Part 1003",
-        "url": "https://www.ecfr.gov/current/title-12/part-1003",
-        "title": "Chapter X — Part 1003"
-      },
-      {
-        "n": 4,
-        "citation": "90 FR 41125",
-        "url": "https://www.federalregister.gov/documents/2025/08/22/2025-16057/proposed-exemption-for-certain-prohibited-transactions-involving-mid-america-carpenters-regional",
-        "title": "Proposed Exemption for Certain Prohibited Transactions Involving Mid-America Carpenters Regional Council Apprentice and Training Fund (the Fund) Located in St. Louis, Missouri"
-      },
-      {
-        "n": 5,
-        "citation": "90 FR 746",
-        "url": "https://www.federalregister.gov/documents/2025/01/06/2024-29824/home-investment-partnerships-program-program-updates-and-streamlining",
-        "title": "HOME Investment Partnerships Program: Program Updates and Streamlining"
-      },
-      {
-        "n": 6,
-        "citation": "75 F.4th 925",
-        "url": "https://www.courtlistener.com/opinion/9416998/united-states-v-melchizedek-hayes/",
-        "title": "United States v. Melchizedek Hayes"
-      },
-      {
-        "n": 7,
-        "citation": "193 F. App'x 54",
-        "url": "https://www.courtlistener.com/opinion/8623412/terry-v-incorporated-village-of-patchogue/",
-        "title": "Terry v. Incorporated Village of Patchogue"
-      },
-      {
-        "n": 8,
-        "citation": "61 F.4th 183",
-        "url": "https://www.courtlistener.com/opinion/9381203/levineschwab-partnership-v-fcc/",
-        "title": "Levine/Schwab Partnership v. FCC"
+        "citation": "Tex. Prop. Code § 92.0081",
+        "url": "https://statutes.capitol.texas.gov/Docs/PR/htm/PR.92.htm",
+        "title": "Texas Property Code § 92.0081 — Landlord Lockout and Entry"
       }
     ]
   },
