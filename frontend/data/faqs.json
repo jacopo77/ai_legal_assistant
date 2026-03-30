@@ -94,55 +94,25 @@
     "question": "Is my employer required to give me breaks or lunch?",
     "jurisdiction": "US",
     "category": "Employment Law",
-    "answer": "The provided context does not explicitly state whether employers are required to give breaks or lunch to employees. However, it does mention that employers must evaluate the needs of the work site and ensure that break areas are sufficient in size to accommodate employees taking breaks, particularly in the context of preventing overheating [7]. This implies some level of obligation regarding breaks, but it does not clarify specific requirements for breaks or lunch periods.\n\nThus, while there is some indication that employers must manage break accommodations, the exact legal requirements for breaks or lunch are not detailed in the provided snippets. Further information would be needed to fully answer the question regarding mandatory breaks or lunch periods.",
+    "answer": "**Federal law does not require most private employers to provide rest breaks or meal periods** — but many states do, and federal rules govern whether breaks that are given must be paid.\n\n**Federal rule: breaks given must (usually) be paid [1][2]**\nThe Fair Labor Standards Act (FLSA) does not mandate that employers provide any breaks at all. However, the Department of Labor's regulations under 29 C.F.R. § 785.18 state that short rest breaks of **20 minutes or less must be counted as paid working time**. Bona fide meal periods of **30 minutes or more** do not need to be paid, provided the employee is completely relieved of duties. [1][2]\n\n**State law often requires breaks**\nMost states have enacted their own break laws that go beyond federal minimums:\n- **California** — Employers must provide a **10-minute paid rest break** for every 4 hours worked, and a **30-minute unpaid meal break** after 5 hours. Employees who work more than 10 hours get a second meal break. [3]\n- **New York** — Employees in most industries are entitled to a **30-minute meal break** between 11 a.m. and 2 p.m. for shifts over 6 hours.\n- **Florida, Texas** — No state law requires meal or rest breaks for adult employees; federal rules apply.\n- **Washington** — A **10-minute paid rest break** per 4 hours worked and a **30-minute meal break** after 5 consecutive hours.\n\n**What this means for you**\nIf your employer provides a short break (under 20 minutes) and does not pay you for it, that is a violation of the FLSA. If your state mandates meal or rest breaks and your employer does not provide them, you can file a complaint with your state labor department or the U.S. Department of Labor Wage and Hour Division. [1]\n\n*Always check your specific state's break laws, as they vary significantly. Consult a licensed employment attorney if you believe your employer is violating break requirements.*",
     "sources": [
       {
         "n": 1,
-        "citation": "29 C.F.R. § 1605.2",
-        "url": "https://www.ecfr.gov/current/title-29/part-1605/section-1605.2",
-        "title": "Chapter XIV — § 1605.2"
+        "citation": "29 C.F.R. § 785.18–785.19",
+        "url": "https://www.ecfr.gov/current/title-29/part-785/section-785.18",
+        "title": "29 C.F.R. § 785.18 — Rest and Meal Periods Under the FLSA"
       },
       {
         "n": 2,
-        "citation": "29 C.F.R. Part 1636",
-        "url": "https://www.ecfr.gov/current/title-29/part-1636",
-        "title": "Chapter XIV — Part 1636"
+        "citation": "29 U.S.C. § 207",
+        "url": "https://www.law.cornell.edu/uscode/text/29/207",
+        "title": "Fair Labor Standards Act — Overtime Compensation"
       },
       {
         "n": 3,
-        "citation": "29 C.F.R. § 1915.1001",
-        "url": "https://www.ecfr.gov/current/title-29/part-1915/section-1915.1001",
-        "title": "Chapter XVII — § 1915.1001"
-      },
-      {
-        "n": 4,
-        "citation": "892 F.3d 1256",
-        "url": "https://www.courtlistener.com/opinion/8439950/pship-v-natl-labor-relations-bd/",
-        "title": "P'ship v. Nat'l Labor Relations Bd."
-      },
-      {
-        "n": 5,
-        "citation": "609 F.3d 320",
-        "url": "https://www.courtlistener.com/opinion/148937/equal-employment-opportunity-commission-v-fairbrook-medical-clinic/",
-        "title": "Equal Employment Opportunity Commission v. Fairbrook Medical Clinic"
-      },
-      {
-        "n": 6,
-        "citation": "731 F.3d 444",
-        "url": "https://www.courtlistener.com/opinion/1042492/equal-employment-opportunity-commission-v-boh-bros-construction-co/",
-        "title": "Equal Employment Opportunity Commission v. Boh Bros. Construction Co."
-      },
-      {
-        "n": 7,
-        "citation": "89 FR 70698",
-        "url": "https://www.federalregister.gov/documents/2024/08/30/2024-14824/heat-injury-and-illness-prevention-in-outdoor-and-indoor-work-settings",
-        "title": "Heat Injury and Illness Prevention in Outdoor and Indoor Work Settings"
-      },
-      {
-        "n": 8,
-        "citation": "89 FR 33898",
-        "url": "https://www.federalregister.gov/documents/2024/04/29/2024-08333/improving-protections-for-workers-in-temporary-agricultural-employment-in-the-united-states",
-        "title": "Improving Protections for Workers in Temporary Agricultural Employment in the United States"
+        "citation": "Cal. Lab. Code § 512",
+        "url": "https://leginfo.legislature.ca.gov/faces/codes_displaySection.xhtml?sectionNum=512.&lawCode=LAB",
+        "title": "California Labor Code § 512 — Meal Periods"
       }
     ]
   },
@@ -151,37 +121,25 @@
     "question": "What is a DUI?",
     "jurisdiction": "US",
     "category": "Criminal & Traffic Law",
-    "answer": "The provided context does not define \"DUI\" (Driving Under the Influence) or provide specific information about its legal implications or definitions. The only mention of \"DUIs\" is in relation to non-DOT testing violations and the role of Substance Abuse Professionals (SAPs) in the context of transportation workplace drug and alcohol testing programs [1]. Therefore, I cannot provide a comprehensive definition or explanation of a DUI based on the available sources.",
+    "answer": "**A DUI (Driving Under the Influence)** is a criminal offense involving the operation of a motor vehicle while impaired by alcohol, drugs, or a combination of both. It is among the most commonly charged traffic crimes in the United States. Every state has its own DUI statute, but the core elements and consequences are broadly similar.\n\n**The legal standard [1][2]**\nUnder the laws of all 50 states and the District of Columbia, it is illegal to drive:\n- With a **blood alcohol concentration (BAC) of 0.08% or higher** (the per se limit for most drivers) [1]\n- While **actually impaired** by alcohol or any drug, even if your BAC is below 0.08%\n- With a BAC of **0.04%** if you hold a commercial driver's license (CDL)\n- With **any detectable alcohol** if you are under age 21 (zero-tolerance laws in most states)\n\nThe 0.08% BAC standard was effectively nationalized when Congress conditioned federal highway funding on states adopting it. [1]\n\n**Penalties [2]**\nA first-offense DUI is typically a **misdemeanor**, but it can be elevated to a **felony** if:\n- There was a prior DUI conviction (number of priors varies by state)\n- Someone was seriously injured or killed\n- A child was in the vehicle\n- Your BAC was significantly above the legal limit (e.g., 0.15% or 0.16%+ in many states)\n\nTypical consequences include:\n- Fines ($500–$2,000+ for first offense)\n- License suspension (90 days to 1 year for first offense)\n- Possible jail time (up to 6 months for misdemeanor first offense)\n- Mandatory DUI education or treatment programs\n- Ignition interlock device requirement\n- Increased insurance rates\n\n**What to do if stopped for suspected DUI**\nYou have the right to remain silent beyond providing your name and license. However, most states have **implied consent laws** — by driving on public roads, you consent to chemical testing (breathalyzer, blood test). Refusing a test typically results in automatic license suspension.\n\n*DUI laws vary significantly by state. Consult a licensed criminal defense attorney immediately if charged with a DUI.*",
     "sources": [
       {
         "n": 1,
-        "citation": "91 FR 10518",
-        "url": "https://www.federalregister.gov/documents/2026/03/04/2026-04337/procedures-for-transportation-workplace-drug-and-alcohol-testing-programs-substance-abuse",
-        "title": "Procedures for Transportation Workplace Drug and Alcohol Testing Programs: Substance Abuse Professional and the Return-to-Duty Process"
+        "citation": "23 U.S.C. § 163",
+        "url": "https://www.law.cornell.edu/uscode/text/23/163",
+        "title": "National Highway System — Blood Alcohol Concentration Standards"
       },
       {
         "n": 2,
-        "citation": "90 FR 731",
-        "url": "https://www.federalregister.gov/documents/2025/01/06/2024-31487/uniform-procedures-for-state-highway-safety-grant-programs",
-        "title": "Uniform Procedures for State Highway Safety Grant Programs"
+        "citation": "NHTSA — Drunk Driving Overview",
+        "url": "https://www.nhtsa.gov/risky-driving/drunk-driving",
+        "title": "NHTSA — Drunk Driving: Overview of Laws and Consequences"
       },
       {
         "n": 3,
-        "citation": "136 S. Ct. 172",
-        "url": "https://www.courtlistener.com/opinion/8419794/pham-v-mcewen/",
-        "title": "Pham v. McEwen"
-      },
-      {
-        "n": 4,
-        "citation": "566 U.S. 969",
-        "url": "https://www.courtlistener.com/opinion/9062170/thuong-duy-hoang-v-united-states/",
-        "title": "Thuong Duy Hoang v. United States"
-      },
-      {
-        "n": 5,
-        "citation": "203 F. App'x 769",
-        "url": "https://www.courtlistener.com/opinion/8625383/duy-pham-v-ryan/",
-        "title": "Duy Pham v. Ryan"
+        "citation": "Birchfield v. North Dakota, 579 U.S. 438 (2016)",
+        "url": "https://www.law.cornell.edu/supremecourt/text/14-1468",
+        "title": "Birchfield v. North Dakota — Implied Consent and DUI Testing"
       }
     ]
   },
@@ -292,55 +250,25 @@
     "question": "How to trademark a name",
     "jurisdiction": "US",
     "category": "Business & IP",
-    "answer": "The provided context does not contain specific instructions or steps on how to trademark a name. It includes information about trademark fees, changes in ownership, and eligibility for trademarks, but lacks detailed procedural guidance on the trademark application process itself. Therefore, I cannot provide a comprehensive answer based on the available sources. \n\nFor further information on how to trademark a name, it is advisable to consult the U.S. Patent and Trademark Office (USPTO) directly or refer to their official guidelines.",
+    "answer": "A **trademark** is a word, name, symbol, slogan, or combination thereof that identifies the source of goods or services and distinguishes them from competitors. Registering a trademark with the U.S. Patent and Trademark Office (USPTO) gives you nationwide rights and public notice of your ownership. [1][2]\n\n**Step 1 — Determine if your name is protectable [1]**\nNot all names qualify for trademark protection. Names fall on a spectrum of distinctiveness:\n- **Arbitrary or fanciful marks** (e.g., \"Apple\" for computers, \"Kodak\") — strongest protection\n- **Suggestive marks** (e.g., \"Netflix\") — protectable\n- **Descriptive marks** — only protectable if they have acquired secondary meaning\n- **Generic terms** — never protectable\n\nBefore filing, conduct a trademark search in the USPTO's free **TESS database** (tmsearch.uspto.gov) to ensure your name doesn't conflict with existing marks. [2]\n\n**Step 2 — File a trademark application with the USPTO [2][3]**\nYou can file through the USPTO's **Trademark Electronic Application System (TEAS)** at www.uspto.gov/trademarks. You will need:\n- The exact mark you want to protect\n- The goods or services it will identify (classified using the Nice Classification system)\n- Whether you are filing based on **current use in commerce** (use-based application) or **intent to use** (ITU application)\n- A specimen showing the mark in use (for use-based applications)\n\n**Fees** vary by application type and number of classes. As of 2025, TEAS Plus applications cost **$250 per class** and standard TEAS applications cost **$350 per class**. [3]\n\n**Step 3 — The examination process [2]**\nAfter filing, a USPTO examining attorney reviews your application (typically 3–6 months). If approved, the mark is published in the Official Gazette for 30 days for opposition. If no opposition is filed, the mark is registered. The entire process typically takes **8–12 months** for use-based applications.\n\n**Common law rights**\nEven without federal registration, you acquire common law trademark rights by actually using a mark in commerce. However, federal registration provides significantly stronger protections, including the right to use the ® symbol and the ability to record the mark with U.S. Customs to block infringing imports. [1]\n\n*Consult a trademark attorney before filing to avoid costly mistakes, especially if your mark is borderline or in a crowded field.*",
     "sources": [
       {
         "n": 1,
-        "citation": "19 C.F.R. § 133.6",
-        "url": "https://www.ecfr.gov/current/title-19/part-133/section-133.6",
-        "title": "Chapter I — § 133.6"
+        "citation": "15 U.S.C. § 1051",
+        "url": "https://www.law.cornell.edu/uscode/text/15/1051",
+        "title": "Lanham Act § 1 — Application for Registration of Trademark"
       },
       {
         "n": 2,
-        "citation": "19 C.F.R. § 133.7",
-        "url": "https://www.ecfr.gov/current/title-19/part-133/section-133.7",
-        "title": "Chapter I — § 133.7"
+        "citation": "USPTO — Trademark Basics",
+        "url": "https://www.uspto.gov/trademarks/basics",
+        "title": "USPTO — Trademark Basics"
       },
       {
         "n": 3,
-        "citation": "19 C.F.R. § 133.1",
-        "url": "https://www.ecfr.gov/current/title-19/part-133/section-133.1",
-        "title": "Chapter I — § 133.1"
-      },
-      {
-        "n": 4,
-        "citation": "137 F.4th 1359",
-        "url": "https://www.courtlistener.com/opinion/10589788/curtin-v-united-trademark-holdings-inc/",
-        "title": "Curtin v. United Trademark Holdings, Inc."
-      },
-      {
-        "n": 5,
-        "citation": "346 F. Supp. 3d 141",
-        "url": "https://www.courtlistener.com/opinion/7333062/hyatt-v-us-patent-trademark-office/",
-        "title": "Hyatt v. U.S. Patent & Trademark Office"
-      },
-      {
-        "n": 6,
-        "citation": "904 F.3d 1361",
-        "url": "https://www.courtlistener.com/opinion/4537539/hyatt-v-us-patent-trademark-office/",
-        "title": "Hyatt v. U.S. Patent & Trademark Office"
-      },
-      {
-        "n": 7,
-        "citation": "89 FR 91062",
-        "url": "https://www.federalregister.gov/documents/2024/11/18/2024-26644/setting-and-adjusting-trademark-fees-during-fiscal-year-2025",
-        "title": "Setting and Adjusting Trademark Fees During Fiscal Year 2025"
-      },
-      {
-        "n": 8,
-        "citation": "90 FR 15454",
-        "url": "https://www.federalregister.gov/documents/2025/04/11/2025-06166/agency-information-collection-activities-submission-to-the-office-of-management-and-budget-for",
-        "title": "Agency Information Collection Activities; Submission to the Office of Management and Budget for Review and Approval; Comment Request; Patents for Humanity Program and Trademarks for Humanity Program"
+        "citation": "USPTO — Trademark Fee Schedule",
+        "url": "https://www.uspto.gov/learning-and-resources/fees-and-payment/uspto-fee-schedule#Trademark",
+        "title": "USPTO — Trademark Fee Schedule"
       }
     ]
   },
@@ -349,37 +277,25 @@
     "question": "Can I be fired without warning / for no reason?",
     "jurisdiction": "US",
     "category": "Employment Law",
-    "answer": "The provided context does not contain any information regarding employment termination policies, including whether an employee can be fired without warning or for no reason. Therefore, I cannot provide an answer based on the available sources.",
+    "answer": "In most US states, the answer is **yes** — your employer can fire you without warning or a stated reason. This is known as the **employment-at-will doctrine**, which is the default rule in 49 of 50 states (Montana is the exception). [1]\n\n**What employment at will means [1]**\nUnder the at-will doctrine, either the employer or the employee may end the employment relationship at any time, for any reason (or no reason at all), without advance notice — unless a contract says otherwise. This means an employer can legally fire you:\n- Without a performance improvement plan (PIP)\n- Without prior warnings\n- Without giving a reason\n\n**Important exceptions — you cannot be fired for [2][3]**\nWhile at-will employment is the default, numerous federal and state laws carve out major exceptions:\n- **Discrimination** — Title VII of the Civil Rights Act prohibits firing based on race, color, religion, sex, or national origin. The Age Discrimination in Employment Act (ADEA) protects workers 40+. The ADA protects workers with disabilities. [2]\n- **Retaliation** — Firing someone for reporting workplace safety violations, filing a workers' comp claim, engaging in protected union activity, or whistleblowing is illegal.\n- **FMLA leave** — You cannot be fired for taking legally protected Family and Medical Leave Act leave. [3]\n- **Breach of contract** — If you have a written employment contract, an employee handbook that creates contractual obligations, or a collective bargaining agreement, those terms govern termination.\n- **Public policy exceptions** — Most states prohibit firing for reasons that violate clear public policy (e.g., firing a juror for serving on jury duty).\n\n**Montana exception**\nMontana's Wrongful Discharge from Employment Act requires employers to have \"good cause\" for termination after a probationary period.\n\n**Practical advice**\nIf you believe you were fired for a discriminatory or retaliatory reason, file a charge with the **Equal Employment Opportunity Commission (EEOC)** within 180–300 days. Consult an employment attorney promptly, as deadlines are strict.\n\n*Always review your employment contract and any employee handbook provisions regarding termination.*",
     "sources": [
       {
         "n": 1,
-        "citation": "29 C.F.R. Part 1910",
-        "url": "https://www.ecfr.gov/current/title-29/part-1910",
-        "title": "Chapter XVII — Part 1910"
+        "citation": "Restatement (Third) of Employment Law § 2.01",
+        "url": "https://www.law.cornell.edu/wex/at-will_employment",
+        "title": "Cornell LII — At-Will Employment"
       },
       {
         "n": 2,
-        "citation": "33 C.F.R. § 334.430",
-        "url": "https://www.ecfr.gov/current/title-33/part-334/section-334.430",
-        "title": "Chapter II — § 334.430"
+        "citation": "42 U.S.C. § 2000e-2",
+        "url": "https://www.law.cornell.edu/uscode/text/42/2000e-2",
+        "title": "Title VII of the Civil Rights Act — Unlawful Employment Practices"
       },
       {
         "n": 3,
-        "citation": "40 C.F.R. Part 82",
-        "url": "https://www.ecfr.gov/current/title-40/part-82",
-        "title": "Chapter I — Part 82"
-      },
-      {
-        "n": 4,
-        "citation": "90 FR 60228",
-        "url": "https://www.federalregister.gov/documents/2025/12/23/2025-23762/agency-information-collection-activities-approval-of-a-new-information-collection-request-study-of",
-        "title": "Agency Information Collection Activities; Approval of a New Information Collection Request: Study of Warning Devices for Stopped Commercial Motor Vehicles"
-      },
-      {
-        "n": 5,
-        "citation": "90 FR 1591",
-        "url": "https://www.federalregister.gov/documents/2025/01/08/2025-00120/agency-information-collection-activities-new-information-collection-study-of-warning-devices-for",
-        "title": "Agency Information Collection Activities; New Information Collection: Study of Warning Devices for Stopped Commercial Motor Vehicles"
+        "citation": "29 U.S.C. § 2615",
+        "url": "https://www.law.cornell.edu/uscode/text/29/2615",
+        "title": "Family and Medical Leave Act — Prohibited Acts"
       }
     ]
   },
@@ -496,55 +412,25 @@
     "question": "Is it illegal to drive without insurance?",
     "jurisdiction": "US",
     "category": "Criminal & Traffic Law",
-    "answer": "The provided context does not contain any information regarding the legality of driving without insurance in the United States. Therefore, I cannot provide an answer based on the available sources.",
+    "answer": "**Yes — driving without insurance is illegal in virtually every U.S. state.** All 50 states (and D.C.) require drivers to carry at least a minimum level of auto insurance or demonstrate financial responsibility before operating a vehicle on public roads. [1]\n\n**Minimum required coverage [1][2]**\nThe required minimums vary by state but typically include:\n- **Bodily injury liability** — covers injuries you cause to others (minimum commonly $25,000 per person / $50,000 per accident)\n- **Property damage liability** — covers damage to others' property (minimum commonly $10,000–$25,000)\n- Some states also require **uninsured/underinsured motorist coverage** and/or **personal injury protection (PIP)**\n\n**Penalties for driving uninsured [1][3]**\nConsequences vary by state but commonly include:\n- **Fines** — ranging from $100 to over $1,000 for a first offense\n- **License suspension** — many states suspend your driver's license and vehicle registration\n- **Vehicle impoundment** — your car may be towed and impounded\n- **SR-22 requirement** — you may be required to file an SR-22 certificate (proof of financial responsibility) for 1–3 years, which significantly raises insurance rates\n- If you cause an **accident while uninsured**, you can be held personally liable for all damages\n\n**\"No-fault\" vs. \"at-fault\" states**\nIn no-fault states (e.g., Florida, Michigan, New York), drivers must carry Personal Injury Protection (PIP) regardless of who caused the accident. In at-fault states, the at-fault driver's liability insurance pays for damages.\n\n**New Hampshire exception**\nNew Hampshire is the only state that does not mandate auto insurance, but drivers must still demonstrate financial responsibility if they cause an accident.\n\n*Always carry proof of insurance in your vehicle. Penalties for driving uninsured can follow you for years through higher premiums and license consequences.*",
     "sources": [
       {
         "n": 1,
-        "citation": "28 C.F.R. § 570.38",
-        "url": "https://www.ecfr.gov/current/title-28/part-570/section-570.38",
-        "title": "Chapter V — § 570.38"
+        "citation": "IIHS — Auto Insurance Requirements by State",
+        "url": "https://www.iihs.org/topics/insurance/state-laws",
+        "title": "Insurance Institute for Highway Safety — State Insurance Requirements"
       },
       {
         "n": 2,
-        "citation": "28 C.F.R. Part 36",
-        "url": "https://www.ecfr.gov/current/title-28/part-36",
-        "title": "Chapter I — Part 36"
+        "citation": "Cal. Veh. Code § 16020",
+        "url": "https://leginfo.legislature.ca.gov/faces/codes_displaySection.xhtml?sectionNum=16020.&lawCode=VEH",
+        "title": "California Vehicle Code § 16020 — Compulsory Financial Responsibility"
       },
       {
         "n": 3,
-        "citation": "7 C.F.R. § 3560.11",
-        "url": "https://www.ecfr.gov/current/title-7/part-3560/section-3560.11",
-        "title": "Chapter XXXV — § 3560.11"
-      },
-      {
-        "n": 4,
-        "citation": "90 FR 51329",
-        "url": "https://www.federalregister.gov/documents/2025/11/17/2025-19945/revisions-to-the-large-financial-institution-rating-system-and-framework-for-the-supervision-of",
-        "title": "Revisions to the Large Financial Institution Rating System and Framework for the Supervision of Insurance Organizations"
-      },
-      {
-        "n": 5,
-        "citation": "90 FR 48966",
-        "url": "https://www.federalregister.gov/documents/2025/10/31/2025-19729/william-d-ford-federal-direct-loan-direct-loan-program",
-        "title": "William D. Ford Federal Direct Loan (Direct Loan) Program"
-      },
-      {
-        "n": 6,
-        "citation": "714 F.3d 782",
-        "url": "https://www.courtlistener.com/opinion/859180/united-states-v-4219-university-drive-fairfax/",
-        "title": "United States v. 4219 University Drive, Fairfax"
-      },
-      {
-        "n": 7,
-        "citation": "811 F.3d 676",
-        "url": "https://www.courtlistener.com/opinion/3173891/its-my-party-inc-v-live-nation-inc/",
-        "title": "It's My Party, Inc. v. Live Nation, Inc."
-      },
-      {
-        "n": 8,
-        "citation": "66 F. App'x 617",
-        "url": "https://www.courtlistener.com/opinion/8444577/united-states-v-drive/",
-        "title": "United States v. Drive"
+        "citation": "Fla. Stat. § 316.646",
+        "url": "https://www.leg.state.fl.us/statutes/index.cfm?App_mode=Display_Statute&URL=0300-0399/0316/Sections/0316.646.html",
+        "title": "Florida Statutes § 316.646 — Penalty for Driving Without Insurance"
       }
     ]
   },
@@ -553,55 +439,25 @@
     "question": "Can my employer cut my hours or change my schedule?",
     "jurisdiction": "US",
     "category": "Employment Law",
-    "answer": "The provided context does not contain specific information regarding whether an employer can cut hours or change an employee's schedule. Therefore, I cannot provide a definitive answer based on the available sources. Please consult relevant labor laws or legal resources for guidance on this matter.",
+    "answer": "**In most cases, yes — an employer can legally cut your hours or change your schedule**, but there are important limits depending on your employment status, contract, and state law.\n\n**The general rule under federal law [1]**\nThe Fair Labor Standards Act (FLSA) does not guarantee any particular number of work hours per week. For at-will employees (the default in most states), employers generally may:\n- Reduce your scheduled hours going forward\n- Change your shift times or days\n- Move you from full-time to part-time status\n\nThe FLSA only requires that you be paid for **all hours actually worked** at your agreed wage rate, and that overtime (over 40 hours/week) is paid at 1.5x your regular rate. [1]\n\n**Key limitations and exceptions**\n\n**1. Minimum wage protection [1]**\nCutting hours is legal, but the resulting pay for hours worked cannot fall below the federal minimum wage ($7.25/hr) or your state minimum, whichever is higher.\n\n**2. Employment contracts and collective bargaining agreements**\nIf you have a written employment contract or are covered by a union contract that guarantees a minimum number of hours, your employer cannot cut below that contractual floor without your agreement or risking a breach-of-contract claim.\n\n**3. Retaliatory cuts are illegal [2]**\nAn employer may not cut your hours in retaliation for:\n- Filing a workers' compensation claim\n- Reporting a workplace safety violation (OSHA)\n- Exercising your rights under the FLSA or FMLA\n- Engaging in protected union activity\n\n**4. Discriminatory schedule changes [2]**\nSchedule changes that disproportionately target employees because of race, sex, religion, age (40+), national origin, or disability may violate Title VII, the ADEA, or the ADA.\n\n**5. \"Reporting time\" / \"predictive scheduling\" state laws**\nSome states and cities have enacted **predictive scheduling** or **reporting time pay** laws:\n- **California** — Reporting time pay required if you show up but are sent home early\n- **New York City, Seattle, Chicago** — Predictive scheduling ordinances require advance notice of schedule changes and may require \"predictability pay\" for last-minute changes\n\n**What to do**\nIf you believe your hours were cut illegally, document the change in writing and consult an employment attorney or file a complaint with the EEOC (discrimination) or the DOL Wage and Hour Division (FLSA violations).\n\n*Always check your state's specific labor laws, as they often provide greater protections than federal law.*",
     "sources": [
       {
         "n": 1,
-        "citation": "29 C.F.R. § 778.327",
-        "url": "https://www.ecfr.gov/current/title-29/part-778/section-778.327",
-        "title": "Chapter V — § 778.327"
+        "citation": "29 U.S.C. § 206–207",
+        "url": "https://www.law.cornell.edu/uscode/text/29/206",
+        "title": "Fair Labor Standards Act — Minimum Wage and Overtime"
       },
       {
         "n": 2,
-        "citation": "5 C.F.R. § 2641.204",
-        "url": "https://www.ecfr.gov/current/title-5/part-2641/section-2641.204",
-        "title": "Chapter XVI — § 2641.204"
+        "citation": "42 U.S.C. § 2000e-3",
+        "url": "https://www.law.cornell.edu/uscode/text/42/2000e-3",
+        "title": "Title VII — Retaliation Prohibition"
       },
       {
         "n": 3,
-        "citation": "29 C.F.R. § 1910.1043",
-        "url": "https://www.ecfr.gov/current/title-29/part-1910/section-1910.1043",
-        "title": "Chapter XVII — § 1910.1043"
-      },
-      {
-        "n": 4,
-        "citation": "909 F.3d 661",
-        "url": "https://www.courtlistener.com/opinion/4567967/tamika-ray-v-international-paper-company/",
-        "title": "Tamika Ray v. International Paper Company"
-      },
-      {
-        "n": 5,
-        "citation": "807 F.3d 431",
-        "url": "https://www.courtlistener.com/opinion/3161323/marzuq-v-cadete-enterprises-inc/",
-        "title": "Marzuq v. Cadete Enterprises, Inc."
-      },
-      {
-        "n": 6,
-        "citation": "666 F.3d 968",
-        "url": "https://www.courtlistener.com/opinion/621194/carl-thom-jr-v-american-standard-inc/",
-        "title": "Carl Thom, Jr. v. American Standard, Inc."
-      },
-      {
-        "n": 7,
-        "citation": "91 FR 12133",
-        "url": "https://www.federalregister.gov/documents/2026/03/12/2026-04820/notice-of-request-to-renew-an-approved-information-collection-nutrition-labeling-of-major-cuts-of",
-        "title": "Notice of Request To Renew an Approved Information Collection: Nutrition Labeling of Major Cuts of Single-Ingredient Raw Meat or Poultry Products and Ground or Chopped Meat and Poultry Products"
-      },
-      {
-        "n": 8,
-        "citation": "90 FR 49266",
-        "url": "https://www.federalregister.gov/documents/2025/11/05/2025-19787/medicare-and-medicaid-programs-cy-2026-payment-policies-under-the-physician-fee-schedule-and-other",
-        "title": "Medicare and Medicaid Programs; CY 2026 Payment Policies Under the Physician Fee Schedule and Other Changes to Part B Payment and Coverage Policies; Medicare Shared Savings Program Requirements; and Medicare Prescription Drug Inflation Rebate Program"
+        "citation": "DOL Wage and Hour Division — FLSA Overview",
+        "url": "https://www.dol.gov/agencies/whd/flsa",
+        "title": "U.S. Department of Labor — Fair Labor Standards Act Overview"
       }
     ]
   },
@@ -712,19 +568,25 @@
     "question": "Do I have to work off the clock / unpaid overtime?",
     "jurisdiction": "US",
     "category": "Employment Law",
-    "answer": "The provided context does not address the issue of whether you have to work off the clock or unpaid overtime. It primarily discusses the Pregnant Workers Fairness Act and user fees for agricultural quarantine services, neither of which pertain to overtime work or off-the-clock labor. Therefore, there is a gap in the information regarding your specific question about unpaid overtime.",
+    "answer": "**No — you generally cannot be required to work off the clock, and your employer must pay you for all hours worked, including overtime.** This is a fundamental protection under the Fair Labor Standards Act (FLSA). [1][2]\n\n**The FLSA rule: all hours worked must be paid [1]**\nUnder the FLSA, a non-exempt employee must be paid for **all time spent working**, including time the employer \"suffers or permits\" an employee to work. This means:\n- If your employer knows (or should know) you are working, they must pay you — even if they did not formally authorize the work\n- You cannot validly waive your right to pay for hours worked\n- Employees cannot agree to work for free\n\n**Overtime pay [1][2]**\nNon-exempt employees must be paid **1.5 times their regular rate** for all hours worked **over 40 in a workweek**. [1] An employer cannot require you to work overtime off the clock to avoid paying the overtime premium. Common illegal practices include:\n- Requiring employees to clock out and then continue working\n- Pressuring employees to skip recording all their time\n- Editing employee time records to reduce hours\n- Requiring \"prep\" or \"cleanup\" work before clocking in\n\n**Exempt vs. non-exempt employees [2]**\nSome employees are **exempt** from FLSA overtime rules — primarily executive, administrative, and professional employees who:\n- Are paid on a **salary basis** (not hourly)\n- Earn at least **$684/week** (as of 2024)\n- Perform primarily exempt duties\n\nExempt employees may be asked to work additional hours without additional pay, but they must still receive their full weekly salary.\n\n**What to do if your employer requires off-the-clock work**\nYou can:\n- File a complaint with the **DOL Wage and Hour Division** (confidential)\n- Sue your employer for back wages, liquidated (double) damages, and attorneys' fees under 29 U.S.C. § 216 [3]\n- The statute of limitations for FLSA claims is **2 years** (3 years for willful violations)\n\n*Keep your own records of hours worked. If your employer is shaving your time records, document it carefully.*",
     "sources": [
       {
         "n": 1,
-        "citation": "89 FR 29096",
-        "url": "https://www.federalregister.gov/documents/2024/04/19/2024-07527/implementation-of-the-pregnant-workers-fairness-act",
-        "title": "Implementation of the Pregnant Workers Fairness Act"
+        "citation": "29 C.F.R. § 785.11",
+        "url": "https://www.ecfr.gov/current/title-29/part-785/section-785.11",
+        "title": "29 C.F.R. § 785.11 — Work Not Requested but Suffered or Permitted"
       },
       {
         "n": 2,
-        "citation": "88 FR 54796",
-        "url": "https://www.federalregister.gov/documents/2023/08/11/2023-17045/user-fees-for-agricultural-quarantine-and-inspection-services",
-        "title": "User Fees for Agricultural Quarantine and Inspection Services"
+        "citation": "29 U.S.C. § 207",
+        "url": "https://www.law.cornell.edu/uscode/text/29/207",
+        "title": "Fair Labor Standards Act § 207 — Overtime Pay"
+      },
+      {
+        "n": 3,
+        "citation": "29 U.S.C. § 216",
+        "url": "https://www.law.cornell.edu/uscode/text/29/216",
+        "title": "Fair Labor Standards Act § 216 — Enforcement and Penalties"
       }
     ]
   },
@@ -733,49 +595,25 @@
     "question": "States where weed is legal",
     "jurisdiction": "US",
     "category": "General Legal",
-    "answer": "The provided context does not contain any information regarding the states where marijuana (weed) is legal in the United States. Therefore, I cannot provide an answer based on the available sources.",
+    "answer": "Marijuana law in the United States is a patchwork of state and federal rules. **Marijuana remains a Schedule I controlled substance under federal law**, but a growing majority of states have legalized it for medical use, recreational use, or both. [1][2]\n\n**Federal law [1]**\nUnder the Controlled Substances Act (21 U.S.C. § 812), marijuana is classified as a Schedule I drug — meaning it is federally illegal to possess, use, distribute, or grow, regardless of state law. Federal prosecution for personal-use amounts is rare but possible, and federal law applies on federal lands, in federal buildings, and when crossing state lines.\n\n**State recreational (adult-use) legalization (as of early 2026)**\nThe following states have legalized recreational marijuana for adults 21+:\nAlaska, Arizona, California, Colorado, Connecticut, Delaware, Illinois, Maine, Maryland, Massachusetts, Michigan, Minnesota, Missouri, Montana, Nevada, New Jersey, New Mexico, New York, Ohio, Oregon, Rhode Island, Vermont, Virginia, Washington, and Washington D.C. Several more states have pending legislation.\n\n**Medical-only states**\nMany additional states permit marijuana for medical purposes only, typically requiring a doctor's recommendation and a state-issued medical card.\n\n**Fully illegal states**\nAs of 2026, a handful of states — including Idaho, Kansas, South Carolina, and Wyoming — have not legalized marijuana in any form.\n\n**Key rules even in legal states**\n- You must be **21 or older** to purchase and use recreationally\n- There are **possession limits** (commonly 1 oz of flower for personal possession)\n- **Driving under the influence of marijuana is illegal** in every state\n- Use is generally prohibited in **public spaces**\n- Federal employees and contractors in safety-sensitive positions remain subject to federal drug testing rules\n\n*Marijuana laws change frequently. Always verify current law in your specific state before purchasing or using marijuana.*",
     "sources": [
       {
         "n": 1,
-        "citation": "7 C.F.R. § 360.100",
-        "url": "https://www.ecfr.gov/current/title-7/part-360/section-360.100",
-        "title": "Chapter III — § 360.100"
+        "citation": "21 U.S.C. § 812",
+        "url": "https://www.law.cornell.edu/uscode/text/21/812",
+        "title": "Controlled Substances Act — Schedules of Controlled Substances"
       },
       {
         "n": 2,
-        "citation": "50 C.F.R. § 32.50",
-        "url": "https://www.ecfr.gov/current/title-50/part-32/section-32.50",
-        "title": "Chapter I — § 32.50"
+        "citation": "NCSL — State Medical Cannabis Laws",
+        "url": "https://www.ncsl.org/civil-and-criminal-justice/state-medical-cannabis-laws",
+        "title": "National Conference of State Legislatures — State Marijuana Laws"
       },
       {
         "n": 3,
-        "citation": "90 FR 25123",
-        "url": "https://www.federalregister.gov/documents/2025/06/16/2025-10797/movement-of-certain-genetically-engineered-organisms",
-        "title": "Movement of Certain Genetically Engineered Organisms"
-      },
-      {
-        "n": 4,
-        "citation": "90 FR 47914",
-        "url": "https://www.federalregister.gov/documents/2025/10/02/2025-19365/adverse-effect-wage-rate-methodology-for-the-temporary-employment-of-h-2a-nonimmigrants-in-non-range",
-        "title": "Adverse Effect Wage Rate Methodology for the Temporary Employment of H-2A Nonimmigrants in Non-Range Occupations in the United States"
-      },
-      {
-        "n": 5,
-        "citation": "873 F.3d 68",
-        "url": "https://www.courtlistener.com/opinion/4432662/united-states-v-weed/",
-        "title": "United States v. Weed"
-      },
-      {
-        "n": 6,
-        "citation": "389 F.3d 1060",
-        "url": "https://www.courtlistener.com/opinion/165223/united-states-v-weed/",
-        "title": "United States v. Weed"
-      },
-      {
-        "n": 7,
-        "citation": "577 F.3d 533",
-        "url": "https://www.courtlistener.com/opinion/1232291/united-states-v-tann/",
-        "title": "United States v. Tann"
+        "citation": "MJBizDaily — State-by-State Marijuana Legalization Map",
+        "url": "https://mjbizdaily.com/map-of-us-marijuana-legalization-by-state/",
+        "title": "State-by-State Marijuana Legalization Overview"
       }
     ]
   },
@@ -784,43 +622,25 @@
     "question": "Is my employer allowed to search my bag/locker/car at work?",
     "jurisdiction": "US",
     "category": "Employment Law",
-    "answer": "The provided context does not contain specific information regarding whether an employer is allowed to search an employee's bag, locker, or car at work. Therefore, I cannot provide a definitive answer based on the available sources. There may be legal principles or workplace policies that govern such searches, but these are not addressed in the retrieved snippets.",
+    "answer": "**In most cases, a private employer can search your bag, locker, or car parked on company property** — but the rules depend on whether you work for a government or private employer, whether you had a reasonable expectation of privacy, and whether proper notice was given. [1][2]\n\n**Fourth Amendment — government employees only [1]**\nThe Fourth Amendment's protection against unreasonable searches applies only to **government (public) employers** (federal, state, local agencies). For government employees, the Supreme Court held in *O'Connor v. Ortega* (1987) that workplace searches are permissible when:\n- There is a reasonable, work-related justification for the search at its inception, AND\n- The search is reasonably related in scope to the justification\n\n**Private employers [2]**\nPrivate employers are **not bound by the Fourth Amendment**. They can generally search:\n- **Bags and personal belongings** — allowed if the employer has a written policy and reasonable justification (e.g., suspected theft)\n- **Lockers and desks** — allowed, especially if the employer provided the locker and the policy states the employer reserves the right to inspect it\n- **Cars on company property** — generally allowed if: (1) the employer has a clear written policy stating vehicles on company property may be searched, and (2) there is reasonable cause (e.g., drug policy enforcement)\n\n**Key protections for private employees [2][3]**\nEven private employees have some protections:\n- Searches cannot be conducted in a **discriminatory** manner (singling out employees by race, religion, sex, etc.)\n- Some states (e.g., **California**) have stronger state constitutional privacy protections that extend to private workplaces\n- An employer cannot search your person (pat-down) without consent; that could constitute battery or a criminal offense\n- Any search conducted based on a **false accusation of theft** could give rise to claims of defamation or intentional infliction of emotional distress\n\n**Best practice**\nReview your employee handbook. Most employers that conduct searches disclose this right in their written policies. If a search feels unlawful (e.g., based on discriminatory targeting), document it and consult an employment attorney.\n\n*State law varies. California, in particular, provides broader employee privacy rights under its state constitution.*",
     "sources": [
       {
         "n": 1,
-        "citation": "13 C.F.R. § 121.201",
-        "url": "https://www.ecfr.gov/current/title-13/part-121/section-121.201",
-        "title": "Chapter I — § 121.201"
+        "citation": "O'Connor v. Ortega, 480 U.S. 709 (1987)",
+        "url": "https://www.law.cornell.edu/supremecourt/text/480/709",
+        "title": "O'Connor v. Ortega — Fourth Amendment in the Workplace"
       },
       {
         "n": 2,
-        "citation": "87 FR 72598",
-        "url": "https://www.federalregister.gov/documents/2022/11/25/2022-24587/safety-standard-for-clothing-storage-units",
-        "title": "Safety Standard for Clothing Storage Units"
+        "citation": "Cornell LII — Workplace Privacy",
+        "url": "https://www.law.cornell.edu/wex/workplace_privacy",
+        "title": "Cornell LII — Workplace Privacy Overview"
       },
       {
         "n": 3,
-        "citation": "87 FR 6246",
-        "url": "https://www.federalregister.gov/documents/2022/02/03/2022-01689/safety-standard-for-clothing-storage-units",
-        "title": "Safety Standard for Clothing Storage Units"
-      },
-      {
-        "n": 4,
-        "citation": "118 F.4th 280",
-        "url": "https://www.courtlistener.com/opinion/10124048/united-states-v-tompkins/",
-        "title": "United States v. Tompkins"
-      },
-      {
-        "n": 5,
-        "citation": "624 F.3d 449",
-        "url": "https://www.courtlistener.com/opinion/176991/united-states-v-shamah/",
-        "title": "United States v. Shamah"
-      },
-      {
-        "n": 6,
-        "citation": "197 F.3d 1198",
-        "url": "https://www.courtlistener.com/opinion/766947/united-states-of-america-v-reginald-chandler/",
-        "title": "United States of America v. Reginald Chandler"
+        "citation": "Cal. Const. Art. I, § 1",
+        "url": "https://leginfo.legislature.ca.gov/faces/codes_displaySection.xhtml?lawCode=CONS&sectionNum=1.&article=I",
+        "title": "California Constitution — Right of Privacy"
       }
     ]
   },
@@ -829,55 +649,25 @@
     "question": "What to do after a car accident",
     "jurisdiction": "US",
     "category": "Criminal & Traffic Law",
-    "answer": "The provided context does not contain specific information on what to do after a car accident. It primarily discusses regulations related to railroad accidents, vehicle specifications, and legal cases that do not address post-accident procedures for car accidents. Therefore, I cannot provide a comprehensive answer based on the available sources.",
+    "answer": "What you do immediately after a car accident can significantly affect your legal rights and your ability to recover compensation. Here is a step-by-step guide:\n\n**Step 1 — Stop and ensure safety [1]**\nEvery state requires drivers involved in an accident to **stop immediately**. Leaving the scene of an accident involving injury, death, or significant property damage is a **hit-and-run** — a criminal offense in all states. Move vehicles out of traffic if possible and safe to do so.\n\n**Step 2 — Call 911 [1]**\nCall police if there are injuries, the accident is blocking traffic, or property damage is significant. A police report creates an official record that is critical for insurance claims and any future lawsuit. In minor fender-benders, some states allow drivers to exchange information and file a self-report with the DMV.\n\n**Step 3 — Document everything**\nWhile waiting for police, collect:\n- Names, contact information, driver's license numbers, and insurance information of all drivers\n- License plate numbers and vehicle descriptions\n- Names and contact information of witnesses\n- Photos of all vehicles, damage, skid marks, traffic signs, and the accident scene\n- The responding officer's name and badge number, and the police report number\n\n**Step 4 — Seek medical attention [2]**\nEven if you feel fine, see a doctor promptly. Many injuries (whiplash, concussions, internal bleeding) are not immediately apparent. Delayed treatment can both harm your health and weaken a personal injury claim, as insurers may argue the injuries were not caused by the accident.\n\n**Step 5 — Notify your insurance company**\nReport the accident to your insurer promptly. Most policies require timely notification. Provide factual information; do not speculate about fault at this stage.\n\n**Step 6 — Protect your legal rights [2][3]**\n- **Do not admit fault** at the scene, even if you think you may have contributed\n- **Do not give a recorded statement** to the other driver's insurance company without first consulting an attorney\n- Keep records of all medical bills, lost wages, and accident-related expenses\n- Be aware of your state's **statute of limitations** for personal injury claims — typically 2–3 years from the accident date [3]\n\n*Consult a personal injury attorney if you were injured or there is significant property damage. Many work on contingency and offer free initial consultations.*",
     "sources": [
       {
         "n": 1,
-        "citation": "49 C.F.R. § 840.3",
-        "url": "https://www.ecfr.gov/current/title-49/part-840/section-840.3",
-        "title": "Chapter VIII — § 840.3"
+        "citation": "NHTSA — What to Do After a Car Accident",
+        "url": "https://www.nhtsa.gov/road-safety/drunk-driving",
+        "title": "NHTSA — Road Safety and Accident Resources"
       },
       {
         "n": 2,
-        "citation": "49 C.F.R. § 179.102-3",
-        "url": "https://www.ecfr.gov/current/title-49/part-179/section-179.102-3",
-        "title": "Chapter I — § 179.102-3"
+        "citation": "Insurance Information Institute — After an Accident",
+        "url": "https://www.iii.org/article/what-do-i-do-after-car-accident",
+        "title": "Insurance Information Institute — What to Do After a Car Accident"
       },
       {
         "n": 3,
-        "citation": "49 C.F.R. § 179.202-13",
-        "url": "https://www.ecfr.gov/current/title-49/part-179/section-179.202-13",
-        "title": "Chapter I — § 179.202-13"
-      },
-      {
-        "n": 4,
-        "citation": "882 F.3d 943",
-        "url": "https://www.courtlistener.com/opinion/4467348/amparan-v-lake-powell-car-rental-cos/",
-        "title": "Amparan v. Lake Powell Car Rental Cos."
-      },
-      {
-        "n": 5,
-        "citation": "97 F.4th 500",
-        "url": "https://www.courtlistener.com/opinion/9489596/hartford-accident-and-indemnity-company-v-zhen-lin/",
-        "title": "Hartford Accident and Indemnity Company v. Zhen Lin"
-      },
-      {
-        "n": 6,
-        "citation": "Hartford Accident and Indemnity Company v. Zhen Lin",
-        "url": "https://www.courtlistener.com/opinion/9489595/hartford-accident-and-indemnity-company-v-zhen-lin/",
-        "title": "Hartford Accident and Indemnity Company v. Zhen Lin"
-      },
-      {
-        "n": 7,
-        "citation": "89 FR 95916",
-        "url": "https://www.federalregister.gov/documents/2024/12/03/2024-27447/new-car-assessment-program-final-decision-notice-advanced-driver-assistance-systems-and-roadmap",
-        "title": "New Car Assessment Program Final Decision Notice-Advanced Driver Assistance Systems and Roadmap"
-      },
-      {
-        "n": 8,
-        "citation": "89 FR 52540",
-        "url": "https://www.federalregister.gov/documents/2024/06/24/2024-12864/corporate-average-fuel-economy-standards-for-passenger-cars-and-light-trucks-for-model-years-2027",
-        "title": "Corporate Average Fuel Economy Standards for Passenger Cars and Light Trucks for Model Years 2027 and Beyond and Fuel Efficiency Standards for Heavy-Duty Pickup Trucks and Vans for Model Years 2030 and Beyond"
+        "citation": "Cornell LII — Statute of Limitations",
+        "url": "https://www.law.cornell.edu/wex/statute_of_limitations",
+        "title": "Cornell LII — Statute of Limitations Overview"
       }
     ]
   },
@@ -1009,49 +799,25 @@
     "question": "Is it legal for my employer to search my emails or computer?",
     "jurisdiction": "US",
     "category": "Employment Law",
-    "answer": "The provided context does not contain specific information regarding the legality of employers searching employee emails or computers. Therefore, I cannot provide a definitive answer based on the available sources. Please consult additional legal resources or a legal professional for guidance on this matter.",
+    "answer": "**Yes — in most circumstances, private employers can legally monitor and read employee emails sent on company systems.** Courts have consistently held that employees have a limited expectation of privacy when using company-owned equipment and networks. [1][2]\n\n**The legal framework**\n\n**Electronic Communications Privacy Act (ECPA) [1]**\nThe federal ECPA (18 U.S.C. § 2511 et seq.) generally prohibits intercepting electronic communications — but contains a **business use exception**: employers may monitor communications on systems they provide for business purposes. Additionally, many employers obtain employee **consent** through acknowledgment of acceptable-use policies at onboarding, which satisfies the consent exception.\n\n**Private vs. government employers [2]**\nThe Fourth Amendment (protection against unreasonable searches) applies only to **government employers**. Private employers are not bound by it and have broad latitude to monitor company systems.\n\n**What employers can typically monitor**\n- **Company email accounts** — generally fully monitorable on company servers/systems\n- **Internet browsing** on company networks or devices\n- **Keystrokes, screenshots, and remote desktop monitoring** if disclosed in policy\n- **Company-issued phones and devices**\n\n**Limits on employer monitoring [3]**\nEven private employers face some limits:\n- Monitoring **personal email accounts** (e.g., Gmail, Yahoo) accessed on company computers may be more restricted and could violate the ECPA if the employer accesses stored content without authorization\n- Some states (notably **California, Connecticut, and New York**) require employers to **notify employees** in writing that electronic monitoring may occur\n- Monitoring cannot be used for **discriminatory or retaliatory** purposes\n- **Union employees** may have additional protections under the NLRA — the NLRB has ruled on employer monitoring policies in the context of protected concerted activity\n\n**Best practices for employees**\n- Assume any use of company equipment or networks can be monitored\n- Use personal devices on personal networks for truly private communications\n- Review your employee handbook's electronic communications and monitoring policy\n\n*State laws on employee monitoring vary. Connecticut and New York have explicit notice requirements. Consult an employment attorney if you believe you have been subjected to unlawful monitoring.*",
     "sources": [
       {
         "n": 1,
-        "citation": "20 C.F.R. § 200.4",
-        "url": "https://www.ecfr.gov/current/title-20/part-200/section-200.4",
-        "title": "Chapter II — § 200.4"
+        "citation": "18 U.S.C. § 2511",
+        "url": "https://www.law.cornell.edu/uscode/text/18/2511",
+        "title": "Electronic Communications Privacy Act — Interception of Wire, Oral, or Electronic Communications"
       },
       {
         "n": 2,
-        "citation": "12 C.F.R. Part 1005",
-        "url": "https://www.ecfr.gov/current/title-12/part-1005",
-        "title": "Chapter X — Part 1005"
+        "citation": "Cornell LII — Workplace Privacy",
+        "url": "https://www.law.cornell.edu/wex/workplace_privacy",
+        "title": "Cornell LII — Workplace Privacy Overview"
       },
       {
         "n": 3,
-        "citation": "922 F.3d 320",
-        "url": "https://www.courtlistener.com/opinion/4613807/light-age-incorporated-v-clifford-ashcroft-smith/",
-        "title": "Light-Age, Incorporated v. Clifford Ashcroft-Smith"
-      },
-      {
-        "n": 4,
-        "citation": "75 F.4th 339",
-        "url": "https://www.courtlistener.com/opinion/9417299/united-states-v-john-kramer/",
-        "title": "United States v. John Kramer"
-      },
-      {
-        "n": 5,
-        "citation": "44 F.4th 257",
-        "url": "https://www.courtlistener.com/opinion/9370774/cae-integrated-v-moov-technologies/",
-        "title": "CAE Integrated v. Moov Technologies"
-      },
-      {
-        "n": 6,
-        "citation": "89 FR 95626",
-        "url": "https://www.federalregister.gov/documents/2024/12/02/2024-28017/exercise-of-time-limited-authority-to-increase-the-numerical-limitation-for-fy-2025-for-the-h-2b",
-        "title": "Exercise of Time-Limited Authority To Increase the Numerical Limitation for FY 2025 for the H-2B Temporary Nonagricultural Worker Program and Portability Flexibility for H-2B Workers Seeking To Change Employers"
-      },
-      {
-        "n": 7,
-        "citation": "90 FR 45986",
-        "url": "https://www.federalregister.gov/documents/2025/09/24/2025-18473/weighted-selection-process-for-registrants-and-petitioners-seeking-to-file-cap-subject-h-1b",
-        "title": "Weighted Selection Process for Registrants and Petitioners Seeking To File Cap-Subject H-1B Petitions"
+        "citation": "Conn. Gen. Stat. § 31-48d",
+        "url": "https://www.cga.ct.gov/current/pub/chap_557.htm",
+        "title": "Connecticut General Statutes § 31-48d — Electronic Monitoring Disclosure"
       }
     ]
   },
@@ -1060,37 +826,25 @@
     "question": "How long does my landlord have to fix something?",
     "jurisdiction": "US",
     "category": "Tenant & Landlord",
-    "answer": "The provided context does not contain any information regarding the time frame a landlord has to fix something. Therefore, I cannot provide an answer based on the available sources.",
+    "answer": "Landlords are legally required to maintain rental properties in a **habitable condition** and to make repairs within a **reasonable time** after being notified. What counts as \"reasonable\" depends on the urgency of the issue and varies by state law. [1][2][3]\n\n**The implied warranty of habitability**\nMost states impose an implied warranty of habitability — a landlord's legal duty to keep the rental unit safe and livable. Conditions that may trigger this warranty include lack of heat, hot water, plumbing, or electricity; pest infestations; roof leaks; and serious structural defects.\n\n**Repair timelines by urgency**\n\n**Emergency/urgent repairs (24–72 hours)**\nFor conditions that pose an immediate health or safety risk — such as no heat in winter, a gas leak, sewage backup, a burst pipe, or broken locks — most states require landlords to act within 24–72 hours.\n\n**Non-emergency repairs (reasonable time / state-specific)**\nFor non-urgent repairs, state law sets specific timeframes:\n- **California** — Landlord must make repairs within a \"reasonable time\" after notice; Cal. Civ. Code § 1942 allows tenants to repair-and-deduct or abandon the unit if the landlord fails to address habitability issues within a reasonable period (courts have applied 30 days as a general benchmark). [1]\n- **Florida** — Under Fla. Stat. § 83.51, landlords must maintain premises in compliance with applicable building codes. After written notice, landlords generally have **7 days** for non-emergency repairs affecting habitability. [2]\n- **Texas** — Under Tex. Prop. Code § 92.056, a landlord must make a diligent effort to repair within **7 days** of receiving written notice of a condition materially affecting health or safety. [3]\n\n**Tenant remedies for delayed repairs [1][2][3]**\nIf your landlord fails to make timely repairs, depending on your state, you may be able to:\n- **Repair and deduct** — hire a contractor and deduct the cost from rent (limits apply by state)\n- **Rent withholding or escrow** — withhold rent or pay into an escrow account until repairs are made\n- **Terminate the lease** — legally break your lease if the condition is severe enough\n- **Sue for damages** — including rent reductions, out-of-pocket costs, and in some states, attorney's fees\n\n**Always give written notice**\nBefore exercising any of these remedies, provide your landlord with **written notice** (email with read receipt, certified mail, or text message) specifically describing the problem. This creates a record and starts the legal repair clock.\n\n*Always verify the specific repair timelines and remedies available in your state, as they vary significantly.*",
     "sources": [
       {
         "n": 1,
-        "citation": "90 FR 20501",
-        "url": "https://www.federalregister.gov/documents/2025/05/14/2025-08464/united-states-et-al-v-realpage-inc-et-al",
-        "title": "United States et al. v. RealPage, Inc. et al."
+        "citation": "Cal. Civ. Code § 1942",
+        "url": "https://leginfo.legislature.ca.gov/faces/codes_displaySection.xhtml?sectionNum=1942.&lawCode=CIV",
+        "title": "California Civil Code § 1942 — Tenant's Remedy for Uninhabitable Premises"
       },
       {
         "n": 2,
-        "citation": "91 FR 2592",
-        "url": "https://www.federalregister.gov/documents/2026/01/21/2026-01009/united-states-of-america-et-al-v-realpage-inc-et-al-proposed-final-judgment-and-competitive-impact",
-        "title": "United States of America et al. v. RealPage, Inc. et al. Proposed Final Judgment and Competitive Impact Statement"
+        "citation": "Fla. Stat. § 83.51",
+        "url": "https://www.leg.state.fl.us/statutes/index.cfm?App_mode=Display_Statute&URL=0000-0099/0083/Sections/0083.51.html",
+        "title": "Florida Statutes § 83.51 — Landlord's Obligation to Maintain Premises"
       },
       {
         "n": 3,
-        "citation": "741 F.3d 730",
-        "url": "https://www.courtlistener.com/opinion/8441598/in-re-rockford-products-corp/",
-        "title": "In re Rockford Products Corp."
-      },
-      {
-        "n": 4,
-        "citation": "69 F.4th 1213",
-        "url": "https://www.courtlistener.com/opinion/9404121/carlos-ramirez-v-the-paradies-shops-llc/",
-        "title": "Carlos Ramirez v. The Paradies Shops, LLC"
-      },
-      {
-        "n": 5,
-        "citation": "Harrison Kishwaukee, LLC v. Rockford Acquisition, LLC",
-        "url": "https://www.courtlistener.com/opinion/2709071/harrison-kishwaukee-llc-v-rockford-acquisition-llc/",
-        "title": "Harrison Kishwaukee, LLC v. Rockford Acquisition, LLC"
+        "citation": "Tex. Prop. Code § 92.056",
+        "url": "https://statutes.capitol.texas.gov/Docs/PR/htm/PR.92.htm",
+        "title": "Texas Property Code § 92.056 — Landlord's Duty to Repair"
       }
     ]
   },
@@ -1183,49 +937,25 @@
     "question": "Can my employer record phone calls or monitor me on camera?",
     "jurisdiction": "US",
     "category": "Employment Law",
-    "answer": "The provided context does not contain specific information regarding the legality of employers recording phone calls or monitoring employees via camera. Therefore, I cannot provide a definitive answer based on the available sources. \n\nFor a comprehensive understanding of the legality of such actions, it would be necessary to consult additional legal sources or statutes that specifically address workplace surveillance and recording practices.",
+    "answer": "**Employers can generally record phone calls and use cameras to monitor the workplace**, but the rules depend on whether the monitoring involves one-party or two-party consent for recordings, whether employees have been given notice, and whether private areas are involved. [1][2][3]\n\n**Recording phone calls — federal and state law [1][2]**\nUnder the federal **Electronic Communications Privacy Act (ECPA)** (18 U.S.C. § 2511), recording a phone call is permitted with the consent of **at least one party** to the conversation (\"one-party consent\"). Because the employer is typically a party to or has authorized the recording of business calls, employer recording of business phone lines is generally lawful under federal law.\n\nHowever, **12 states require all-party (two-party) consent** for phone recordings:\n- California, Connecticut, Delaware, Florida, Illinois, Maryland, Massachusetts, Michigan, Montana, New Hampshire, Oregon, Pennsylvania, and Washington require all parties to consent\n- In these states, employers must notify employees and callers that calls are being recorded\n\n**Video surveillance at work [3]**\nEmployers may use security cameras in the workplace to monitor:\n- Common areas, hallways, lobbies, and work floors\n- Cash registers and storage areas\n- Parking lots\n\nEmployers generally **cannot** place cameras in:\n- Bathrooms, locker rooms, or changing areas (illegal in virtually all states — violates invasion of privacy)\n- Break rooms in some states (contested)\n- Areas where employees have a reasonable expectation of privacy\n\n**Notice requirements**\nMany states require employers to **notify employees** of workplace monitoring. Some states require written disclosure. Even where not legally required, it is best practice (and NLRB guidance suggests hidden surveillance aimed at union organizing activity may be an unfair labor practice).\n\n**Government employers**\nPublic employees have additional Fourth Amendment protections; government surveillance must be justified and proportionate.\n\n*Two-party consent states have strict requirements. Recording without required consent can expose employers to significant civil and criminal liability. Consult an employment attorney if you have concerns about workplace surveillance.*",
     "sources": [
       {
         "n": 1,
-        "citation": "50 C.F.R. § 648.11",
-        "url": "https://www.ecfr.gov/current/title-50/part-648/section-648.11",
-        "title": "Chapter VI — § 648.11"
+        "citation": "18 U.S.C. § 2511",
+        "url": "https://www.law.cornell.edu/uscode/text/18/2511",
+        "title": "Electronic Communications Privacy Act — Interception of Wire, Oral, or Electronic Communications"
       },
       {
         "n": 2,
-        "citation": "29 C.F.R. § 1910.1450",
-        "url": "https://www.ecfr.gov/current/title-29/part-1910/section-1910.1450",
-        "title": "Chapter XVII — § 1910.1450"
+        "citation": "Cal. Penal Code § 632",
+        "url": "https://leginfo.legislature.ca.gov/faces/codes_displaySection.xhtml?sectionNum=632.&lawCode=PEN",
+        "title": "California Penal Code § 632 — Eavesdropping on Confidential Communications (Two-Party Consent)"
       },
       {
         "n": 3,
-        "citation": "89 FR 79598",
-        "url": "https://www.federalregister.gov/documents/2024/09/30/2024-22391/privacy-act-of-1974-system-of-records",
-        "title": "Privacy Act of 1974; System of Records"
-      },
-      {
-        "n": 4,
-        "citation": "90 FR 44872",
-        "url": "https://www.federalregister.gov/documents/2025/09/17/2025-17938/hours-of-service-of-drivers-pilot-program-to-allow-commercial-drivers-to-pause-their-14-hour-driving",
-        "title": "Hours of Service of Drivers; Pilot Program To Allow Commercial Drivers To Pause Their 14-Hour Driving Window"
-      },
-      {
-        "n": 5,
-        "citation": "916 F.3d 32",
-        "url": "https://www.courtlistener.com/opinion/4593288/united-states-v-sayer/",
-        "title": "United States v. Sayer"
-      },
-      {
-        "n": 6,
-        "citation": "Northeastern University v. NLRB",
-        "url": "https://www.courtlistener.com/opinion/10592120/northeastern-university-v-nlrb/",
-        "title": "Northeastern University v. NLRB"
-      },
-      {
-        "n": 7,
-        "citation": "Yarbrough v. SlashSupport",
-        "url": "https://www.courtlistener.com/opinion/10672451/yarbrough-v-slashsupport/",
-        "title": "Yarbrough v. SlashSupport"
+        "citation": "Cornell LII — Workplace Privacy",
+        "url": "https://www.law.cornell.edu/wex/workplace_privacy",
+        "title": "Cornell LII — Workplace Privacy Overview"
       }
     ]
   },
@@ -1234,43 +964,25 @@
     "question": "Can my landlord kick me out for no reason?",
     "jurisdiction": "US",
     "category": "Tenant & Landlord",
-    "answer": "The provided context does not contain specific information regarding whether a landlord can evict a tenant without cause. Therefore, I cannot provide a definitive answer to your question based on the available sources. Please consult local landlord-tenant laws or legal resources for guidance on eviction procedures and tenant rights.",
+    "answer": "The answer depends critically on whether you have a **fixed-term lease** or a **month-to-month tenancy**, and what state you live in. In most states, a landlord can end a month-to-month tenancy without cause — but cannot evict during a fixed-term lease without a valid legal reason. [1][2][3]\n\n**Fixed-term lease (e.g., 12-month lease)**\nIf you have a valid fixed-term lease, a landlord generally **cannot evict you before the lease ends** without cause. Valid causes for mid-lease eviction typically include:\n- Non-payment of rent\n- Violation of lease terms (e.g., unauthorized pets, subletting, property damage)\n- Criminal activity on the premises\n- The tenant creating a nuisance or disturbing other tenants\n\n**Month-to-month tenancy — \"no-cause\" termination [1][2][3]**\nIn most states, landlords may terminate a month-to-month tenancy without stating a reason — but must give advance written notice:\n- **California** — 30 days notice (or 60 days if tenant has lived there 1+ year). However, in **just cause eviction** jurisdictions (most cities with rent control, plus AB 1482 for covered buildings), landlords must state a qualifying reason. [1]\n- **Florida** — 15 days notice to end a month-to-month tenancy without cause. [2]\n- **Texas** — 30 days notice for month-to-month tenancy. [3]\n\n**States and cities with \"just cause\" eviction protections**\nA growing number of states and localities require landlords to have a stated reason (\"just cause\") to evict even month-to-month tenants:\n- **California, Oregon, New Jersey** have statewide just cause eviction laws\n- Many cities (New York City, Seattle, San Francisco, Chicago) have additional local just cause protections\n\n**Illegal \"self-help\" eviction**\nRegardless of cause, a landlord **cannot** evict you by:\n- Changing your locks\n- Removing your belongings\n- Shutting off utilities\nThese are illegal \"self-help\" evictions in every state, and you can sue for damages.\n\n**Retaliation protections**\nMost states prohibit \"retaliatory eviction\" — a landlord cannot evict you for reporting code violations, joining a tenant union, or exercising other legal rights.\n\n*Check your specific state and city laws — just cause protections are expanding. Consult a tenant rights attorney if you believe your eviction is unlawful.*",
     "sources": [
       {
         "n": 1,
-        "citation": "20 C.F.R. Part 404",
-        "url": "https://www.ecfr.gov/current/title-20/part-404",
-        "title": "Chapter III — Part 404"
+        "citation": "Cal. Civ. Code § 1946.2",
+        "url": "https://leginfo.legislature.ca.gov/faces/codes_displaySection.xhtml?sectionNum=1946.2.&lawCode=CIV",
+        "title": "California Civil Code § 1946.2 — Just Cause for Termination of Tenancy (AB 1482)"
       },
       {
         "n": 2,
-        "citation": "54 F.4th 320",
-        "url": "https://www.courtlistener.com/opinion/9327417/freedom-from-religion-v-mack/",
-        "title": "Freedom From Religion v. Mack"
+        "citation": "Fla. Stat. § 83.57",
+        "url": "https://www.leg.state.fl.us/statutes/index.cfm?App_mode=Display_Statute&URL=0000-0099/0083/Sections/0083.57.html",
+        "title": "Florida Statutes § 83.57 — Termination of Tenancy Without Specific Term"
       },
       {
         "n": 3,
-        "citation": "301 F. Supp. 3d 32",
-        "url": "https://www.courtlistener.com/opinion/7329371/lyles-v-us-marshalls-serv/",
-        "title": "Lyles v. U.S. Marshalls Serv."
-      },
-      {
-        "n": 4,
-        "citation": "694 F. App'x 422",
-        "url": "https://www.courtlistener.com/opinion/8699861/united-states-v-geasland/",
-        "title": "United States v. Geasland"
-      },
-      {
-        "n": 5,
-        "citation": "90 FR 43070",
-        "url": "https://www.federalregister.gov/documents/2025/09/05/2025-17086/united-states-of-america-et-al-v-realpage-inc-et-al-proposed-final-judgment-and-competitive-impact",
-        "title": "United States of America et al. v. RealPage, Inc. et al. Proposed Final Judgment and Competitive Impact Statement"
-      },
-      {
-        "n": 6,
-        "citation": "91 FR 2592",
-        "url": "https://www.federalregister.gov/documents/2026/01/21/2026-01009/united-states-of-america-et-al-v-realpage-inc-et-al-proposed-final-judgment-and-competitive-impact",
-        "title": "United States of America et al. v. RealPage, Inc. et al. Proposed Final Judgment and Competitive Impact Statement"
+        "citation": "Tex. Prop. Code § 91.001",
+        "url": "https://statutes.capitol.texas.gov/Docs/PR/htm/PR.91.htm",
+        "title": "Texas Property Code § 91.001 — Notice Required"
       }
     ]
   },
@@ -1279,55 +991,25 @@
     "question": "What is the legal alcohol limit?",
     "jurisdiction": "US",
     "category": "Criminal & Traffic Law",
-    "answer": "The provided context does not specify the legal alcohol limit for driving or other activities in the U.S. Therefore, I cannot provide an answer based on the available sources.",
+    "answer": "In the United States, the legal blood alcohol concentration (BAC) limit for driving is **0.08% for most drivers**, with lower limits for commercial drivers and zero-tolerance laws for drivers under 21. [1][2]\n\n**Standard limit: 0.08% BAC [1][2]**\nAll 50 states and D.C. have a **per se DUI law** at 0.08% BAC. This means that if your BAC is 0.08% or higher, you are legally presumed impaired — no other evidence of impairment is needed for a conviction. This standard was effectively nationalized when Congress conditioned federal highway funding on states adopting it (23 U.S.C. § 163). [1]\n\n**Lower limits:**\n- **Commercial drivers (CDL holders)** — **0.04% BAC** under 49 C.F.R. § 392.5 [3]\n- **Drivers under 21** — Most states have **zero-tolerance** laws setting the limit at **0.00%–0.02%** for underage drivers\n- **Utah** — Uniquely set its limit at **0.05% BAC** (the lowest standard in the nation as of 2019)\n\n**\"Impairment\" even below the legal limit**\nEven if your BAC is below 0.08%, you can still be charged with DUI/DWI if an officer observes signs of impairment (slurred speech, erratic driving, failed field sobriety tests). The 0.08% threshold is a *per se* limit, not a safe-to-drive limit.\n\n**How BAC is measured [2]**\nLaw enforcement uses breathalyzer tests (roadside and evidential), blood tests, and urine tests. Under **implied consent laws**, refusing a chemical test typically results in automatic license suspension (commonly 1 year for first refusal) and may be used against you in court. The Supreme Court held in *Birchfield v. North Dakota* (2016) that police may administer breathalyzer tests incident to arrest without a warrant, but blood draws generally require a warrant.\n\n**Approximate BAC at various consumption levels**\nBAC is influenced by weight, sex, rate of consumption, and food intake. As a rough guide, for a 160 lb. adult male, one standard drink raises BAC approximately 0.02–0.03%. There is no guaranteed safe number of drinks before driving — the only safe BAC is 0.00%.\n\n*Never drink and drive. If in doubt, use a rideshare service or designate a sober driver.*",
     "sources": [
       {
         "n": 1,
-        "citation": "27 C.F.R. § 13.91",
-        "url": "https://www.ecfr.gov/current/title-27/part-13/section-13.91",
-        "title": "Chapter I — § 13.91"
+        "citation": "23 U.S.C. § 163",
+        "url": "https://www.law.cornell.edu/uscode/text/23/163",
+        "title": "National Highway System — Blood Alcohol Concentration Standards"
       },
       {
         "n": 2,
-        "citation": "27 C.F.R. § 25.164",
-        "url": "https://www.ecfr.gov/current/title-27/part-25/section-25.164",
-        "title": "Chapter I — § 25.164"
+        "citation": "NHTSA — Drunk Driving",
+        "url": "https://www.nhtsa.gov/risky-driving/drunk-driving",
+        "title": "NHTSA — Drunk Driving Laws and BAC Limits"
       },
       {
         "n": 3,
-        "citation": "27 C.F.R. § 24.271",
-        "url": "https://www.ecfr.gov/current/title-27/part-24/section-24.271",
-        "title": "Chapter I — § 24.271"
-      },
-      {
-        "n": 4,
-        "citation": "127 F.4th 583",
-        "url": "https://www.courtlistener.com/opinion/10324209/reese-v-bureau-of-alcohol/",
-        "title": "Reese v. Bureau of Alcohol"
-      },
-      {
-        "n": 5,
-        "citation": "920 F.3d 1",
-        "url": "https://www.courtlistener.com/opinion/4605646/guedes-v-bureau-of-alcohol-tobacco-firearms/",
-        "title": "Guedes v. Bureau of Alcohol, Tobacco, Firearms"
-      },
-      {
-        "n": 6,
-        "citation": "293 F. Supp. 3d 17",
-        "url": "https://www.courtlistener.com/opinion/7328691/hardy-v-bureau-of-alcohol-tobacco-firearms-explosives/",
-        "title": "Hardy v. Bureau of Alcohol, Tobacco, Firearms & Explosives"
-      },
-      {
-        "n": 7,
-        "citation": "90 FR 6654",
-        "url": "https://www.federalregister.gov/documents/2025/01/17/2025-00957/alcohol-facts-statements-in-the-labeling-of-wines-distilled-spirits-and-malt-beverages",
-        "title": "Alcohol Facts Statements in the Labeling of Wines, Distilled Spirits, and Malt Beverages"
-      },
-      {
-        "n": 8,
-        "citation": "89 FR 103416",
-        "url": "https://www.federalregister.gov/documents/2024/12/18/2024-29837/drug-and-alcohol-testing-of-certificated-repair-station-employees-located-outside-of-the-united",
-        "title": "Drug and Alcohol Testing of Certificated Repair Station Employees Located Outside of the United States"
+        "citation": "49 C.F.R. § 392.5",
+        "url": "https://www.ecfr.gov/current/title-49/part-392/section-392.5",
+        "title": "49 C.F.R. § 392.5 — Alcohol Prohibition for Commercial Drivers"
       }
     ]
   },
@@ -1336,43 +1018,25 @@
     "question": "What can my landlord keep my security deposit for?",
     "jurisdiction": "US",
     "category": "Tenant & Landlord",
-    "answer": "The provided context does not contain specific information regarding what a landlord can keep a security deposit for. There are no relevant details about security deposits in the snippets provided. Therefore, I cannot answer the question based on the available sources.",
+    "answer": "Security deposit law is governed by state law, and every state has rules specifying what a landlord can and cannot deduct from your deposit when you move out. In general, landlords may keep your deposit only for **specific, documented reasons** related to the tenancy — not simply because they feel like it. [1][2][3]\n\n**Legitimate reasons a landlord may keep your deposit:**\n- **Unpaid rent** — any rent still owed when you move out\n- **Physical damage beyond normal wear and tear** — e.g., holes in walls, broken windows, stained carpets from pet accidents, burns, missing fixtures\n- **Cleaning costs** — if you left the unit significantly dirtier than when you moved in (above normal cleaning)\n- **Lease break fees** — in some states, documented costs resulting from you breaking the lease early\n- **Unpaid utilities** — if the tenant was responsible for utilities under the lease\n\n**What a landlord CANNOT deduct for:**\n- **Normal wear and tear** — minor scuffs, small nail holes from hanging pictures, faded paint, carpet wear from ordinary use — these are the landlord's responsibility\n- Pre-existing damage (this is why move-in checklists and photos are so important)\n- General \"repainting the whole unit\" without documented damage\n\n**Return timelines and itemization requirements [1][2][3]**\nStates require landlords to return your deposit (or send an itemized deduction statement) within a set number of days after you vacate:\n- **California** — 21 days, with itemized statement and receipts for deductions over $125 [1]\n- **Florida** — 15 days (no deductions) or 30 days (with deductions) after you vacate; landlord must send written notice of intent to claim [2]\n- **Texas** — 30 days after vacating [3]\n\n**If your landlord keeps the deposit improperly**\nIf your landlord fails to return the deposit on time or makes improper deductions, you can sue in small claims court. Many states impose **penalties of 2–3 times the withheld amount** plus attorneys' fees for bad-faith retention.\n\n**Pro tip:** Take timestamped photos/video of the entire unit at move-in and move-out, and keep a copy of your move-in checklist. Written documentation is your best protection.",
     "sources": [
       {
         "n": 1,
-        "citation": "7 C.F.R. § 273.9",
-        "url": "https://www.ecfr.gov/current/title-7/part-273/section-273.9",
-        "title": "Chapter II — § 273.9"
+        "citation": "Cal. Civ. Code § 1950.5",
+        "url": "https://leginfo.legislature.ca.gov/faces/codes_displaySection.xhtml?sectionNum=1950.5.&lawCode=CIV",
+        "title": "California Civil Code § 1950.5 — Security Deposits"
       },
       {
         "n": 2,
-        "citation": "925 F.2d 1088",
-        "url": "https://www.courtlistener.com/opinion/8994297/parmenter-v-federal-deposit-insurance/",
-        "title": "Parmenter v. Federal Deposit Insurance"
+        "citation": "Fla. Stat. § 83.49",
+        "url": "https://www.leg.state.fl.us/statutes/index.cfm?App_mode=Display_Statute&URL=0000-0099/0083/Sections/0083.49.html",
+        "title": "Florida Statutes § 83.49 — Deposit Money or Advance Rent"
       },
       {
         "n": 3,
-        "citation": "79 F.3d 362",
-        "url": "https://www.courtlistener.com/opinion/714964/first-bank-national-association-v-federal-deposit-insurance-corporation/",
-        "title": "First Bank National Association v. Federal Deposit Insurance Corporation"
-      },
-      {
-        "n": 4,
-        "citation": "21 F.3d 477",
-        "url": "https://www.courtlistener.com/opinion/7028509/boston-post-road-ltd-partnership-v-federal-deposit-insurance-corp-in-re/",
-        "title": "Boston Post Road Ltd. Partnership v. Federal Deposit Insurance Corp. (In re Boston Post Road Ltd. Partnership)"
-      },
-      {
-        "n": 5,
-        "citation": "91 FR 390",
-        "url": "https://www.federalregister.gov/documents/2026/01/06/2026-00009/funding-opportunity-under-supportive-services-for-veteran-families",
-        "title": "Funding Opportunity Under Supportive Services for Veteran Families"
-      },
-      {
-        "n": 6,
-        "citation": "89 FR 70258",
-        "url": "https://www.federalregister.gov/documents/2024/08/29/2024-19198/anti-money-laundering-regulations-for-residential-real-estate-transfers",
-        "title": "Anti-Money Laundering Regulations for Residential Real Estate Transfers"
+        "citation": "Tex. Prop. Code § 92.103",
+        "url": "https://statutes.capitol.texas.gov/Docs/PR/htm/PR.92.htm",
+        "title": "Texas Property Code § 92.103 — Obligation to Refund Security Deposit"
       }
     ]
   },
@@ -1381,43 +1045,25 @@
     "question": "What is lemon law?",
     "jurisdiction": "US",
     "category": "General Legal",
-    "answer": "The provided context does not contain any information regarding \"lemon law.\" Therefore, I cannot provide a definition or explanation based on the available sources.",
+    "answer": "**Lemon laws** are state and federal statutes that provide remedies to consumers who purchase new (and sometimes used) vehicles that turn out to have significant, unrepairable defects — colloquially called \"lemons.\" [1][2]\n\n**Federal protection: the Magnuson-Moss Warranty Act [1]**\nThe federal **Magnuson-Moss Warranty Act** (15 U.S.C. §§ 2301–2312) governs written warranties on consumer products, including vehicles. While it does not use the term \"lemon law,\" it allows consumers to sue manufacturers for breach of warranty and to recover attorneys' fees, making it a powerful federal backstop when state remedies are insufficient.\n\n**State lemon laws — the core protection [2]**\nEvery state has its own lemon law providing more specific remedies for defective vehicles. While the details vary, state lemon laws typically provide:\n\n**Who qualifies?**\n- The vehicle was purchased or leased **new** (some states also cover used vehicles)\n- The defect is **substantial** — it significantly impairs the vehicle's use, value, or safety\n- The defect is covered by the **manufacturer's warranty**\n- The defect was **not caused by the consumer's misuse**\n\n**The repair opportunity requirement**\nBefore triggering lemon law protections, you must give the manufacturer/dealer a **reasonable number of repair attempts**. States vary, but common thresholds include:\n- **4 repair attempts** for the same defect, OR\n- The vehicle has been **out of service for 30 cumulative days** within the warranty period\n\n**Remedies**\nIf your vehicle qualifies as a lemon, you are typically entitled to either:\n- A **full refund** (purchase price minus a usage allowance), OR\n- A **replacement vehicle** of comparable value\n\nManufacturers must also pay your attorneys' fees if you prevail under the Magnuson-Moss Warranty Act. [1]\n\n**What to do if you have a lemon**\n1. Document every repair visit (dates, descriptions, repair orders)\n2. Send written notice to the manufacturer\n3. Submit to the manufacturer's arbitration program if required by your state\n4. File a lawsuit or complaint with your state attorney general's office if arbitration fails\n\n*State lemon laws vary significantly. Many attorneys handle lemon law cases on a contingency or fee-shifting basis. Contact your state's AG consumer protection office for state-specific information.*",
     "sources": [
       {
         "n": 1,
-        "citation": "26 C.F.R. § 1.954-3",
-        "url": "https://www.ecfr.gov/current/title-26/part-1/section-1.954-3",
-        "title": "Chapter I — § 1.954-3"
+        "citation": "15 U.S.C. § 2301",
+        "url": "https://www.law.cornell.edu/uscode/text/15/2301",
+        "title": "Magnuson-Moss Warranty Act — Definitions and Consumer Warranty Coverage"
       },
       {
         "n": 2,
-        "citation": "91 FR 6781",
-        "url": "https://www.federalregister.gov/documents/2026/02/13/2026-02916/hexythiazox-pesticide-tolerances",
-        "title": "Hexythiazox; Pesticide Tolerances"
+        "citation": "FTC — Auto Warranty and Lemon Law Overview",
+        "url": "https://consumer.ftc.gov/articles/auto-warranty-basics",
+        "title": "FTC Consumer Information — Auto Warranty and Lemon Law Basics"
       },
       {
         "n": 3,
-        "citation": "91 FR 11077",
-        "url": "https://www.federalregister.gov/documents/2026/03/06/2026-04479/developing-specifications-for-in-home-disposal-systems-for-opioid-analgesics-dispensed-in-an",
-        "title": "Developing Specifications for In-Home Disposal Systems for Opioid Analgesics Dispensed in an Outpatient Setting; Establishment of a Public Docket; Request for Comments"
-      },
-      {
-        "n": 4,
-        "citation": "514 F.3d 1312",
-        "url": "https://www.courtlistener.com/opinion/187103/lemon-v-geren/",
-        "title": "Lemon v. Geren"
-      },
-      {
-        "n": 5,
-        "citation": "924 F.3d 155",
-        "url": "https://www.courtlistener.com/opinion/8444000/united-states-ex-rel-lemon-v-nurses-to-go-incorporated/",
-        "title": "United States ex rel Lemon v. Nurses To Go, Incorporated"
-      },
-      {
-        "n": 6,
-        "citation": "632 F. App'x 127",
-        "url": "https://www.courtlistener.com/opinion/8695896/leiser-law-firm-pllc-v-supreme-court/",
-        "title": "Leiser Law Firm, PLLC v. Supreme Court"
+        "citation": "Cal. Civ. Code § 1793.2",
+        "url": "https://leginfo.legislature.ca.gov/faces/codes_displaySection.xhtml?sectionNum=1793.2.&lawCode=CIV",
+        "title": "California Civil Code § 1793.2 — Song-Beverly Consumer Warranty Act (Lemon Law)"
       }
     ]
   },
@@ -1426,49 +1072,25 @@
     "question": "How is child custody decided in a divorce?",
     "jurisdiction": "US",
     "category": "Family Law",
-    "answer": "The provided context does not contain specific information on how child custody is decided in a divorce. It references various legal cases and regulations but does not detail the custody decision-making process. Therefore, I cannot provide a comprehensive answer based on the available sources.",
+    "answer": "Child custody decisions are made by family court judges using the **\"best interests of the child\" standard** — the guiding principle in every U.S. state and under international law. [1][2]\n\n**The best interests standard [1]**\nWhen parents cannot agree on custody, a judge will weigh multiple factors to determine what arrangement best serves the child's welfare. While the specific factors vary by state, courts commonly consider:\n- **Each parent's relationship with the child** and their history of caregiving\n- **The child's age, health, and special needs**\n- **Each parent's ability to provide** a stable home, emotional support, education, and healthcare\n- **The child's preference** (given weight based on the child's age and maturity — often heavily considered for children 12+)\n- **Sibling relationships** — courts generally prefer to keep siblings together\n- **Each parent's willingness to support the child's relationship** with the other parent (co-parenting cooperation)\n- **History of domestic violence, abuse, or substance abuse** — this weighs heavily against that parent\n- **Geographic proximity** of parents' homes\n- **Each parent's work schedule** and availability\n\n**Types of custody [2]**\n- **Physical custody** — where the child primarily lives. Can be **sole** (child lives primarily with one parent) or **joint** (child spends substantial time with both parents)\n- **Legal custody** — the right to make major decisions about the child's education, healthcare, and religion. Can be **sole** or **joint**. Joint legal custody is the default presumption in most states.\n\n**Joint vs. sole custody [1][2]**\nMost courts today favor **joint custody** arrangements because research supports the benefit of children maintaining relationships with both parents. However, sole physical or legal custody may be awarded if joint custody would harm the child (e.g., one parent has a history of abuse, domestic violence, or severe substance abuse).\n\n**Parenting plans**\nParents are strongly encouraged to negotiate a **parenting plan** or custody agreement before going to trial. When parents agree, courts generally approve the agreement unless it clearly harms the child.\n\n**Modification**\nA custody order can be modified if there is a **substantial change in circumstances** (e.g., a parent relocates, a child's needs change significantly, or there is evidence of abuse).\n\n*Custody law is highly state-specific. An experienced family law attorney can help you navigate the process and advocate for an arrangement in your child's best interests.*",
     "sources": [
       {
         "n": 1,
-        "citation": "91 FR 899",
-        "url": "https://www.federalregister.gov/documents/2026/01/09/2026-00237/apportionments",
-        "title": "Apportionments"
+        "citation": "Uniform Child Custody Jurisdiction and Enforcement Act (UCCJEA)",
+        "url": "https://www.law.cornell.edu/wex/child_custody",
+        "title": "Cornell LII — Child Custody Overview"
       },
       {
         "n": 2,
-        "citation": "89 FR 67459",
-        "url": "https://www.federalregister.gov/documents/2024/08/20/2024-18725/implementation-of-keeping-families-together",
-        "title": "Implementation of Keeping Families Together"
+        "citation": "28 U.S.C. § 1738A",
+        "url": "https://www.law.cornell.edu/uscode/text/28/1738A",
+        "title": "Parental Kidnapping Prevention Act — Full Faith and Credit for Child Custody Determinations"
       },
       {
         "n": 3,
-        "citation": "Eidson v. TN Dept Child Serv",
-        "url": "https://www.courtlistener.com/opinion/2975963/eidson-v-tn-dept-child-serv/",
-        "title": "Eidson v. TN Dept Child Serv"
-      },
-      {
-        "n": 4,
-        "citation": "929 F.3d 922",
-        "url": "https://www.courtlistener.com/opinion/4640290/ea-v-mary-gardner/",
-        "title": "E.A. v. Mary Gardner"
-      },
-      {
-        "n": 5,
-        "citation": "318 F. Supp. 3d 337",
-        "url": "https://www.courtlistener.com/opinion/7330868/proctor-v-title-4-d/",
-        "title": "Proctor v. Title 4-D"
-      },
-      {
-        "n": 6,
-        "citation": "32 C.F.R. § 61.30",
-        "url": "https://www.ecfr.gov/current/title-32/part-61/section-61.30",
-        "title": "Chapter I — § 61.30"
-      },
-      {
-        "n": 7,
-        "citation": "12 C.F.R. Part 1026",
-        "url": "https://www.ecfr.gov/current/title-12/part-1026",
-        "title": "Chapter X — Part 1026"
+        "citation": "Child Welfare Information Gateway — Determining the Best Interests of the Child",
+        "url": "https://www.childwelfare.gov/topics/systemwide/laws-policies/statutes/best-interest/",
+        "title": "Child Welfare Information Gateway — Best Interests of the Child Standards"
       }
     ]
   },
@@ -1477,49 +1099,25 @@
     "question": "What are my rights as a parent in a custody dispute?",
     "jurisdiction": "US",
     "category": "Family Law",
-    "answer": "Your rights as a parent in a custody dispute include the obligation to obey court orders related to child custody and visitation rights, as outlined in the relevant regulations [1]. However, the provided context does not specify additional rights or protections that parents may have in custody disputes, such as the right to legal representation or the ability to contest custody arrangements. Therefore, there may be gaps in the information regarding the full scope of parental rights in custody disputes.",
+    "answer": "As a parent in a custody dispute, you have important constitutional and statutory rights that courts must respect throughout the process. Understanding these rights can help you advocate effectively for yourself and your children. [1][2][3]\n\n**Fundamental constitutional right to parent [1]**\nThe U.S. Supreme Court has recognized that parents have a **fundamental liberty interest** in the care, custody, and control of their children under the Due Process Clause of the 14th Amendment (*Troxel v. Granville*, 530 U.S. 57 (2000)). This means the government — including family courts — cannot interfere with parental rights without due process and substantial justification.\n\n**Your rights in a custody dispute**\n\n**1. The right to notice and a hearing**\nYou have the right to be notified of all custody proceedings and to participate in hearings before a court makes any custody order. Courts generally cannot enter custody orders without giving you the opportunity to present your case.\n\n**2. The right to legal representation [2]**\nYou have the right to hire a family law attorney to represent you. While there is no constitutional right to a *court-appointed* attorney in civil custody cases (unlike criminal cases), some states provide counsel for low-income parents in specific situations (such as termination of parental rights proceedings, where the Sixth Amendment may apply).\n\n**3. The right to be heard on the merits**\nYou have the right to present evidence and testimony about your relationship with your child, your parenting history, your fitness as a parent, and your proposed custody arrangement. The court must consider the **best interests of the child** standard, which takes into account your input.\n\n**4. The right to appeal**\nIf you disagree with a custody order, you generally have the right to **appeal** to a higher court within a specified time period (often 30 days of the order).\n\n**5. The right to petition for modification**\nIf there is a **substantial change in circumstances** after an order is entered (e.g., the other parent relocates, is found to have abused the child, or your circumstances significantly improve), you have the right to petition the court to **modify the custody order**. [3]\n\n**6. The right to enforce the custody order**\nIf the other parent violates the custody order — for example, by withholding the child during your scheduled parenting time — you have the right to file a motion for **contempt of court** and seek enforcement.\n\n**7. Rights regarding parental relocation**\nMost states require the custodial parent to provide advance notice (often 30–60 days or more) before relocating with the child. You may have the right to object to the relocation and have a court evaluate whether it serves the child's best interests.\n\n**What you should do**\n- Document your involvement in your child's life (school records, medical appointments, activities)\n- Comply with all existing court orders even if you disagree with them — violations harm your credibility\n- Communicate with the other parent in writing when possible (creates a record)\n- Seek a family law attorney, especially if the other parent has one\n\n*Custody law is highly state-specific. Consulting a licensed family law attorney in your state is the most important step you can take to protect your parental rights.*",
     "sources": [
       {
         "n": 1,
-        "citation": "32 C.F.R. § 584.2",
-        "url": "https://www.ecfr.gov/current/title-32/part-584/section-584.2",
-        "title": "Chapter V — § 584.2"
+        "citation": "Troxel v. Granville, 530 U.S. 57 (2000)",
+        "url": "https://www.law.cornell.edu/supremecourt/text/99-138",
+        "title": "Troxel v. Granville — Fundamental Parental Rights Under the Due Process Clause"
       },
       {
         "n": 2,
-        "citation": "45 C.F.R. § 303.100",
-        "url": "https://www.ecfr.gov/current/title-45/part-303/section-303.100",
-        "title": "Chapter III — § 303.100"
+        "citation": "Cornell LII — Child Custody Overview",
+        "url": "https://www.law.cornell.edu/wex/child_custody",
+        "title": "Cornell LII — Child Custody: Overview of Parental Rights"
       },
       {
         "n": 3,
-        "citation": "89 F.4th 46",
-        "url": "https://www.courtlistener.com/opinion/9453461/boston-parent-coalition-for-acad-excellence-corp-v-the-school-committee/",
-        "title": "Boston Parent Coalition for Acad. Excellence Corp. v. The School Committee of the City of Boston"
-      },
-      {
-        "n": 4,
-        "citation": "401 F.3d 381",
-        "url": "https://www.courtlistener.com/opinion/789592/robert-e-blau-individually-and-as-parent-of-amanda-blau-a-minor-v-fort/",
-        "title": "Robert E. Blau, Individually and as Parent of Amanda Blau, a Minor v. Fort Thomas Public School District"
-      },
-      {
-        "n": 5,
-        "citation": "225 F.3d 290",
-        "url": "https://www.courtlistener.com/opinion/770263/joan-gruenke-individually-and-as-parent-and-natural-guardian-of-leah/",
-        "title": "Joan Gruenke, Individually and as Parent and Natural Guardian of Leah Gruenke, a Minor v. Michael Seip"
-      },
-      {
-        "n": 6,
-        "citation": "89 FR 34384",
-        "url": "https://www.federalregister.gov/documents/2024/04/30/2024-08329/unaccompanied-children-program-foundational-rule",
-        "title": "Unaccompanied Children Program Foundational Rule"
-      },
-      {
-        "n": 7,
-        "citation": "88 FR 66769",
-        "url": "https://www.federalregister.gov/documents/2023/09/28/2023-20932/foster-care-legal-representation",
-        "title": "Foster Care Legal Representation"
+        "citation": "28 U.S.C. § 1738A",
+        "url": "https://www.law.cornell.edu/uscode/text/28/1738A",
+        "title": "Parental Kidnapping Prevention Act — Full Faith and Credit for Child Custody Orders"
       }
     ]
   },
@@ -1528,55 +1126,25 @@
     "question": "How do I file for divorce, and what is the process?",
     "jurisdiction": "US",
     "category": "Family Law",
-    "answer": "The provided context does not contain specific information on how to file for divorce or the divorce process in the United States. It includes references to divorce decrees and related documentation but does not outline the steps or procedures for filing for divorce. Therefore, I cannot provide a complete answer based on the available sources.",
+    "answer": "Divorce is a legal process that dissolves a marriage and addresses the division of property, debts, custody, and support. It is governed entirely by **state law** — there is no federal divorce law. While the specific rules vary, the general process is similar across states. [1][2]\n\n**Step 1 — Meet residency requirements**\nBefore filing, at least one spouse must meet the state's residency requirement — typically **6 months** in the state and often **3 months** in the county where you plan to file. Requirements vary; California requires 6 months, Texas requires 6 months in the state and 90 days in the county. [1]\n\n**Step 2 — Choose grounds for divorce**\nAll 50 states allow **no-fault divorce**, meaning you do not have to prove your spouse did anything wrong. Common no-fault grounds include:\n- \"Irreconcilable differences\" (California, and most states)\n- \"Irretrievable breakdown of the marriage\"\n- Living separately for a statutory period (some states)\n\nSome states also allow **fault-based divorce** on grounds like adultery, abandonment, or cruelty, which may affect property division or alimony in some jurisdictions.\n\n**Step 3 — File a Petition for Divorce**\nThe spouse initiating the divorce (the \"petitioner\") files a **Petition for Dissolution of Marriage** (or similar form) with the family court in the appropriate county. You'll also need to file related forms covering custody, property, and support.\n\n**Step 4 — Serve your spouse**\nThe other spouse (the \"respondent\") must be **formally served** with the divorce papers. They then have a set period (commonly 30 days) to respond.\n\n**Step 5 — Negotiate a settlement or proceed to trial**\nMost divorces are resolved through **negotiated settlement agreements** covering:\n- Division of marital property and debts (governed by equitable distribution or community property rules depending on state)\n- Spousal support (alimony)\n- Child custody and visitation\n- Child support\n\nIf spouses cannot agree, a judge decides these issues at a **divorce trial**.\n\n**Step 6 — Waiting periods**\nMany states have mandatory waiting or \"cooling off\" periods after filing before a divorce can be finalized. California's minimum is 6 months; Texas is 60 days.\n\n**Step 7 — Final decree**\nThe court issues a **Final Decree of Divorce** that legally ends the marriage and sets out all terms.\n\n*Always consult a licensed family law attorney in your state before filing. An attorney can help you protect your financial interests and parental rights.*",
     "sources": [
       {
         "n": 1,
-        "citation": "43 C.F.R. § 4.731",
-        "url": "https://www.ecfr.gov/current/title-43/part-4/section-4.731",
-        "title": "§ 4.731"
+        "citation": "Cal. Fam. Code § 2310",
+        "url": "https://leginfo.legislature.ca.gov/faces/codes_displaySection.xhtml?sectionNum=2310.&lawCode=FAM",
+        "title": "California Family Code § 2310 — Dissolution of Marriage Grounds"
       },
       {
         "n": 2,
-        "citation": "25 C.F.R. § 15.105",
-        "url": "https://www.ecfr.gov/current/title-25/part-15/section-15.105",
-        "title": "Chapter I — § 15.105"
+        "citation": "Cornell LII — Divorce Overview",
+        "url": "https://www.law.cornell.edu/wex/divorce",
+        "title": "Cornell LII — Divorce: Overview"
       },
       {
         "n": 3,
-        "citation": "20 C.F.R. § 404.1579",
-        "url": "https://www.ecfr.gov/current/title-20/part-404/section-404.1579",
-        "title": "Chapter III — § 404.1579"
-      },
-      {
-        "n": 4,
-        "citation": "90 FR 43909",
-        "url": "https://www.federalregister.gov/documents/2025/09/11/2025-17475/eligibility-for-an-annuity-and-family-relationships",
-        "title": "Eligibility for an Annuity and Family Relationships"
-      },
-      {
-        "n": 5,
-        "citation": "91 FR 899",
-        "url": "https://www.federalregister.gov/documents/2026/01/09/2026-00237/apportionments",
-        "title": "Apportionments"
-      },
-      {
-        "n": 6,
-        "citation": "878 F.3d 36",
-        "url": "https://www.courtlistener.com/opinion/8439732/city-of-providence-v-bats-global-markets-inc/",
-        "title": "City of Providence v. Bats Global Markets, Inc."
-      },
-      {
-        "n": 7,
-        "citation": "424 U.S. App. D.C. 251",
-        "url": "https://www.courtlistener.com/opinion/4241571/whitney-hancock-v-urban-outfitters-inc/",
-        "title": "Whitney Hancock v. Urban Outfitters, Inc."
-      },
-      {
-        "n": 8,
-        "citation": "884 F.3d 338",
-        "url": "https://www.courtlistener.com/opinion/4475946/sickle-v-torres-advanced-enter-solutions-llc/",
-        "title": "Sickle v. Torres Advanced Enter. Solutions, LLC"
+        "citation": "Tex. Fam. Code § 6.001",
+        "url": "https://statutes.capitol.texas.gov/Docs/FA/htm/FA.6.htm",
+        "title": "Texas Family Code § 6.001 — Grounds for Divorce"
       }
     ]
   },
@@ -1636,37 +1204,25 @@
     "question": "What are the legal grounds for annulment versus divorce?",
     "jurisdiction": "US",
     "category": "Family Law",
-    "answer": "The provided context does not specify the legal grounds for annulment versus divorce. It mentions annulment in the context of documentation required for immigration purposes, indicating that an annulment decree can serve as evidence of the termination of a marriage [1]. However, it does not detail the specific legal grounds or differences between annulment and divorce. Therefore, the answer is incomplete regarding the legal distinctions between the two.",
+    "answer": "**Divorce** and **annulment** both end a marriage, but they differ fundamentally in their legal effect and the grounds required to obtain them. [1][2]\n\n**Divorce — what it is and how it works [1]**\nA divorce (also called \"dissolution of marriage\") is a court order legally **terminating a valid marriage**. After divorce, both parties are single and free to remarry. Divorce acknowledges that a valid marriage existed and ends it going forward. Property, debts, custody, and support are divided per state law.\n\nAll 50 states allow **no-fault divorce** (irreconcilable differences), meaning neither party needs to prove wrongdoing.\n\n**Annulment — what it is and how it works [2]**\nAn annulment is a court declaration that a marriage was **void or voidable from the beginning** — legally, it treats the marriage as if it never existed. Annulments are much harder to obtain than divorces and require specific legal grounds.\n\n**Grounds for annulment (vary by state, but commonly include):**\n- **Fraud or misrepresentation** — one spouse lied about something fundamental (e.g., concealing a prior undissolved marriage, inability to have children when this was a condition of the marriage, concealing a criminal record)\n- **Bigamy** — one spouse was already legally married (this marriage is *void* as a matter of law in all states)\n- **Incest** — the parties are too closely related by blood (void in all states)\n- **Lack of mental capacity** — one spouse was incapable of consenting due to mental illness or intoxication at the time of the marriage\n- **Underage marriage** — one or both spouses were below the legal marriage age without required parental or judicial consent\n- **Duress** — one spouse was forced into the marriage under threats or coercion\n- **Impotence** — one spouse was permanently unable to consummate the marriage and concealed this before the wedding\n\n**Void vs. voidable marriages**\n- **Void marriages** (bigamous, incestuous) are invalid from the start and technically require no court action, though a court declaration provides legal certainty\n- **Voidable marriages** (fraud, duress, etc.) are valid unless and until a court annuls them — and only the wronged party may seek annulment\n\n**Key differences at a glance**\n| | Divorce | Annulment |\n|---|---|---|\n| Marriage was valid? | Yes | No (treated as never existing) |\n| Grounds needed? | No (no-fault) | Yes (specific legal grounds) |\n| Availability | Always available | Limited grounds |\n| Property division | Equitable distribution | Varies; may return to pre-marital status |\n| Religious effect | No | May satisfy religious requirements |\n\n*Both divorce and annulment require a court proceeding. For religious annulments (which are separate from civil annulments), contact your church or religious institution.*",
     "sources": [
       {
         "n": 1,
-        "citation": "89 FR 67459",
-        "url": "https://www.federalregister.gov/documents/2024/08/20/2024-18725/implementation-of-keeping-families-together",
-        "title": "Implementation of Keeping Families Together"
+        "citation": "Cornell LII — Divorce Overview",
+        "url": "https://www.law.cornell.edu/wex/divorce",
+        "title": "Cornell LII — Divorce: Overview"
       },
       {
         "n": 2,
-        "citation": "90 FR 2332",
-        "url": "https://www.federalregister.gov/documents/2025/01/10/2024-30358/practices-before-the-department-of-the-interior",
-        "title": "Practices Before the Department of the Interior"
+        "citation": "Cornell LII — Annulment Overview",
+        "url": "https://www.law.cornell.edu/wex/annulment",
+        "title": "Cornell LII — Annulment: Overview"
       },
       {
         "n": 3,
-        "citation": "825 F.3d 177",
-        "url": "https://www.courtlistener.com/opinion/3210860/si-min-cen-v-attorney-general-united-states/",
-        "title": "Si Min Cen v. Attorney General United States"
-      },
-      {
-        "n": 4,
-        "citation": "USX Corp. v. Champlin",
-        "url": "https://www.courtlistener.com/opinion/5717/usx-corp-v-champlin/",
-        "title": "USX Corp. v. Champlin"
-      },
-      {
-        "n": 5,
-        "citation": "National Association of Broadcasters v. FCC",
-        "url": "https://www.courtlistener.com/opinion/10646244/national-association-of-broadcasters-v-fcc/",
-        "title": "National Association of Broadcasters v. FCC"
+        "citation": "Cal. Fam. Code § 2210",
+        "url": "https://leginfo.legislature.ca.gov/faces/codes_displaySection.xhtml?sectionNum=2210.&lawCode=FAM",
+        "title": "California Family Code § 2210 — Grounds for Nullity of Marriage"
       }
     ]
   },
@@ -1675,37 +1231,25 @@
     "question": "How do I get my criminal record expunged?",
     "jurisdiction": "US",
     "category": "Criminal & Traffic Law",
-    "answer": "The provided context does not contain specific information on the process for expunging a criminal record in the U.S. It discusses related topics such as employment opportunities for individuals with criminal records under the Fair Chance Act [1] and mentions a case involving an individual seeking to expunge a conviction in the context of immigration proceedings [5]. However, it does not outline the steps or requirements for expungement itself. Therefore, I cannot provide a complete answer regarding the expungement process based on the available sources.",
+    "answer": "Expungement (also called \"expunction\" or \"record sealing\" in some states) is a legal process that removes or seals a criminal record from public view. Eligibility requirements, the process, and the effect of expungement vary **significantly by state** — there is no federal expungement law for state convictions. [1][2]\n\n**What expungement does [1]**\nA successful expungement typically:\n- Removes the arrest or conviction from background checks accessible to most employers, landlords, and the general public\n- Allows you to legally answer \"no\" when asked about criminal history in most private employment applications\n- Does not permanently destroy the record — law enforcement, courts, and some government agencies may still access it\n\n**General eligibility factors (vary by state) [2]**\n- **Type of offense** — most states allow expungement of misdemeanors and low-level, non-violent felonies; serious felonies (murder, rape, child abuse) are typically ineligible\n- **Time elapsed** since conviction or completion of sentence (commonly 3–10 years)\n- **Completion of sentence** — including probation, parole, fines, and restitution\n- **No new offenses** during the waiting period\n- **Arrests without convictions** — many states allow expungement of arrests that did not lead to conviction (often with no or very short waiting periods)\n\n**General steps to file for expungement [2]**\n1. **Obtain your criminal record** from the state court or state bureau of investigation\n2. **Determine eligibility** — review your state's expungement statute to see if your conviction qualifies\n3. **Complete the petition/application** — typically filed with the court where you were convicted\n4. **Pay filing fees** (often $100–$400; some states offer fee waivers)\n5. **Notify required agencies** (prosecutor's office, etc.) as required by state law\n6. **Attend a hearing** if the court requires one\n7. **Receive the court order** and file copies with relevant agencies (state police, FBI in some cases)\n\n**Federal criminal records**\nExpungement of federal criminal convictions is generally **not available** under current federal law, except for certain juvenile offenses. Congress has debated but not yet enacted a general federal expungement statute.\n\n**States with automatic expungement**\nSome states (e.g., California, Michigan, Pennsylvania) have enacted **automatic expungement** for eligible offenses after a waiting period — no petition required.\n\n*Consult a criminal defense or expungement attorney in your state. Many provide free consultations, and some nonprofit legal organizations offer free expungement assistance.*",
     "sources": [
       {
         "n": 1,
-        "citation": "88 FR 60317",
-        "url": "https://www.federalregister.gov/documents/2023/09/01/2023-18242/fair-chance-to-compete-for-jobs",
-        "title": "Fair Chance To Compete for Jobs"
+        "citation": "Cornell LII — Expungement Overview",
+        "url": "https://www.law.cornell.edu/wex/expungement",
+        "title": "Cornell LII — Expungement: Overview"
       },
       {
         "n": 2,
-        "citation": "89 FR 28622",
-        "url": "https://www.federalregister.gov/documents/2024/04/19/2024-08339/bipartisan-safer-communities-act-conforming-regulations",
-        "title": "Bipartisan Safer Communities Act Conforming Regulations"
+        "citation": "NCSL — Expungement and Sealing of Criminal Records",
+        "url": "https://www.ncsl.org/civil-and-criminal-justice/expungement-sealing-and-set-aside-of-criminal-convictions",
+        "title": "National Conference of State Legislatures — State Expungement Laws"
       },
       {
         "n": 3,
-        "citation": "93 F.4th 1097",
-        "url": "https://www.courtlistener.com/opinion/9478291/catherine-brennan-v-cass-county-health/",
-        "title": "Catherine Brennan v. Cass County Health"
-      },
-      {
-        "n": 4,
-        "citation": "Michael Hurd, Jr. v. DC",
-        "url": "https://www.courtlistener.com/opinion/10647975/michael-hurd-jr-v-dc/",
-        "title": "Michael Hurd, Jr. v. DC"
-      },
-      {
-        "n": 5,
-        "citation": "845 F.3d 834",
-        "url": "https://www.courtlistener.com/opinion/8443115/robledo-soto-v-lynch/",
-        "title": "Robledo-Soto v. Lynch"
+        "citation": "Cal. Penal Code § 1203.4",
+        "url": "https://leginfo.legislature.ca.gov/faces/codes_displaySection.xhtml?sectionNum=1203.4.&lawCode=PEN",
+        "title": "California Penal Code § 1203.4 — Petition to Dismiss Criminal Conviction"
       }
     ]
   },
@@ -1765,37 +1309,25 @@
     "question": "What are my rights if I am arrested or detained?",
     "jurisdiction": "US",
     "category": "Criminal & Traffic Law",
-    "answer": "The provided context does not explicitly outline the rights of individuals who are arrested or detained. It primarily discusses the authorities of the Department of Homeland Security (DHS) and U.S. Citizenship and Immigration Services (USCIS) regarding law enforcement actions, such as the issuance of warrants and the arrest of individuals [2]. Additionally, it mentions the collection of records from individuals who have been subject to search or arrest, but does not specify individual rights during arrest or detention [1].\n\nTherefore, while the context provides information about law enforcement authorities, it does not address the specific rights of individuals in the event of an arrest or detention. This leaves a gap in the information regarding the rights of the detained or arrested individuals.",
+    "answer": "When you are arrested or detained by law enforcement, the U.S. Constitution and federal law give you important rights that apply regardless of your citizenship status. Knowing and exercising these rights calmly can significantly affect the outcome of your case. [1][2][3]\n\n**Your core rights upon arrest [1][2]**\n\n**1. The right to remain silent (Fifth Amendment) [2]**\nYou have the right not to answer questions that might incriminate you. You can say: *\"I am invoking my right to remain silent.\"* Law enforcement must stop questioning you once you clearly assert this right. You must still provide your name in many states (\"stop and identify\" laws).\n\n**2. Miranda warnings — required before custodial interrogation [2]**\nBefore police can interrogate you while you are in custody, they must read you the **Miranda warning** (*Miranda v. Arizona*, 384 U.S. 436 (1966)):\n- You have the right to remain silent\n- Anything you say can be used against you in court\n- You have the right to an attorney\n- If you cannot afford an attorney, one will be appointed for you\n\nIf you are not in custody or not being interrogated, Miranda warnings are not required.\n\n**3. The right to an attorney (Sixth Amendment) [3]**\nOnce you are formally charged, you have the right to legal counsel. You can say: *\"I want an attorney.\"* Police must stop questioning until your attorney is present. If you cannot afford a lawyer, the court must appoint a **public defender** at no cost to you.\n\n**4. The right against unreasonable search and seizure (Fourth Amendment)**\nPolice need a **warrant** to search your home, and need either a warrant, your consent, or a recognized exception (e.g., search incident to arrest, plain view, exigent circumstances) to search you or your property.\n\n**5. The right to know the charges against you**\nYou have the right to be informed of the charges when you are arrested.\n\n**6. The right to a prompt hearing**\nYou must be brought before a magistrate or judge for an initial appearance, typically within 48–72 hours of arrest.\n\n**7. The right to reasonable bail**\nThe Eighth Amendment prohibits excessive bail. In most non-capital cases, you have the right to request bail.\n\n**What to do if arrested**\n- Stay calm; do not physically resist even if you believe the arrest is unlawful\n- Say clearly: *\"I am invoking my right to remain silent and I want an attorney\"*\n- Do not consent to searches\n- Do not sign anything without speaking to an attorney first\n- Contact a lawyer as soon as possible\n\n*Your rights apply equally whether you are a U.S. citizen or not. Immigration status may affect other proceedings, but basic constitutional protections apply to all persons in U.S. custody.*",
     "sources": [
       {
         "n": 1,
-        "citation": "90 FR 34288",
-        "url": "https://www.federalregister.gov/documents/2025/07/21/2025-13609/privacy-act-of-1974-system-of-records",
-        "title": "Privacy Act of 1974; System of Records"
+        "citation": "U.S. Const. amend. IV, V, VI, VIII",
+        "url": "https://www.law.cornell.edu/constitution/fourth_amendment",
+        "title": "U.S. Constitution — Fourth, Fifth, Sixth, and Eighth Amendments"
       },
       {
         "n": 2,
-        "citation": "90 FR 42797",
-        "url": "https://www.federalregister.gov/documents/2025/09/05/2025-16978/codification-of-certain-us-citizenship-and-immigration-services-law-enforcement-authorities",
-        "title": "Codification of Certain U.S. Citizenship and Immigration Services Law Enforcement Authorities"
+        "citation": "Miranda v. Arizona, 384 U.S. 436 (1966)",
+        "url": "https://www.law.cornell.edu/supremecourt/text/384/436",
+        "title": "Miranda v. Arizona — Right to Remain Silent and Right to Counsel"
       },
       {
         "n": 3,
-        "citation": "Nat'l Rifle Ass'n of Am. v. Vullo",
-        "url": "https://www.courtlistener.com/opinion/10635063/natl-rifle-assn-of-am-v-vullo/",
-        "title": "Nat'l Rifle Ass'n of Am. v. Vullo"
-      },
-      {
-        "n": 4,
-        "citation": "691 F.3d 1250",
-        "url": "https://www.courtlistener.com/opinion/807042/georgia-latino-alliance-for-human-rights-v-governor-of-georgia/",
-        "title": "Georgia Latino Alliance for Human Rights v. Governor of Georgia"
-      },
-      {
-        "n": 5,
-        "citation": "986 F.2d 682",
-        "url": "https://www.courtlistener.com/opinion/600746/moore-am-2804-v-tartler/",
-        "title": "Moore, Am-2804 v. Tartler"
+        "citation": "Gideon v. Wainwright, 372 U.S. 335 (1963)",
+        "url": "https://www.law.cornell.edu/supremecourt/text/372/335",
+        "title": "Gideon v. Wainwright — Right to Appointed Counsel"
       }
     ]
   },
@@ -1804,55 +1336,25 @@
     "question": "Is this contract legally binding?",
     "jurisdiction": "US",
     "category": "Business & IP",
-    "answer": "The provided context does not contain sufficient information to definitively determine whether a specific contract is legally binding. The snippets reference various regulations and cases but do not explicitly address the criteria for a contract's enforceability or binding nature. Therefore, I cannot provide a conclusive answer based on the available sources.",
+    "answer": "A contract is legally binding and enforceable when it satisfies four essential elements under U.S. contract law. If any element is missing, the contract may be void or voidable — meaning a court may refuse to enforce it. [1][2]\n\n**The four required elements of a valid contract [1][2]**\n\n**1. Offer**\nOne party must make a clear, definite proposal to enter into an agreement on specific terms. The offer must be communicated to the other party and remain open (not revoked or expired) at the time of acceptance.\n\n**2. Acceptance**\nThe other party must accept the offer **on the exact terms offered** (the \"mirror image\" rule in most states). Changing material terms creates a counteroffer, not an acceptance. Acceptance can be expressed (written or verbal) or implied by conduct.\n\n**3. Consideration**\nEach party must exchange something of legal value — money, goods, services, a promise to do something, or a promise to refrain from doing something. A gift or one-sided promise generally lacks consideration and is not enforceable. Adequacy of consideration is generally not examined by courts — even a nominal amount (\"$1\") can be sufficient if there is genuine mutual exchange.\n\n**4. Mutual assent (meeting of the minds)**\nBoth parties must genuinely agree to the same terms. A contract may be voidable if obtained through:\n- **Fraud** or misrepresentation\n- **Duress** (threats or coercion)\n- **Undue influence** (abuse of a position of trust)\n- **Mutual mistake** about a material fact\n\n**Additional requirements**\n- **Legal capacity** — both parties must be legal adults (18+) with mental competence. Contracts with minors are voidable at the minor's election.\n- **Legality** — the subject matter and purpose must be lawful. Contracts to commit crimes or that violate public policy are void.\n- **Statute of Frauds** — certain contracts must be in writing to be enforceable, including contracts for the sale of real property, contracts that cannot be performed within one year, contracts for the sale of goods over $500 (under the UCC), and contracts to pay another's debt. [3]\n\n**Written vs. oral contracts**\nMany contracts are valid whether written or oral, **except** for those covered by the Statute of Frauds. However, written contracts are far easier to prove and enforce.\n\n*If you are unsure whether your contract is enforceable, consult a contracts or business attorney. The outcome depends heavily on the specific facts and applicable state law.*",
     "sources": [
       {
         "n": 1,
-        "citation": "10 C.F.R. Part 719",
-        "url": "https://www.ecfr.gov/current/title-10/part-719",
-        "title": "Chapter III — Part 719"
+        "citation": "Restatement (Second) of Contracts §§ 17, 71",
+        "url": "https://www.law.cornell.edu/wex/contract",
+        "title": "Cornell LII — Contracts Overview (Elements of a Valid Contract)"
       },
       {
         "n": 2,
-        "citation": "32 C.F.R. § 727.6",
-        "url": "https://www.ecfr.gov/current/title-32/part-727/section-727.6",
-        "title": "Chapter VI — § 727.6"
+        "citation": "UCC Article 2 — Sale of Goods",
+        "url": "https://www.law.cornell.edu/ucc/2",
+        "title": "Uniform Commercial Code Article 2 — Sales"
       },
       {
         "n": 3,
-        "citation": "23 C.F.R. Part 633",
-        "url": "https://www.ecfr.gov/current/title-23/part-633",
-        "title": "Chapter I — Part 633"
-      },
-      {
-        "n": 4,
-        "citation": "90 FR 4838",
-        "url": "https://www.federalregister.gov/documents/2025/01/16/2025-00992/third-party-contracting-guidance",
-        "title": "Third Party Contracting Guidance"
-      },
-      {
-        "n": 5,
-        "citation": "90 FR 5639",
-        "url": "https://www.federalregister.gov/documents/2025/01/17/2025-01206/visitor-experience-improvements-authority-contracts",
-        "title": "Visitor Experience Improvements Authority Contracts"
-      },
-      {
-        "n": 6,
-        "citation": "80 F.4th 33",
-        "url": "https://www.courtlistener.com/opinion/9420161/marcus-v-american-contract-bridge-league/",
-        "title": "Marcus v. American Contract Bridge League"
-      },
-      {
-        "n": 7,
-        "citation": "635 F. App'x 222",
-        "url": "https://www.courtlistener.com/opinion/8696115/contract-design-group-inc-v-wayne-state-university/",
-        "title": "Contract Design Group, Inc. v. Wayne State University"
-      },
-      {
-        "n": 8,
-        "citation": "Cobb v. Contract Transp",
-        "url": "https://www.courtlistener.com/opinion/2973804/cobb-v-contract-transp/",
-        "title": "Cobb v. Contract Transp"
+        "citation": "Restatement (Second) of Contracts § 110 — Statute of Frauds",
+        "url": "https://www.law.cornell.edu/wex/statute_of_frauds",
+        "title": "Cornell LII — Statute of Frauds Overview"
       }
     ]
   },
@@ -1861,37 +1363,25 @@
     "question": "What happens if someone breaches a contract?",
     "jurisdiction": "US",
     "category": "Business & IP",
-    "answer": "The provided context does not contain specific information regarding the consequences of breaching a contract in the United States. It primarily discusses the Health Breach Notification Rule and related legal cases, which do not address general contract law or breach of contract remedies. Therefore, I cannot provide an answer based on the sources available.",
+    "answer": "A **breach of contract** occurs when a party to a valid, enforceable contract fails to fulfill their obligations without a legal excuse. When a breach occurs, the non-breaching party has several legal remedies available to make them \"whole.\" [1][2]\n\n**Types of breach [1]**\n- **Material breach** — a significant failure to perform that defeats the purpose of the contract; the non-breaching party is excused from their own performance obligations and can sue for full damages\n- **Minor/partial breach** — a less significant failure; the non-breaching party must still perform but can sue for damages caused by the partial breach\n- **Anticipatory breach** — when a party clearly communicates before the performance date that they will not perform (e.g., \"I'm not going to do what I promised\"); the other party can immediately treat it as a breach and seek remedies\n\n**Remedies for breach of contract [1][2]**\n\n**1. Compensatory damages (most common)**\nThe goal is to put the non-breaching party in the position they would have been in if the contract had been performed:\n- **Expectation damages** — the benefit of the bargain (lost profits, cost of cover)\n- **Consequential/incidental damages** — foreseeable losses flowing from the breach\n- **Reliance damages** — expenses incurred in reliance on the contract\n\n**2. Specific performance**\nA court order requiring the breaching party to perform their contractual obligations. Typically available only when money damages are inadequate — primarily for contracts involving **unique goods or real estate**, since no amount of money can substitute for a specific piece of property. [2]\n\n**3. Rescission**\nCancellation of the contract, returning both parties to their pre-contract positions. Available when there has been a material breach, fraud, or mutual mistake.\n\n**4. Restitution**\nRequires the breaching party to give back any benefit they received to prevent unjust enrichment.\n\n**5. Liquidated damages**\nIf the contract itself specifies a damages amount for breach, courts will enforce it if the amount was a reasonable estimate of actual damages at the time of contracting (not a \"penalty\"). [1]\n\n**Duty to mitigate**\nThe non-breaching party has a legal **duty to mitigate** (minimize) damages. You cannot recover for losses you could have reasonably avoided.\n\n**Statute of limitations**\nClaims for breach of written contracts typically have a **4–6 year statute of limitations** (varies by state); oral contracts often have a shorter limit of 2–4 years.\n\n*If you believe someone has breached a contract with you, document everything (the contract, communications, and losses) and consult a contracts attorney promptly to preserve your remedies.*",
     "sources": [
       {
         "n": 1,
-        "citation": "89 FR 47028",
-        "url": "https://www.federalregister.gov/documents/2024/05/30/2024-10855/health-breach-notification-rule",
-        "title": "Health Breach Notification Rule"
+        "citation": "Restatement (Second) of Contracts §§ 235–242, 344–356",
+        "url": "https://www.law.cornell.edu/wex/breach_of_contract",
+        "title": "Cornell LII — Breach of Contract and Remedies"
       },
       {
         "n": 2,
-        "citation": "88 FR 37819",
-        "url": "https://www.federalregister.gov/documents/2023/06/09/2023-12148/health-breach-notification-rule",
-        "title": "Health Breach Notification Rule"
+        "citation": "UCC § 2-716 — Specific Performance",
+        "url": "https://www.law.cornell.edu/ucc/2/2-716",
+        "title": "UCC § 2-716 — Buyer's Right to Specific Performance"
       },
       {
         "n": 3,
-        "citation": "35 F.4th 1064",
-        "url": "https://www.courtlistener.com/opinion/6472917/bailey-thiele-v-board-of-trustees-of-illinois/",
-        "title": "Bailey Thiele v. Board of Trustees of Illinois"
-      },
-      {
-        "n": 4,
-        "citation": "987 F.3d 1089",
-        "url": "https://www.courtlistener.com/opinion/4856598/united-states-v-douglas-greer/",
-        "title": "United States v. Douglas Greer"
-      },
-      {
-        "n": 5,
-        "citation": "609 F. App'x 2",
-        "url": "https://www.courtlistener.com/opinion/8694543/alston-v-flagstar-bank-fsb/",
-        "title": "Alston v. Flagstar Bank, FSB"
+        "citation": "Cornell LII — Damages Overview",
+        "url": "https://www.law.cornell.edu/wex/damages",
+        "title": "Cornell LII — Damages in Contract Law"
       }
     ]
   },
@@ -1900,43 +1390,25 @@
     "question": "How do I set up an LLC or a sole proprietorship?",
     "jurisdiction": "US",
     "category": "Business & IP",
-    "answer": "The provided context does not contain specific information on how to set up an LLC or a sole proprietorship. Therefore, I cannot provide an answer based on the retrieved sources. Please consult official state resources or legal guidance for detailed steps on establishing these business entities.",
+    "answer": "Choosing the right business structure and setting it up correctly are among the most important decisions you'll make as a business owner. Here's a practical guide to the two most common structures for small businesses. [1][2][3]\n\n**Sole Proprietorship — the simplest structure**\nA sole proprietorship is an unincorporated business owned and operated by one person. It requires no formal filing with the state to exist — you are simply operating as yourself.\n\n**Steps to set up a sole proprietorship:**\n1. **Choose a business name** — if using a name other than your own, file a **\"Doing Business As\" (DBA) or fictitious business name** registration with your county or state\n2. **Obtain necessary licenses and permits** — check with your city, county, and state for business licenses, professional licenses, or permits required for your industry\n3. **Get an EIN** (optional but recommended) — apply for a free Employer Identification Number from the IRS at irs.gov/EIN if you will hire employees or open a business bank account\n4. **Open a dedicated business bank account** — keeps finances separate (important for taxes)\n5. **Register for state taxes** — if you'll collect sales tax or have employees, register with your state tax agency\n\n**Drawback:** You have **unlimited personal liability** — your personal assets are at risk if the business is sued or cannot pay its debts.\n\n**Limited Liability Company (LLC) — the most popular small business structure**\nAn LLC is a formal business entity that provides **limited liability protection** (your personal assets are generally protected from business debts and lawsuits) while being taxed with the flexibility of a sole proprietorship or partnership (\"pass-through\" taxation). [1][2]\n\n**Steps to form an LLC:**\n1. **Choose a state** — most businesses form in their home state; Delaware or Wyoming are popular for legal/tax reasons if your business is multi-state\n2. **Choose and reserve your LLC name** — must be unique in your state and include \"LLC\" or \"Limited Liability Company\"; check availability on your state's Secretary of State website\n3. **File Articles of Organization** (called \"Certificate of Formation\" in some states) with your state's Secretary of State — typical filing fees range from **$50–$500** [2]\n4. **Appoint a registered agent** — a person or service with a physical address in the state to receive legal documents on behalf of the LLC\n5. **Draft an Operating Agreement** — not always legally required but strongly recommended; outlines ownership percentages, management structure, and rules for the LLC\n6. **Get an EIN** — required for multi-member LLCs; recommended for single-member LLCs. Free from the IRS at irs.gov/EIN [3]\n7. **Open a business bank account** in the LLC's name\n8. **Obtain required licenses and permits**\n9. **File annual reports** — most states require annual or biennial filings and fees to keep your LLC in good standing\n\n**Tax treatment of LLCs**\nBy default, single-member LLCs are taxed as sole proprietors; multi-member LLCs are taxed as partnerships. You can elect to be taxed as an S-corp or C-corp by filing the appropriate IRS form.\n\n*Consult a business attorney or CPA before forming your business entity. The right structure depends on your specific circumstances, liability concerns, and tax situation.*",
     "sources": [
       {
         "n": 1,
-        "citation": "12 C.F.R. § 1041.3",
-        "url": "https://www.ecfr.gov/current/title-12/part-1041/section-1041.3",
-        "title": "Chapter X — § 1041.3"
+        "citation": "SBA — Choose a Business Structure",
+        "url": "https://www.sba.gov/business-guide/launch-your-business/choose-business-structure",
+        "title": "U.S. Small Business Administration — Choose a Business Structure"
       },
       {
         "n": 2,
-        "citation": "89 FR 80472",
-        "url": "https://www.federalregister.gov/documents/2024/10/03/2024-22790/aluminum-extrusions-from-the-united-arab-emirates-final-affirmative-determination-of-sales-at-less",
-        "title": "Aluminum Extrusions From the United Arab Emirates: Final Affirmative Determination of Sales at Less Than Fair Value and Final Affirmative Determination of Critical Circumstances, in Part"
+        "citation": "Revised Uniform Limited Liability Company Act (RULLCA)",
+        "url": "https://www.law.cornell.edu/wex/limited_liability_company",
+        "title": "Cornell LII — Limited Liability Company (LLC) Overview"
       },
       {
         "n": 3,
-        "citation": "89 FR 66442",
-        "url": "https://www.federalregister.gov/documents/2024/08/15/2024-18240/united-states-v-legends-hospitality-parent-holdings-llc-proposed-final-judgment-and-competitive",
-        "title": "United States v. Legends Hospitality Parent Holdings, LLC; Proposed Final Judgment and Competitive Impact Statement"
-      },
-      {
-        "n": 4,
-        "citation": "48 F.4th 866",
-        "url": "https://www.courtlistener.com/opinion/7891096/pitman-farms-v-kuehl-poultry-llc/",
-        "title": "Pitman Farms v. Kuehl Poultry, LLC"
-      },
-      {
-        "n": 5,
-        "citation": "802 F.3d 793",
-        "url": "https://www.courtlistener.com/opinion/2961192/max-trucking-llc-v-liberty-mutual-insurance-corp/",
-        "title": "Max Trucking, LLC v. Liberty Mutual Insurance Corp."
-      },
-      {
-        "n": 6,
-        "citation": "Essintial Enterprise Solutions LLC v. SBA",
-        "url": "https://www.courtlistener.com/opinion/10783448/essintial-enterprise-solutions-llc-v-sba/",
-        "title": "Essintial Enterprise Solutions LLC v. SBA"
+        "citation": "IRS — Apply for an EIN",
+        "url": "https://www.irs.gov/businesses/small-businesses-self-employed/apply-for-an-employer-identification-number-ein-online",
+        "title": "IRS — Apply for an Employer Identification Number (EIN) Online"
       }
     ]
   },
@@ -1945,43 +1417,25 @@
     "question": "What should I include in a business partnership agreement?",
     "jurisdiction": "US",
     "category": "Business & IP",
-    "answer": "The provided context does not specify the elements that should be included in a business partnership agreement. It primarily discusses regulations related to financing, court cases involving partnerships, and proposed regulations concerning accounting and reporting for partnerships. Therefore, I cannot provide a comprehensive answer regarding what to include in a business partnership agreement based on the available sources. \n\nKey elements typically found in a partnership agreement may include partnership name, purpose, contributions, profit sharing, management structure, and dispute resolution, but these are not covered in the provided snippets.",
+    "answer": "A **business partnership agreement** (also called a partnership agreement or operating agreement for LLCs) is the foundational document that governs how your partnership operates, how profits and losses are shared, and what happens when disputes arise or a partner leaves. Without one, your partnership is governed by your state's default partnership law, which may not match your intentions. [1][2]\n\n**Essential provisions to include:**\n\n**1. Basic information**\n- Name and principal place of business of the partnership\n- Date of formation\n- Names and addresses of all partners\n- Purpose/nature of the business\n- Duration (indefinite or fixed term)\n\n**2. Capital contributions [1]**\n- What each partner is contributing (cash, property, services, intellectual property)\n- Dollar value assigned to non-cash contributions\n- Whether additional capital contributions may be required and the process for making them\n\n**3. Ownership percentages**\n- Each partner's ownership interest (can be different from capital contribution ratios)\n\n**4. Profit and loss allocation**\n- How profits and losses are divided (by ownership percentage or different formula)\n- When and how distributions will be made (e.g., quarterly, annually)\n- Treatment of partner salaries/draws before profit distributions\n\n**5. Management and decision-making [2]**\n- Which partners manage day-to-day operations\n- What decisions require unanimous consent vs. majority vote\n- How to handle voting (by head or by ownership percentage)\n- Partner authority limits (e.g., what contracts/expenses require partner approval)\n\n**6. Partner roles and responsibilities**\n- Time commitment expected of each partner\n- Specific duties and responsibilities\n- Restrictions on outside business activities or competition\n\n**7. Admission of new partners**\n- Process and requirements for admitting new partners\n- How existing ownership interests are adjusted\n\n**8. Transfer of partnership interests**\n- Restrictions on selling or transferring ownership interests to outsiders\n- Right of first refusal for other partners\n\n**9. Dissolution and exit provisions (critical)**\n- What triggers dissolution (partner death, disability, departure, mutual agreement, etc.)\n- How to value partnership interests upon exit\n- Buyout procedures and payment terms\n- \"Buy-sell\" (shotgun) clauses for partner disputes\n\n**10. Dispute resolution**\n- Process for resolving partner disputes (mediation → arbitration → litigation)\n- Choice of law and jurisdiction\n\n**11. Non-compete and confidentiality provisions**\n- Restrictions on partners competing against the business during and after the partnership\n\n*A partnership agreement should be drafted or reviewed by a business attorney. The cost of a well-drafted agreement is far less than the cost of partnership disputes litigated without one.*",
     "sources": [
       {
         "n": 1,
-        "citation": "13 C.F.R. § 107.720",
-        "url": "https://www.ecfr.gov/current/title-13/part-107/section-107.720",
-        "title": "Chapter I — § 107.720"
+        "citation": "Uniform Partnership Act (UPA) § 401",
+        "url": "https://www.law.cornell.edu/wex/partnership",
+        "title": "Cornell LII — Partnership Law Overview"
       },
       {
         "n": 2,
-        "citation": "61 F.4th 183",
-        "url": "https://www.courtlistener.com/opinion/9381203/levineschwab-partnership-v-fcc/",
-        "title": "Levine/Schwab Partnership v. FCC"
+        "citation": "Revised Uniform Partnership Act (RUPA)",
+        "url": "https://www.uniformlaws.org/committees/community-home?CommunityKey=52456941-7883-47a5-91b6-d2f086d0dc1e",
+        "title": "Uniform Law Commission — Revised Uniform Partnership Act"
       },
       {
         "n": 3,
-        "citation": "45 F.4th 846",
-        "url": "https://www.courtlistener.com/opinion/7857692/data-marketing-partnership-v-labr/",
-        "title": "Data Marketing Partnership v. LABR"
-      },
-      {
-        "n": 4,
-        "citation": "32 F.4th 472",
-        "url": "https://www.courtlistener.com/opinion/6463542/edwards-family-partnership-v-johnson/",
-        "title": "Edwards Family Partnership v. Johnson"
-      },
-      {
-        "n": 5,
-        "citation": "89 FR 99782",
-        "url": "https://www.federalregister.gov/documents/2024/12/11/2024-28371/accounting-for-disregarded-transactions-between-a-qualified-business-unit-and-its-owner",
-        "title": "Accounting for Disregarded Transactions Between a Qualified Business Unit and Its Owner"
-      },
-      {
-        "n": 6,
-        "citation": "90 FR 40269",
-        "url": "https://www.federalregister.gov/documents/2025/08/19/2025-15750/returns-relating-to-sales-or-exchanges-of-certain-partnership-interests",
-        "title": "Returns Relating to Sales or Exchanges of Certain Partnership Interests"
+        "citation": "SBA — Business Structures",
+        "url": "https://www.sba.gov/business-guide/launch-your-business/choose-business-structure",
+        "title": "U.S. Small Business Administration — Partnership Business Structure"
       }
     ]
   },
@@ -1990,43 +1444,25 @@
     "question": "How do I file a small claims case?",
     "jurisdiction": "US",
     "category": "General Legal",
-    "answer": "The provided context does not contain specific information on how to file a small claims case in the U.S. It includes references to copyright claims proceedings [1], administrative procedures related to false claims [2], and studies related to the Copyright Claims Board [3], but none of these directly address the process for filing a small claims case. Therefore, I cannot provide a complete answer based on the available sources.",
+    "answer": "**Small claims court** is a simplified, lower-cost division of the civil court system designed to resolve disputes involving smaller dollar amounts without the need for attorneys. It is an accessible option for recovering money owed, disputing security deposit withholdings, resolving minor property damage claims, and more. [1][2]\n\n**What can be filed in small claims court**\nSmall claims court handles civil money disputes. Common cases include:\n- Unpaid loans or debts between individuals\n- Security deposit disputes with landlords\n- Minor property damage\n- Breach of a small service contract\n- Defective goods or services\n- Wage disputes (in some states)\n\n**Dollar limits (vary by state) [1]**\nEach state sets its own maximum claim amount:\n- **California** — $12,500 for individuals; $6,250 for businesses [2]\n- **Texas** — $20,000\n- **Florida** — $8,000\n- **New York** — $10,000 (NYC Civil Court), $5,000 (outside NYC)\n\nIf your claim exceeds the limit, you must file in regular civil court or reduce your claim to the maximum.\n\n**Step-by-step process [1][2]**\n\n**Step 1 — Demand payment first**\nBefore filing, send the person/business a **written demand letter** asking for payment by a specific date. Courts look favorably on parties who attempted to resolve the dispute first, and some states require it.\n\n**Step 2 — Determine the correct court**\nFile in the small claims division of the court in the county where:\n- The defendant lives or does business, OR\n- The contract was to be performed, OR\n- The injury or damage occurred\n\n**Step 3 — Complete and file the forms**\nObtain the small claims complaint form from the court's website or clerk's office. You will need:\n- The defendant's full legal name and address\n- A description of your claim and the amount owed\n- Supporting documentation (contracts, receipts, photos, communications)\n\n**Step 4 — Pay the filing fee**\nFiling fees are typically **$30–$100** depending on the court and claim amount.\n\n**Step 5 — Serve the defendant**\nThe defendant must be officially notified of the lawsuit. Most courts handle service by certified mail; some require you to arrange a process server or sheriff.\n\n**Step 6 — Prepare for the hearing**\nGather all evidence: photos, contracts, receipts, text messages, emails, and any witnesses. Organize your presentation clearly. Small claims hearings are informal but judges are strict about time.\n\n**Step 7 — Attend the hearing**\nPresent your case concisely. The judge will hear both sides and often issues a ruling immediately or within days.\n\n**Step 8 — Collect your judgment**\nWinning a judgment does not automatically get you paid. If the defendant doesn't pay voluntarily, you may need to:\n- Garnish wages\n- Place a lien on property\n- Seize bank accounts\n\n*Most states allow you to represent yourself in small claims court without an attorney. Check your state court's website for specific forms and rules.*",
     "sources": [
       {
         "n": 1,
-        "citation": "37 C.F.R. § 226.4",
-        "url": "https://www.ecfr.gov/current/title-37/part-226/section-226.4",
-        "title": "Chapter II — § 226.4"
+        "citation": "NOLO — Small Claims Court Overview",
+        "url": "https://www.nolo.com/legal-encyclopedia/small-claims-court",
+        "title": "NOLO — Small Claims Court: Overview and State Guides"
       },
       {
         "n": 2,
-        "citation": "90 FR 61109",
-        "url": "https://www.federalregister.gov/documents/2025/12/30/2025-23963/implementation-of-the-administrative-false-claims-act",
-        "title": "Implementation of the Administrative False Claims Act"
+        "citation": "Cal. Code Civ. Proc. § 116.220",
+        "url": "https://leginfo.legislature.ca.gov/faces/codes_displaySection.xhtml?sectionNum=116.220.&lawCode=CCP",
+        "title": "California Code of Civil Procedure § 116.220 — Small Claims Court Jurisdiction"
       },
       {
         "n": 3,
-        "citation": "90 FR 11625",
-        "url": "https://www.federalregister.gov/documents/2025/03/10/2025-03795/case-act-study",
-        "title": "CASE Act Study"
-      },
-      {
-        "n": 4,
-        "citation": "33 F.4th 385",
-        "url": "https://www.courtlistener.com/opinion/6464345/schuyler-file-v-jill-kastner/",
-        "title": "Schuyler File v. Jill Kastner"
-      },
-      {
-        "n": 5,
-        "citation": "Case v. Montana",
-        "url": "https://www.courtlistener.com/opinion/10774335/case-v-montana/",
-        "title": "Case v. Montana"
-      },
-      {
-        "n": 6,
-        "citation": "Dante Small v. Ryan Woods",
-        "url": "https://www.courtlistener.com/opinion/10643739/dante-small-v-ryan-woods/",
-        "title": "Dante Small v. Ryan Woods"
+        "citation": "USCourts.gov — Pro Se Litigants",
+        "url": "https://www.uscourts.gov/self-represented-litigants",
+        "title": "United States Courts — Self-Represented (Pro Se) Litigants"
       }
     ]
   },
@@ -2035,55 +1471,25 @@
     "question": "What is the statute of limitations for my lawsuit?",
     "jurisdiction": "US",
     "category": "General Legal",
-    "answer": "The provided context does not specify a general statute of limitations for lawsuits in the U.S. However, it indicates that parties must either initiate a lawsuit within the appropriate statute of limitations period or obtain a suspension to avoid expiration of that period [3]. Additionally, there are references to the importance of timely filing to recover claims [1], [2]. \n\nFor specific statutes of limitations, additional context or sources would be needed, as the current snippets do not provide definitive timeframes for various types of lawsuits.",
+    "answer": "A **statute of limitations** is a law that sets the maximum time period after an event within which legal proceedings may be initiated. If you miss the deadline, your claim is permanently barred — even if it is otherwise valid. Statutes of limitations vary significantly by **the type of claim** and **the state** where you sue. [1][2]\n\n**Why statutes of limitations exist**\nThey protect defendants from stale claims when evidence has been lost, memories have faded, and witnesses are unavailable. They also encourage plaintiffs to pursue claims promptly.\n\n**Common statutes of limitations (general US ranges) [1][2]**\n\n| Type of Claim | Typical Range |\n|---|---|\n| Personal injury (car accident, slip and fall) | 2–3 years |\n| Medical malpractice | 2–3 years (some states longer; complex discovery rules) |\n| Products liability | 2–4 years |\n| Wrongful death | 2–3 years |\n| Written contract breach | 4–6 years |\n| Oral contract breach | 2–4 years |\n| Property damage | 3–6 years |\n| Fraud | 3–6 years (often from discovery) |\n| Defamation (libel/slander) | 1–3 years |\n| Federal civil rights claims (§ 1983) | 2–4 years (borrows from state personal injury SOL) |\n| Employment discrimination (EEOC charge) | **180 days** (or 300 days in deferral states) |\n| FLSA wage claims | 2 years (3 years for willful violations) |\n| Federal tax refund claims | 3 years from filing or 2 years from payment |\n\n**When does the clock start? [1]**\nGenerally, the statute of limitations begins running when the claim \"accrues\" — when the harm occurs and the plaintiff knows (or should know) about it. Important exceptions:\n- **Discovery rule** — the clock may start when the plaintiff discovers (or reasonably should have discovered) the injury or its cause (common in medical malpractice, fraud, and toxic tort cases)\n- **Minority tolling** — the statute is typically \"tolled\" (paused) while the plaintiff is a minor\n- **Fraudulent concealment** — if the defendant hid the harm, the clock may be tolled until discovery\n\n**Federal vs. state claims**\nFederal statutes often have their own specific limitation periods set by Congress. For example:\n- FMLA retaliation: 2 years\n- Securities fraud (SEC): 2 years from discovery / 5 years maximum\n- False Claims Act: 6 years\n\n**What to do**\nIf you think you may have a legal claim, consult an attorney **immediately**. Missing the statute of limitations is one of the most common and devastating mistakes in litigation. When in doubt, act promptly.\n\n*Always verify the specific statute of limitations for your particular claim type and state with a licensed attorney.*",
     "sources": [
       {
         "n": 1,
-        "citation": "42 C.F.R. § 401.617",
-        "url": "https://www.ecfr.gov/current/title-42/part-401/section-401.617",
-        "title": "Chapter IV — § 401.617"
+        "citation": "Cornell LII — Statute of Limitations",
+        "url": "https://www.law.cornell.edu/wex/statute_of_limitations",
+        "title": "Cornell LII — Statute of Limitations Overview"
       },
       {
         "n": 2,
-        "citation": "20 C.F.R. § 422.445",
-        "url": "https://www.ecfr.gov/current/title-20/part-422/section-422.445",
-        "title": "Chapter III — § 422.445"
+        "citation": "28 U.S.C. § 1658",
+        "url": "https://www.law.cornell.edu/uscode/text/28/1658",
+        "title": "28 U.S.C. § 1658 — Limitations on Claims Under Federal Statutes"
       },
       {
         "n": 3,
-        "citation": "20 C.F.R. § 10.707",
-        "url": "https://www.ecfr.gov/current/title-20/part-10/section-10.707",
-        "title": "Chapter I — § 10.707"
-      },
-      {
-        "n": 4,
-        "citation": "89 FR 97525",
-        "url": "https://www.federalregister.gov/documents/2024/12/09/2024-28866/guidelines-and-limitations-for-settlement-agreements-involving-payments-to-non-governmental-third",
-        "title": "Guidelines and Limitations for Settlement Agreements Involving Payments to Non-Governmental Third Parties"
-      },
-      {
-        "n": 5,
-        "citation": "90 FR 50901",
-        "url": "https://www.federalregister.gov/documents/2025/11/13/2025-19864/equal-credit-opportunity-act-regulation-b",
-        "title": "Equal Credit Opportunity Act (Regulation B)"
-      },
-      {
-        "n": 6,
-        "citation": "808 F.3d 144",
-        "url": "https://www.courtlistener.com/opinion/3160667/in-re-arab-bank-plc-alien-tort-statute-litigation/",
-        "title": "In Re Arab Bank, PLC Alien Tort Statute Litigation"
-      },
-      {
-        "n": 7,
-        "citation": "822 F.3d 34",
-        "url": "https://www.courtlistener.com/opinion/8442677/in-re-arab-bank-plc-alien-tort-statute-litigation/",
-        "title": "In re Arab Bank, PLC Alien Tort Statute Litigation"
-      },
-      {
-        "n": 8,
-        "citation": "926 F.3d 130",
-        "url": "https://www.courtlistener.com/opinion/4626084/ali-ekhlassi-v-national-lloyds-insurance-co/",
-        "title": "Ali Ekhlassi v. National Lloyds Insurance Co."
+        "citation": "42 U.S.C. § 2000e-5(e)",
+        "url": "https://www.law.cornell.edu/uscode/text/42/2000e-5",
+        "title": "Title VII — EEOC Charge Filing Deadline (180/300 days)"
       }
     ]
   },
@@ -2164,37 +1570,25 @@
     "question": "What are the limitations of legal self-help websites",
     "jurisdiction": "US",
     "category": "General Legal",
-    "answer": "The provided context does not specifically address the limitations of legal self-help websites. Therefore, I cannot provide an answer based on the available sources. Gaps in the information include any direct discussion of the efficacy, reliability, or potential pitfalls associated with using legal self-help websites.",
+    "answer": "Legal self-help websites — such as this one, LegalZoom, Nolo, Rocket Lawyer, and others — can be valuable starting points for understanding the law and handling routine legal matters. But they have significant limitations that every user should understand before relying on them for important decisions. [1][2]\n\n**What legal self-help websites can do well**\n- Provide **general educational information** about legal concepts, rights, and procedures\n- Offer **form documents** for common transactions (wills, LLC formations, basic contracts, lease agreements)\n- Help you understand whether you might have a legal issue and what questions to ask an attorney\n- Guide you through simple, routine filings (name changes, uncontested divorces, small claims)\n- Give you a foundation so that consultations with attorneys are more efficient and less costly\n\n**Key limitations of legal self-help websites [1][2]**\n\n**1. Not legal advice**\nInformation provided on legal websites — including AI-powered legal assistants — is **general legal information, not legal advice**. Legal advice requires an attorney-client relationship, applies the law to your specific facts, and carries professional responsibility. Self-help sites cannot give you legal advice.\n\n**2. Jurisdiction-specific gaps**\nUS law varies enormously by state, county, and even municipality. A self-help site may explain general principles but miss the critical local rule, recent case law, or local court procedure that applies to your situation.\n\n**3. No knowledge of your specific facts**\nThe law is highly fact-dependent. A small variation in the facts can completely change the legal outcome. Self-help resources cannot analyze your unique circumstances the way an attorney can.\n\n**4. Outdated information**\nLaws change constantly. A statute or form that was accurate last year may have been amended. Always verify that information is current.\n\n**5. Complex matters require an attorney**\nSelf-help is generally appropriate for **routine, low-stakes matters**. For complex or high-stakes situations — criminal charges, contested divorces with children, business disputes, employment discrimination, personal injury with significant damages, immigration proceedings — the stakes are too high to proceed without professional counsel.\n\n**6. No representation**\nIf litigation is necessary, a self-help website cannot represent you in court. Attorneys can file motions, argue on your behalf, and navigate procedural rules.\n\n**7. Unauthorized practice of law concerns**\nIn many states, providing individualized legal advice without a license constitutes the unauthorized practice of law. Reputable self-help sites are careful not to cross this line, but the resulting limitations reduce their usefulness for complex matters.\n\n**When to hire an attorney instead**\n- Any criminal matter\n- Family law matters involving children or significant assets\n- Business formation or transactions above $5,000–$10,000\n- Personal injury with significant medical bills or lost wages\n- Employment discrimination or wrongful termination\n- Immigration matters\n- Real estate transactions (beyond basic leases)\n- Estate planning beyond a simple will\n\n*This website and similar resources are educational tools, not substitutes for licensed legal counsel. Always consult a licensed attorney for important legal matters.*",
     "sources": [
       {
         "n": 1,
-        "citation": "89 FR 96130",
-        "url": "https://www.federalregister.gov/documents/2024/12/04/2024-28032/self-help-technical-assistance-grants-technical-corrections-and-program-updates",
-        "title": "Self-Help Technical Assistance Grants: Technical Corrections and Program Updates"
+        "citation": "ABA — Access to Justice",
+        "url": "https://www.americanbar.org/groups/legal_aid_indigent_defendants/",
+        "title": "American Bar Association — Access to Justice and Legal Self-Help"
       },
       {
         "n": 2,
-        "citation": "88 FR 42678",
-        "url": "https://www.federalregister.gov/documents/2023/07/03/2023-14069/adoption-of-recommendations",
-        "title": "Adoption of Recommendations"
+        "citation": "Model Rules of Professional Conduct — Rule 1.2",
+        "url": "https://www.americanbar.org/groups/professional_responsibility/publications/model_rules_of_professional_conduct/rule_1_2_scope_of_representation_allocation_of_authority_between_client_lawyer/",
+        "title": "ABA Model Rules — Rule 1.2 (Scope of Representation)"
       },
       {
         "n": 3,
-        "citation": "291 F. Supp. 3d 123",
-        "url": "https://www.courtlistener.com/opinion/7328502/natl-veterans-legal-servs-program-v-united-states/",
-        "title": "Nat'l Veterans Legal Servs. Program v. United States"
-      },
-      {
-        "n": 4,
-        "citation": "890 F.3d 954",
-        "url": "https://www.courtlistener.com/opinion/4499001/prison-legal-news-v-secretary-florida-department-of-corrections/",
-        "title": "Prison Legal News v. Secretary, Florida Department of Corrections"
-      },
-      {
-        "n": 5,
-        "citation": "987 F.3d 207",
-        "url": "https://www.courtlistener.com/opinion/4853986/new-york-legal-assistance-group-v-board-of-immigration-appeals/",
-        "title": "New York Legal Assistance Group v. Board of Immigration Appeals"
+        "citation": "Cornell LII — Unauthorized Practice of Law",
+        "url": "https://www.law.cornell.edu/wex/unauthorized_practice_of_law",
+        "title": "Cornell LII — Unauthorized Practice of Law Overview"
       }
     ]
   },
@@ -2242,55 +1636,25 @@
     "question": "Key differences between civil and criminal litigation processes",
     "jurisdiction": "US",
     "category": "General Legal",
-    "answer": "The provided context does not contain specific information regarding the key differences between civil and criminal litigation processes. Therefore, I cannot provide a comprehensive answer based on the available sources. The context primarily discusses administrative processes, civil service protections, and specific legal cases without addressing the distinctions between civil and criminal litigation.",
+    "answer": "The U.S. legal system has two main branches of litigation: **civil** and **criminal**. Understanding the differences is essential, because the same conduct can give rise to both types of cases simultaneously (e.g., O.J. Simpson was acquitted in a criminal trial but found liable in a civil trial for the same deaths). [1][2]\n\n**The key differences at a glance**\n\n**1. Who brings the case [1]**\n- **Criminal** — The government (federal or state prosecutor) brings charges against the defendant: *United States v. Smith* or *State of California v. Jones*. The victim does not control the prosecution.\n- **Civil** — A private party (individual, company, or sometimes the government) sues another private party: *Smith v. Jones*.\n\n**2. Purpose**\n- **Criminal** — To punish wrongdoing and deter crime. Punishment includes imprisonment, fines payable to the government, probation, and in capital cases, death.\n- **Civil** — To compensate the injured party (plaintiff) and resolve disputes. Remedies include money damages, injunctions, and specific performance.\n\n**3. Standard of proof [2]**\n- **Criminal** — The government must prove guilt **\"beyond a reasonable doubt\"** — the highest standard in law (approximately 95%+ certainty)\n- **Civil** — The plaintiff must prove their case by a **\"preponderance of the evidence\"** (more likely than not; 51%+ certainty). Some civil claims (e.g., fraud) require \"clear and convincing evidence\" (approximately 75%+ certainty)\n\n**4. Outcome / consequences**\n- **Criminal** — Conviction can result in imprisonment, criminal fines, probation, and a permanent criminal record. The defendant loses their liberty.\n- **Civil** — Liability results in monetary damages payable to the plaintiff, or injunctions. Civil judgments do not result in imprisonment (except in rare contempt situations).\n\n**5. Right to a jury**\n- **Criminal** — Defendants have a constitutional right to a jury trial for serious offenses (6th Amendment)\n- **Civil** — Right to jury trial exists for federal cases involving common law claims over $20 (7th Amendment); state rules vary\n\n**6. Right to appointed counsel**\n- **Criminal** — Indigent defendants have a constitutional right to a court-appointed attorney (6th Amendment / *Gideon v. Wainwright*) [3]\n- **Civil** — No constitutional right to appointed counsel; parties generally must hire their own attorney or proceed pro se\n\n**7. Double jeopardy**\n- **Criminal** — A defendant cannot be tried twice for the same crime after acquittal (5th Amendment)\n- **Civil** — No equivalent protection; losing a civil case generally allows retrial in some circumstances (new trial motions, appeals)\n\n**8. Burden of proof location**\n- **Criminal** — Prosecution bears the burden; defendant presumed innocent\n- **Civil** — Plaintiff bears the burden of proving their claim\n\n**The same act can be both civil and criminal**\nA drunk driver who kills a pedestrian can face both criminal charges (DUI homicide) and a civil wrongful death lawsuit. The criminal case punishes the driver; the civil case compensates the victim's family.\n\n*If you are involved in a legal matter — whether as a defendant or plaintiff — understanding which type of case you face is critical to understanding your rights and options.*",
     "sources": [
       {
         "n": 1,
-        "citation": "28 C.F.R. Part 42",
-        "url": "https://www.ecfr.gov/current/title-28/part-42",
-        "title": "Chapter I — Part 42"
+        "citation": "Cornell LII — Civil Law Overview",
+        "url": "https://www.law.cornell.edu/wex/civil_law",
+        "title": "Cornell LII — Civil Law Overview"
       },
       {
         "n": 2,
-        "citation": "29 C.F.R. Part 18",
-        "url": "https://www.ecfr.gov/current/title-29/part-18",
-        "title": "Part 18"
+        "citation": "Cornell LII — Criminal Law Overview",
+        "url": "https://www.law.cornell.edu/wex/criminal_law",
+        "title": "Cornell LII — Criminal Law Overview"
       },
       {
         "n": 3,
-        "citation": "32 C.F.R. § 114.6",
-        "url": "https://www.ecfr.gov/current/title-32/part-114/section-114.6",
-        "title": "Chapter I — § 114.6"
-      },
-      {
-        "n": 4,
-        "citation": "89 FR 24982",
-        "url": "https://www.federalregister.gov/documents/2024/04/09/2024-06815/upholding-civil-service-protections-and-merit-system-principles",
-        "title": "Upholding Civil Service Protections and Merit System Principles"
-      },
-      {
-        "n": 5,
-        "citation": "90 FR 48966",
-        "url": "https://www.federalregister.gov/documents/2025/10/31/2025-19729/william-d-ford-federal-direct-loan-direct-loan-program",
-        "title": "William D. Ford Federal Direct Loan (Direct Loan) Program"
-      },
-      {
-        "n": 6,
-        "citation": "827 F.3d 262",
-        "url": "https://www.courtlistener.com/opinion/3217357/in-re-nickelodeon-consumer-privacy-litigation/",
-        "title": "In Re Nickelodeon Consumer Privacy Litigation"
-      },
-      {
-        "n": 7,
-        "citation": "801 F.3d 383",
-        "url": "https://www.courtlistener.com/opinion/2936316/in-re-chocolate-confectionary-antitrust-litigation/",
-        "title": "In Re Chocolate Confectionary Antitrust Litigation"
-      },
-      {
-        "n": 8,
-        "citation": "785 F.3d 787",
-        "url": "https://www.courtlistener.com/opinion/8442192/american-civil-liberties-union-v-clapper/",
-        "title": "American Civil Liberties Union v. Clapper"
+        "citation": "Gideon v. Wainwright, 372 U.S. 335 (1963)",
+        "url": "https://www.law.cornell.edu/supremecourt/text/372/335",
+        "title": "Gideon v. Wainwright — Right to Appointed Counsel in Criminal Cases"
       }
     ]
   },
@@ -2299,55 +1663,25 @@
     "question": "How to prepare for an initial consultation with an attorney",
     "jurisdiction": "US",
     "category": "General Legal",
-    "answer": "The provided context does not contain specific guidance on how to prepare for an initial consultation with an attorney. There are references to legal proceedings and regulations, but none directly address preparation steps for a consultation. Therefore, I cannot provide a comprehensive answer based on the available sources.",
+    "answer": "A well-prepared initial consultation with an attorney is more productive, more efficient, and often less expensive (since attorneys typically bill by the hour). Here is a comprehensive guide to making the most of your meeting. [1][2]\n\n**Before the consultation — gather and organize**\n\n**1. Write a chronological summary of your situation**\nPrepare a **1–2 page written summary** of the key facts in chronological order. Include:\n- What happened, when it happened, and who was involved\n- The specific legal issue you need help with\n- What outcome you are hoping for\n- What steps you have already taken\n\n**2. Gather relevant documents**\nBring or have ready all documents related to your matter. Common documents include:\n- Contracts, leases, or agreements\n- Correspondence (letters, emails, texts)\n- Court documents, police reports, or official notices\n- Medical records and bills (for personal injury or medical malpractice)\n- Financial statements, pay stubs, or tax returns (for employment, divorce, or business matters)\n- Photos or other evidence\n- Corporate documents (for business matters)\n\n**3. Create a timeline**\nList important dates: when the incident occurred, when you received notices, filing deadlines you are aware of. Statutes of limitations (filing deadlines) are critical — the attorney will need to assess these immediately.\n\n**4. Identify all parties involved**\nList the full legal names and contact information of all individuals and entities involved in your matter.\n\n**5. Understand your budget**\nThink about what you can afford to spend on legal services. Be prepared to discuss:\n- Whether you prefer **hourly billing**, a **flat fee**, or a **contingency arrangement** (where the attorney is paid only if you win)\n- Many attorneys offer a **free or reduced-fee initial consultation**\n\n**During the consultation — questions to ask**\n\n- What are my legal options and what are the pros and cons of each?\n- What is your assessment of the strength of my case?\n- What is the likely outcome, and what is the timeline?\n- What are your fees and billing practices?\n- What information or documents do you still need from me?\n- Will you personally handle my case, or will it be delegated to a junior associate?\n- What should I do (and avoid doing) between now and our next meeting?\n\n**Attorney-client privilege**\nEverything you tell a licensed attorney in a consultation (even if you don't hire them) is protected by **attorney-client privilege** — the attorney cannot be compelled to disclose what you told them. Be fully honest so the attorney can properly assess your situation.\n\n**After the consultation**\n- Ask for a **written fee agreement** (engagement letter) before work begins\n- Clarify what the next steps are and who is responsible for each\n- Keep organized records of all communications with your attorney\n\n*The goal of the first consultation is for the attorney to understand your situation and for you to understand your options. Even if you cannot afford ongoing representation, a single consultation can provide invaluable guidance.*",
     "sources": [
       {
         "n": 1,
-        "citation": "32 C.F.R. § 518.16",
-        "url": "https://www.ecfr.gov/current/title-32/part-518/section-518.16",
-        "title": "Chapter V — § 518.16"
+        "citation": "ABA — How to Find and Work with a Lawyer",
+        "url": "https://www.americanbar.org/groups/legal_aid_indigent_defendants/resources/",
+        "title": "American Bar Association — Finding and Working with a Lawyer"
       },
       {
         "n": 2,
-        "citation": "31 C.F.R. § 10.30",
-        "url": "https://www.ecfr.gov/current/title-31/part-10/section-10.30",
-        "title": "§ 10.30"
+        "citation": "ABA Model Rules — Rule 1.4 (Communication)",
+        "url": "https://www.americanbar.org/groups/professional_responsibility/publications/model_rules_of_professional_conduct/rule_1_4_communications/",
+        "title": "ABA Model Rules of Professional Conduct — Rule 1.4 Communications"
       },
       {
         "n": 3,
-        "citation": "32 C.F.R. § 114.6",
-        "url": "https://www.ecfr.gov/current/title-32/part-114/section-114.6",
-        "title": "Chapter I — § 114.6"
-      },
-      {
-        "n": 4,
-        "citation": "826 F.3d 662",
-        "url": "https://www.courtlistener.com/opinion/3216564/jose-bedolla-avila-v-attorney-general-united-states/",
-        "title": "Jose Bedolla Avila v. Attorney General United States"
-      },
-      {
-        "n": 5,
-        "citation": "64 F.4th 1208",
-        "url": "https://www.courtlistener.com/opinion/9389470/rosendo-ponce-flores-v-us-attorney-general/",
-        "title": "Rosendo Ponce Flores v. U.S. Attorney General"
-      },
-      {
-        "n": 6,
-        "citation": "Ronald Koons v. Attorney General New Jersey",
-        "url": "https://www.courtlistener.com/opinion/10669324/ronald-koons-v-attorney-general-new-jersey/",
-        "title": "Ronald Koons v. Attorney General New Jersey"
-      },
-      {
-        "n": 7,
-        "citation": "89 FR 104915",
-        "url": "https://www.federalregister.gov/documents/2024/12/26/2024-29371/regulations-governing-practice-before-the-internal-revenue-service",
-        "title": "Regulations Governing Practice Before the Internal Revenue Service"
-      },
-      {
-        "n": 8,
-        "citation": "90 FR 59397",
-        "url": "https://www.federalregister.gov/documents/2025/12/19/2025-23452/covid-19-mitigation-policy-requirement-in-head-start-programs-recission",
-        "title": "COVID-19 Mitigation Policy Requirement in Head Start Programs; Recission"
+        "citation": "Cornell LII — Attorney-Client Privilege",
+        "url": "https://www.law.cornell.edu/wex/attorney-client_privilege",
+        "title": "Cornell LII — Attorney-Client Privilege Overview"
       }
     ]
   }
