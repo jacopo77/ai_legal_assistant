@@ -593,9 +593,104 @@ _STATUTE_MAP = [
             "Relations Act)"
         ),
     ),
-    # § 1983 civil rights enforcement — First/Fourth Amendment violations
+    # Fourth Amendment — Search and Seizure / Warrant Requirement
     (
-        re.compile(r"first amendment|free speech|freedom of speech|freedom of religion|freedom of press|fourth amendment|unreasonable search|search and seizure|police search|civil rights violation|constitutional right", re.I),
+        re.compile(
+            r"fourth amendment|4th amendment|search.{0,30}warrant|warrant.{0,30}search|"
+            r"search.{0,20}(car|vehicle|house|home|phone|bag|backpack|purse|property)|"
+            r"(officer|police|cop|sheriff|agent).{0,30}search|"
+            r"pull.{0,10}over.{0,20}search|traffic stop.{0,20}search|"
+            r"search without.{0,20}warrant|warrant(less)? search|probable cause|"
+            r"unreasonable search|search and seizure|seizure of property|"
+            r"can.{0,10}(officer|police|cop).{0,20}search|stop and frisk|terry stop",
+            re.I,
+        ),
+        "U.S. Const. amend. IV",
+        "https://www.law.cornell.edu/constitution/fourth_amendment",
+        "Fourth Amendment — Protection Against Unreasonable Searches and Seizures",
+        (
+            "The Fourth Amendment to the U.S. Constitution provides: 'The right of the people to be secure in their "
+            "persons, houses, papers, and effects, against unreasonable searches and seizures, shall not be violated, "
+            "and no Warrants shall issue, but upon probable cause, supported by Oath or affirmation, and particularly "
+            "describing the place to be searched, and the persons or things to be seized.' "
+            "(U.S. Const. amend. IV) "
+            "\n\nKey rules established by the Supreme Court: "
+            "VEHICLE SEARCHES: Police may search a vehicle without a warrant if they have probable cause to believe "
+            "it contains contraband or evidence of a crime (the 'automobile exception,' Carroll v. United States, "
+            "267 U.S. 132 (1925); United States v. Ross, 456 U.S. 798 (1982)). "
+            "TRAFFIC STOPS: A traffic stop is a seizure requiring reasonable suspicion of a traffic violation or "
+            "criminal activity (Terry v. Ohio, 392 U.S. 1 (1968)). During a lawful stop, officers may order "
+            "occupants out of the vehicle (Pennsylvania v. Mimms, 434 U.S. 106 (1977)). "
+            "CONSENT SEARCHES: Police may always search with voluntary consent — you have the right to refuse. "
+            "SEARCH INCIDENT TO ARREST: When arresting a person, officers may search the passenger compartment only "
+            "if the arrestee is within reaching distance or police reasonably believe the vehicle contains evidence "
+            "of the offense of arrest (Arizona v. Gant, 556 U.S. 332 (2009)). "
+            "HOME SEARCHES: A warrant is generally required to search a home. Exceptions include exigent "
+            "circumstances (imminent danger, hot pursuit) and plain view doctrine. "
+            "EXCLUSIONARY RULE: Evidence obtained in violation of the Fourth Amendment is generally inadmissible "
+            "in court under the exclusionary rule (Mapp v. Ohio, 367 U.S. 643 (1961))."
+        ),
+    ),
+    # Fifth Amendment — Miranda Rights / Self-Incrimination
+    (
+        re.compile(
+            r"fifth amendment|5th amendment|miranda|right to remain silent|self.{0,10}incriminat|"
+            r"plead the fifth|due process.{0,20}(right|law)|double jeopardy|"
+            r"(police|officer).{0,20}(question|interrogat|arrest).{0,30}(right|silent|lawyer)|"
+            r"can.{0,10}(police|officer).{0,20}(force|make).{0,20}(talk|speak|answer)",
+            re.I,
+        ),
+        "U.S. Const. amend. V",
+        "https://www.law.cornell.edu/constitution/fifth_amendment",
+        "Fifth Amendment — Miranda Rights and Protection Against Self-Incrimination",
+        (
+            "The Fifth Amendment provides that no person 'shall be compelled in any criminal case to be a witness "
+            "against himself.' (U.S. Const. amend. V) "
+            "\n\nMIRANDA RIGHTS: Before a custodial interrogation, police must inform you: (1) you have the right "
+            "to remain silent; (2) anything you say can be used against you in court; (3) you have the right to "
+            "an attorney; (4) if you cannot afford an attorney, one will be appointed for you. "
+            "(Miranda v. Arizona, 384 U.S. 436 (1966)) "
+            "Miranda rights apply only during custodial interrogation — you must be both in custody AND being "
+            "questioned. Routine traffic stops do not require Miranda warnings. "
+            "You may invoke your right to remain silent at any time by clearly stating 'I am invoking my right "
+            "to remain silent' or 'I want a lawyer.' Police must then stop questioning. "
+            "(Berghuis v. Thompkins, 560 U.S. 370 (2010)) "
+            "DOUBLE JEOPARDY: The Fifth Amendment also bars being tried twice for the same crime after acquittal "
+            "or conviction. State and federal prosecutions for the same act are permitted under the 'dual "
+            "sovereignty' doctrine."
+        ),
+    ),
+    # Sixth Amendment — Right to Attorney / Fair Trial
+    (
+        re.compile(
+            r"sixth amendment|6th amendment|right to.{0,20}(attorney|lawyer|counsel)|"
+            r"public defender|appointed.{0,20}(attorney|lawyer)|speedy trial|"
+            r"confront.{0,20}witness|right to.{0,20}trial|criminal.{0,20}defense.{0,20}right",
+            re.I,
+        ),
+        "U.S. Const. amend. VI",
+        "https://www.law.cornell.edu/constitution/sixth_amendment",
+        "Sixth Amendment — Right to Counsel and Fair Trial",
+        (
+            "The Sixth Amendment guarantees: the right to a speedy and public trial by an impartial jury; the right "
+            "to be informed of the charges; the right to confront witnesses; and the right to have the assistance "
+            "of counsel for the defense. (U.S. Const. amend. VI) "
+            "\n\nRIGHT TO ATTORNEY: You have the right to an attorney in any criminal prosecution where "
+            "imprisonment is a possible penalty (Gideon v. Wainwright, 372 U.S. 335 (1963)). "
+            "If you cannot afford one, the court must appoint a public defender at no cost. "
+            "The right to counsel attaches at the initiation of formal criminal proceedings (indictment, "
+            "arraignment, or first appearance before a judge). "
+            "WHEN IT APPLIES: The Sixth Amendment right to counsel applies to all felony prosecutions and any "
+            "misdemeanor prosecution where the defendant is sentenced to imprisonment. It does not apply to "
+            "civil cases (where you have no right to an appointed attorney). "
+            "EFFECTIVE ASSISTANCE: You are entitled to effective assistance of counsel — an attorney who makes "
+            "reasonably competent decisions. Failure to provide this can be grounds for appeal "
+            "(Strickland v. Washington, 466 U.S. 668 (1984))."
+        ),
+    ),
+    # § 1983 civil rights enforcement — First Amendment / general constitutional violations
+    (
+        re.compile(r"first amendment|free speech|freedom of speech|freedom of religion|freedom of press|civil rights violation|constitutional right|section 1983|\b1983\b", re.I),
         "42 U.S.C. § 1983",
         "https://www.law.cornell.edu/uscode/text/42/1983",
         "Civil Rights Act — Civil Action for Deprivation of Rights (§ 1983)",
