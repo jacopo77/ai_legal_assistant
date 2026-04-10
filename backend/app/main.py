@@ -7,6 +7,7 @@ from .core.settings import get_settings
 from .api.chat import router as chat_router
 from .api.health import router as health_router
 from .api.webhooks import router as webhooks_router
+from .api.apikeys import router as apikeys_router
 
 
 def create_app() -> FastAPI:
@@ -17,6 +18,7 @@ def create_app() -> FastAPI:
         CORSMiddleware,
         allow_origins=[
             settings.allowed_origin,
+            "https://legalsearchhub.com",
             "https://www.legalsearchhub.com",
             "http://localhost:3000",
             "http://localhost:3001",
@@ -31,6 +33,7 @@ def create_app() -> FastAPI:
     app.include_router(chat_router)
     app.include_router(health_router)
     app.include_router(webhooks_router)
+    app.include_router(apikeys_router)
 
     @app.get("/healthz")
     def healthz():
