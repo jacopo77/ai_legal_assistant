@@ -9,7 +9,7 @@ import HowItWorks from "./components/landing/HowItWorks";
 import CoverageSection from "./components/landing/CoverageSection";
 import ProTierCTA from "./components/landing/ProTierCTA";
 
-const BACKEND_URL = process.env.NEXT_PUBLIC_API_URL || process.env.NEXT_PUBLIC_BACKEND_URL || "http://127.0.0.1:8000";
+const BACKEND_URL = process.env.NEXT_PUBLIC_API_URL || process.env.NEXT_PUBLIC_BACKEND_URL || "https://api.legalsearchhub.com";
 
 // Replace these with your actual affiliate tracking links once approved
 const LEGALZOOM_URL = "https://www.legalzoom.com/?utm_source=legalsearchhub&utm_medium=referral";
