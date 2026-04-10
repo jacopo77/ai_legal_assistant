@@ -1196,14 +1196,26 @@ def retrieve_live(
                 unique.append(r)
         return unique
 
-    with ThreadPoolExecutor(max_workers=7) as executor:
+    # Run fetch_uscode and fetch_state_statutes synchronously first so their
+    # results are guaranteed slots in the final list — they complete instantly
+    # (no network I/O for state_statutes; fast local pattern match for uscode
+    # before the optional LII HTTP call) and must not be crowded out by slower
+    # API sources filling the max_results cap before they complete.
+    uscode_results = _dedup(fetch_uscode(question, 3))
+    combined.extend(uscode_results)
+    logger.warning("Source 'uscode' (priority) returned %d unique result(s)", len(uscode_results))
+
+    if is_state:
+        state_statute_results = _dedup(fetch_state_statutes(question, jurisdiction))
+        combined.extend(state_statute_results)
+        logger.warning("Source 'state_statute' (priority) returned %d unique result(s)", len(state_statute_results))
+
+    with ThreadPoolExecutor(max_workers=6) as executor:
         if is_state:
             futures = {
                 executor.submit(fetch_ecfr, query, 3): "ecfr",
                 executor.submit(fetch_federal_register, query, 2): "fr",
                 executor.submit(fetch_courtlistener, question, jurisdiction, 3): "courtlistener",
-                executor.submit(fetch_uscode, question, 2): "uscode",
-                executor.submit(fetch_state_statutes, question, jurisdiction): "state_statute",
                 executor.submit(fetch_openstates, question, jurisdiction, 3): "openstates",
             }
         else:
@@ -1211,7 +1223,6 @@ def retrieve_live(
                 executor.submit(fetch_ecfr, query, 3): "ecfr",
                 executor.submit(fetch_federal_register, query, 2): "fr",
                 executor.submit(fetch_courtlistener_federal, question, 3): "courtlistener_federal",
-                executor.submit(fetch_uscode, question, 3): "uscode",
             }
 
         try:
