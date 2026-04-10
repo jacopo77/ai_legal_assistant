@@ -225,13 +225,16 @@ export default function HomePage() {
       didPageScrollRef.current = false;
       return;
     }
-    // Once per question: scroll the page so the dark section is at the top.
+    // Once per question: scroll so the input form sits at the bottom of the
+    // viewport and the answer fills the space above it.
     if (!didPageScrollRef.current && chatSectionRef.current) {
       didPageScrollRef.current = true;
-      const top = chatSectionRef.current.getBoundingClientRect().top + window.pageYOffset;
-      window.scrollTo({ top, behavior: "smooth" });
+      const sectionRect = chatSectionRef.current.getBoundingClientRect();
+      // Target: section bottom anchored to viewport bottom, showing input + answer above
+      const scrollTarget = window.pageYOffset + sectionRect.bottom - window.innerHeight;
+      window.scrollTo({ top: Math.max(0, scrollTarget), behavior: "smooth" });
     }
-    // Always: scroll inside the container to follow the latest content
+    // Always: scroll inside the messages container to follow the latest content
     if (messagesContainerRef.current) {
       messagesContainerRef.current.scrollTop = messagesContainerRef.current.scrollHeight;
     }
