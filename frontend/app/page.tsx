@@ -419,23 +419,7 @@ export default function HomePage() {
           {/* Messages — grows to fill space, scrolls internally */}
           <div ref={messagesContainerRef} className="flex-1 min-h-0 overflow-y-auto custom-scrollbar mb-4">
             {messages.length === 0 ? (
-              <div className="py-2">
-                <p className="text-[10px] font-bold uppercase tracking-widest text-white/30 text-center mb-3">
-                  Try a sample prompt
-                </p>
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
-                  {EXAMPLE_PROMPTS.map((prompt) => (
-                    <button
-                      key={prompt}
-                      type="button"
-                      onClick={() => setQuestion(prompt)}
-                      className="text-left text-sm text-white/60 hover:text-white bg-slate-900/40 hover:bg-slate-800/60 border border-slate-800 hover:border-slate-600 rounded-2xl px-4 py-3 transition-all leading-snug"
-                    >
-                      {prompt}
-                    </button>
-                  ))}
-                </div>
-              </div>
+              <div />
             ) : (
               <div>
                 <div className="flex items-center justify-between px-1 mb-4">
@@ -592,6 +576,25 @@ export default function HomePage() {
                 </button>
               </form>
             </div>
+            {messages.length === 0 && (
+              <div className="mt-4">
+                <p className="text-[10px] font-bold uppercase tracking-widest text-white/30 text-center mb-3">
+                  Try a sample prompt
+                </p>
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
+                  {EXAMPLE_PROMPTS.map((prompt) => (
+                    <button
+                      key={prompt}
+                      type="button"
+                      onClick={() => setQuestion(prompt)}
+                      className="text-left text-sm text-white/60 hover:text-white bg-slate-900/40 hover:bg-slate-800/60 border border-slate-800 hover:border-slate-600 rounded-2xl px-4 py-3 transition-all leading-snug"
+                    >
+                      {prompt}
+                    </button>
+                  ))}
+                </div>
+              </div>
+            )}
             <AdBanner />
           </div>
 
